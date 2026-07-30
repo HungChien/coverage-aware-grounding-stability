@@ -47,21 +47,21 @@ probability of semantic correctness.
 Most grounding and open-vocabulary detection models can be represented through
 a common output interface:
 
-$$
+```math
 \mathcal{O}_m(I,T)=\{(B_i,s_i)\}_{i=1}^{K}
-$$
+```
 
 where:
 
-- $I$ is the image.
-- $T$ is the text query.
-- $B_i$ is candidate box $i$.
-- $s_i$ is its matching score.
-- $K$ is the number of retained candidates.
+- `I` is the image.
+- `T` is the text query.
+- `B_i` is candidate box `i`.
+- `s_i` is its matching score.
+- `K` is the number of retained candidates.
 
 For analysis, this becomes an output matrix:
 
-$$
+```math
 \mathbf{O}_m(I,T)=
 \begin{bmatrix}
 x_1^{min} & y_1^{min} & x_1^{max} & y_1^{max} & s_1 \\
@@ -69,86 +69,86 @@ x_2^{min} & y_2^{min} & x_2^{max} & y_2^{max} & s_2 \\
 \cdots & \cdots & \cdots & \cdots & \cdots \\
 x_K^{min} & y_K^{min} & x_K^{max} & y_K^{max} & s_K
 \end{bmatrix}
-$$
+```
 
 This output-level abstraction allows different models to be compared even when
 their internal architectures are different.
 
 ## Theoretical Formulation
 
-Let candidate 1 be the clean top prediction and candidate $j$ be a competing
+Let candidate 1 be the clean top prediction and candidate `j` be a competing
 candidate. The clean margin is:
 
-$$
+```math
 M_j=s_1-s_j
-$$
+```
 
 After perturbation, each score receives an error term:
 
-$$
+```math
 s_1' = s_1 + \epsilon_1,\qquad
 s_j' = s_j + \epsilon_j
-$$
+```
 
 A ranking reversal occurs when the competitor becomes equal to or larger than
 the original top candidate:
 
-$$
+```math
 s_j+\epsilon_j \geq s_1+\epsilon_1
-$$
+```
 
 Rearranging gives:
 
-$$
+```math
 Z_j = \epsilon_j-\epsilon_1,\qquad
 \text{failure occurs when } Z_j \geq M_j
-$$
+```
 
-So $Z_j$ measures how much the perturbation favours the competitor over the
+So `Z_j` measures how much the perturbation favours the competitor over the
 clean top prediction.
 
 ## From Failure Probability To GMS
 
 Let:
 
-$$
+```math
 \mu_j=\mathbb{E}[Z_j],\qquad v_j=\mathrm{Var}(Z_j)
-$$
+```
 
 Define the effective margin:
 
-$$
+```math
 \Delta_j=[M_j-\mu_j]_+
-$$
+```
 
-where $[x]_+=\max(x,0)$. If $\mu_j \geq M_j$, the average perturbation bias has
+where `[x]_+ = max(x, 0)`. If `mu_j >= M_j`, the average perturbation bias has
 already removed the clean score advantage, so the decision is treated as
 high-risk.
 
 Using Cantelli's inequality:
 
-$$
+```math
 \mathbb{P}(Z_j \geq M_j)
 \leq
 \frac{v_j}{v_j+\Delta_j^2}
-$$
+```
 
 The component stability score is defined as the complement of this upper bound:
 
-$$
+```math
 R_j
 :=
 1-\frac{v_j}{v_j+\Delta_j^2}
 =
 \frac{\Delta_j^2}{\Delta_j^2+v_j}
-$$
+```
 
-For top-$K$ candidates, each competitor has its own $R_j$. The global GMS score
+For top-K candidates, each competitor has its own `R_j`. The global GMS score
 uses the weakest competitor boundary:
 
-$$
+```math
 R_{GMS}=\min_{j>1} R_j
-$$
+```
 
 This gives a conservative, bound-derived stability score for the most dangerous
 candidate-order boundary.
@@ -157,15 +157,15 @@ candidate-order boundary.
 
 Clean margin only measures the distance to the current ranking boundary:
 
-$$
+```math
 M_j=s_1-s_j
-$$
+```
 
 GMS also includes:
 
-- perturbation bias: $\mu_j$
-- perturbation variance: $v_j$
-- the most dangerous competitor among top-$K$
+- perturbation bias: `mu_j`
+- perturbation variance: `v_j`
+- the most dangerous competitor among top-K
 
 This means two predictions with the same clean margin can receive different GMS
 scores if their local perturbation behaviour is different.
@@ -249,7 +249,7 @@ The main supported finding is:
 The current experiments do not support stronger claims such as:
 
 - GMS is a correctness probability.
-- Full top-$K$ is always significantly better than top-2.
+- Full top-K is always significantly better than top-2.
 - Explicit covariance always improves the score.
 - The plug-in Cantelli score is a finite-sample certificate.
 
@@ -259,7 +259,7 @@ The current experiments do not support stronger claims such as:
 - Defined ranking reversal as the core failure event.
 - Derived the GMS score from a one-sided probability bound.
 - Implemented candidate matching under visual and prompt perturbations.
-- Built a full top-$K$ candidate trajectory pipeline.
+- Built a full top-K candidate trajectory pipeline.
 - Evaluated GroundingDINO and YOLO-World.
 - Ran matching audits, probe-budget analysis and bootstrap analysis.
 - Generated supervisor-ready presentation material.
