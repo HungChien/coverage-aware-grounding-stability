@@ -1,0 +1,12 @@
+{
+  "target_repository": "F:\\PGT_Paper\\gms_reliability_github",
+  "external_doc_folder": "F:\\PGT_Paper\\doc",
+  "omitted_from_repository": [
+    "large model weights (*.pt)",
+    "raw COCO annotation JSON files",
+    "raw image folders",
+    "Python cache folders",
+    "temporary PDF/PPT render checks",
+    "Chinese and bilingual materials"
+  ]
+}

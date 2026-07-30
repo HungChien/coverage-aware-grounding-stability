@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Local environments
+.venv/
+venv/
+*.env
+
+# Large local assets
+data/images/
+data/annotations/
+weights/
+*.pt
+*.pth
+*.onnx
+
+# Generated caches and temporary renders
+*.inspect.ndjson
+pdf_render_check/
+ppt_build_*/
