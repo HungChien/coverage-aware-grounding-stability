@@ -1,4 +1,4 @@
-# Coverage-Aware Candidate-Order Stability for Vision-Language Grounding
+# Coverage-Aware Grounding Stability
 
 [![tests](https://github.com/HungChien/coverage-aware-grounding-stability/actions/workflows/ci.yml/badge.svg)](https://github.com/HungChien/coverage-aware-grounding-stability/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-3776AB)
@@ -190,7 +190,7 @@ The sample estimator is
 with variance
 
 ```math
-\operatorname{Var}(\widehat\theta_{\mathrm{op}})
+\mathrm{Var}(\widehat\theta_{\mathrm{op}})
 =\frac{\theta_{\mathrm{op}}(1-\theta_{\mathrm{op}})}{n}
 \leq\frac{1}{4n}.
 ```
@@ -284,7 +284,7 @@ per pair,
 The estimator is unbiased and has the exact variance decomposition
 
 ```math
-\operatorname{Var}(\widehat\Theta_m)
+\mathrm{Var}(\widehat\Theta_m)
 =\frac{A_m}{N}+\frac{B_m}{NR},
 ```
 
