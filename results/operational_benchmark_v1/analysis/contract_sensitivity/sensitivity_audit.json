@@ -1,0 +1,16 @@
+{
+  "models": [
+    "groundingdino",
+    "yoloworld"
+  ],
+  "settings_per_model": 27,
+  "total_rows": 54,
+  "primary_setting": {
+    "tracked_candidate_count": 5,
+    "exposed_candidate_count": 20,
+    "duplicate_iou_threshold": 0.7,
+    "match_iou_threshold": 0.15,
+    "birth_duplicate_iou_threshold": 0.7
+  },
+  "note": "This is a post-primary sensitivity analysis. Perturbed candidates were saved after the frozen 0.70 duplicate-suppression rule; the analysis therefore varies tracked count, association threshold, and threatening-birth threshold, but not upstream candidate generation."
+}

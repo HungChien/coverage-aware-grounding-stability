@@ -1,0 +1,22 @@
+{
+  "source": "lmms-lab/RefCOCOplus",
+  "splits": {
+    "testA": 500,
+    "testB": 500
+  },
+  "count": 1000,
+  "unique_image_count": 1000,
+  "excluded_image_count": 720,
+  "overlap_with_excluded": 0,
+  "cross_split_image_overlap": 0,
+  "seed": 20260826,
+  "selection_unit": "one_expression_per_unique_image",
+  "bbox_source_format": "xywh",
+  "manifest_bbox_format": "xyxy",
+  "manifest_sha256": "3fcbb37ac5c07412c4e8d539d378bd29fdb18587bed75aca1025464c45deaecf",
+  "excluded_manifests": [
+    "data_operational\\refcoco_unseen500\\manifest.json",
+    "..\\week2_minimal_experiment\\data_refcoco\\calibration_manifest.json",
+    "..\\week2_minimal_experiment\\data_refcoco\\evaluation_manifest.json"
+  ]
+}

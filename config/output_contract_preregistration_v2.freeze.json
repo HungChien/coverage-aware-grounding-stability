@@ -1,0 +1,16 @@
+{
+  "freeze_name": "output-contract-v2-enhanced-replay",
+  "protocol_version": "output-contract-2.0.0",
+  "frozen_at_utc": "2026-08-28T16:15:01.089919+00:00",
+  "status": "frozen_before_enhanced_108_setting_replay",
+  "scope": "The 108-setting enhanced replay grid, default contract, robustness claim, analysis code, and prospective trace upgrade are frozen. The freeze postdates the original v1 experiments and the earlier 27-setting exploratory sensitivity analysis.",
+  "files": {
+    "config/output_contract_preregistration_v2.json": "a6dfd812d739b8ffa9eb9b5b4342a8f2e23fb96226ae961f870347e38b434d2f",
+    "docs/methodology/output_contract_parameter_theory.md": "535342ae6568444ac37634bb84cae939c6293b54f3c5020d52baa26904942fef",
+    "src/operational_stability.py": "9ed61cd7a42ab4ec820d469fbcccdcee6cbc76fb390579914113c15e2f848e88",
+    "src/output_contract_robustness.py": "7dfb1108a7d5026ae2a9f64045756059b9dadfb713120c6e5c15dac647b015d3",
+    "scripts/run_operational_benchmark.py": "7871b95b3dd10b2bb0372243268148cf660fbb1bdd0abd7535c1c84969f731e9",
+    "scripts/analyse_output_contract_robustness.py": "8aa338b0711fd599f76834f861114f0b09d4e46937a9ee055bd8ac94d6b945eb",
+    "tests/test_output_contract_robustness.py": "0dd65efc7627e0f260b24bfe0da1a87a27be02506459736d03cffcf02d079443"
+  }
+}

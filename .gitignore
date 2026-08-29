@@ -1,23 +1,147 @@
-# Python
+# Python caches and local environments
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .mypy_cache/
-
-# Local environments
+.ruff_cache/
+.coverage
+htmlcov/
 .venv/
 venv/
 *.env
+~$*.docx
 
-# Large local assets
-data/images/
-data/annotations/
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Model weights and exported checkpoints
 weights/
 *.pt
 *.pth
 *.onnx
+*.ckpt
 
-# Generated caches and temporary renders
+# Raw datasets stay local. Compact manifests and metadata remain trackable.
+data/images/
+data/annotations/
+data_operational/**/images/
+data_operational/**/*.jpg
+data_operational/**/*.jpeg
+data_operational/**/*.png
+data_operational/**/*.parquet
+data_operational/**/*.tar
+data_operational/**/*.tar.gz
+
+# Runtime products and complete candidate traces
+**/runtime_tmp/
+**/progress.json
+**/sample_traces.jsonl
+**/sample_traces.jsonl.gz
+**/skipped_samples.jsonl
+**/*.stdout.log
+**/*.stderr.log
+**/pipeline.stdout.log
+**/pipeline.stderr.log
+results/operational_transfer_refl4_v1/runtime/
 *.inspect.ndjson
+
+# Temporary rendering and task state
 pdf_render_check/
 ppt_build_*/
+tmp/
+.codex_tmp/
+results/refl4_preflight_pytest/
+
+# Failed, smoke, and dry-run experiment directories
+results/operational_benchmark_dryrun/
+results/operational_transfer_refcocoplus_dryrun/
+results/operational_transfer_refcocoplus_oom_reproduction/
+results/operational_transfer_refl4_smoke/
+
+# Superseded prototype/GMS-era experiments retained only in local history
+results/full_geometry/
+results/finite_probe_registry/
+results/finite_probe_simulation/
+results/gms_unique_value/
+results/large_scale_validation/
+results/random_probe_pilot/
+results/transfer_validation/
+results/calibrated_summary.json
+results/cross_model_properties.csv
+results/cross_model_score_comparison.csv
+results/metrics_summary.json
+results/probe_gms_summary.json
+
+# Superseded prototype documentation and scripts
+docs/methodology/methodology_draft_week3.md
+docs/planning/
+docs/results/gms_validation_findings.md
+docs/results/groundingdino/
+docs/results/yoloworld/
+docs/results/refcoco_calibration_findings.md
+docs/results/cross_model_findings.md
+docs/results/finite_probe_registry_findings.md
+docs/results/finite_probe_simulation_findings.md
+docs/results/random_probe_pilot_findings.md
+docs/theory/finite_probe_gms.md
+docs/theory/stochastic_candidate_order_geometry.md
+docs/methodology/random_probe_protocol.md
+docs/methodology/transfer_validation_preregistration.md
+paper/problem_formulation.tex
+paper/finite_probe_formulation.tex
+scripts/analyse_large_scale_validation.py
+scripts/analyse_probe_budget.py
+scripts/analyse_random_probe_pilot.py
+scripts/analyze_gms_unique_value.py
+scripts/bootstrap_probe_uncertainty.py
+scripts/calibrate_refcoco.py
+scripts/compare_models.py
+scripts/evaluate_finite_probe_registry.py
+scripts/evaluate_full_geometry.py
+scripts/evaluate_probe_gms.py
+scripts/evaluate_results.py
+scripts/generate_figures.py
+scripts/generate_full_geometry_figures.py
+scripts/generate_week3_figures.py
+scripts/run_experiment.py
+scripts/run_finite_probe_simulation.py
+scripts/run_full_geometry_experiment.py
+scripts/run_large_scale_validation.py
+scripts/run_random_probe_pilot.py
+scripts/run_refcoco_experiment.py
+src/finite_probe.py
+src/geometry.py
+tests/test_finite_probe.py
+tests/test_reliability.py
+
+# Superseded transfer orchestration and development-only configurations
+config/large_scale_validation.json
+config/config.json
+config/transfer_validation_frozen_hashes.json
+config/transfer_validation_refcoco_split2.json
+scripts/launch_refcoco_split2_validation.py
+scripts/run_refcoco_split2_validation.bat
+scripts/prepare_refl4_smoke_config.py
+scripts/run_refl4_after_freeze.ps1
+scripts/stage_refl4_after_download.ps1
+scripts/supervise_refl4_download.ps1
+scripts/prepare_coco_subset.py
+scripts/prepare_refcoco_subset.py
+scripts/render_matching_audit.py
+src/perturbations.py
+
+# Superseded presentations and document-rendering QA
+reports/*.pptx
+reports/*.pdf
+reports/*.inspect.ndjson
+reports/*.md
+reports/dissertation/qa_v1/
+reports/dissertation/template_qa/
+reports/dissertation/submission/qa_pages/
+reports/dissertation/submission/qa_reports/
+reports/dissertation/make_qa_contact_sheets.py
+reports/dissertation/submission/make_contact_sheets.py
+reports/dissertation/Coverage_Aware_Grounding_Stability_MSc_Dissertation_Draft_v1.docx

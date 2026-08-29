@@ -1,0 +1,86 @@
+{
+  "groundingdino": {
+    "winner_missing": {
+      "image_id": 397423,
+      "ref_id": 2224645,
+      "query": "Rectangular object by the fireplace",
+      "probe": {
+        "family": "blur",
+        "severity": 2.228277992246523,
+        "seed": 2061012763
+      }
+    },
+    "competitor_missing": {
+      "image_id": 3293,
+      "ref_id": 1721891,
+      "query": "younger",
+      "probe": {
+        "family": "jpeg",
+        "severity": 58.718346484168066,
+        "seed": 611634111
+      }
+    },
+    "threatening_birth": {
+      "image_id": 14025,
+      "ref_id": 1084500,
+      "query": "the more visible piece of cake or whatever that is",
+      "probe": {
+        "family": "blur",
+        "severity": 1.7123461586712136,
+        "seed": 1982424488
+      }
+    },
+    "ranking_reversal": {
+      "image_id": 839,
+      "ref_id": 482127,
+      "query": "white uniform",
+      "probe": {
+        "family": "jpeg",
+        "severity": 59.64917666137906,
+        "seed": 31052938
+      }
+    }
+  },
+  "yoloworld": {
+    "winner_missing": {
+      "image_id": 4032,
+      "ref_id": 164266,
+      "query": "bus closest",
+      "probe": {
+        "family": "jpeg",
+        "severity": 50.557496215065356,
+        "seed": 624181652
+      }
+    },
+    "competitor_missing": {
+      "image_id": 605,
+      "ref_id": 670466,
+      "query": "happy face cup",
+      "probe": {
+        "family": "blur",
+        "severity": 1.6114667531144344,
+        "seed": 1222064807
+      }
+    },
+    "threatening_birth": {
+      "image_id": 18276,
+      "ref_id": 310752,
+      "query": "sandwich piece with most cheese",
+      "probe": {
+        "family": "blur",
+        "severity": 2.1613455927755965,
+        "seed": 1360013298
+      }
+    },
+    "ranking_reversal": {
+      "image_id": 6332,
+      "ref_id": 1862563,
+      "query": "tallest board",
+      "probe": {
+        "family": "gaussian_noise",
+        "severity": 0.03342810562971122,
+        "seed": 1504676976
+      }
+    }
+  }
+}

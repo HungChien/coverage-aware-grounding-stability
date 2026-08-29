@@ -1,0 +1,77 @@
+{
+  "benchmark_name": "coverage_aware_candidate_order_stability_refl4_transfer_v1",
+  "protocol_version": "1.0.0-transfer.2",
+  "manifest": "data_operational/refl4_transfer1000/manifest.json",
+  "sample_count": 1000,
+  "source_benchmarks": [
+    "coverage_aware_candidate_order_stability_v1",
+    "coverage_aware_candidate_order_stability_refcocoplus_transfer_v1"
+  ],
+  "transfer_dataset": "Ref-L4",
+  "transfer_splits": [
+    "coco",
+    "objects365"
+  ],
+  "models": {
+    "groundingdino": "IDEA-Research/grounding-dino-tiny",
+    "yoloworld": "yolov8s-worldv2.pt"
+  },
+  "box_threshold": 0.03,
+  "text_threshold": 0.03,
+  "correct_iou_threshold": 0.5,
+  "output_contract": {
+    "tracked_candidate_count": 5,
+    "exposed_candidate_count": 20,
+    "duplicate_iou_threshold": 0.7,
+    "match_iou_threshold": 0.15,
+    "birth_duplicate_iou_threshold": 0.7
+  },
+  "diagnostic_probes_per_family": 8,
+  "reference_probes_per_family": 16,
+  "reported_diagnostic_budgets": [
+    5,
+    10,
+    20,
+    40
+  ],
+  "confidence": 0.95,
+  "base_seed": 20260825,
+  "groundingdino_batch_size": 4,
+  "yoloworld_batch_size": 16,
+  "checkpoint_every_sample": true,
+  "shared_probes_across_models": true,
+  "primary_estimand": "operational_stability",
+  "secondary_estimands": [
+    "clean_candidate_eligibility",
+    "candidate_coverage",
+    "conditional_ranking_stability"
+  ],
+  "primary_validation": "finite_diagnostic_probe_estimate_vs_independent_reference_operational_stability",
+  "required_diagnostics": [
+    "coverage_vs_ranking_risk",
+    "perturbation_family_risk_share",
+    "primary_failure_type",
+    "culprit_competitor",
+    "source_domain",
+    "query_length",
+    "target_scale"
+  ],
+  "bootstrap_repetitions": 2000,
+  "model": "groundingdino",
+  "config_path": "config\\operational_transfer_refl4_v1.json",
+  "config_sha256": "20b0324f6a6816e0533aa9e042d3b375e4ed6ef58be3ff041e94f5c1a291e270",
+  "manifest_path": "F:\\PGT_Paper\\gms_reliability\\data_operational\\refl4_transfer1000\\manifest.json",
+  "manifest_sha256": "9b5725df9ddb0fab66a88739b79b6b9dc9b8c5312bacaf3dc3cbf1815b911c3c",
+  "selected_range": [
+    0,
+    1000
+  ],
+  "selected_count": 1000,
+  "diagnostic_probe_count": 40,
+  "reference_probe_count": 80,
+  "git_commit": "e2d1bf6102610e2a42c6107a6ca405c966b3f9bf",
+  "started_unix": 1787764806.4158592,
+  "finished_unix": 1787797200.1326144,
+  "elapsed_seconds": 32393.71675515175,
+  "completed_samples": 1000
+}

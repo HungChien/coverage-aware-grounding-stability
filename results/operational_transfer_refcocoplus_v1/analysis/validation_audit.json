@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "manifest_samples": 1000,
+  "unique_images": 1000,
+  "budgets": [
+    5,
+    10,
+    20,
+    40
+  ],
+  "probe_families": [
+    "blur",
+    "brightness",
+    "jpeg",
+    "resolution",
+    "gaussian_noise"
+  ],
+  "models": {
+    "groundingdino": {
+      "samples": 1000,
+      "eligible_samples": 1000,
+      "clean_eligibility": 1.0,
+      "diagnostic_probes": 40000,
+      "reference_probes": 80000,
+      "failure_counts_including_diagnostic_and_reference": {
+        "competitor_missing": 6171,
+        "stable": 102175,
+        "ranking_reversal": 10306,
+        "threatening_birth": 1341,
+        "winner_missing": 7
+      },
+      "maximum_risk_decomposition_residual": 1.3877787807814457e-16,
+      "duplicate_trace_records_from_resume": 0
+    },
+    "yoloworld": {
+      "samples": 1000,
+      "eligible_samples": 757,
+      "clean_eligibility": 0.757,
+      "diagnostic_probes": 30280,
+      "reference_probes": 60560,
+      "failure_counts_including_diagnostic_and_reference": {
+        "stable": 60252,
+        "competitor_missing": 18173,
+        "ranking_reversal": 8819,
+        "winner_missing": 2583,
+        "threatening_birth": 1013
+      },
+      "maximum_risk_decomposition_residual": 1.3877787807814457e-16,
+      "duplicate_trace_records_from_resume": 0
+    }
+  },
+  "both_models_eligible_shared_probe_pairs": 757
+}

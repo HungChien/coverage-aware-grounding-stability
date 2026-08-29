@@ -1,0 +1,125 @@
+{
+  "status": "frozen_before_inference",
+  "benchmark_name": "coverage_aware_candidate_order_stability_refcocoplus_transfer_v1",
+  "git_commit": "e2d1bf6102610e2a42c6107a6ca405c966b3f9bf",
+  "file_count": 22,
+  "files": [
+    {
+      "path": "config/operational_transfer_refcocoplus_v1.json",
+      "bytes": 1559,
+      "sha256": "2b8bf242655e26afbeabd01068f23098619bc8135c10e3b2faf54c5f0f145546"
+    },
+    {
+      "path": "config/random_probe_distribution.json",
+      "bytes": 541,
+      "sha256": "5ccc97f36bd35591a5b353631884248a1856641407b530b1dfe96087f23cb5b6"
+    },
+    {
+      "path": "data_operational/refcocoplus_transfer1000/manifest.json",
+      "bytes": 398045,
+      "sha256": "3fcbb37ac5c07412c4e8d539d378bd29fdb18587bed75aca1025464c45deaecf"
+    },
+    {
+      "path": "data_operational/refcocoplus_transfer1000/metadata.json",
+      "bytes": 726,
+      "sha256": "cca1e291717a6df4233baca73d3173d505a380591244ce69171b7872f314e288"
+    },
+    {
+      "path": "docs/methodology/refcocoplus_transfer_preregistration.md",
+      "bytes": 3721,
+      "sha256": "aa31f26d18fc461b9716f1f3604d85f8e32ba83b51a700698cb947e49d3ffc4d"
+    },
+    {
+      "path": "src/adapters.py",
+      "bytes": 6971,
+      "sha256": "3fd62a5554f0990eb7216856961ea2e4d16955b1e48888c41d2756f5f72e19da"
+    },
+    {
+      "path": "src/operational_stability.py",
+      "bytes": 16536,
+      "sha256": "9ed61cd7a42ab4ec820d469fbcccdcee6cbc76fb390579914113c15e2f848e88"
+    },
+    {
+      "path": "src/random_probes.py",
+      "bytes": 4293,
+      "sha256": "ae86414a18a278865d56f36290d417e1a2e32dcb18ccbd299aecbeed97acdeb4"
+    },
+    {
+      "path": "src/reliability.py",
+      "bytes": 5568,
+      "sha256": "c84bff8c17cef4097425d6b5414c71c0513a0b54162c9ab57d3c9f76e3deb763"
+    },
+    {
+      "path": "scripts/run_operational_benchmark.py",
+      "bytes": 16588,
+      "sha256": "9c1fde89b3e64834d63176df204bce0527d1178406e8d6a464f415db2b07abe9"
+    },
+    {
+      "path": "scripts/validate_operational_artifacts.py",
+      "bytes": 9966,
+      "sha256": "5faaf097fcb6964818cd23ce5b399539af505560fe86dcdd6d05cf1d7241303f"
+    },
+    {
+      "path": "scripts/analyse_operational_benchmark.py",
+      "bytes": 40271,
+      "sha256": "7bb4d575e0739d679d737b1f25bbb7566ec20453dffeb8146c7e6acf9a23ab79"
+    },
+    {
+      "path": "scripts/analyse_contract_sensitivity.py",
+      "bytes": 7246,
+      "sha256": "378d59a7d9b6d49c4d8312fcef2f5b35acae8f38a7aaecd4d02355233640c58c"
+    },
+    {
+      "path": "scripts/analyse_operational_transfer.py",
+      "bytes": 11149,
+      "sha256": "ce2ecb6b5e340548967055b62a6db5f815b4b42a0e6b87729e898e307d3b88c0"
+    },
+    {
+      "path": "scripts/render_operational_failure_examples.py",
+      "bytes": 6133,
+      "sha256": "e29db3926c3ef37ed9d419e6f80140b603fd31553ff3ff4b12fb01c0b8334f45"
+    },
+    {
+      "path": "scripts/build_operational_artifact_manifest.py",
+      "bytes": 3683,
+      "sha256": "38810760e49662ec48528c9e8e0c07d37c6d5e22fe49ec4dddace15486565f8c"
+    },
+    {
+      "path": "scripts/run_frozen_operational_pipeline.ps1",
+      "bytes": 2174,
+      "sha256": "f013520a147d555e87d581bfb244b3a7e962d901b2143ecebb3d00179db4e7d2"
+    },
+    {
+      "path": "scripts/run_refcocoplus_transfer_pipeline.ps1",
+      "bytes": 880,
+      "sha256": "2a1c93e810759c3eda936cb6afad2d84a7f780a9c227507eb6b2e94f87ea5dcf"
+    },
+    {
+      "path": "scripts/launch_refcocoplus_transfer.py",
+      "bytes": 905,
+      "sha256": "c7af4e45ed155b3b860e2e4bfcce4332a92f4dca5bd8120937faa8744842cbd4"
+    },
+    {
+      "path": "tests/test_finite_probe.py",
+      "bytes": 3044,
+      "sha256": "f9172769805dfb392427b0bcb9394d892ff9ca012a16d9e2c97e1adcc6833b18"
+    },
+    {
+      "path": "tests/test_operational_runner_io.py",
+      "bytes": 1163,
+      "sha256": "7446e9103844f14a44b74bc82568ad6c4b2ef0ba993c2848226667392274e62d"
+    },
+    {
+      "path": "tests/test_operational_stability.py",
+      "bytes": 6218,
+      "sha256": "7738a21ffd5b3c90b5b8857b3aa1e25132248f8eafbca56e95665cf63f4a361b"
+    }
+  ],
+  "prohibited_after_freeze": [
+    "model-specific threshold tuning",
+    "probe-distribution tuning",
+    "candidate-contract tuning",
+    "sample removal based on model outputs",
+    "analysis-rule changes based on target results"
+  ]
+}

@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this benchmark or its analysis code, please cite this repository."
+title: "Coverage-Aware Candidate-Order Stability for Vision-Language Grounding"
+type: software
+authors:
+  - family-names: Shi
+    given-names: Yukun
+version: 1.0.0
+date-released: 2026-08-28
+repository-code: "https://github.com/HungChien/coverage-aware-grounding-stability"
+keywords:
+  - visual grounding
+  - open-vocabulary detection
+  - candidate-order stability
+  - finite-probe inference
+  - robustness evaluation

@@ -1,0 +1,15 @@
+{
+  "source": "dddraxxx/refcoco-benchmark",
+  "split": "train",
+  "count": 500,
+  "unique_image_count": 500,
+  "excluded_image_count": 220,
+  "overlap_with_excluded": 0,
+  "seed": 20260825,
+  "shuffle_buffer": 10000,
+  "manifest_sha256": "8c1902fbbf607a4a057c9b39b012604ab053ff3b1713f509c7495668e073fcc7",
+  "excluded_manifests": [
+    "F:\\PGT_Paper\\week2_minimal_experiment\\data_refcoco\\calibration_manifest.json",
+    "F:\\PGT_Paper\\week2_minimal_experiment\\data_refcoco\\evaluation_manifest.json"
+  ]
+}

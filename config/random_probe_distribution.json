@@ -1,0 +1,32 @@
+{
+  "scope": "meaning-preserving visual perturbations",
+  "seed": 20260810,
+  "score_range": [0.0, 1.0],
+  "families": {
+    "blur": {
+      "weight": 1.0,
+      "low": 0.3,
+      "high": 2.5
+    },
+    "brightness": {
+      "weight": 1.0,
+      "low": 0.7,
+      "high": 1.3
+    },
+    "jpeg": {
+      "weight": 1.0,
+      "low": 40.0,
+      "high": 95.0
+    },
+    "resolution": {
+      "weight": 1.0,
+      "low": 0.5,
+      "high": 1.0
+    },
+    "gaussian_noise": {
+      "weight": 1.0,
+      "low": 0.0,
+      "high": 0.04
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "artifacts": [
+    {
+      "path": "allocation_tradeoff.csv",
+      "size_bytes": 3261,
+      "sha256": "385fd8d08c5bd3558f83f32b595204f051a6624072b5bd6e72d20c8e617379af"
+    },
+    {
+      "path": "component_bootstrap_intervals.csv",
+      "size_bytes": 3462,
+      "sha256": "e6a8a95f1f28ad17cc93e4bb04d346d2178ecf15211cf10728d33968a08305a2"
+    },
+    {
+      "path": "cost_optimal_probe_allocation.png",
+      "size_bytes": 148432,
+      "sha256": "95e3cf76b5e76e40313e7f355f9b80aabecb8733a684bcdaeed227666eb9064c"
+    },
+    {
+      "path": "effective_sample_size.png",
+      "size_bytes": 61993,
+      "sha256": "df2c62ed4bae05535435164dfa4301f041801e8dc83406bfab9efcb94cfd9c43"
+    },
+    {
+      "path": "predicted_vs_empirical_variance.png",
+      "size_bytes": 135579,
+      "sha256": "9051276130104ebe24f954116f552d06fd7afe289538fddbc39f4d3560e0969a"
+    },
+    {
+      "path": "probe_budget_diminishing_returns.png",
+      "size_bytes": 248386,
+      "sha256": "2f2f53f4adaf2eedd6f1bc2e4702dade872afbd1f9aeb0560e02b1a0f68c948d"
+    },
+    {
+      "path": "sample_size_planning.csv",
+      "size_bytes": 5706,
+      "sha256": "01cab919217b9f7342ab1afc9876fb570638862d030c1c56bf6da1cba37c78e2"
+    },
+    {
+      "path": "subsampling_variance_validation.csv",
+      "size_bytes": 37766,
+      "sha256": "5615c676c9e48e41ed9fe2d8c1117b50c3701a3d222a01588c70b4cf53d2c1d8"
+    },
+    {
+      "path": "two_stage_sampling_theory_report.md",
+      "size_bytes": 8744,
+      "sha256": "22278da113a22d21f6e3aff67182144bb8b262fe6bea04834e48889d2e3fbc9f"
+    },
+    {
+      "path": "variance_budget_table.csv",
+      "size_bytes": 8083,
+      "sha256": "0179b373ab5795c45089689bb1c2059f12feb96b1862e70748328850b913ab2c"
+    },
+    {
+      "path": "variance_component_decomposition.png",
+      "size_bytes": 63217,
+      "sha256": "93af54c15dff578b69b3288859c25c080268135c55c0294f11f6cb796c49c3eb"
+    },
+    {
+      "path": "variance_component_estimates.csv",
+      "size_bytes": 2277,
+      "sha256": "f89d15c8b3b45f6c50a1e8f88d4a2eac73532e0dfd0c4bd4fb3cb18672d184b3"
+    }
+  ]
+}

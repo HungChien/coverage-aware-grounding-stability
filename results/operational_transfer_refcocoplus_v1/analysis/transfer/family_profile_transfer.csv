@@ -1,0 +1,3 @@
+model,family_count,spearman_risk_share,cosine_risk_share,mean_absolute_risk_share_shift
+groundingdino,5,0.6,0.8768421730215148,0.07522808926645722
+yoloworld,5,0.9999999999999999,0.9905338714870474,0.02284263743807155

@@ -1,0 +1,16 @@
+{
+  "status": "complete",
+  "source_root": "F:\\PGT_Paper\\gms_reliability\\results\\operational_benchmark_v1",
+  "target_root": "results\\operational_transfer_refcocoplus_v1",
+  "target_manifest": "F:\\PGT_Paper\\gms_reliability\\data_operational\\refcocoplus_transfer1000\\manifest.json",
+  "bootstrap_repetitions": 2000,
+  "seed": 20260826,
+  "models": [
+    "groundingdino",
+    "yoloworld"
+  ],
+  "target_split_counts": {
+    "testA": 500,
+    "testB": 500
+  }
+}

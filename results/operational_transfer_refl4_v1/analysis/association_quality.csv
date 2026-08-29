@@ -1,0 +1,3 @@
+model,mean_probe_coverage,mean_matched_iou,mean_perturbed_candidate_count
+groundingdino,0.977625,0.9702897881625028,14.620525
+yoloworld,0.778585147247119,0.9475068953686061,8.986635723431498

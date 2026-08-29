@@ -1,0 +1,43 @@
+{
+  "source": "JierunChen/Ref-L4",
+  "official_split": "test",
+  "sampling_design": "deterministic_source_stratified_unique_image_sample",
+  "source_counts": {
+    "coco": 600,
+    "objects365": 400
+  },
+  "count": 1000,
+  "unique_image_count": 1000,
+  "unique_source_image_count": 1000,
+  "unique_ref_count": 1000,
+  "unique_category_count": 274,
+  "excluded_coco_image_count": 1720,
+  "coco_overlap_with_excluded": 0,
+  "seed": 20260827,
+  "bbox_source_format": "xywh",
+  "manifest_bbox_format": "xyxy",
+  "query_word_count": {
+    "mean": 23.91,
+    "minimum": 3,
+    "median": 23.0,
+    "maximum": 78
+  },
+  "sqrt_bbox_area": {
+    "mean": 229.2293707150019,
+    "minimum": 30.37361498748921,
+    "median": 182.6727306033174,
+    "maximum": 3305.1911137749025
+  },
+  "rewrite_count": 500,
+  "selection_unit": "one_expression_per_unique_image",
+  "excluded_manifests": [
+    "data_operational\\refcoco_unseen500\\manifest.json",
+    "data_operational\\refcocoplus_transfer1000\\manifest.json",
+    "..\\week2_minimal_experiment\\data_refcoco\\calibration_manifest.json",
+    "..\\week2_minimal_experiment\\data_refcoco\\evaluation_manifest.json"
+  ],
+  "parquet_sha256": "6af2bcac60d0aff5f78c0a0c834377e43ceb17d1e11cbaacdf4eda5f9a9e0068",
+  "image_archive_bytes": 3512747994,
+  "image_archive_sha256": "a07c7b85e94d3dcd1f7847ba85d670590b86d6000ffa3c8dd11e988b2af2a7b7",
+  "manifest_sha256": "9b5725df9ddb0fab66a88739b79b6b9dc9b8c5312bacaf3dc3cbf1815b911c3c"
+}

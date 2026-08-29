@@ -1,0 +1,40 @@
+{
+  "protocol_version": "output-contract-2.0.0",
+  "preregistration_path": "config\\output_contract_preregistration_v2.json",
+  "preregistration_sha256": "a6dfd812d739b8ffa9eb9b5b4342a8f2e23fb96226ae961f870347e38b434d2f",
+  "analysis_script_sha256": "8aa338b0711fd599f76834f861114f0b09d4e46937a9ee055bd8ac94d6b945eb",
+  "registered_setting_count": 108,
+  "default_setting_index": 103,
+  "bootstrap_repetitions": 2000,
+  "bootstrap_seed": 20260830,
+  "datasets": [
+    "RefCOCO",
+    "RefCOCO+",
+    "Ref-L4"
+  ],
+  "models": [
+    "groundingdino",
+    "yoloworld"
+  ],
+  "input_trace_sha256": {
+    "results\\operational_benchmark_v1\\groundingdino\\sample_traces.jsonl.gz": "811285518834b8b0b00fe53bf0fe9686932c91c700d4704a06e3cfd4de068df3",
+    "results\\operational_benchmark_v1\\yoloworld\\sample_traces.jsonl.gz": "adb185950fa59fae364e89578c5abd19558ec62b204269880b248ca231aa7b35",
+    "results\\operational_transfer_refcocoplus_v1\\groundingdino\\sample_traces.jsonl.gz": "c3d6925d98527b317976e7cb17343fe4f9b4ef5d8272de421c9db55c99c2bb91",
+    "results\\operational_transfer_refcocoplus_v1\\yoloworld\\sample_traces.jsonl.gz": "bd07ee31e8c00fafe2ccdbf6f12adf47c1d24c80598496826a019d004545bc5c",
+    "results\\operational_transfer_refl4_v1\\groundingdino\\sample_traces.jsonl.gz": "8dc892c016514b6865011d15662df57410b364ac0e0cd61003c3e815538a1ca3",
+    "results\\operational_transfer_refl4_v1\\yoloworld\\sample_traces.jsonl.gz": "20b11627ccfd8773594de99ca592f20ad82983c003d4707e8a9f4694dc48dd52"
+  },
+  "output_sha256": {
+    "absolute_sensitivity_envelopes.csv": "294ed992c4e46ddb9a009981b21f8474032f73ea494da5d3e6c3f1922c4cd592",
+    "candidate_pool_saturation.csv": "749dc62adf46890387f9f0e31140df26edd45dbd085c2217e4324fc31f11dde6",
+    "contract_envelopes.png": "e1a04c427f58167da0e6df8f176535cc725eab5323f7539194a878984cedba4d",
+    "contract_grid_results.csv": "d89d60a891f01ecd92966ae1e90a529333f3391dd364aa4603992111a4ee4b63",
+    "duplicate_clean_eligibility_sensitivity.csv": "2261fae67bf9bae25d643fed7945b8170fb5810c4aec23df50e1159f02f073d0",
+    "model_ranking_robustness.csv": "ddcb2036e32fc29f48f51c0b5bc89313ea2905c16e97b6dc17d290ad07c8a69d",
+    "one_factor_sensitivity.csv": "b6f784cbdb262f8e0205eb3148f7bc9a112fb2bbb503b4340c07683be22fb9ff",
+    "output_contract_robustness_report.md": "fe3d327b98a977f4379e50e56bf7b60b019dbe503a151208b78814288f0b149c",
+    "sample_contract_values.npz": "4d3c8c56b14f29abe4d44e5934e15d42a98747b2de4307326dfdf40cee26d313",
+    "worst_contract_model_gap.png": "5fbb92c03f0e5206ef6e5e4ed8f34f8b27cf25fe1f23c7a582c5e2650c10b1b3"
+  },
+  "identifiability_statement": "V1 traces identify tracked count, exposed count up to 20, match IoU, and birth novelty IoU. Full operational duplicate-IoU sensitivity and exposure above 20 require prospective raw perturbed pools."
+}

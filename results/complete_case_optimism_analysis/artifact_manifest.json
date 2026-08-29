@@ -1,0 +1,99 @@
+{
+  "artifacts": [
+    {
+      "path": "aggregate_optimism.csv",
+      "size_bytes": 2090,
+      "sha256": "5d6ef06bfa2f25e7cb7cc6c6379e21b59a356448f580702649df4c16fa4b0e4a"
+    },
+    {
+      "path": "aggregate_optimism_bootstrap.csv",
+      "size_bytes": 5662,
+      "sha256": "bf18c7aaf9942ed6291f4597941826d62a33b95466bc281aa0622a9ecf965c54"
+    },
+    {
+      "path": "budget_optimism.csv",
+      "size_bytes": 7011,
+      "sha256": "b41d8f37847eee2f26c4a66fc3cb5a87dfc3f4fcee652a4f200f275567127bf7"
+    },
+    {
+      "path": "complete_case_optimism_report.md",
+      "size_bytes": 16734,
+      "sha256": "8d7075818b8fb1df561a73a2ad61a5029aa524f0908db23faaeb40794dda312c"
+    },
+    {
+      "path": "complete_case_vs_operational.png",
+      "size_bytes": 93005,
+      "sha256": "7970f40ca4a0c93a91a8a0501f74dade9867597dfd07f6cf1027dbeb083a6e54"
+    },
+    {
+      "path": "contract_optimism_sensitivity.png",
+      "size_bytes": 76427,
+      "sha256": "458480e0345048f2dc23dca5f3582ea4c2ed554c6cd67671670d8c2086beedda"
+    },
+    {
+      "path": "contract_sensitivity_optimism.csv",
+      "size_bytes": 23381,
+      "sha256": "20e24c7359fe650798663291fb1840d4c76252fee0009a6343b48ce9a0fd6b27"
+    },
+    {
+      "path": "contract_sensitivity_summary.csv",
+      "size_bytes": 940,
+      "sha256": "844d2d80d4b2297cb2fe402d91225ae2636b0045f08602ed91d4a52b5d501833"
+    },
+    {
+      "path": "correctness_strata_optimism.csv",
+      "size_bytes": 3811,
+      "sha256": "04bf12ad871271f018479217761139099a2c34541048d94a3fcad4c9271451ca"
+    },
+    {
+      "path": "family_optimism.csv",
+      "size_bytes": 5824,
+      "sha256": "7cccc8445914b8d9eb5bca2334321234ef15c9867e62c52d3905617c3ff9c535"
+    },
+    {
+      "path": "family_optimism_heatmap.png",
+      "size_bytes": 182903,
+      "sha256": "36d368c68961f33c3f7c969152c2d9b723f932b4278e65bfd3208383d86b0dcb"
+    },
+    {
+      "path": "optimism_bootstrap_intervals.png",
+      "size_bytes": 70232,
+      "sha256": "ad823836b59a1cbf85de69b16691353631f126338f05ce6d3315caec88b34d30"
+    },
+    {
+      "path": "optimism_by_probe_budget.png",
+      "size_bytes": 160411,
+      "sha256": "efb3334b605b534b93ba146f30439ffbf8a3ab8ddfe253320589db4f4ddba6f0"
+    },
+    {
+      "path": "optimism_decomposition.png",
+      "size_bytes": 100445,
+      "sha256": "56ed884ea1ef921a86c616a710b01fbadb81a0f06e3d1743c26ccdb28434618c"
+    },
+    {
+      "path": "predictive_calibration.csv",
+      "size_bytes": 59685,
+      "sha256": "8bcd812c6d649155b63d8b786dbd14510af2674ac8a5b24f1c5cb606c33b404d"
+    },
+    {
+      "path": "predictive_comparison.csv",
+      "size_bytes": 14155,
+      "sha256": "b6e4d565b1303a22fc2af63864c3948e00120ed01af494bbcfbf165eee948429"
+    },
+    {
+      "path": "predictive_comparison_bootstrap.csv",
+      "size_bytes": 12473,
+      "sha256": "a19b5aa10c05c6e545e89937dfc9fa7d6a3dc4bdd1477e7f7115bdf01e02123b"
+    },
+    {
+      "path": "predictive_mae_comparison.png",
+      "size_bytes": 97192,
+      "sha256": "ac4eef1c2b3b6710d76c18a18af93f47315b3cd393bbb48e3493bf092d6bbdcf"
+    },
+    {
+      "path": "refl4_registered_strata_optimism.csv",
+      "size_bytes": 3579,
+      "sha256": "85422140f95932f51e54c5e68b9500ae7bc8e850ebeec8636c324e986417a5c7"
+    }
+  ]
+}

@@ -1,12 +1,34 @@
 {
-  "target_repository": "F:\\PGT_Paper\\gms_reliability_github",
-  "external_doc_folder": "F:\\PGT_Paper\\doc",
-  "omitted_from_repository": [
-    "large model weights (*.pt)",
-    "raw COCO annotation JSON files",
-    "raw image folders",
-    "Python cache folders",
-    "temporary PDF/PPT render checks",
-    "Chinese and bilingual materials"
+  "repository": "coverage-aware-grounding-stability",
+  "version": "1.0.0",
+  "primary_entrypoint": "scripts/run_frozen_operational_pipeline.ps1",
+  "analysis_entrypoint": "scripts/analyse_operational_benchmark.py",
+  "test_command": "python -m pytest tests -q",
+  "canonical_configs": [
+    "config/operational_benchmark_v1.json",
+    "config/output_contract_preregistration_v2.freeze.json",
+    "config/operational_transfer_refcocoplus_v1.freeze.json",
+    "config/operational_transfer_refl4_v1.freeze.json"
+  ],
+  "canonical_results": [
+    "results/operational_benchmark_v1/analysis",
+    "results/operational_transfer_refcocoplus_v1/analysis",
+    "results/operational_transfer_refl4_v1/analysis",
+    "results/complete_case_optimism_analysis",
+    "results/output_contract_robustness",
+    "results/reference_80_adequacy",
+    "results/stratified_two_stage_analysis",
+    "results/two_stage_sampling_analysis"
+  ],
+  "submission_artifacts": [
+    "reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation.pdf",
+    "reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation.docx"
+  ],
+  "excluded_local_assets": [
+    "raw images and annotations",
+    "model weights",
+    "complete candidate traces",
+    "runtime logs and caches",
+    "failed, smoke, and superseded prototype runs"
   ]
 }

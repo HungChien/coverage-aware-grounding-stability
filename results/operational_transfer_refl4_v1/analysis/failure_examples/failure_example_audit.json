@@ -1,0 +1,86 @@
+{
+  "groundingdino": {
+    "winner_missing": {
+      "image_id": 202617,
+      "ref_id": 39752,
+      "query": "A multicolored umbrella is in the hand of a woman, displaying sections of red, yellow, pink, and various shades.",
+      "probe": {
+        "family": "jpeg",
+        "severity": 58.7336430212524,
+        "seed": 554532250
+      }
+    },
+    "competitor_missing": {
+      "image_id": 3178,
+      "ref_id": 32856,
+      "query": "A baby giraffe, identifiable by its smaller size and nursing behavior, is standing near its mother, who is situated to the right of the young giraffe.",
+      "probe": {
+        "family": "jpeg",
+        "severity": 54.381283410726496,
+        "seed": 134445424
+      }
+    },
+    "threatening_birth": {
+      "image_id": 1966,
+      "ref_id": 18124,
+      "query": "A man dressed in a neon green top and black shorts, sporting white Nike shoes, is getting ready to serve a tennis ball on the blue court.",
+      "probe": {
+        "family": "jpeg",
+        "severity": 40.86869044042321,
+        "seed": 1213665113
+      }
+    },
+    "ranking_reversal": {
+      "image_id": 1407,
+      "ref_id": 39811,
+      "query": "The man seated in a wheelchair behind the court, wearing a dark blazer and glasses, is attentively watching the tennis player serve.",
+      "probe": {
+        "family": "jpeg",
+        "severity": 81.82851926206057,
+        "seed": 1585077394
+      }
+    }
+  },
+  "yoloworld": {
+    "winner_missing": {
+      "image_id": 16725,
+      "ref_id": 32236,
+      "query": "The wooden couch, positioned close to the glass door, is embellished with a variety of cushions on its surface, featuring one in a yellow shade and another in a red hue.",
+      "probe": {
+        "family": "blur",
+        "severity": 1.8478046070694505,
+        "seed": 50482834
+      }
+    },
+    "competitor_missing": {
+      "image_id": 1407,
+      "ref_id": 39811,
+      "query": "The man seated in a wheelchair behind the court, wearing a dark blazer and glasses, is attentively watching the tennis player serve.",
+      "probe": {
+        "family": "blur",
+        "severity": 2.028063741851111,
+        "seed": 792924336
+      }
+    },
+    "threatening_birth": {
+      "image_id": 13372,
+      "ref_id": 20092,
+      "query": "The boat, which is the third one from the left along the dock and has its hull adorned with numbers and writings, is also positioned as the second one from the right and third from the front in the lineup of moored boats.",
+      "probe": {
+        "family": "resolution",
+        "severity": 0.7969074375619458,
+        "seed": 1150948370
+      }
+    },
+    "ranking_reversal": {
+      "image_id": 7852,
+      "ref_id": 27426,
+      "query": "The antique fire truck, featuring a striking red paint job with a unique blue engine top and a ladder attached to its side, is stationed in front of the building.",
+      "probe": {
+        "family": "resolution",
+        "severity": 0.9503277150277857,
+        "seed": 587631765
+      }
+    }
+  }
+}

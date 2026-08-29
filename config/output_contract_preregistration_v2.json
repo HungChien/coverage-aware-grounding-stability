@@ -1,0 +1,106 @@
+{
+  "status": "sensitivity_grid_frozen_before_enhanced_replay_analysis",
+  "scope": "prospectively_frozen_for_future_confirmatory_runs",
+  "protocol_version": "output-contract-2.0.0",
+  "freeze_date": "2026-08-28",
+  "primary_estimand": "full_manifest_operational_stability",
+  "primary_robustness_claim": "GroundingDINO has higher full-manifest operational stability than YOLO-World at every registered replayable contract setting within each dataset",
+  "datasets": [
+    "RefCOCO",
+    "RefCOCO+",
+    "Ref-L4"
+  ],
+  "models": [
+    "groundingdino",
+    "yoloworld"
+  ],
+  "default_output_contract": {
+    "tracked_candidate_count": 5,
+    "exposed_candidate_count": 20,
+    "duplicate_iou_threshold": 0.7,
+    "match_iou_threshold": 0.15,
+    "birth_duplicate_iou_threshold": 0.7,
+    "minimum_clean_candidate_count": 2,
+    "strict_score_order": true,
+    "association_rule": "one_to_one_hungarian_maximum_total_iou",
+    "missing_candidate_policy": "coverage_failure",
+    "threatening_birth_policy": "coverage_failure_if_score_not_below_matched_clean_winner",
+    "failure_precedence": [
+      "clean_ineligible",
+      "winner_missing",
+      "competitor_missing",
+      "threatening_birth",
+      "ranking_reversal",
+      "stable"
+    ]
+  },
+  "replayable_factorial_grid": {
+    "tracked_candidate_count": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "exposed_candidate_count": [
+      10,
+      15,
+      20
+    ],
+    "match_iou_threshold": [
+      0.1,
+      0.15,
+      0.25
+    ],
+    "birth_duplicate_iou_threshold": [
+      0.5,
+      0.7,
+      0.85
+    ],
+    "fixed_duplicate_iou_threshold": 0.7
+  },
+  "partial_clean_only_grid": {
+    "duplicate_iou_threshold": [
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.85
+    ]
+  },
+  "reasonable_domain_interpretation": {
+    "tracked_candidate_count": "two candidates are the minimum ranking problem and five is the frozen maximum tracked set",
+    "exposed_candidate_count": "ten to twenty tests whether a wider perturbed search pool changes missing-candidate or threatening-birth risk",
+    "duplicate_iou_threshold": "0.50 to 0.85 spans strict object-level suppression to permissive retention of overlapping hypotheses",
+    "match_iou_threshold": "0.10 to 0.25 allows corruption-induced displacement while rejecting associations with weak spatial continuity",
+    "birth_duplicate_iou_threshold": "0.50 to 0.85 spans permissive to conservative definitions of spatial novelty"
+  },
+  "robustness_statistics": {
+    "absolute_contract_envelope": "minimum and maximum full-manifest operational stability over the complete replayable grid",
+    "same_contract_model_gap": "GroundingDINO minus YOLO-World at each identical setting",
+    "ranking_invariance_condition": "minimum same-contract model gap is strictly positive",
+    "strong_interval_separation_condition": "minimum GroundingDINO stability exceeds maximum YOLO-World stability",
+    "paired_image_bootstrap_repetitions": 2000,
+    "bootstrap_seed": 20260830
+  },
+  "existing_trace_limits": {
+    "maximum_saved_candidate_count": 20,
+    "perturbed_candidates_already_deduplicated_at_iou": 0.7,
+    "consequence": "operational sensitivity to duplicate_iou_threshold and exposed counts above 20 is not identifiable from v1 traces"
+  },
+  "future_trace_requirements": {
+    "raw_candidate_pool_size": 50,
+    "store_pre_deduplication_clean_candidates": true,
+    "store_pre_deduplication_perturbed_candidates": true,
+    "store_post_contract_candidates": true,
+    "store_inference_thresholds": true,
+    "purpose": "permit offline replay of every registered output-contract parameter without new model inference"
+  },
+  "prohibited_after_freeze": [
+    "changing the reasonable parameter domain after viewing enhanced sensitivity results",
+    "model-specific contract settings",
+    "dataset-specific contract settings",
+    "removing settings that reverse or weaken a preferred comparison",
+    "describing partial clean-only duplicate sensitivity as full operational sensitivity",
+    "claiming continuous-domain invariance from a finite registered grid"
+  ]
+}

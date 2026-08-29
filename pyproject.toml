@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coverage-aware-grounding-stability"
+version = "1.0.0"
+description = "A finite-probe, coverage-aware benchmark for candidate-order stability in vision-language grounding."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Yukun Shi" }]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
+dependencies = [
+  "numpy",
+  "pandas",
+  "scipy",
+  "scikit-learn",
+  "matplotlib",
+  "Pillow"
+]
+
+[project.optional-dependencies]
+models = [
+  "torch",
+  "torchvision",
+  "transformers",
+  "datasets",
+  "ultralytics"
+]
+dev = ["pytest>=8", "ruff>=0.6"]
+docs = ["python-docx", "reportlab"]
+
+[tool.setuptools]
+packages = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

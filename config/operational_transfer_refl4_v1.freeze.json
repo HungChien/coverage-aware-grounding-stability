@@ -1,0 +1,145 @@
+{
+  "status": "frozen_before_inference",
+  "benchmark_name": "coverage_aware_candidate_order_stability_refl4_transfer_v1",
+  "git_commit": "e2d1bf6102610e2a42c6107a6ca405c966b3f9bf",
+  "file_count": 26,
+  "files": [
+    {
+      "path": "config/operational_transfer_refl4_v1.json",
+      "bytes": 1693,
+      "sha256": "20b0324f6a6816e0533aa9e042d3b375e4ed6ef58be3ff041e94f5c1a291e270"
+    },
+    {
+      "path": "config/random_probe_distribution.json",
+      "bytes": 541,
+      "sha256": "5ccc97f36bd35591a5b353631884248a1856641407b530b1dfe96087f23cb5b6"
+    },
+    {
+      "path": "data_operational/ref_l4_official/ref-l4-test.parquet",
+      "bytes": 3465635,
+      "sha256": "6af2bcac60d0aff5f78c0a0c834377e43ceb17d1e11cbaacdf4eda5f9a9e0068"
+    },
+    {
+      "path": "data_operational/refl4_transfer1000/manifest.json",
+      "bytes": 733648,
+      "sha256": "9b5725df9ddb0fab66a88739b79b6b9dc9b8c5312bacaf3dc3cbf1815b911c3c"
+    },
+    {
+      "path": "data_operational/refl4_transfer1000/metadata.json",
+      "bytes": 1504,
+      "sha256": "017dc170b4eb983a451648c5d7755c840528efbb25780187e6010ce88c789431"
+    },
+    {
+      "path": "docs/methodology/refl4_transfer_preregistration.md",
+      "bytes": 4706,
+      "sha256": "9edef1b6440b8bc744340542b58aacd6d8fc640d02c61b44d727da4f9219b0cd"
+    },
+    {
+      "path": "src/adapters.py",
+      "bytes": 6971,
+      "sha256": "3fd62a5554f0990eb7216856961ea2e4d16955b1e48888c41d2756f5f72e19da"
+    },
+    {
+      "path": "src/operational_stability.py",
+      "bytes": 16536,
+      "sha256": "9ed61cd7a42ab4ec820d469fbcccdcee6cbc76fb390579914113c15e2f848e88"
+    },
+    {
+      "path": "src/random_probes.py",
+      "bytes": 4293,
+      "sha256": "ae86414a18a278865d56f36290d417e1a2e32dcb18ccbd299aecbeed97acdeb4"
+    },
+    {
+      "path": "src/reliability.py",
+      "bytes": 5568,
+      "sha256": "c84bff8c17cef4097425d6b5414c71c0513a0b54162c9ab57d3c9f76e3deb763"
+    },
+    {
+      "path": "scripts/prepare_refl4_transfer_manifest.py",
+      "bytes": 9936,
+      "sha256": "d937dab61c84bacae882ae2c6c8c0ede6f233b28d8f3628f4ffd827c35fcee26"
+    },
+    {
+      "path": "scripts/validate_refl4_manifest.py",
+      "bytes": 2734,
+      "sha256": "359df6bb70a492592a60a797bdbeaf59cf51d88dfa0083629ee541f8538e24e5"
+    },
+    {
+      "path": "scripts/prepare_refl4_smoke_config.py",
+      "bytes": 1488,
+      "sha256": "23bf55701da8d896273bd24cfd0eda72f5317bdbb4b3ded1a6d2ad1166668a2c"
+    },
+    {
+      "path": "scripts/freeze_refl4_transfer.py",
+      "bytes": 3671,
+      "sha256": "74e3c597779d8b97ec55611c540f0bc636263ea90a06820ad2c57d16aaaf0b4d"
+    },
+    {
+      "path": "scripts/run_operational_benchmark.py",
+      "bytes": 16588,
+      "sha256": "9c1fde89b3e64834d63176df204bce0527d1178406e8d6a464f415db2b07abe9"
+    },
+    {
+      "path": "scripts/validate_operational_artifacts.py",
+      "bytes": 9966,
+      "sha256": "5faaf097fcb6964818cd23ce5b399539af505560fe86dcdd6d05cf1d7241303f"
+    },
+    {
+      "path": "scripts/analyse_operational_benchmark.py",
+      "bytes": 40271,
+      "sha256": "7bb4d575e0739d679d737b1f25bbb7566ec20453dffeb8146c7e6acf9a23ab79"
+    },
+    {
+      "path": "scripts/analyse_contract_sensitivity.py",
+      "bytes": 7246,
+      "sha256": "378d59a7d9b6d49c4d8312fcef2f5b35acae8f38a7aaecd4d02355233640c58c"
+    },
+    {
+      "path": "scripts/analyse_refl4_transfer.py",
+      "bytes": 13323,
+      "sha256": "693296e17ac7918a6d54a720f790b27a2f8a54bec56fb68922dbc2e819126152"
+    },
+    {
+      "path": "scripts/render_operational_failure_examples.py",
+      "bytes": 6133,
+      "sha256": "e29db3926c3ef37ed9d419e6f80140b603fd31553ff3ff4b12fb01c0b8334f45"
+    },
+    {
+      "path": "scripts/build_operational_artifact_manifest.py",
+      "bytes": 3683,
+      "sha256": "38810760e49662ec48528c9e8e0c07d37c6d5e22fe49ec4dddace15486565f8c"
+    },
+    {
+      "path": "scripts/run_frozen_operational_pipeline.ps1",
+      "bytes": 2330,
+      "sha256": "6906885faebd9cc71c45965e2c6aba44ffecd9551c5ca1fac6b61b23b2a46831"
+    },
+    {
+      "path": "scripts/run_refl4_transfer_pipeline.ps1",
+      "bytes": 1016,
+      "sha256": "235202e590193541b80ca4d852e431f7e2218beb7f404672717e639db3b3e229"
+    },
+    {
+      "path": "tests/test_finite_probe.py",
+      "bytes": 3044,
+      "sha256": "f9172769805dfb392427b0bcb9394d892ff9ca012a16d9e2c97e1adcc6833b18"
+    },
+    {
+      "path": "tests/test_operational_runner_io.py",
+      "bytes": 1163,
+      "sha256": "7446e9103844f14a44b74bc82568ad6c4b2ef0ba993c2848226667392274e62d"
+    },
+    {
+      "path": "tests/test_operational_stability.py",
+      "bytes": 6218,
+      "sha256": "7738a21ffd5b3c90b5b8857b3aa1e25132248f8eafbca56e95665cf63f4a361b"
+    }
+  ],
+  "prohibited_after_freeze": [
+    "model-specific threshold tuning",
+    "probe-distribution tuning",
+    "candidate-contract tuning",
+    "sample removal based on model outputs",
+    "analysis-rule changes based on target results"
+  ]
+}

@@ -1,286 +1,422 @@
-# GMS Reliability for Vision-Language Grounding
+# Coverage-Aware Candidate-Order Stability for Vision-Language Grounding
 
-This repository contains the current MSc dissertation prototype for analysing
-the reliability of vision-language grounding models at the output-decision
-level.
+[![tests](https://github.com/HungChien/coverage-aware-grounding-stability/actions/workflows/ci.yml/badge.svg)](https://github.com/HungChien/coverage-aware-grounding-stability/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/python-3.10%2B-3776AB)
+![Research](https://img.shields.io/badge/status-research%20release-4B5563)
 
-The central question is:
+This repository contains an MSc dissertation benchmark for analysing the
+operational stability of candidate-producing vision-language grounding models.
+The contribution is a reproducible, coverage-aware framework that asks:
 
-> When a grounding model selects a candidate region for a text query, can we
-> estimate whether this candidate-order decision will remain stable under
-> small visual or textual perturbations?
+> When a grounding model is queried with an image and referring expression,
+> does its clean winner remain observable and remain ahead of its competitors
+> under a registered distribution of meaning-preserving probes?
 
-The project does not propose a new detector. Instead, it studies whether the
-existing candidate boxes and scores produced by models such as GroundingDINO
-and YOLO-World can be used to diagnose local decision stability.
+The framework is evaluated on GroundingDINO and YOLO-World using 500 RefCOCO,
+1,000 RefCOCO+, and 1,000 Ref-L4 image-query pairs. It records complete
+candidate-level traces, finite-probe uncertainty, failure causes,
+perturbation-family risk, and cross-model results.
 
-## Current Thesis Claim
+The formatted MSc dissertation is available as
+[`reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation.pdf`](reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation.pdf).
 
-The current evidence supports the following claim:
+## Installation
 
-> Perturbation-aware candidate-order geometry predicts held-out ranking
-> stability better than the clean score margin alone.
+Create an isolated environment and install the package:
 
-This means that a prediction should not be judged only by the clean top-1
-minus top-2 score gap. The way this gap changes under controlled perturbations
-also contains useful reliability information.
+```bash
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# Linux/macOS: source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -e ".[dev]"
+```
 
-## Why This Matters
+Install the optional inference stack only on machines that will run the two
+grounding models:
 
-Vision-language grounding models are increasingly used in open-vocabulary
-perception, robotics, UAV perception and human-in-the-loop visual search. In
-these settings, the model may give a plausible box and a high score, but the
-decision can still be fragile.
+```bash
+python -m pip install -e ".[models]"
+```
 
-This project separates two questions that are often mixed together:
+Model checkpoints and datasets are intentionally not distributed in Git. Use
+the preparation scripts in `scripts/` and update only local paths in the JSON
+configuration files. Frozen scientific parameters must not be edited in place.
 
-| Question | What it means | How this project treats it |
+## Research Scope
+
+The primary object is **candidate-order stability**, not semantic correctness.
+
+| Question | Quantity | Role |
 |---|---|---|
-| Semantic correctness | Did the model localise the intended object? | Evaluated with annotations when available |
-| Candidate-order stability | Does the top candidate remain ahead of competitors under perturbation? | Modelled by GMS |
+| Does the clean output expose a meaningful candidate competition? | Clean eligibility | Reported for the full manifest |
+| Can the tracked candidates still be associated after a probe? | Candidate coverage | Secondary diagnostic |
+| Does the clean winner remain first after successful association? | Conditional ranking stability | Secondary diagnostic |
+| Are both coverage and ranking preserved? | Operational stability | Primary estimand |
+| Did the clean winner match the annotation? | Ground-truth IoU | Context only, not the stability target |
 
-GMS is therefore a deployment-risk or stability indicator. It is not an exact
-probability of semantic correctness.
+A prediction can be stable and wrong. The benchmark never equates stability
+with correctness.
 
-## Core Idea
+## Common Output Contract
 
-Most grounding and open-vocabulary detection models can be represented through
-a common output interface:
-
-```math
-\mathcal{O}_m(I,T)=\{(B_i,s_i)\}_{i=1}^{K}
-```
-
-where:
-
-- `I` is the image.
-- `T` is the text query.
-- `B_i` is candidate box `i`.
-- `s_i` is its matching score.
-- `K` is the number of retained candidates.
-
-For analysis, this becomes an output matrix:
+A candidate-producing grounding model is represented as
 
 ```math
-\mathbf{O}_m(I,T)=
-\begin{bmatrix}
-x_1^{min} & y_1^{min} & x_1^{max} & y_1^{max} & s_1 \\
-x_2^{min} & y_2^{min} & x_2^{max} & y_2^{max} & s_2 \\
-\cdots & \cdots & \cdots & \cdots & \cdots \\
-x_K^{min} & y_K^{min} & x_K^{max} & y_K^{max} & s_K
-\end{bmatrix}
+\mathcal O_m(I,T)=\{(B_i,s_i)\}_{i=1}^{K},
+\qquad s_1\geq s_2\geq\cdots\geq s_K,
 ```
 
-This output-level abstraction allows different models to be compared even when
-their internal architectures are different.
+where `I` is an image, `T` is a referring expression, `B_i` is a candidate
+box, and `s_i` is the model-specific matching score.
 
-## Theoretical Formulation
+The implementation freezes two candidate counts:
 
-Let candidate 1 be the clean top prediction and candidate `j` be a competing
-candidate. The clean margin is:
+- `K_t = 5` spatially distinct clean candidates are tracked;
+- `K_e = 20` perturbed candidates are exposed.
 
-```math
-M_j=s_1-s_j
-```
+The wider perturbed output prevents a newly born high-score candidate from
+being silently hidden by a narrow top-five list.
 
-After perturbation, each score receives an error term:
-
-```math
-s_1' = s_1 + \epsilon_1,\qquad
-s_j' = s_j + \epsilon_j
-```
-
-A ranking reversal occurs when the competitor becomes equal to or larger than
-the original top candidate:
-
-```math
-s_j+\epsilon_j \geq s_1+\epsilon_1
-```
-
-Rearranging gives:
-
-```math
-Z_j = \epsilon_j-\epsilon_1,\qquad
-\text{failure occurs when } Z_j \geq M_j
-```
-
-So `Z_j` measures how much the perturbation favours the competitor over the
-clean top prediction.
-
-## From Failure Probability To GMS
-
-Let:
-
-```math
-\mu_j=\mathbb{E}[Z_j],\qquad v_j=\mathrm{Var}(Z_j)
-```
-
-Define the effective margin:
-
-```math
-\Delta_j=[M_j-\mu_j]_+
-```
-
-where `[x]_+ = max(x, 0)`. If `mu_j >= M_j`, the average perturbation bias has
-already removed the clean score advantage, so the decision is treated as
-high-risk.
-
-Using Cantelli's inequality:
-
-```math
-\mathbb{P}(Z_j \geq M_j)
-\leq
-\frac{v_j}{v_j+\Delta_j^2}
-```
-
-The component stability score is defined as the complement of this upper bound:
-
-```math
-R_j
-:=
-1-\frac{v_j}{v_j+\Delta_j^2}
-=
-\frac{\Delta_j^2}{\Delta_j^2+v_j}
-```
-
-For top-K candidates, each competitor has its own `R_j`. The global GMS score
-uses the weakest competitor boundary:
-
-```math
-R_{GMS}=\min_{j>1} R_j
-```
-
-This gives a conservative, bound-derived stability score for the most dangerous
-candidate-order boundary.
-
-## Why This Is More Than Margin
-
-Clean margin only measures the distance to the current ranking boundary:
-
-```math
-M_j=s_1-s_j
-```
-
-GMS also includes:
-
-- perturbation bias: `mu_j`
-- perturbation variance: `v_j`
-- the most dangerous competitor among top-K
-
-This means two predictions with the same clean margin can receive different GMS
-scores if their local perturbation behaviour is different.
+All five numeric parameters and all fixed decision rules are defined in the
+machine-readable preregistration
+[`config/output_contract_preregistration_v2.json`](config/output_contract_preregistration_v2.json).
+The preregistration, 108-setting analysis grid, implementation, and tests were
+hashed before the enhanced replay in
+[`config/output_contract_preregistration_v2.freeze.json`](config/output_contract_preregistration_v2.freeze.json).
 
 ```mermaid
 flowchart LR
-    A["Image I and text T"] --> B["Grounding model"]
-    B --> C["Top-K boxes and scores"]
-    C --> D["Clean margin M"]
-    C --> E["Probe perturbations"]
-    E --> F["Candidate matching"]
-    F --> G["Score changes epsilon"]
-    G --> H["Bias mu and variance v"]
-    D --> I["GMS stability score"]
-    H --> I
-    I --> J["Held-out stability prediction"]
+    A[Image and referring expression] --> B[Grounding model]
+    B --> C[Clean candidate list]
+    C --> D[Select five spatially distinct candidates]
+    A --> E[Registered visual probe]
+    E --> F[Grounding model]
+    F --> G[Expose twenty perturbed candidates]
+    D --> H[One-to-one candidate association]
+    G --> H
+    H --> I{Complete coverage?}
+    I -- No --> J[Coverage failure]
+    I -- Yes --> K{Clean winner remains first?}
+    K -- No --> L[Ranking reversal]
+    K -- Yes --> M[Operationally stable]
 ```
 
-## Visual Summary
+## Mathematical Definition
 
-### GroundingDINO
+Let `U` be a random probe drawn from the preregistered distribution `Q`.
+Hungarian maximum-IoU matching produces a one-to-one association `pi_U` from
+clean candidates to perturbed candidates.
 
-![GroundingDINO ROC](results/full_geometry/groundingdino_full100/figures/heldout_stability_roc.png)
+Coverage is one only when every tracked candidate is associated and no
+unmatched spatially novel candidate threatens the matched clean winner:
 
-![GroundingDINO score vs persistence](results/full_geometry/groundingdino_full100/figures/score_vs_persistence.png)
+```math
+C(U)\in\{0,1\}.
+```
 
-### YOLO-World
+When coverage holds, the perturbed candidate-gap vector is
 
-![YOLO-World ROC](results/full_geometry/yoloworld_full100/figures/heldout_stability_roc.png)
+```math
+\mathbf G(U)=
+\begin{bmatrix}
+s'_{\pi_U(1)}-s'_{\pi_U(2)}\\
+\vdots\\
+s'_{\pi_U(1)}-s'_{\pi_U(K_t)}
+\end{bmatrix}.
+```
 
-![YOLO-World score vs persistence](results/full_geometry/yoloworld_full100/figures/score_vs_persistence.png)
+Conditional ranking stability and operational stability are
 
-### Candidate Matching Audit
+```math
+S(U)=\mathbb 1\{\min_jG_j(U)>0\},
+\qquad
+Y(U)=C(U)S(U).
+```
 
-The method depends on tracking candidate identities under perturbation. The
-matching audit checks whether the same clean candidate is consistently matched
-after perturbation.
+The benchmark estimates
 
-![GroundingDINO matching audit](results/full_geometry/groundingdino_full100/matching_audit_contact_sheet.png)
+```math
+\theta_{\mathrm{cov}}=\Pr(C=1),
+\qquad
+\theta_{\mathrm{rank}}=\Pr(S=1\mid C=1),
+```
 
-## Experimental Protocol
+and the primary estimand
 
-The current validation uses a RefCOCO-style setup with image-text pairs and a
-fixed perturbation family.
+```math
+\theta_{\mathrm{op}}
+=\Pr(Y=1)
+=\theta_{\mathrm{cov}}\theta_{\mathrm{rank}}.
+```
 
-| Component | Current setting |
+## Why Coverage Is Necessary
+
+The operational risk has the exact decomposition
+
+```math
+1-\theta_{\mathrm{op}}
+=(1-\theta_{\mathrm{cov}})
++\theta_{\mathrm{cov}}(1-\theta_{\mathrm{rank}}).
+```
+
+Direct persistence computed only on successfully matched candidates can be
+optimistic. Its exact excess over operational stability is
+
+```math
+\theta_{\mathrm{rank}}-\theta_{\mathrm{op}}
+=\theta_{\mathrm{rank}}(1-\theta_{\mathrm{cov}}).
+```
+
+The difference is non-zero whenever candidate coverage is imperfect and some
+covered probes preserve the ranking. Candidate disappearance and threatening
+candidate birth are therefore part of the estimand, not preprocessing errors.
+
+## Finite-Probe Estimation
+
+For a fixed sample, registered probes produce Bernoulli outcomes
+
+```math
+Y_1,\ldots,Y_n\overset{\mathrm{iid}}{\sim}
+\mathrm{Bernoulli}(\theta_{\mathrm{op}}).
+```
+
+The sample estimator is
+
+```math
+\widehat\theta_{\mathrm{op}}=\frac{1}{n}\sum_{r=1}^{n}Y_r,
+```
+
+with variance
+
+```math
+\operatorname{Var}(\widehat\theta_{\mathrm{op}})
+=\frac{\theta_{\mathrm{op}}(1-\theta_{\mathrm{op}})}{n}
+\leq\frac{1}{4n}.
+```
+
+Exact 95% Clopper-Pearson intervals are reported at diagnostic budgets 5, 10,
+20, and 40. An independent 80-probe estimate is used as a higher-budget finite
+reference. It is not described as an exact population probability.
+
+## Cross-Architecture Comparability
+
+The benchmark compares observable Bernoulli events rather than raw scores.
+For any strictly increasing model-specific score transformation `h_m`,
+
+```math
+s_i>s_j \Longleftrightarrow h_m(s_i)>h_m(s_j).
+```
+
+Candidate-order events are therefore invariant to monotone score rescaling,
+conditional on the exposed candidate set. This permits GroundingDINO and
+YOLO-World to share the same estimand without claiming that their numerical
+confidence scales are calibrated to each other.
+
+## Output-Contract Robustness
+
+An output contract defines the measurement operation, so absolute stability
+must be accompanied by contract sensitivity. The registered finite grid
+contains 108 combinations of:
+
+- tracked clean candidates: 2, 3, 4, or 5;
+- exposed perturbed candidates: 10, 15, or 20;
+- association IoU: 0.10, 0.15, or 0.25;
+- birth-novelty IoU: 0.50, 0.70, or 0.85.
+
+Duplicate suppression is held at 0.70 because the v1 perturbed traces were
+already deduplicated at that threshold. Clean eligibility is audited over
+duplicate thresholds 0.50 to 0.85, but this partial analysis is not presented
+as full operational sensitivity.
+
+For models `a` and `b`, finite-grid ranking invariance is established when
+
+```math
+\min_{\lambda\in\Lambda}
+\left[\widehat\Theta_a(\lambda)-\widehat\Theta_b(\lambda)\right]>0.
+```
+
+GroundingDINO remains above YOLO-World at every registered identical setting
+on all three datasets. The minimum same-contract gaps are 0.3147 on RefCOCO,
+0.3009 on RefCOCO+, and 0.2448 on Ref-L4. Paired 2,000-repetition bootstrap
+95% lower bounds are 0.2772, 0.2738, and 0.2173, respectively. The stronger
+condition—minimum GroundingDINO stability exceeding maximum YOLO-World
+stability—also holds on every dataset.
+
+Absolute values remain contract dependent. The registered envelope widths
+range from 0.0287 to 0.1163, so the default estimate is always reported with
+its full sensitivity interval rather than as a contract-free quantity.
+
+![Output-contract envelopes](results/output_contract_robustness/contract_envelopes.png)
+
+![Worst registered model gap](results/output_contract_robustness/worst_contract_model_gap.png)
+
+The complete mathematical argument, engineering interpretation, and evidence
+are in
+[`docs/methodology/output_contract_parameter_theory.md`](docs/methodology/output_contract_parameter_theory.md)
+and
+[`results/output_contract_robustness/output_contract_robustness_report.md`](results/output_contract_robustness/output_contract_robustness_report.md).
+
+The runner now supports a larger raw candidate pool and stores both pre- and
+post-contract perturbed candidates. Future confirmatory runs use a raw pool of
+50, making duplicate suppression and exposure above 20 replayable without new
+model inference.
+
+## Model-Level Estimation from Finite Images and Probes
+
+The single-sample probe mean is extended to a two-stage model-level estimator.
+Let `X ~ P` be an image-query pair, `U ~ Q` a registered probe, and `W_m(X,U)`
+the full-manifest operational success event, including clean eligibility. The
+target is
+
+```math
+\Theta_{m,P,Q}=\mathbb E_X\mathbb E_U[W_m(X,U)].
+```
+
+For `N` independently sampled pairs and `R` conditionally independent probes
+per pair,
+
+```math
+\widehat\Theta_m
+=\frac{1}{NR}\sum_{n=1}^{N}\sum_{r=1}^{R}W_{mnr}.
+```
+
+The estimator is unbiased and has the exact variance decomposition
+
+```math
+\operatorname{Var}(\widehat\Theta_m)
+=\frac{A_m}{N}+\frac{B_m}{NR},
+```
+
+where `A_m` is between-pair stability heterogeneity and `B_m` is within-pair
+probe uncertainty. This proves that increasing the number of pairs reduces
+both uncertainty sources, whereas increasing probes only reduces the second.
+It also yields a design effect, an effective independent sample size, a target
+sample-size equation, and the cost-optimal allocation
+
+```math
+R_{\mathrm{opt}}=\sqrt{\frac{B_m c_X}{A_m c_U}}.
+```
+
+The theory and proofs are in
+[`docs/methodology/two_stage_model_stability_theory.md`](docs/methodology/two_stage_model_stability_theory.md).
+The frozen three-dataset, two-model analysis is in
+[`results/two_stage_sampling_analysis/`](results/two_stage_sampling_analysis/).
+
+![Exact variance validation](results/two_stage_sampling_analysis/predicted_vs_empirical_variance.png)
+
+![Probe-budget diminishing returns](results/two_stage_sampling_analysis/probe_budget_diminishing_returns.png)
+
+## Adequacy of the 80-Probe Reference
+
+The frozen reference depth was audited separately from the small-probe
+estimators. Model-level adequacy requires the finite-probe component to account
+for no more than 5% of total model-level variance and the 95th percentile
+absolute discrepancy between family-balanced, disjoint 40/40 half-reference
+means to remain below 0.01.
+
+All six dataset-model groups satisfy both criteria. The 80-probe reference is
+therefore sufficiently deep for model-level comparison under the registered
+probe law. It remains a finite, noisy target at the individual-sample level and
+is never described as exact ground truth.
+
+![80-probe model-level adequacy](results/reference_80_adequacy/model_level_adequacy.png)
+
+The complete protocol and results are available in
+[`docs/methodology/reference_80_adequacy_protocol.md`](docs/methodology/reference_80_adequacy_protocol.md)
+and
+[`results/reference_80_adequacy/reference_80_adequacy_report.md`](results/reference_80_adequacy/reference_80_adequacy_report.md).
+
+## Failure Localisation
+
+Every failed probe receives one primary label:
+
+1. `winner_missing` — the clean winner cannot be associated;
+2. `competitor_missing` — a tracked competitor cannot be associated;
+3. `threatening_birth` — a novel unmatched candidate threatens the winner;
+4. `ranking_reversal` — coverage holds but a competitor overtakes the winner.
+
+For a ranking reversal, the culprit competitor is the candidate with the
+smallest perturbed winner-to-competitor gap. This turns a model-level stability
+number into an auditable engineering profile.
+
+For probe families `f` with preregistered mixture weights `pi_f`, operational
+risk decomposes as
+
+```math
+1-\theta_{\mathrm{op}}
+=\sum_f\pi_f(1-\theta_f).
+```
+
+The resulting shares describe where instability is observed under the
+registered probe distribution. They are descriptive, not causal claims.
+
+## Frozen Large-Scale Experiment
+
+| Component | Frozen setting |
 |---|---|
-| Models | GroundingDINO and YOLO-World |
-| Samples | 100 GroundingDINO samples, 74 YOLO-World valid samples |
-| Clean candidates | Raw top-20 candidates |
-| Geometry candidates | Up to 5 spatially distinct candidates |
-| Probe perturbations | 12 perturbations for moment estimation |
-| Held-out perturbations | 11 unseen perturbations for evaluation |
-| Target | Candidate-order stability, not semantic correctness |
+| Dataset | 500 unique RefCOCO image-query pairs |
+| Development-set overlap | Zero images |
+| Models | GroundingDINO Tiny; YOLO-World v2 Small |
+| Probe families | Blur, brightness, JPEG, resolution, Gaussian noise |
+| Diagnostic probes | 40 per eligible model-sample pair |
+| Independent reference probes | 80 per eligible model-sample pair |
+| Reported budgets | 5, 10, 20, 40 balanced probes |
+| Confidence intervals | Exact 95% Clopper-Pearson |
+| Bootstrap | 2,000 paired hierarchical repetitions |
+| Saved trace | Clean output plus every candidate association and probe outcome |
 
-The held-out perturbations are not used to compute GMS. They are used only to
-test whether GMS predicts unseen stability.
+The main hypotheses are:
 
-## Key Results
+- finite-budget estimates approach the independent reference as budget grows;
+- coverage-aware stability differs measurably from conditional persistence;
+- the output contract transfers unchanged across both model architectures;
+- failure and perturbation-family profiles identify model-specific instability;
+- all figures can be reproduced from complete saved traces.
 
-### Held-Out Candidate-Order Stability
+## Result Artifacts
 
-| Model | Clean margin AUROC | Full GMS AUROC | Improvement |
-|---|---:|---:|---:|
-| GroundingDINO | 0.562 | 0.697 | +0.133 |
-| YOLO-World | 0.708 | 0.771 | +0.063 |
+Formal results are written to `results/operational_benchmark_v1/`.
 
-Bootstrap intervals:
+After both model runs complete, the analysis pipeline generates:
 
-| Model | Mean AUROC improvement | 95 percent interval |
-|---|---:|---:|
-| GroundingDINO | +0.133 | [0.076, 0.197] |
-| YOLO-World | +0.063 | [0.002, 0.127] |
+![Finite-probe estimation](results/operational_benchmark_v1/analysis/finite_probe_estimation.png)
 
-### Interpretation
+![Perturbation-family risk](results/operational_benchmark_v1/analysis/reference_family_risk_share.png)
 
-The main supported finding is:
+![Failure causes](results/operational_benchmark_v1/analysis/reference_failure_causes.png)
 
-> Local perturbation moments provide information beyond the clean score margin.
+The tables and English report are stored beside these figures. During a formal
+run, `progress.json` records the exact completed count and elapsed time.
 
-The current experiments do not support stronger claims such as:
+## Reproduction
 
-- GMS is a correctness probability.
-- Full top-K is always significantly better than top-2.
-- Explicit covariance always improves the score.
-- The plug-in Cantelli score is a finite-sample certificate.
+Run all tests, both model benchmarks, and the final analysis sequentially:
 
-## Completed Work
-
-- Formalised a model-agnostic output interface for grounding models.
-- Defined ranking reversal as the core failure event.
-- Derived the GMS score from a one-sided probability bound.
-- Implemented candidate matching under visual and prompt perturbations.
-- Built a full top-K candidate trajectory pipeline.
-- Evaluated GroundingDINO and YOLO-World.
-- Ran matching audits, probe-budget analysis and bootstrap analysis.
-- Generated supervisor-ready presentation material.
-
-## Current Repository Layout
-
-```text
-gms_reliability/
-  src/              Core reliability, geometry and perturbation code
-  scripts/          Experiment, evaluation and figure generation scripts
-  tests/            Mathematical and implementation tests
-  docs/             English methodology and result reports
-  paper/            Theory notes and literature matrix
-  results/          Compact experiment outputs and figures
-  reports/          Presentation artifacts
-  data/             Lightweight split metadata only
-  config/           Configuration files
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_frozen_operational_pipeline.ps1
 ```
 
-Chinese and bilingual notes are intentionally kept outside this repository in
-`../doc/` so that the engineering repository remains English-only.
+Check progress without modifying the experiment:
+
+```powershell
+python scripts\check_operational_progress.py
+```
+
+Run one model with safe per-sample resume:
+
+```powershell
+python scripts\run_operational_benchmark.py `
+  --model groundingdino `
+  --output-root results\operational_benchmark_v1 `
+  --resume
+```
+
+Regenerate statistics and figures from completed traces:
+
+```powershell
+python scripts\analyse_operational_benchmark.py
+```
 
 ## Quick Verification
 
@@ -288,56 +424,43 @@ Chinese and bilingual notes are intentionally kept outside this repository in
 python -m pytest tests -q
 ```
 
-Expected result:
+All repository tests should pass without requiring model weights or datasets.
+
+## Repository Structure
 
 ```text
-8 passed
+coverage-aware-grounding-stability/
+  .github/          Continuous-integration workflow
+  config/           Frozen benchmark, transfer, probe, and contract configurations
+  data_operational/ Local datasets plus trackable manifests; raw assets are ignored
+  docs/             Current theory, preregistrations, execution logs, and findings
+  paper/            Literature audit, claims matrix, and mathematical source
+  reports/          Final dissertation and reproducible document source
+  results/          Compact canonical tables, figures, hashes, and English reports
+  scripts/          Data preparation, frozen inference, analysis, and validation tools
+  src/              Candidate contract, association, probes, and statistical estimators
+  tests/            Dataset-independent mathematical and implementation tests
 ```
 
-## Reproducing The Main Pipeline
+## Contribution Boundary
 
-Large model weights and raw COCO annotations are not committed. Place them
-locally before running the full pipeline.
+The framework supports claims about stability under a specified probe
+distribution. It does not prove semantic correctness, robustness to every
+possible real-world shift, or causal responsibility of a corruption family.
+Its intended contribution is a mathematically explicit, coverage-aware,
+finite-sample and cross-architecture benchmark for candidate-order stability.
 
-```powershell
-python scripts/run_full_geometry_experiment.py --model groundingdino --limit 100 --tag full100
-python scripts/evaluate_full_geometry.py --input outputs_refcoco/full_geometry/groundingdino_full100
+## Reproducibility policy
 
-python scripts/run_full_geometry_experiment.py --model yoloworld --limit 100 --tag full100
-python scripts/evaluate_full_geometry.py --input outputs_refcoco/full_geometry/yoloworld_full100
+- Frozen configurations and their hashes define confirmatory runs.
+- Each transfer freeze records the exact Git commit used for inference. Later
+  registered analysis improvements remain on `main`; checkout the recorded
+  commit when a byte-for-byte replay of an earlier run is required.
+- Complete traces stay local because of size; compact summaries, figures, and
+  artifact manifests are versioned.
+- Every reported result names the dataset split, model checkpoint, output
+  contract, probe law, and analysis entry point.
+- Failed runs and prototype experiments are not part of the release surface.
 
-python scripts/compare_models.py --groundingdino outputs_refcoco/full_geometry/groundingdino_full100 --yoloworld outputs_refcoco/full_geometry/yoloworld_full100
-```
-
-## Planned Next Steps
-
-### Short Term
-
-- Improve probe selection from a fixed set to a designed diagnostic set.
-- Separate candidate coverage failure from conditional ranking instability.
-- Use independent calibration and evaluation splits at image level.
-- Add diagnostic variables to explain why a prediction is unstable.
-- Compare GMS against confidence calibration, entropy and prompt consistency.
-
-### Medium Term
-
-- Test larger RefCOCO / RefCOCO+ splits.
-- Add OWL-ViT or another grounding model for broader architecture coverage.
-- Study whether instability modes transfer across models.
-- Introduce finite-sample calibration rather than relying only on plug-in moments.
-- Convert the methodology into a dissertation chapter draft.
-
-### Dissertation-Level Goal
-
-The intended final contribution is a model-agnostic framework for analysing
-candidate-order stability in vision-language grounding. The framework should be
-useful both theoretically, through a clear ranking-reversal formulation, and
-practically, by helping engineers identify fragile grounding decisions before
-they are used in downstream systems.
-
-## Important Limitation
-
-A stable prediction can still be wrong. GMS measures whether the model's own
-candidate ordering is stable under a registered perturbation family. Semantic
-correctness must be evaluated separately using ground-truth annotations or
-other semantic evidence.
+See [`MANIFEST.json`](MANIFEST.json) for the canonical release artifacts and
+[`CONTRIBUTING.md`](CONTRIBUTING.md) for extension rules.

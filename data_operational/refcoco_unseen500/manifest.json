@@ -1,0 +1,6502 @@
+[
+  {
+    "image_id": 346712,
+    "ref_id": 20202,
+    "query": "boy far left",
+    "target_box": [
+      0.96,
+      104.31,
+      117.75999999999999,
+      342.7
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000346712.jpg"
+  },
+  {
+    "image_id": 125350,
+    "ref_id": 39201,
+    "query": "right wee dude",
+    "target_box": [
+      258.17,
+      28.44,
+      452.73,
+      327.01
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000125350.jpg"
+  },
+  {
+    "image_id": 23967,
+    "ref_id": 47975,
+    "query": "boy in blue on right",
+    "target_box": [
+      210.17,
+      41.09,
+      478.80999999999995,
+      630.52
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000023967.jpg"
+  },
+  {
+    "image_id": 65842,
+    "ref_id": 44225,
+    "query": "orange at far left and orange at far right",
+    "target_box": [
+      37.1,
+      286.5,
+      509.11,
+      413.27
+    ],
+    "category_id": 55,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000065842.jpg"
+  },
+  {
+    "image_id": 448531,
+    "ref_id": 11612,
+    "query": "dk blue to left of boy",
+    "target_box": [
+      0.0,
+      155.55,
+      140.9,
+      339.86
+    ],
+    "category_id": 27,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000448531.jpg"
+  },
+  {
+    "image_id": 53643,
+    "ref_id": 45379,
+    "query": "caraffe with water center of pic",
+    "target_box": [
+      339.12,
+      77.3,
+      432.62,
+      332.88
+    ],
+    "category_id": 46,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000053643.jpg"
+  },
+  {
+    "image_id": 119534,
+    "ref_id": 39732,
+    "query": "curly",
+    "target_box": [
+      66.16,
+      0.0,
+      346.61,
+      297.71
+    ],
+    "category_id": 47,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000119534.jpg"
+  },
+  {
+    "image_id": 279882,
+    "ref_id": 26241,
+    "query": "car closest to man",
+    "target_box": [
+      2.39,
+      27.49,
+      121.9,
+      299.96000000000004
+    ],
+    "category_id": 8,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000279882.jpg"
+  },
+  {
+    "image_id": 84313,
+    "ref_id": 42654,
+    "query": "lady with glasses",
+    "target_box": [
+      355.9,
+      42.68,
+      548.46,
+      288.44
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000084313.jpg"
+  },
+  {
+    "image_id": 243153,
+    "ref_id": 29382,
+    "query": "player second from the right",
+    "target_box": [
+      330.18,
+      101.52,
+      449.48,
+      386.90999999999997
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000243153.jpg"
+  },
+  {
+    "image_id": 83353,
+    "ref_id": 42756,
+    "query": "the tree in right corner",
+    "target_box": [
+      307.09,
+      8.61,
+      426.18999999999994,
+      632.83
+    ],
+    "category_id": 64,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000083353.jpg"
+  },
+  {
+    "image_id": 457555,
+    "ref_id": 10797,
+    "query": "blue mercedes truck",
+    "target_box": [
+      2.16,
+      127.28,
+      156.4,
+      338.7
+    ],
+    "category_id": 8,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000457555.jpg"
+  },
+  {
+    "image_id": 467145,
+    "ref_id": 9958,
+    "query": "right lady in black",
+    "target_box": [
+      420.1,
+      170.94,
+      582.1,
+      451.85
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000467145.jpg"
+  },
+  {
+    "image_id": 389498,
+    "ref_id": 16696,
+    "query": "man",
+    "target_box": [
+      355.67,
+      77.83,
+      640.0,
+      420.97999999999996
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000389498.jpg"
+  },
+  {
+    "image_id": 339454,
+    "ref_id": 20822,
+    "query": "woman in white dress with umbrella",
+    "target_box": [
+      326.5,
+      202.56,
+      425.28,
+      427.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000339454.jpg"
+  },
+  {
+    "image_id": 218447,
+    "ref_id": 31468,
+    "query": "broc laying sideways in center of photo",
+    "target_box": [
+      283.13,
+      79.18,
+      424.33,
+      223.56
+    ],
+    "category_id": 56,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000218447.jpg"
+  },
+  {
+    "image_id": 55618,
+    "ref_id": 45176,
+    "query": "green woman",
+    "target_box": [
+      75.51,
+      74.1,
+      241.62,
+      473.20000000000005
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000055618.jpg"
+  },
+  {
+    "image_id": 226348,
+    "ref_id": 30735,
+    "query": "cut out",
+    "target_box": [
+      1.19,
+      210.77,
+      117.33,
+      473.88
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000226348.jpg"
+  },
+  {
+    "image_id": 226594,
+    "ref_id": 30712,
+    "query": "girl pink pants",
+    "target_box": [
+      156.94,
+      60.67,
+      242.7,
+      285.57
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000226594.jpg"
+  },
+  {
+    "image_id": 15750,
+    "ref_id": 48658,
+    "query": "pink toilet left side third down",
+    "target_box": [
+      0.0,
+      137.77,
+      207.3,
+      325.13
+    ],
+    "category_id": 70,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000015750.jpg"
+  },
+  {
+    "image_id": 34810,
+    "ref_id": 47052,
+    "query": "guy in black not jumping",
+    "target_box": [
+      53.33,
+      300.54,
+      227.75,
+      633.51
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000034810.jpg"
+  },
+  {
+    "image_id": 550760,
+    "ref_id": 2766,
+    "query": "person on left",
+    "target_box": [
+      0.0,
+      67.37,
+      573.63,
+      480.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000550760.jpg"
+  },
+  {
+    "image_id": 52109,
+    "ref_id": 45518,
+    "query": "red shirt",
+    "target_box": [
+      394.83,
+      100.41,
+      472.73,
+      377.86
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000052109.jpg"
+  },
+  {
+    "image_id": 369805,
+    "ref_id": 18360,
+    "query": "red motorcycle",
+    "target_box": [
+      19.72,
+      111.26,
+      500.0,
+      353.6
+    ],
+    "category_id": 4,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000369805.jpg"
+  },
+  {
+    "image_id": 446670,
+    "ref_id": 11759,
+    "query": "close chair",
+    "target_box": [
+      115.4,
+      364.51,
+      289.25,
+      640.0
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000446670.jpg"
+  },
+  {
+    "image_id": 156258,
+    "ref_id": 36577,
+    "query": "left side of table",
+    "target_box": [
+      1.11,
+      133.71,
+      314.23,
+      423.43000000000006
+    ],
+    "category_id": 67,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000156258.jpg"
+  },
+  {
+    "image_id": 291493,
+    "ref_id": 25281,
+    "query": "bottom sandwich",
+    "target_box": [
+      217.4,
+      113.65,
+      528.43,
+      453.74
+    ],
+    "category_id": 54,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000291493.jpg"
+  },
+  {
+    "image_id": 520831,
+    "ref_id": 5305,
+    "query": "skier in red",
+    "target_box": [
+      126.56,
+      112.18,
+      381.12,
+      550.8299999999999
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000520831.jpg"
+  },
+  {
+    "image_id": 83093,
+    "ref_id": 42773,
+    "query": "boy in brown shirt",
+    "target_box": [
+      109.8,
+      73.92,
+      266.29,
+      328.11
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000083093.jpg"
+  },
+  {
+    "image_id": 458633,
+    "ref_id": 10693,
+    "query": "blk cow",
+    "target_box": [
+      1.44,
+      224.36,
+      201.35,
+      629.9300000000001
+    ],
+    "category_id": 21,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000458633.jpg"
+  },
+  {
+    "image_id": 77417,
+    "ref_id": 43254,
+    "query": "left monitor",
+    "target_box": [
+      102.7,
+      25.25,
+      306.4,
+      193.3
+    ],
+    "category_id": 72,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000077417.jpg"
+  },
+  {
+    "image_id": 184835,
+    "ref_id": 34252,
+    "query": "dude sitting with face covered in black",
+    "target_box": [
+      422.7,
+      266.49,
+      543.78,
+      475.14
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000184835.jpg"
+  },
+  {
+    "image_id": 35995,
+    "ref_id": 46945,
+    "query": "man in a tie",
+    "target_box": [
+      360.87,
+      106.73,
+      541.78,
+      419.74
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000035995.jpg"
+  },
+  {
+    "image_id": 103430,
+    "ref_id": 40996,
+    "query": "bottom right bun",
+    "target_box": [
+      294.92,
+      127.44,
+      500.0,
+      370.61
+    ],
+    "category_id": 58,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000103430.jpg"
+  },
+  {
+    "image_id": 340971,
+    "ref_id": 20658,
+    "query": "white chair bottom left",
+    "target_box": [
+      52.65,
+      395.35,
+      268.39,
+      474.84000000000003
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000340971.jpg"
+  },
+  {
+    "image_id": 97939,
+    "ref_id": 41436,
+    "query": "girl with phone",
+    "target_box": [
+      150.11,
+      118.78,
+      276.21000000000004,
+      328.93
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000097939.jpg"
+  },
+  {
+    "image_id": 199640,
+    "ref_id": 33072,
+    "query": "click the motorcycle that the girl with the pink shirt is riding",
+    "target_box": [
+      99.27,
+      158.13,
+      347.46999999999997,
+      325.53
+    ],
+    "category_id": 4,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000199640.jpg"
+  },
+  {
+    "image_id": 124030,
+    "ref_id": 39320,
+    "query": "giraffe background",
+    "target_box": [
+      13.0,
+      242.35,
+      480.0,
+      629.53
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000124030.jpg"
+  },
+  {
+    "image_id": 298481,
+    "ref_id": 24663,
+    "query": "left chair back facing us",
+    "target_box": [
+      20.13,
+      320.72,
+      130.88,
+      510.56000000000006
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000298481.jpg"
+  },
+  {
+    "image_id": 481804,
+    "ref_id": 8752,
+    "query": "reclining boy in back",
+    "target_box": [
+      103.22,
+      0.81,
+      224.86,
+      143.79
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000481804.jpg"
+  },
+  {
+    "image_id": 24026,
+    "ref_id": 47963,
+    "query": "left the hand",
+    "target_box": [
+      0.0,
+      211.86,
+      271.84,
+      427.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000024026.jpg"
+  },
+  {
+    "image_id": 391088,
+    "ref_id": 16582,
+    "query": "chocalate doughnut",
+    "target_box": [
+      293.42,
+      72.51,
+      564.61,
+      315.02
+    ],
+    "category_id": 60,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000391088.jpg"
+  },
+  {
+    "image_id": 152556,
+    "ref_id": 36857,
+    "query": "main girl",
+    "target_box": [
+      91.3,
+      46.13,
+      402.82,
+      479.52
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000152556.jpg"
+  },
+  {
+    "image_id": 498639,
+    "ref_id": 7265,
+    "query": "girl sitting in back",
+    "target_box": [
+      0.33,
+      119.44,
+      116.03999999999999,
+      401.25
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000498639.jpg"
+  },
+  {
+    "image_id": 472954,
+    "ref_id": 9478,
+    "query": "man in blue",
+    "target_box": [
+      390.58,
+      137.85,
+      627.99,
+      419.29999999999995
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000472954.jpg"
+  },
+  {
+    "image_id": 410845,
+    "ref_id": 14864,
+    "query": "bowl bottom left corner",
+    "target_box": [
+      0.27,
+      335.04,
+      157.66,
+      428.0
+    ],
+    "category_id": 51,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000410845.jpg"
+  },
+  {
+    "image_id": 223909,
+    "ref_id": 30957,
+    "query": "left giraffe",
+    "target_box": [
+      76.94,
+      93.29,
+      307.78,
+      423.19
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000223909.jpg"
+  },
+  {
+    "image_id": 29915,
+    "ref_id": 47432,
+    "query": "bike tire going off the screen on right",
+    "target_box": [
+      520.0,
+      117.3,
+      640.0,
+      317.3
+    ],
+    "category_id": 4,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000029915.jpg"
+  },
+  {
+    "image_id": 261381,
+    "ref_id": 27789,
+    "query": "second man from the right",
+    "target_box": [
+      275.68,
+      87.18,
+      416.9,
+      306.20000000000005
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000261381.jpg"
+  },
+  {
+    "image_id": 31812,
+    "ref_id": 47281,
+    "query": "cake with cherries on top",
+    "target_box": [
+      0.0,
+      65.1,
+      122.53,
+      240.28
+    ],
+    "category_id": 61,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000031812.jpg"
+  },
+  {
+    "image_id": 235316,
+    "ref_id": 30050,
+    "query": "right cutting cake",
+    "target_box": [
+      357.2,
+      95.79,
+      551.77,
+      356.20000000000005
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000235316.jpg"
+  },
+  {
+    "image_id": 566798,
+    "ref_id": 1350,
+    "query": "man",
+    "target_box": [
+      75.77,
+      113.96,
+      324.86,
+      377.15999999999997
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000566798.jpg"
+  },
+  {
+    "image_id": 197289,
+    "ref_id": 33252,
+    "query": "left sandwich",
+    "target_box": [
+      0.0,
+      67.17,
+      127.62,
+      335.84000000000003
+    ],
+    "category_id": 54,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000197289.jpg"
+  },
+  {
+    "image_id": 426478,
+    "ref_id": 13513,
+    "query": "right dog",
+    "target_box": [
+      440.4,
+      115.1,
+      640.0,
+      422.0
+    ],
+    "category_id": 58,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000426478.jpg"
+  },
+  {
+    "image_id": 521618,
+    "ref_id": 5230,
+    "query": "little kid",
+    "target_box": [
+      153.53,
+      95.74,
+      306.83000000000004,
+      420.28000000000003
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000521618.jpg"
+  },
+  {
+    "image_id": 453602,
+    "ref_id": 11189,
+    "query": "center broccoli",
+    "target_box": [
+      288.04,
+      152.51,
+      512.21,
+      385.22
+    ],
+    "category_id": 56,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000453602.jpg"
+  },
+  {
+    "image_id": 17578,
+    "ref_id": 48497,
+    "query": "red and white tied dye shirt",
+    "target_box": [
+      312.52,
+      70.51,
+      437.34,
+      293.47
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000017578.jpg"
+  },
+  {
+    "image_id": 95812,
+    "ref_id": 41649,
+    "query": "man holding kid",
+    "target_box": [
+      368.65,
+      28.65,
+      616.97,
+      425.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000095812.jpg"
+  },
+  {
+    "image_id": 163506,
+    "ref_id": 36006,
+    "query": "man in blue in middle",
+    "target_box": [
+      319.34,
+      65.32,
+      403.84999999999997,
+      294.03999999999996
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000163506.jpg"
+  },
+  {
+    "image_id": 530132,
+    "ref_id": 4519,
+    "query": "second bus front",
+    "target_box": [
+      432.75,
+      150.44,
+      578.79,
+      341.58
+    ],
+    "category_id": 6,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000530132.jpg"
+  },
+  {
+    "image_id": 492293,
+    "ref_id": 7822,
+    "query": "red bus in back",
+    "target_box": [
+      0.0,
+      168.88,
+      142.97,
+      320.49
+    ],
+    "category_id": 6,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000492293.jpg"
+  },
+  {
+    "image_id": 372003,
+    "ref_id": 18201,
+    "query": "blue car on right",
+    "target_box": [
+      414.35,
+      208.74,
+      605.9200000000001,
+      403.53
+    ],
+    "category_id": 3,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000372003.jpg"
+  },
+  {
+    "image_id": 348609,
+    "ref_id": 20035,
+    "query": "guy in front",
+    "target_box": [
+      136.97,
+      147.39,
+      310.87,
+      471.36
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000348609.jpg"
+  },
+  {
+    "image_id": 260010,
+    "ref_id": 27940,
+    "query": "batter",
+    "target_box": [
+      237.3,
+      113.26,
+      388.31,
+      468.13
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000260010.jpg"
+  },
+  {
+    "image_id": 380034,
+    "ref_id": 17534,
+    "query": "the man in the middle wearing the black suit hes shaking hands",
+    "target_box": [
+      281.51,
+      119.88,
+      468.86,
+      426.63
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000380034.jpg"
+  },
+  {
+    "image_id": 115604,
+    "ref_id": 40058,
+    "query": "chef on left",
+    "target_box": [
+      88.45,
+      84.21,
+      212.49,
+      388.39
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000115604.jpg"
+  },
+  {
+    "image_id": 161865,
+    "ref_id": 36122,
+    "query": "left person",
+    "target_box": [
+      113.58,
+      90.27,
+      326.02,
+      460.46
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000161865.jpg"
+  },
+  {
+    "image_id": 506030,
+    "ref_id": 6611,
+    "query": "old guy",
+    "target_box": [
+      2.16,
+      25.41,
+      249.73,
+      384.32000000000005
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000506030.jpg"
+  },
+  {
+    "image_id": 292498,
+    "ref_id": 25206,
+    "query": "bus at center of photo",
+    "target_box": [
+      220.66,
+      118.44,
+      488.36,
+      273.39
+    ],
+    "category_id": 6,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000292498.jpg"
+  },
+  {
+    "image_id": 206628,
+    "ref_id": 32456,
+    "query": "woman left",
+    "target_box": [
+      172.49,
+      105.61,
+      305.09000000000003,
+      268.71
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000206628.jpg"
+  },
+  {
+    "image_id": 177917,
+    "ref_id": 34869,
+    "query": "bear feet",
+    "target_box": [
+      0.28,
+      478.29,
+      196.6,
+      640.0
+    ],
+    "category_id": 88,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000177917.jpg"
+  },
+  {
+    "image_id": 420620,
+    "ref_id": 14062,
+    "query": "left bike behind the man on left",
+    "target_box": [
+      83.29,
+      144.52,
+      322.64,
+      367.59000000000003
+    ],
+    "category_id": 4,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000420620.jpg"
+  },
+  {
+    "image_id": 75881,
+    "ref_id": 43371,
+    "query": "adult zebra",
+    "target_box": [
+      67.65,
+      39.3,
+      594.55,
+      391.84000000000003
+    ],
+    "category_id": 24,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000075881.jpg"
+  },
+  {
+    "image_id": 555022,
+    "ref_id": 2369,
+    "query": "pink couch with pink pillow on it but click the couch not the pillow",
+    "target_box": [
+      401.11,
+      179.74,
+      578.99,
+      312.01
+    ],
+    "category_id": 63,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000555022.jpg"
+  },
+  {
+    "image_id": 22928,
+    "ref_id": 48064,
+    "query": "right dog",
+    "target_box": [
+      136.5,
+      8.5,
+      300.0,
+      176.0
+    ],
+    "category_id": 18,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000022928.jpg"
+  },
+  {
+    "image_id": 349144,
+    "ref_id": 19982,
+    "query": "middle bike tire",
+    "target_box": [
+      175.7,
+      215.52,
+      361.88,
+      448.31
+    ],
+    "category_id": 2,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000349144.jpg"
+  },
+  {
+    "image_id": 233153,
+    "ref_id": 30199,
+    "query": "hot dude",
+    "target_box": [
+      243.33,
+      17.76,
+      640.0,
+      576.77
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000233153.jpg"
+  },
+  {
+    "image_id": 128599,
+    "ref_id": 38888,
+    "query": "guy in middle",
+    "target_box": [
+      35.45,
+      0.73,
+      460.53,
+      612.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000128599.jpg"
+  },
+  {
+    "image_id": 521800,
+    "ref_id": 5217,
+    "query": "left choc donut on bottom",
+    "target_box": [
+      178.15,
+      209.0,
+      322.13,
+      342.23
+    ],
+    "category_id": 60,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000521800.jpg"
+  },
+  {
+    "image_id": 177658,
+    "ref_id": 34885,
+    "query": "woman",
+    "target_box": [
+      316.04,
+      5.39,
+      506.97,
+      298.78999999999996
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000177658.jpg"
+  },
+  {
+    "image_id": 139763,
+    "ref_id": 37936,
+    "query": "first chair on right",
+    "target_box": [
+      316.85,
+      326.14,
+      526.12,
+      478.0
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000139763.jpg"
+  },
+  {
+    "image_id": 74183,
+    "ref_id": 43524,
+    "query": "front row second from left",
+    "target_box": [
+      149.21,
+      127.94,
+      271.12,
+      428.11
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000074183.jpg"
+  },
+  {
+    "image_id": 275707,
+    "ref_id": 26641,
+    "query": "guy left",
+    "target_box": [
+      0.0,
+      64.28,
+      54.03,
+      374.58000000000004
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000275707.jpg"
+  },
+  {
+    "image_id": 163828,
+    "ref_id": 35981,
+    "query": "hitta",
+    "target_box": [
+      380.32,
+      108.69,
+      525.9300000000001,
+      413.1
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000163828.jpg"
+  },
+  {
+    "image_id": 71989,
+    "ref_id": 43765,
+    "query": "person on right",
+    "target_box": [
+      448.58,
+      86.95,
+      594.85,
+      324.24
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000071989.jpg"
+  },
+  {
+    "image_id": 77174,
+    "ref_id": 43277,
+    "query": "left sandwich half",
+    "target_box": [
+      41.52,
+      369.53,
+      163.22,
+      594.3199999999999
+    ],
+    "category_id": 54,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000077174.jpg"
+  },
+  {
+    "image_id": 289782,
+    "ref_id": 25388,
+    "query": "red truck on right",
+    "target_box": [
+      483.74,
+      79.34,
+      640.0,
+      364.01
+    ],
+    "category_id": 8,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000289782.jpg"
+  },
+  {
+    "image_id": 61877,
+    "ref_id": 44578,
+    "query": "right girl",
+    "target_box": [
+      390.27,
+      18.92,
+      556.76,
+      453.51
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000061877.jpg"
+  },
+  {
+    "image_id": 158051,
+    "ref_id": 36394,
+    "query": "woman",
+    "target_box": [
+      170.45,
+      8.01,
+      430.97999999999996,
+      319.76
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000158051.jpg"
+  },
+  {
+    "image_id": 553586,
+    "ref_id": 2501,
+    "query": "right bread",
+    "target_box": [
+      334.34,
+      74.6,
+      554.05,
+      321.06
+    ],
+    "category_id": 54,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000553586.jpg"
+  },
+  {
+    "image_id": 135348,
+    "ref_id": 38331,
+    "query": "guy with orange back far left no head",
+    "target_box": [
+      1.44,
+      166.49,
+      110.99,
+      441.8
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000135348.jpg"
+  },
+  {
+    "image_id": 474123,
+    "ref_id": 9388,
+    "query": "tats chick",
+    "target_box": [
+      1.44,
+      181.21,
+      427.0,
+      631.37
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000474123.jpg"
+  },
+  {
+    "image_id": 538398,
+    "ref_id": 3810,
+    "query": "striped thing",
+    "target_box": [
+      59.87,
+      338.7,
+      286.96999999999997,
+      434.7
+    ],
+    "category_id": 63,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000538398.jpg"
+  },
+  {
+    "image_id": 116882,
+    "ref_id": 39938,
+    "query": "woman",
+    "target_box": [
+      0.0,
+      2.88,
+      220.04,
+      480.36
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000116882.jpg"
+  },
+  {
+    "image_id": 176945,
+    "ref_id": 34939,
+    "query": "top half of sandwich",
+    "target_box": [
+      41.12,
+      266.43,
+      165.09,
+      409.21000000000004
+    ],
+    "category_id": 54,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000176945.jpg"
+  },
+  {
+    "image_id": 394992,
+    "ref_id": 16234,
+    "query": "middle front row",
+    "target_box": [
+      279.05,
+      278.39,
+      361.44,
+      480.37
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000394992.jpg"
+  },
+  {
+    "image_id": 132617,
+    "ref_id": 38525,
+    "query": "the chair on the far left that is empty",
+    "target_box": [
+      0.52,
+      304.4,
+      86.08999999999999,
+      479.15
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000132617.jpg"
+  },
+  {
+    "image_id": 547348,
+    "ref_id": 3059,
+    "query": "blue suite left bottom corner",
+    "target_box": [
+      0.0,
+      218.87,
+      147.32,
+      427.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000547348.jpg"
+  },
+  {
+    "image_id": 74925,
+    "ref_id": 43450,
+    "query": "the person with their back to us",
+    "target_box": [
+      1.08,
+      3.17,
+      212.02,
+      480.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000074925.jpg"
+  },
+  {
+    "image_id": 233871,
+    "ref_id": 30147,
+    "query": "girl with chin in hand",
+    "target_box": [
+      115.42,
+      142.91,
+      300.76,
+      371.52
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000233871.jpg"
+  },
+  {
+    "image_id": 476934,
+    "ref_id": 9180,
+    "query": "hands right",
+    "target_box": [
+      440.5,
+      0.0,
+      639.6,
+      296.23
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000476934.jpg"
+  },
+  {
+    "image_id": 550129,
+    "ref_id": 2813,
+    "query": "giraffe front",
+    "target_box": [
+      60.67,
+      57.64,
+      281.12,
+      444.94
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000550129.jpg"
+  },
+  {
+    "image_id": 276460,
+    "ref_id": 26582,
+    "query": "man middle yellow shirt",
+    "target_box": [
+      269.03,
+      78.31,
+      385.12,
+      281.01
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000276460.jpg"
+  },
+  {
+    "image_id": 450162,
+    "ref_id": 11481,
+    "query": "suit and tie",
+    "target_box": [
+      185.7,
+      32.55,
+      496.78999999999996,
+      419.26
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000450162.jpg"
+  },
+  {
+    "image_id": 85939,
+    "ref_id": 42549,
+    "query": "top right of frame dark circles",
+    "target_box": [
+      535.01,
+      1.08,
+      640.0,
+      182.29000000000002
+    ],
+    "category_id": 86,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000085939.jpg"
+  },
+  {
+    "image_id": 360302,
+    "ref_id": 19049,
+    "query": "figurine closest",
+    "target_box": [
+      286.92,
+      63.46,
+      578.1600000000001,
+      333.12
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000360302.jpg"
+  },
+  {
+    "image_id": 270460,
+    "ref_id": 26990,
+    "query": "nearest biggest umbrella",
+    "target_box": [
+      57.53,
+      205.66,
+      368.17999999999995,
+      494.74
+    ],
+    "category_id": 28,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000270460.jpg"
+  },
+  {
+    "image_id": 464744,
+    "ref_id": 10169,
+    "query": "bottom left corner black leather",
+    "target_box": [
+      0.91,
+      323.01,
+      329.31,
+      417.88
+    ],
+    "category_id": 63,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000464744.jpg"
+  },
+  {
+    "image_id": 221794,
+    "ref_id": 31152,
+    "query": "red on right",
+    "target_box": [
+      343.78,
+      65.41,
+      530.81,
+      464.32000000000005
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000221794.jpg"
+  },
+  {
+    "image_id": 280018,
+    "ref_id": 26223,
+    "query": "top left white stuff",
+    "target_box": [
+      1.08,
+      23.73,
+      293.39,
+      256.72
+    ],
+    "category_id": 51,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000280018.jpg"
+  },
+  {
+    "image_id": 197068,
+    "ref_id": 33280,
+    "query": "the closed phone",
+    "target_box": [
+      233.36,
+      0.0,
+      530.76,
+      198.63
+    ],
+    "category_id": 77,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000197068.jpg"
+  },
+  {
+    "image_id": 5638,
+    "ref_id": 49560,
+    "query": "driver",
+    "target_box": [
+      63.64,
+      50.7,
+      306.34,
+      451.96
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000005638.jpg"
+  },
+  {
+    "image_id": 108375,
+    "ref_id": 40612,
+    "query": "lady on leftpurple shirt",
+    "target_box": [
+      120.04,
+      199.59,
+      315.37,
+      426.86
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000108375.jpg"
+  },
+  {
+    "image_id": 102290,
+    "ref_id": 41091,
+    "query": "dancer",
+    "target_box": [
+      17.26,
+      38.83,
+      553.71,
+      588.22
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000102290.jpg"
+  },
+  {
+    "image_id": 26052,
+    "ref_id": 47798,
+    "query": "cup with lemon on the",
+    "target_box": [
+      45.2,
+      35.09,
+      136.68,
+      209.43
+    ],
+    "category_id": 47,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000026052.jpg"
+  },
+  {
+    "image_id": 539647,
+    "ref_id": 3700,
+    "query": "left guy",
+    "target_box": [
+      24.95,
+      0.0,
+      236.04999999999998,
+      420.95
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000539647.jpg"
+  },
+  {
+    "image_id": 421208,
+    "ref_id": 14012,
+    "query": "zebra on left",
+    "target_box": [
+      127.32,
+      83.11,
+      427.84,
+      462.34000000000003
+    ],
+    "category_id": 24,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000421208.jpg"
+  },
+  {
+    "image_id": 387105,
+    "ref_id": 16916,
+    "query": "top center bird",
+    "target_box": [
+      203.54,
+      46.26,
+      425.57,
+      199.42
+    ],
+    "category_id": 16,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000387105.jpg"
+  },
+  {
+    "image_id": 531873,
+    "ref_id": 4392,
+    "query": "carrot on the left",
+    "target_box": [
+      81.54,
+      97.6,
+      336.85,
+      472.78999999999996
+    ],
+    "category_id": 57,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000531873.jpg"
+  },
+  {
+    "image_id": 232957,
+    "ref_id": 30218,
+    "query": "woman left",
+    "target_box": [
+      53.86,
+      101.95,
+      228.91000000000003,
+      377.02
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000232957.jpg"
+  },
+  {
+    "image_id": 132991,
+    "ref_id": 38500,
+    "query": "man far right second step",
+    "target_box": [
+      522.55,
+      172.11,
+      606.3399999999999,
+      419.97
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000132991.jpg"
+  },
+  {
+    "image_id": 458827,
+    "ref_id": 10669,
+    "query": "right guy",
+    "target_box": [
+      336.94,
+      0.66,
+      494.18,
+      265.59000000000003
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000458827.jpg"
+  },
+  {
+    "image_id": 43892,
+    "ref_id": 46280,
+    "query": "fruit at top above lemon",
+    "target_box": [
+      309.01,
+      12.17,
+      449.24,
+      133.81
+    ],
+    "category_id": 53,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000043892.jpg"
+  },
+  {
+    "image_id": 335865,
+    "ref_id": 21147,
+    "query": "tv on the left",
+    "target_box": [
+      0.0,
+      230.46,
+      113.36,
+      368.22
+    ],
+    "category_id": 72,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000335865.jpg"
+  },
+  {
+    "image_id": 86750,
+    "ref_id": 42466,
+    "query": "woman biting nails",
+    "target_box": [
+      0.0,
+      15.0,
+      246.82,
+      388.34
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000086750.jpg"
+  },
+  {
+    "image_id": 351654,
+    "ref_id": 19757,
+    "query": "bottom left mixin bowl",
+    "target_box": [
+      0.0,
+      308.05,
+      305.87,
+      514.24
+    ],
+    "category_id": 51,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000351654.jpg"
+  },
+  {
+    "image_id": 461996,
+    "ref_id": 10421,
+    "query": "lady on left",
+    "target_box": [
+      23.81,
+      44.29,
+      216.42000000000002,
+      621.55
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000461996.jpg"
+  },
+  {
+    "image_id": 106832,
+    "ref_id": 40711,
+    "query": "bottom of sanwich",
+    "target_box": [
+      236.47,
+      275.4,
+      536.02,
+      437.84999999999997
+    ],
+    "category_id": 54,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000106832.jpg"
+  },
+  {
+    "image_id": 456545,
+    "ref_id": 10882,
+    "query": "person skate black",
+    "target_box": [
+      269.18,
+      316.78,
+      433.39,
+      515.01
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000456545.jpg"
+  },
+  {
+    "image_id": 180559,
+    "ref_id": 34644,
+    "query": "guy in gray shirt",
+    "target_box": [
+      188.4,
+      92.08,
+      455.4,
+      383.57
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000180559.jpg"
+  },
+  {
+    "image_id": 359339,
+    "ref_id": 19128,
+    "query": "man",
+    "target_box": [
+      257.1,
+      75.46,
+      427.43000000000006,
+      480.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000359339.jpg"
+  },
+  {
+    "image_id": 283479,
+    "ref_id": 25971,
+    "query": "robert book",
+    "target_box": [
+      332.38,
+      209.05,
+      631.14,
+      480.0
+    ],
+    "category_id": 84,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000283479.jpg"
+  },
+  {
+    "image_id": 298306,
+    "ref_id": 24697,
+    "query": "left man",
+    "target_box": [
+      57.57,
+      129.54,
+      272.51,
+      419.31999999999994
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000298306.jpg"
+  },
+  {
+    "image_id": 375133,
+    "ref_id": 17922,
+    "query": "right guy in black",
+    "target_box": [
+      321.08,
+      82.76,
+      449.21,
+      328.6
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000375133.jpg"
+  },
+  {
+    "image_id": 252277,
+    "ref_id": 28579,
+    "query": "bottom book right",
+    "target_box": [
+      246.14,
+      230.82,
+      639.25,
+      377.78999999999996
+    ],
+    "category_id": 84,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000252277.jpg"
+  },
+  {
+    "image_id": 215421,
+    "ref_id": 31720,
+    "query": "beige vase",
+    "target_box": [
+      91.86,
+      116.3,
+      234.58999999999997,
+      306.6
+    ],
+    "category_id": 86,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000215421.jpg"
+  },
+  {
+    "image_id": 219169,
+    "ref_id": 31407,
+    "query": "elephant in front on the right",
+    "target_box": [
+      342.98,
+      97.81,
+      500.0,
+      278.15
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000219169.jpg"
+  },
+  {
+    "image_id": 55232,
+    "ref_id": 45238,
+    "query": "left umbrella",
+    "target_box": [
+      0.0,
+      1.4,
+      283.89,
+      132.69
+    ],
+    "category_id": 28,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000055232.jpg"
+  },
+  {
+    "image_id": 11292,
+    "ref_id": 49090,
+    "query": "man right",
+    "target_box": [
+      314.97,
+      93.84,
+      588.22,
+      630.15
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000011292.jpg"
+  },
+  {
+    "image_id": 79722,
+    "ref_id": 43046,
+    "query": "white book at right",
+    "target_box": [
+      463.67,
+      105.07,
+      640.0,
+      392.33
+    ],
+    "category_id": 84,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000079722.jpg"
+  },
+  {
+    "image_id": 258705,
+    "ref_id": 28035,
+    "query": "orange",
+    "target_box": [
+      0.0,
+      2.16,
+      367.57,
+      630.63
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000258705.jpg"
+  },
+  {
+    "image_id": 128974,
+    "ref_id": 38853,
+    "query": "person on first motorcycle right guy closest to us",
+    "target_box": [
+      163.48,
+      123.16,
+      302.99,
+      394.53999999999996
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000128974.jpg"
+  },
+  {
+    "image_id": 242807,
+    "ref_id": 29419,
+    "query": "uniform behind the dark skin child",
+    "target_box": [
+      73.54,
+      3.01,
+      541.54,
+      400.81
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000242807.jpg"
+  },
+  {
+    "image_id": 76781,
+    "ref_id": 43308,
+    "query": "front elephant",
+    "target_box": [
+      66.21,
+      19.19,
+      623.71,
+      401.09
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000076781.jpg"
+  },
+  {
+    "image_id": 250978,
+    "ref_id": 28705,
+    "query": "bear the child is hugging",
+    "target_box": [
+      208.51,
+      163.04,
+      453.62,
+      421.45000000000005
+    ],
+    "category_id": 88,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000250978.jpg"
+  },
+  {
+    "image_id": 534772,
+    "ref_id": 4136,
+    "query": "top left",
+    "target_box": [
+      0.92,
+      9.19,
+      113.97,
+      179.22
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000534772.jpg"
+  },
+  {
+    "image_id": 62038,
+    "ref_id": 44565,
+    "query": "closest glass",
+    "target_box": [
+      59.33,
+      91.69,
+      282.61,
+      473.53
+    ],
+    "category_id": 46,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000062038.jpg"
+  },
+  {
+    "image_id": 454002,
+    "ref_id": 11146,
+    "query": "table",
+    "target_box": [
+      49.7,
+      344.13,
+      402.83,
+      640.0
+    ],
+    "category_id": 67,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000454002.jpg"
+  },
+  {
+    "image_id": 183923,
+    "ref_id": 34338,
+    "query": "khaki pants to the far left",
+    "target_box": [
+      37.42,
+      7.74,
+      119.94,
+      311.92
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000183923.jpg"
+  },
+  {
+    "image_id": 175745,
+    "ref_id": 35052,
+    "query": "girl wearing pink shorts",
+    "target_box": [
+      0.0,
+      22.54,
+      140.01,
+      429.52000000000004
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000175745.jpg"
+  },
+  {
+    "image_id": 177214,
+    "ref_id": 34908,
+    "query": "small elephant left",
+    "target_box": [
+      52.93,
+      103.75,
+      185.73000000000002,
+      221.34
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000177214.jpg"
+  },
+  {
+    "image_id": 1958,
+    "ref_id": 49846,
+    "query": "chair in blue bottom right corner",
+    "target_box": [
+      403.61,
+      321.75,
+      640.0,
+      474.53
+    ],
+    "category_id": 63,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000001958.jpg"
+  },
+  {
+    "image_id": 73610,
+    "ref_id": 43595,
+    "query": "actual man",
+    "target_box": [
+      356.09,
+      88.84,
+      581.31,
+      478.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000073610.jpg"
+  },
+  {
+    "image_id": 511036,
+    "ref_id": 6193,
+    "query": "blue dish with bread or whatever in it bottom right",
+    "target_box": [
+      364.2,
+      218.15,
+      588.23,
+      420.11
+    ],
+    "category_id": 51,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000511036.jpg"
+  },
+  {
+    "image_id": 264741,
+    "ref_id": 27481,
+    "query": "bottom right corner couch cushion",
+    "target_box": [
+      0.0,
+      440.9,
+      134.25,
+      610.68
+    ],
+    "category_id": 63,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000264741.jpg"
+  },
+  {
+    "image_id": 247126,
+    "ref_id": 29015,
+    "query": "blue shirt",
+    "target_box": [
+      162.88,
+      143.28,
+      271.82,
+      392.45
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000247126.jpg"
+  },
+  {
+    "image_id": 554699,
+    "ref_id": 2394,
+    "query": "hot dogs far left",
+    "target_box": [
+      0.0,
+      41.52,
+      134.78,
+      314.62
+    ],
+    "category_id": 51,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000554699.jpg"
+  },
+  {
+    "image_id": 194056,
+    "ref_id": 33509,
+    "query": "yellow coat",
+    "target_box": [
+      86.68,
+      11.2,
+      283.15999999999997,
+      632.4200000000001
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000194056.jpg"
+  },
+  {
+    "image_id": 193168,
+    "ref_id": 33579,
+    "query": "right slice",
+    "target_box": [
+      220.25,
+      29.82,
+      632.86,
+      327.01
+    ],
+    "category_id": 59,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000193168.jpg"
+  },
+  {
+    "image_id": 6051,
+    "ref_id": 49530,
+    "query": "the white chair right above the dog",
+    "target_box": [
+      174.48,
+      0.74,
+      470.9,
+      295.18
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000006051.jpg"
+  },
+  {
+    "image_id": 469825,
+    "ref_id": 9745,
+    "query": "person in shorts",
+    "target_box": [
+      270.74,
+      60.22,
+      590.02,
+      373.03
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000469825.jpg"
+  },
+  {
+    "image_id": 130869,
+    "ref_id": 38678,
+    "query": "boy on right",
+    "target_box": [
+      250.44,
+      51.88,
+      515.28,
+      406.90999999999997
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000130869.jpg"
+  },
+  {
+    "image_id": 8436,
+    "ref_id": 49328,
+    "query": "person third from the right",
+    "target_box": [
+      424.27,
+      248.81,
+      510.56,
+      487.55
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000008436.jpg"
+  },
+  {
+    "image_id": 194550,
+    "ref_id": 33474,
+    "query": "right guy",
+    "target_box": [
+      421.18,
+      122.25,
+      639.89,
+      420.22
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000194550.jpg"
+  },
+  {
+    "image_id": 253049,
+    "ref_id": 28511,
+    "query": "left most donut",
+    "target_box": [
+      12.38,
+      310.81,
+      191.16,
+      599.62
+    ],
+    "category_id": 60,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000253049.jpg"
+  },
+  {
+    "image_id": 278931,
+    "ref_id": 26336,
+    "query": "person in a checked shirt",
+    "target_box": [
+      24.01,
+      250.29,
+      123.31,
+      457.5
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000278931.jpg"
+  },
+  {
+    "image_id": 20513,
+    "ref_id": 48271,
+    "query": "top center glass",
+    "target_box": [
+      106.43,
+      1.44,
+      247.37,
+      188.4
+    ],
+    "category_id": 46,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000020513.jpg"
+  },
+  {
+    "image_id": 402041,
+    "ref_id": 15613,
+    "query": "left elephant",
+    "target_box": [
+      21.52,
+      71.95,
+      214.76000000000002,
+      305.02
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000402041.jpg"
+  },
+  {
+    "image_id": 66637,
+    "ref_id": 44150,
+    "query": "person with green shirt on right",
+    "target_box": [
+      500.93,
+      167.67,
+      588.72,
+      430.18999999999994
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000066637.jpg"
+  },
+  {
+    "image_id": 438045,
+    "ref_id": 12543,
+    "query": "standing white shirt headless person",
+    "target_box": [
+      272.51,
+      1.63,
+      640.0,
+      278.94
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000438045.jpg"
+  },
+  {
+    "image_id": 409653,
+    "ref_id": 14975,
+    "query": "left plane",
+    "target_box": [
+      1.72,
+      35.66,
+      292.34000000000003,
+      186.69
+    ],
+    "category_id": 5,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000409653.jpg"
+  },
+  {
+    "image_id": 222893,
+    "ref_id": 31057,
+    "query": "cow right",
+    "target_box": [
+      284.67,
+      160.7,
+      640.0,
+      394.86
+    ],
+    "category_id": 21,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000222893.jpg"
+  },
+  {
+    "image_id": 449780,
+    "ref_id": 11512,
+    "query": "woman facing away on left in back",
+    "target_box": [
+      70.47,
+      57.29,
+      174.01999999999998,
+      227.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000449780.jpg"
+  },
+  {
+    "image_id": 116088,
+    "ref_id": 40006,
+    "query": "guy bending over",
+    "target_box": [
+      244.85,
+      157.3,
+      361.35,
+      360.09000000000003
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000116088.jpg"
+  },
+  {
+    "image_id": 377609,
+    "ref_id": 17714,
+    "query": "dog in center of photo",
+    "target_box": [
+      170.45,
+      151.52,
+      449.24,
+      297.73
+    ],
+    "category_id": 18,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000377609.jpg"
+  },
+  {
+    "image_id": 57689,
+    "ref_id": 44962,
+    "query": "zebra in front",
+    "target_box": [
+      185.77,
+      88.16,
+      579.87,
+      424.26
+    ],
+    "category_id": 24,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000057689.jpg"
+  },
+  {
+    "image_id": 567199,
+    "ref_id": 1305,
+    "query": "red",
+    "target_box": [
+      141.3,
+      144.54,
+      372.13,
+      437.92999999999995
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000567199.jpg"
+  },
+  {
+    "image_id": 207467,
+    "ref_id": 32374,
+    "query": "white t shirt in back",
+    "target_box": [
+      324.52,
+      35.79,
+      420.90999999999997,
+      288.14
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000207467.jpg"
+  },
+  {
+    "image_id": 185229,
+    "ref_id": 34215,
+    "query": "second blue black dude",
+    "target_box": [
+      171.47,
+      228.0,
+      303.15999999999997,
+      442.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000185229.jpg"
+  },
+  {
+    "image_id": 24086,
+    "ref_id": 47956,
+    "query": "lady to the left",
+    "target_box": [
+      56.35,
+      0.47,
+      330.59000000000003,
+      411.83000000000004
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000024086.jpg"
+  },
+  {
+    "image_id": 184578,
+    "ref_id": 34279,
+    "query": "elephant facing away on right",
+    "target_box": [
+      425.58,
+      104.97,
+      640.0,
+      369.40999999999997
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000184578.jpg"
+  },
+  {
+    "image_id": 147753,
+    "ref_id": 37276,
+    "query": "middle man",
+    "target_box": [
+      218.89,
+      145.66,
+      428.94,
+      457.65
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000147753.jpg"
+  },
+  {
+    "image_id": 64092,
+    "ref_id": 44384,
+    "query": "horse right",
+    "target_box": [
+      533.75,
+      192.36,
+      640.0,
+      397.64
+    ],
+    "category_id": 19,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000064092.jpg"
+  },
+  {
+    "image_id": 224056,
+    "ref_id": 30946,
+    "query": "white keyboard",
+    "target_box": [
+      1.08,
+      322.52,
+      282.60999999999996,
+      474.61
+    ],
+    "category_id": 76,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000224056.jpg"
+  },
+  {
+    "image_id": 578808,
+    "ref_id": 277,
+    "query": "man on right in shorts elephant wants to charge",
+    "target_box": [
+      331.97,
+      267.99,
+      426.0,
+      632.77
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000578808.jpg"
+  },
+  {
+    "image_id": 420183,
+    "ref_id": 14096,
+    "query": "bottom right piece of broccoli",
+    "target_box": [
+      364.32,
+      420.04,
+      519.84,
+      601.48
+    ],
+    "category_id": 56,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000420183.jpg"
+  },
+  {
+    "image_id": 272194,
+    "ref_id": 26864,
+    "query": "child on back",
+    "target_box": [
+      321.24,
+      59.63,
+      403.96000000000004,
+      367.40999999999997
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000272194.jpg"
+  },
+  {
+    "image_id": 238589,
+    "ref_id": 29758,
+    "query": "man in the black shirt sitting next to the woman",
+    "target_box": [
+      108.36,
+      238.27,
+      239.32,
+      396.34000000000003
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000238589.jpg"
+  },
+  {
+    "image_id": 197662,
+    "ref_id": 33210,
+    "query": "woman on the left",
+    "target_box": [
+      173.82,
+      107.92,
+      286.52,
+      290.34
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000197662.jpg"
+  },
+  {
+    "image_id": 143258,
+    "ref_id": 37655,
+    "query": "glass in back",
+    "target_box": [
+      276.91,
+      0.93,
+      388.42,
+      206.68
+    ],
+    "category_id": 46,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000143258.jpg"
+  },
+  {
+    "image_id": 101552,
+    "ref_id": 41166,
+    "query": "right person facing back",
+    "target_box": [
+      278.93,
+      157.58,
+      441.57,
+      369.94000000000005
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000101552.jpg"
+  },
+  {
+    "image_id": 38122,
+    "ref_id": 46767,
+    "query": "girl holding a green plate wearing white",
+    "target_box": [
+      385.65,
+      99.54,
+      517.4,
+      411.61
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000038122.jpg"
+  },
+  {
+    "image_id": 376806,
+    "ref_id": 17825,
+    "query": "tuna upper left",
+    "target_box": [
+      73.51,
+      28.65,
+      206.49,
+      141.08
+    ],
+    "category_id": 51,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000376806.jpg"
+  },
+  {
+    "image_id": 30274,
+    "ref_id": 47406,
+    "query": "skateboard",
+    "target_box": [
+      38.66,
+      20.18,
+      339.33000000000004,
+      632.9799999999999
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000030274.jpg"
+  },
+  {
+    "image_id": 290072,
+    "ref_id": 25364,
+    "query": "blue board standing up",
+    "target_box": [
+      88.44,
+      93.17,
+      180.32999999999998,
+      391.58000000000004
+    ],
+    "category_id": 42,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000290072.jpg"
+  },
+  {
+    "image_id": 51001,
+    "ref_id": 45608,
+    "query": "right hotdog",
+    "target_box": [
+      333.18,
+      10.16,
+      636.99,
+      327.53000000000003
+    ],
+    "category_id": 58,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000051001.jpg"
+  },
+  {
+    "image_id": 565769,
+    "ref_id": 1435,
+    "query": "elephant in backleft",
+    "target_box": [
+      83.48,
+      142.01,
+      339.68,
+      314.73
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000565769.jpg"
+  },
+  {
+    "image_id": 158201,
+    "ref_id": 36383,
+    "query": "blue item front of picture",
+    "target_box": [
+      41.56,
+      543.58,
+      478.0,
+      631.69
+    ],
+    "category_id": 67,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000158201.jpg"
+  },
+  {
+    "image_id": 486936,
+    "ref_id": 8272,
+    "query": "middle chair",
+    "target_box": [
+      55.98,
+      69.44,
+      194.85999999999999,
+      235.23
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000486936.jpg"
+  },
+  {
+    "image_id": 253251,
+    "ref_id": 28488,
+    "query": "kush plant blue pot",
+    "target_box": [
+      99.0,
+      60.97,
+      215.07999999999998,
+      286.46000000000004
+    ],
+    "category_id": 64,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000253251.jpg"
+  },
+  {
+    "image_id": 83178,
+    "ref_id": 42764,
+    "query": "guy on bottom left blue suit",
+    "target_box": [
+      143.93,
+      220.7,
+      228.37,
+      427.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000083178.jpg"
+  },
+  {
+    "image_id": 399922,
+    "ref_id": 15789,
+    "query": "ladie jacket walking bike",
+    "target_box": [
+      102.08,
+      93.07,
+      227.42000000000002,
+      331.75
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000399922.jpg"
+  },
+  {
+    "image_id": 270369,
+    "ref_id": 26993,
+    "query": "woman blue",
+    "target_box": [
+      419.87,
+      57.02,
+      640.0,
+      474.72999999999996
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000270369.jpg"
+  },
+  {
+    "image_id": 417220,
+    "ref_id": 14332,
+    "query": "case top of pink one",
+    "target_box": [
+      171.33,
+      187.55,
+      336.06,
+      316.84000000000003
+    ],
+    "category_id": 33,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000417220.jpg"
+  },
+  {
+    "image_id": 251368,
+    "ref_id": 28680,
+    "query": "khaki pants in back behind dog",
+    "target_box": [
+      259.67,
+      0.75,
+      398.1,
+      295.53
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000251368.jpg"
+  },
+  {
+    "image_id": 478712,
+    "ref_id": 9015,
+    "query": "man on the left",
+    "target_box": [
+      1.08,
+      37.65,
+      307.71999999999997,
+      373.53999999999996
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000478712.jpg"
+  },
+  {
+    "image_id": 279415,
+    "ref_id": 26295,
+    "query": "guy in the middle",
+    "target_box": [
+      212.49,
+      37.75,
+      403.42,
+      470.29
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000279415.jpg"
+  },
+  {
+    "image_id": 438196,
+    "ref_id": 12529,
+    "query": "right side black shirt no backpack",
+    "target_box": [
+      418.55,
+      229.0,
+      513.53,
+      428.15999999999997
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000438196.jpg"
+  },
+  {
+    "image_id": 199888,
+    "ref_id": 33052,
+    "query": "front elephant",
+    "target_box": [
+      180.81,
+      118.39,
+      559.64,
+      443.40999999999997
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000199888.jpg"
+  },
+  {
+    "image_id": 369019,
+    "ref_id": 18441,
+    "query": "white jersey",
+    "target_box": [
+      18.07,
+      283.81,
+      117.94999999999999,
+      510.84000000000003
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000369019.jpg"
+  },
+  {
+    "image_id": 180179,
+    "ref_id": 34674,
+    "query": "upper right large zebra head",
+    "target_box": [
+      264.88,
+      17.32,
+      458.0,
+      323.71999999999997
+    ],
+    "category_id": 24,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000180179.jpg"
+  },
+  {
+    "image_id": 233878,
+    "ref_id": 30137,
+    "query": "mac and cheese",
+    "target_box": [
+      173.9,
+      73.93,
+      454.65999999999997,
+      282.8
+    ],
+    "category_id": 51,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000233878.jpg"
+  },
+  {
+    "image_id": 383512,
+    "ref_id": 17235,
+    "query": "section of the bus on the far right",
+    "target_box": [
+      491.85,
+      104.3,
+      640.0,
+      227.56
+    ],
+    "category_id": 6,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000383512.jpg"
+  },
+  {
+    "image_id": 224891,
+    "ref_id": 30859,
+    "query": "smaller giraffe",
+    "target_box": [
+      5.75,
+      76.22,
+      289.08,
+      595.4200000000001
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000224891.jpg"
+  },
+  {
+    "image_id": 540436,
+    "ref_id": 3652,
+    "query": "table behind plate",
+    "target_box": [
+      148.13,
+      64.72,
+      480.0,
+      231.55
+    ],
+    "category_id": 67,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000540436.jpg"
+  },
+  {
+    "image_id": 535561,
+    "ref_id": 4053,
+    "query": "suit",
+    "target_box": [
+      350.63,
+      0.51,
+      521.11,
+      464.74
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000535561.jpg"
+  },
+  {
+    "image_id": 254821,
+    "ref_id": 28366,
+    "query": "red laptop",
+    "target_box": [
+      57.17,
+      85.21,
+      357.03000000000003,
+      343.01
+    ],
+    "category_id": 73,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000254821.jpg"
+  },
+  {
+    "image_id": 3518,
+    "ref_id": 49728,
+    "query": "bottom banana",
+    "target_box": [
+      186.03,
+      279.28,
+      444.35,
+      377.59999999999997
+    ],
+    "category_id": 52,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000003518.jpg"
+  },
+  {
+    "image_id": 227825,
+    "ref_id": 30602,
+    "query": "black guy",
+    "target_box": [
+      300.94,
+      193.08,
+      474.61,
+      474.61
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000227825.jpg"
+  },
+  {
+    "image_id": 264781,
+    "ref_id": 27477,
+    "query": "right person",
+    "target_box": [
+      241.08,
+      178.1,
+      419.01,
+      511.02
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000264781.jpg"
+  },
+  {
+    "image_id": 103419,
+    "ref_id": 41004,
+    "query": "right screen",
+    "target_box": [
+      404.93,
+      179.28,
+      545.02,
+      327.05
+    ],
+    "category_id": 73,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000103419.jpg"
+  },
+  {
+    "image_id": 77650,
+    "ref_id": 43240,
+    "query": "gal in blue",
+    "target_box": [
+      435.16,
+      148.76,
+      522.69,
+      456.09
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000077650.jpg"
+  },
+  {
+    "image_id": 574251,
+    "ref_id": 682,
+    "query": "second bag from left",
+    "target_box": [
+      164.95,
+      106.37,
+      279.02,
+      293.67
+    ],
+    "category_id": 33,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000574251.jpg"
+  },
+  {
+    "image_id": 270391,
+    "ref_id": 26991,
+    "query": "front person",
+    "target_box": [
+      302.53,
+      96.91,
+      463.47999999999996,
+      370.78999999999996
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000270391.jpg"
+  },
+  {
+    "image_id": 10710,
+    "ref_id": 49125,
+    "query": "catcher",
+    "target_box": [
+      237.97,
+      207.26,
+      387.65999999999997,
+      422.2
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000010710.jpg"
+  },
+  {
+    "image_id": 222209,
+    "ref_id": 31110,
+    "query": "food at the top of the plate on the bottom",
+    "target_box": [
+      174.61,
+      342.83,
+      336.1,
+      471.38
+    ],
+    "category_id": 59,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000222209.jpg"
+  },
+  {
+    "image_id": 573632,
+    "ref_id": 746,
+    "query": "top right bowl",
+    "target_box": [
+      381.07,
+      35.34,
+      530.06,
+      134.66
+    ],
+    "category_id": 51,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000573632.jpg"
+  },
+  {
+    "image_id": 242506,
+    "ref_id": 29438,
+    "query": "leftmost in this image",
+    "target_box": [
+      1.63,
+      1.9,
+      210.60999999999999,
+      351.28999999999996
+    ],
+    "category_id": 7,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000242506.jpg"
+  },
+  {
+    "image_id": 31112,
+    "ref_id": 47333,
+    "query": "man in a black trouser",
+    "target_box": [
+      93.33,
+      4.0,
+      306.67,
+      442.67
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000031112.jpg"
+  },
+  {
+    "image_id": 323213,
+    "ref_id": 22457,
+    "query": "sitting woman",
+    "target_box": [
+      33.73,
+      335.88,
+      215.04,
+      533.13
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000323213.jpg"
+  },
+  {
+    "image_id": 264296,
+    "ref_id": 27543,
+    "query": "man cloestest to us",
+    "target_box": [
+      370.29,
+      99.07,
+      631.9000000000001,
+      428.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000264296.jpg"
+  },
+  {
+    "image_id": 483611,
+    "ref_id": 8607,
+    "query": "plate of rice",
+    "target_box": [
+      310.65,
+      45.3,
+      640.0,
+      341.93
+    ],
+    "category_id": 51,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000483611.jpg"
+  },
+  {
+    "image_id": 118848,
+    "ref_id": 39790,
+    "query": "catcher",
+    "target_box": [
+      1.65,
+      184.47,
+      193.08,
+      363.77
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000118848.jpg"
+  },
+  {
+    "image_id": 105685,
+    "ref_id": 40801,
+    "query": "woman holding child",
+    "target_box": [
+      97.0,
+      123.02,
+      380.74,
+      473.65
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000105685.jpg"
+  },
+  {
+    "image_id": 364683,
+    "ref_id": 18721,
+    "query": "elephant on right",
+    "target_box": [
+      294.08,
+      178.11,
+      509.05999999999995,
+      434.59000000000003
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000364683.jpg"
+  },
+  {
+    "image_id": 258237,
+    "ref_id": 28066,
+    "query": "person holding girl",
+    "target_box": [
+      281.3,
+      56.77,
+      360.73,
+      332.46
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000258237.jpg"
+  },
+  {
+    "image_id": 493504,
+    "ref_id": 7703,
+    "query": "keyboard at the bottom",
+    "target_box": [
+      91.01,
+      293.26,
+      371.63,
+      375.0
+    ],
+    "category_id": 76,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000493504.jpg"
+  },
+  {
+    "image_id": 289212,
+    "ref_id": 25436,
+    "query": "car in the middle",
+    "target_box": [
+      273.86,
+      286.42,
+      444.81,
+      397.97
+    ],
+    "category_id": 3,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000289212.jpg"
+  },
+  {
+    "image_id": 113152,
+    "ref_id": 40242,
+    "query": "blue shirt",
+    "target_box": [
+      304.99,
+      54.07,
+      501.57000000000005,
+      262.79
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000113152.jpg"
+  },
+  {
+    "image_id": 419001,
+    "ref_id": 14207,
+    "query": "elephant with all its feet on the ground",
+    "target_box": [
+      189.99,
+      120.74,
+      366.55,
+      354.87
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000419001.jpg"
+  },
+  {
+    "image_id": 92646,
+    "ref_id": 41928,
+    "query": "butt directly in middle",
+    "target_box": [
+      155.9,
+      125.3,
+      269.66,
+      369.69
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000092646.jpg"
+  },
+  {
+    "image_id": 266600,
+    "ref_id": 27332,
+    "query": "red shirt",
+    "target_box": [
+      309.85,
+      70.62,
+      450.14,
+      463.39
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000266600.jpg"
+  },
+  {
+    "image_id": 14686,
+    "ref_id": 48786,
+    "query": "right giraffe",
+    "target_box": [
+      325.46,
+      121.56,
+      639.25,
+      478.5
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000014686.jpg"
+  },
+  {
+    "image_id": 387717,
+    "ref_id": 16860,
+    "query": "the bottom half of pizza",
+    "target_box": [
+      2.3,
+      10.92,
+      477.14,
+      423.68
+    ],
+    "category_id": 59,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000387717.jpg"
+  },
+  {
+    "image_id": 485800,
+    "ref_id": 8371,
+    "query": "man standing on the left",
+    "target_box": [
+      51.56,
+      132.4,
+      128.13,
+      408.6
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000485800.jpg"
+  },
+  {
+    "image_id": 433240,
+    "ref_id": 12925,
+    "query": "bottom left plant",
+    "target_box": [
+      0.0,
+      243.95,
+      287.0,
+      631.39
+    ],
+    "category_id": 64,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000433240.jpg"
+  },
+  {
+    "image_id": 376988,
+    "ref_id": 17795,
+    "query": "top right guy",
+    "target_box": [
+      482.47,
+      18.9,
+      640.0,
+      336.84
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000376988.jpg"
+  },
+  {
+    "image_id": 289482,
+    "ref_id": 25416,
+    "query": "guy in the back with a beard",
+    "target_box": [
+      353.08,
+      101.22,
+      447.11,
+      420.72
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000289482.jpg"
+  },
+  {
+    "image_id": 278371,
+    "ref_id": 26400,
+    "query": "laying down",
+    "target_box": [
+      45.16,
+      155.86,
+      556.71,
+      338.35
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000278371.jpg"
+  },
+  {
+    "image_id": 105219,
+    "ref_id": 40844,
+    "query": "guy on right",
+    "target_box": [
+      259.91,
+      83.23,
+      480.0,
+      356.87
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000105219.jpg"
+  },
+  {
+    "image_id": 121706,
+    "ref_id": 39549,
+    "query": "man red jacket",
+    "target_box": [
+      180.06,
+      215.45,
+      274.74,
+      426.88
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000121706.jpg"
+  },
+  {
+    "image_id": 578805,
+    "ref_id": 278,
+    "query": "kid on left in blue",
+    "target_box": [
+      34.23,
+      120.46,
+      192.38,
+      368.32
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000578805.jpg"
+  },
+  {
+    "image_id": 325891,
+    "ref_id": 22186,
+    "query": "man in striped shirt",
+    "target_box": [
+      0.0,
+      30.02,
+      426.07,
+      475.51
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000325891.jpg"
+  },
+  {
+    "image_id": 226961,
+    "ref_id": 30687,
+    "query": "giraffe in middle",
+    "target_box": [
+      123.23,
+      53.43,
+      287.82,
+      314.42
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000226961.jpg"
+  },
+  {
+    "image_id": 447457,
+    "ref_id": 11688,
+    "query": "lady in black shirt",
+    "target_box": [
+      151.58,
+      93.0,
+      244.21,
+      375.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000447457.jpg"
+  },
+  {
+    "image_id": 539167,
+    "ref_id": 3745,
+    "query": "boy in a red shirt",
+    "target_box": [
+      54.82,
+      71.65,
+      294.28000000000003,
+      365.92999999999995
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000539167.jpg"
+  },
+  {
+    "image_id": 68812,
+    "ref_id": 43992,
+    "query": "man in very front",
+    "target_box": [
+      87.32,
+      105.55,
+      327.21,
+      420.28000000000003
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000068812.jpg"
+  },
+  {
+    "image_id": 281790,
+    "ref_id": 26091,
+    "query": "left person",
+    "target_box": [
+      89.8,
+      110.75,
+      299.33,
+      303.82
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000281790.jpg"
+  },
+  {
+    "image_id": 168482,
+    "ref_id": 35610,
+    "query": "top traffic light",
+    "target_box": [
+      76.22,
+      46.62,
+      312.09000000000003,
+      362.43
+    ],
+    "category_id": 10,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000168482.jpg"
+  },
+  {
+    "image_id": 78836,
+    "ref_id": 43128,
+    "query": "lady",
+    "target_box": [
+      145.85,
+      127.62,
+      363.66999999999996,
+      392.46
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000078836.jpg"
+  },
+  {
+    "image_id": 273197,
+    "ref_id": 26806,
+    "query": "left horse",
+    "target_box": [
+      64.19,
+      174.43,
+      198.32999999999998,
+      612.1500000000001
+    ],
+    "category_id": 19,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000273197.jpg"
+  },
+  {
+    "image_id": 269890,
+    "ref_id": 27039,
+    "query": "motorcycle driver",
+    "target_box": [
+      255.47,
+      36.47,
+      416.47,
+      327.61
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000269890.jpg"
+  },
+  {
+    "image_id": 431400,
+    "ref_id": 13069,
+    "query": "black motocicle",
+    "target_box": [
+      464.2,
+      162.93,
+      640.0,
+      390.65
+    ],
+    "category_id": 4,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000431400.jpg"
+  },
+  {
+    "image_id": 215407,
+    "ref_id": 31723,
+    "query": "lol dude on far right",
+    "target_box": [
+      424.27,
+      166.04,
+      548.25,
+      460.53
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000215407.jpg"
+  },
+  {
+    "image_id": 388421,
+    "ref_id": 16784,
+    "query": "middle",
+    "target_box": [
+      83.6,
+      81.44,
+      320.0,
+      585.95
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000388421.jpg"
+  },
+  {
+    "image_id": 580785,
+    "ref_id": 102,
+    "query": "child sitting on womans lap",
+    "target_box": [
+      160.0,
+      246.34,
+      270.89,
+      487.13
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000580785.jpg"
+  },
+  {
+    "image_id": 103510,
+    "ref_id": 40983,
+    "query": "veggies",
+    "target_box": [
+      12.38,
+      16.6,
+      612.0,
+      602.46
+    ],
+    "category_id": 51,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000103510.jpg"
+  },
+  {
+    "image_id": 488160,
+    "ref_id": 8156,
+    "query": "left brown one",
+    "target_box": [
+      1.03,
+      161.89,
+      326.19,
+      475.7
+    ],
+    "category_id": 21,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000488160.jpg"
+  },
+  {
+    "image_id": 425721,
+    "ref_id": 13596,
+    "query": "stand back right",
+    "target_box": [
+      374.71,
+      58.5,
+      587.63,
+      121.89
+    ],
+    "category_id": 67,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000425721.jpg"
+  },
+  {
+    "image_id": 432683,
+    "ref_id": 12971,
+    "query": "blue shirt",
+    "target_box": [
+      52.36,
+      84.69,
+      226.41000000000003,
+      480.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000432683.jpg"
+  },
+  {
+    "image_id": 455079,
+    "ref_id": 11048,
+    "query": "boy",
+    "target_box": [
+      99.78,
+      45.9,
+      204.04000000000002,
+      369.5
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000455079.jpg"
+  },
+  {
+    "image_id": 297171,
+    "ref_id": 24828,
+    "query": "tv bottom right corner",
+    "target_box": [
+      407.53,
+      487.34,
+      534.88,
+      640.0
+    ],
+    "category_id": 72,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000297171.jpg"
+  },
+  {
+    "image_id": 561593,
+    "ref_id": 1860,
+    "query": "batter",
+    "target_box": [
+      171.44,
+      181.85,
+      376.58,
+      410.77
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000561593.jpg"
+  },
+  {
+    "image_id": 96475,
+    "ref_id": 41571,
+    "query": "food on plate",
+    "target_box": [
+      317.5,
+      250.1,
+      481.12,
+      358.3
+    ],
+    "category_id": 61,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000096475.jpg"
+  },
+  {
+    "image_id": 508504,
+    "ref_id": 6383,
+    "query": "person on right",
+    "target_box": [
+      329.05,
+      163.83,
+      591.84,
+      460.74
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000508504.jpg"
+  },
+  {
+    "image_id": 55237,
+    "ref_id": 45232,
+    "query": "guy in center with black shirt",
+    "target_box": [
+      225.82,
+      192.19,
+      411.12,
+      427.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000055237.jpg"
+  },
+  {
+    "image_id": 324705,
+    "ref_id": 22285,
+    "query": "guy sitting at bottom right",
+    "target_box": [
+      308.04,
+      161.1,
+      622.84,
+      426.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000324705.jpg"
+  },
+  {
+    "image_id": 136230,
+    "ref_id": 38269,
+    "query": "black space above right monitors",
+    "target_box": [
+      326.16,
+      2.25,
+      639.96,
+      110.22
+    ],
+    "category_id": 72,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000136230.jpg"
+  },
+  {
+    "image_id": 402448,
+    "ref_id": 15572,
+    "query": "chair to left of kat",
+    "target_box": [
+      113.28,
+      0.0,
+      310.33000000000004,
+      149.98
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000402448.jpg"
+  },
+  {
+    "image_id": 137724,
+    "ref_id": 38109,
+    "query": "purple guy",
+    "target_box": [
+      82.34,
+      137.81,
+      207.49,
+      405.25
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000137724.jpg"
+  },
+  {
+    "image_id": 254176,
+    "ref_id": 28419,
+    "query": "front of motocycle with two people on it",
+    "target_box": [
+      0.0,
+      99.75,
+      223.33,
+      326.83000000000004
+    ],
+    "category_id": 4,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000254176.jpg"
+  },
+  {
+    "image_id": 432170,
+    "ref_id": 13012,
+    "query": "highest person in white",
+    "target_box": [
+      46.12,
+      21.85,
+      207.58,
+      259.76
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000432170.jpg"
+  },
+  {
+    "image_id": 224168,
+    "ref_id": 30928,
+    "query": "top of chair on left",
+    "target_box": [
+      1.2,
+      119.33,
+      269.15999999999997,
+      226.95
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000224168.jpg"
+  },
+  {
+    "image_id": 22890,
+    "ref_id": 48065,
+    "query": "bed by window",
+    "target_box": [
+      129.64,
+      288.56,
+      431.88,
+      456.55
+    ],
+    "category_id": 65,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000022890.jpg"
+  },
+  {
+    "image_id": 243839,
+    "ref_id": 29331,
+    "query": "legs",
+    "target_box": [
+      180.4,
+      107.47,
+      332.96000000000004,
+      339.68
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000243839.jpg"
+  },
+  {
+    "image_id": 430731,
+    "ref_id": 13112,
+    "query": "left computer",
+    "target_box": [
+      10.38,
+      152.83,
+      204.0,
+      319.97
+    ],
+    "category_id": 73,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000430731.jpg"
+  },
+  {
+    "image_id": 507642,
+    "ref_id": 6469,
+    "query": "top giraffe",
+    "target_box": [
+      143.02,
+      89.21,
+      362.62,
+      334.81
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000507642.jpg"
+  },
+  {
+    "image_id": 127388,
+    "ref_id": 39005,
+    "query": "woman",
+    "target_box": [
+      286.55,
+      101.88,
+      471.19,
+      457.95
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000127388.jpg"
+  },
+  {
+    "image_id": 54805,
+    "ref_id": 45259,
+    "query": "teddy bear on right with pink hat",
+    "target_box": [
+      385.98,
+      167.46,
+      559.82,
+      330.49
+    ],
+    "category_id": 88,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000054805.jpg"
+  },
+  {
+    "image_id": 325806,
+    "ref_id": 22198,
+    "query": "blue chair",
+    "target_box": [
+      286.28,
+      169.29,
+      480.0,
+      414.28
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000325806.jpg"
+  },
+  {
+    "image_id": 457976,
+    "ref_id": 10768,
+    "query": "upper right cow",
+    "target_box": [
+      436.65,
+      49.91,
+      639.8299999999999,
+      186.18
+    ],
+    "category_id": 21,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000457976.jpg"
+  },
+  {
+    "image_id": 250588,
+    "ref_id": 28730,
+    "query": "right guy",
+    "target_box": [
+      251.99,
+      130.43,
+      479.64,
+      640.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000250588.jpg"
+  },
+  {
+    "image_id": 495902,
+    "ref_id": 7495,
+    "query": "carrot in the middle looks like one on top",
+    "target_box": [
+      113.53,
+      163.77,
+      248.16,
+      339.59000000000003
+    ],
+    "category_id": 57,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000495902.jpg"
+  },
+  {
+    "image_id": 411446,
+    "ref_id": 14787,
+    "query": "black white dog",
+    "target_box": [
+      42.23,
+      1.65,
+      285.32,
+      178.82
+    ],
+    "category_id": 18,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000411446.jpg"
+  },
+  {
+    "image_id": 231320,
+    "ref_id": 30341,
+    "query": "far left clock in top row",
+    "target_box": [
+      22.94,
+      96.79,
+      133.13,
+      207.38
+    ],
+    "category_id": 85,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000231320.jpg"
+  },
+  {
+    "image_id": 347167,
+    "ref_id": 20163,
+    "query": "left pair legs",
+    "target_box": [
+      0.0,
+      116.6,
+      147.92,
+      418.01
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000347167.jpg"
+  },
+  {
+    "image_id": 238070,
+    "ref_id": 29804,
+    "query": "left bus window",
+    "target_box": [
+      104.35,
+      40.45,
+      538.96,
+      285.52
+    ],
+    "category_id": 6,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000238070.jpg"
+  },
+  {
+    "image_id": 110761,
+    "ref_id": 40423,
+    "query": "center guy of the 5",
+    "target_box": [
+      284.35,
+      71.98,
+      426.62,
+      427.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000110761.jpg"
+  },
+  {
+    "image_id": 5424,
+    "ref_id": 49588,
+    "query": "man",
+    "target_box": [
+      7.52,
+      0.1,
+      616.38,
+      474.83000000000004
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000005424.jpg"
+  },
+  {
+    "image_id": 218863,
+    "ref_id": 31431,
+    "query": "top right bear",
+    "target_box": [
+      311.75,
+      179.53,
+      429.7,
+      369.02
+    ],
+    "category_id": 88,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000218863.jpg"
+  },
+  {
+    "image_id": 80590,
+    "ref_id": 42969,
+    "query": "purple bottle",
+    "target_box": [
+      393.71,
+      0.0,
+      476.67999999999995,
+      241.87
+    ],
+    "category_id": 44,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000080590.jpg"
+  },
+  {
+    "image_id": 80471,
+    "ref_id": 42996,
+    "query": "third from right guy",
+    "target_box": [
+      414.45,
+      193.36,
+      538.06,
+      494.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000080471.jpg"
+  },
+  {
+    "image_id": 30203,
+    "ref_id": 47409,
+    "query": "girl",
+    "target_box": [
+      355.47,
+      123.12,
+      594.4300000000001,
+      479.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000030203.jpg"
+  },
+  {
+    "image_id": 86459,
+    "ref_id": 42500,
+    "query": "koo koo dog",
+    "target_box": [
+      87.9,
+      11.27,
+      324.53999999999996,
+      281.71999999999997
+    ],
+    "category_id": 18,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000086459.jpg"
+  },
+  {
+    "image_id": 433336,
+    "ref_id": 12907,
+    "query": "person on right",
+    "target_box": [
+      201.35,
+      133.51,
+      312.09,
+      531.9
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000433336.jpg"
+  },
+  {
+    "image_id": 403197,
+    "ref_id": 15505,
+    "query": "giraffe",
+    "target_box": [
+      167.79,
+      37.31,
+      507.03999999999996,
+      372.19
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000403197.jpg"
+  },
+  {
+    "image_id": 242539,
+    "ref_id": 29433,
+    "query": "man sitting on edge by bats",
+    "target_box": [
+      173.12,
+      20.2,
+      322.20000000000005,
+      269.3
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000242539.jpg"
+  },
+  {
+    "image_id": 392180,
+    "ref_id": 16471,
+    "query": "left front bus",
+    "target_box": [
+      154.86,
+      191.3,
+      321.1,
+      308.58000000000004
+    ],
+    "category_id": 6,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000392180.jpg"
+  },
+  {
+    "image_id": 510680,
+    "ref_id": 6222,
+    "query": "left center banna",
+    "target_box": [
+      0.0,
+      150.81,
+      186.84,
+      317.86
+    ],
+    "category_id": 52,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000510680.jpg"
+  },
+  {
+    "image_id": 355779,
+    "ref_id": 19410,
+    "query": "girl holding a cat",
+    "target_box": [
+      22.87,
+      37.16,
+      253.45000000000002,
+      419.24
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000355779.jpg"
+  },
+  {
+    "image_id": 2823,
+    "ref_id": 49786,
+    "query": "red bike on the far left",
+    "target_box": [
+      0.0,
+      4.97,
+      248.99,
+      268.66
+    ],
+    "category_id": 4,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000002823.jpg"
+  },
+  {
+    "image_id": 162283,
+    "ref_id": 36086,
+    "query": "red shirt",
+    "target_box": [
+      199.55,
+      1.08,
+      639.64,
+      474.60999999999996
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000162283.jpg"
+  },
+  {
+    "image_id": 100209,
+    "ref_id": 41256,
+    "query": "kid",
+    "target_box": [
+      269.28,
+      71.65,
+      523.17,
+      427.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000100209.jpg"
+  },
+  {
+    "image_id": 498770,
+    "ref_id": 7244,
+    "query": "brocolli on right front corner",
+    "target_box": [
+      282.33,
+      168.79,
+      640.0,
+      426.0
+    ],
+    "category_id": 56,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000498770.jpg"
+  },
+  {
+    "image_id": 232371,
+    "ref_id": 30262,
+    "query": "taller girraff",
+    "target_box": [
+      264.63,
+      28.52,
+      409.89,
+      598.05
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000232371.jpg"
+  },
+  {
+    "image_id": 203034,
+    "ref_id": 32811,
+    "query": "the fridge",
+    "target_box": [
+      31.8,
+      189.33,
+      246.17000000000002,
+      480.0
+    ],
+    "category_id": 82,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000203034.jpg"
+  },
+  {
+    "image_id": 226840,
+    "ref_id": 30694,
+    "query": "zebra on right",
+    "target_box": [
+      389.19,
+      144.32,
+      576.22,
+      386.49
+    ],
+    "category_id": 24,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000226840.jpg"
+  },
+  {
+    "image_id": 24939,
+    "ref_id": 47859,
+    "query": "wii bowler",
+    "target_box": [
+      122.97,
+      24.49,
+      349.48,
+      393.38
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000024939.jpg"
+  },
+  {
+    "image_id": 532595,
+    "ref_id": 4313,
+    "query": "wine glass on the left",
+    "target_box": [
+      14.68,
+      208.9,
+      83.33000000000001,
+      414.05
+    ],
+    "category_id": 46,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000532595.jpg"
+  },
+  {
+    "image_id": 90444,
+    "ref_id": 42135,
+    "query": "guy sitting",
+    "target_box": [
+      116.36,
+      13.3,
+      325.82,
+      339.12
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000090444.jpg"
+  },
+  {
+    "image_id": 321318,
+    "ref_id": 22624,
+    "query": "right person",
+    "target_box": [
+      507.16,
+      41.67,
+      597.15,
+      266.01
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000321318.jpg"
+  },
+  {
+    "image_id": 320137,
+    "ref_id": 22746,
+    "query": "man in white",
+    "target_box": [
+      299.62,
+      14.4,
+      617.12,
+      242.46
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000320137.jpg"
+  },
+  {
+    "image_id": 420831,
+    "ref_id": 14049,
+    "query": "the complete short stories book",
+    "target_box": [
+      438.31,
+      59.99,
+      496.31,
+      354.73
+    ],
+    "category_id": 84,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000420831.jpg"
+  },
+  {
+    "image_id": 78578,
+    "ref_id": 43154,
+    "query": "far person left in the dark",
+    "target_box": [
+      0.88,
+      177.21,
+      89.57,
+      423.20000000000005
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000078578.jpg"
+  },
+  {
+    "image_id": 298983,
+    "ref_id": 24617,
+    "query": "right hrse",
+    "target_box": [
+      367.67,
+      160.3,
+      491.43,
+      416.94
+    ],
+    "category_id": 19,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000298983.jpg"
+  },
+  {
+    "image_id": 1298,
+    "ref_id": 49892,
+    "query": "fatty in center frame",
+    "target_box": [
+      84.64,
+      0.06,
+      639.6,
+      415.56
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000001298.jpg"
+  },
+  {
+    "image_id": 154911,
+    "ref_id": 36685,
+    "query": "guy by the red wall with arms crossed",
+    "target_box": [
+      0.0,
+      0.1,
+      96.64,
+      307.22
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000154911.jpg"
+  },
+  {
+    "image_id": 416450,
+    "ref_id": 14412,
+    "query": "guy on left",
+    "target_box": [
+      0.96,
+      0.48,
+      315.44,
+      417.86
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000416450.jpg"
+  },
+  {
+    "image_id": 35817,
+    "ref_id": 46961,
+    "query": "girl in middle with necklace",
+    "target_box": [
+      267.78,
+      93.23,
+      371.84,
+      390.74
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000035817.jpg"
+  },
+  {
+    "image_id": 439303,
+    "ref_id": 12431,
+    "query": "top of photo partial bear",
+    "target_box": [
+      63.64,
+      3.24,
+      424.99,
+      103.55
+    ],
+    "category_id": 88,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000439303.jpg"
+  },
+  {
+    "image_id": 38890,
+    "ref_id": 46712,
+    "query": "zebra on right",
+    "target_box": [
+      347.03,
+      60.0,
+      621.6199999999999,
+      480.0
+    ],
+    "category_id": 24,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000038890.jpg"
+  },
+  {
+    "image_id": 576581,
+    "ref_id": 492,
+    "query": "the fully visible zebra",
+    "target_box": [
+      48.54,
+      9.71,
+      588.9399999999999,
+      474.60999999999996
+    ],
+    "category_id": 24,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000576581.jpg"
+  },
+  {
+    "image_id": 475037,
+    "ref_id": 9317,
+    "query": "girl",
+    "target_box": [
+      134.83,
+      71.99,
+      385.39,
+      486.59000000000003
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000475037.jpg"
+  },
+  {
+    "image_id": 56677,
+    "ref_id": 45043,
+    "query": "girl in front",
+    "target_box": [
+      85.0,
+      268.27,
+      285.1,
+      389.57
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000056677.jpg"
+  },
+  {
+    "image_id": 352892,
+    "ref_id": 19645,
+    "query": "bride",
+    "target_box": [
+      0.0,
+      0.67,
+      443.39,
+      422.90000000000003
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000352892.jpg"
+  },
+  {
+    "image_id": 358789,
+    "ref_id": 19159,
+    "query": "spectator far left",
+    "target_box": [
+      0.0,
+      2.88,
+      83.42,
+      168.26999999999998
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000358789.jpg"
+  },
+  {
+    "image_id": 523907,
+    "ref_id": 5033,
+    "query": "polka dot person on left",
+    "target_box": [
+      8.67,
+      1.9,
+      91.02,
+      316.12
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000523907.jpg"
+  },
+  {
+    "image_id": 274770,
+    "ref_id": 26706,
+    "query": "left orange",
+    "target_box": [
+      157.76,
+      188.62,
+      291.23,
+      312.96000000000004
+    ],
+    "category_id": 55,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000274770.jpg"
+  },
+  {
+    "image_id": 284964,
+    "ref_id": 25842,
+    "query": "girl on the right giving high five",
+    "target_box": [
+      160.75,
+      182.08,
+      330.62,
+      519.91
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000284964.jpg"
+  },
+  {
+    "image_id": 324677,
+    "ref_id": 22291,
+    "query": "man in red",
+    "target_box": [
+      20.24,
+      114.68,
+      287.95,
+      424.62
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000324677.jpg"
+  },
+  {
+    "image_id": 91604,
+    "ref_id": 42041,
+    "query": "the umpire in white wearing black mask",
+    "target_box": [
+      101.82,
+      93.52,
+      174.87,
+      308.24
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000091604.jpg"
+  },
+  {
+    "image_id": 87248,
+    "ref_id": 42422,
+    "query": "purple girl left",
+    "target_box": [
+      148.49,
+      71.56,
+      240.46,
+      381.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000087248.jpg"
+  },
+  {
+    "image_id": 267871,
+    "ref_id": 27216,
+    "query": "empty chair beside gib guy closest to us",
+    "target_box": [
+      105.03,
+      345.41,
+      262.40999999999997,
+      479.45000000000005
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000267871.jpg"
+  },
+  {
+    "image_id": 428109,
+    "ref_id": 13356,
+    "query": "top third from left banana",
+    "target_box": [
+      242.88,
+      0.0,
+      471.6,
+      145.82
+    ],
+    "category_id": 52,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000428109.jpg"
+  },
+  {
+    "image_id": 568272,
+    "ref_id": 1233,
+    "query": "bigger zebra",
+    "target_box": [
+      288.6,
+      16.07,
+      552.55,
+      497.86
+    ],
+    "category_id": 24,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000568272.jpg"
+  },
+  {
+    "image_id": 326092,
+    "ref_id": 22161,
+    "query": "hands",
+    "target_box": [
+      321.43,
+      234.76,
+      480.0,
+      507.40999999999997
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000326092.jpg"
+  },
+  {
+    "image_id": 198704,
+    "ref_id": 33127,
+    "query": "car closest to us",
+    "target_box": [
+      1.08,
+      362.43,
+      142.38000000000002,
+      474.61
+    ],
+    "category_id": 3,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000198704.jpg"
+  },
+  {
+    "image_id": 44437,
+    "ref_id": 46237,
+    "query": "orioles player",
+    "target_box": [
+      450.7,
+      151.62,
+      605.3,
+      494.11
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000044437.jpg"
+  },
+  {
+    "image_id": 344259,
+    "ref_id": 20397,
+    "query": "orange in front of banana",
+    "target_box": [
+      68.6,
+      202.95,
+      285.84000000000003,
+      309.65999999999997
+    ],
+    "category_id": 55,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000344259.jpg"
+  },
+  {
+    "image_id": 184761,
+    "ref_id": 34263,
+    "query": "light cow on left no baby",
+    "target_box": [
+      27.43,
+      77.71,
+      236.8,
+      240.45999999999998
+    ],
+    "category_id": 21,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000184761.jpg"
+  },
+  {
+    "image_id": 121938,
+    "ref_id": 39529,
+    "query": "woman on left in front ooking at camera or phone with black shirt on",
+    "target_box": [
+      0.0,
+      156.9,
+      192.37,
+      480.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000121938.jpg"
+  },
+  {
+    "image_id": 278055,
+    "ref_id": 26436,
+    "query": "right kid",
+    "target_box": [
+      276.76,
+      181.08,
+      612.97,
+      474.05000000000007
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000278055.jpg"
+  },
+  {
+    "image_id": 78322,
+    "ref_id": 43190,
+    "query": "second player from right",
+    "target_box": [
+      472.55,
+      119.69,
+      606.79,
+      413.78
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000078322.jpg"
+  },
+  {
+    "image_id": 218984,
+    "ref_id": 31421,
+    "query": "vase with flowers second from right",
+    "target_box": [
+      320.36,
+      141.12,
+      492.94000000000005,
+      415.1
+    ],
+    "category_id": 86,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000218984.jpg"
+  },
+  {
+    "image_id": 276666,
+    "ref_id": 26566,
+    "query": "left giraffe",
+    "target_box": [
+      21.18,
+      175.86,
+      234.37,
+      412.81
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000276666.jpg"
+  },
+  {
+    "image_id": 35045,
+    "ref_id": 47025,
+    "query": "paper bottom right",
+    "target_box": [
+      531.24,
+      250.35,
+      639.95,
+      476.75
+    ],
+    "category_id": 84,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000035045.jpg"
+  },
+  {
+    "image_id": 339453,
+    "ref_id": 20824,
+    "query": "truck in middle",
+    "target_box": [
+      131.75,
+      69.18,
+      495.28,
+      395.2
+    ],
+    "category_id": 8,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000339453.jpg"
+  },
+  {
+    "image_id": 13318,
+    "ref_id": 48934,
+    "query": "lady left brown purse",
+    "target_box": [
+      70.31,
+      275.66,
+      258.3,
+      640.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000013318.jpg"
+  },
+  {
+    "image_id": 50994,
+    "ref_id": 45612,
+    "query": "left bottom",
+    "target_box": [
+      1.0,
+      62.6,
+      229.36,
+      184.79
+    ],
+    "category_id": 24,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000050994.jpg"
+  },
+  {
+    "image_id": 542452,
+    "ref_id": 3480,
+    "query": "blue shirt bottom left",
+    "target_box": [
+      0.0,
+      252.58,
+      101.22,
+      429.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000542452.jpg"
+  },
+  {
+    "image_id": 274667,
+    "ref_id": 26715,
+    "query": "bike in the background top left",
+    "target_box": [
+      70.59,
+      9.52,
+      207.26,
+      150.04000000000002
+    ],
+    "category_id": 4,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000274667.jpg"
+  },
+  {
+    "image_id": 488127,
+    "ref_id": 8164,
+    "query": "man in hat on the right next to guy in white shirt",
+    "target_box": [
+      356.95,
+      6.72,
+      575.73,
+      421.24
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000488127.jpg"
+  },
+  {
+    "image_id": 53601,
+    "ref_id": 45386,
+    "query": "right boy",
+    "target_box": [
+      335.03,
+      46.28,
+      640.0,
+      480.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000053601.jpg"
+  },
+  {
+    "image_id": 540464,
+    "ref_id": 3642,
+    "query": "right bannana on cluster",
+    "target_box": [
+      446.19,
+      8.64,
+      563.26,
+      360.78999999999996
+    ],
+    "category_id": 52,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000540464.jpg"
+  },
+  {
+    "image_id": 406988,
+    "ref_id": 15206,
+    "query": "left gir",
+    "target_box": [
+      124.18,
+      161.53,
+      332.43,
+      406.08000000000004
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000406988.jpg"
+  },
+  {
+    "image_id": 376454,
+    "ref_id": 17844,
+    "query": "table",
+    "target_box": [
+      7.5,
+      17.27,
+      579.82,
+      438.46999999999997
+    ],
+    "category_id": 67,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000376454.jpg"
+  },
+  {
+    "image_id": 128136,
+    "ref_id": 38935,
+    "query": "the elephant to the right back by himself",
+    "target_box": [
+      449.27,
+      58.4,
+      640.0,
+      247.91
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000128136.jpg"
+  },
+  {
+    "image_id": 191068,
+    "ref_id": 33728,
+    "query": "candles bottom",
+    "target_box": [
+      2.76,
+      310.14,
+      612.0,
+      605.11
+    ],
+    "category_id": 67,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000191068.jpg"
+  },
+  {
+    "image_id": 498295,
+    "ref_id": 7296,
+    "query": "wine glass",
+    "target_box": [
+      36.22,
+      382.78,
+      147.0,
+      635.01
+    ],
+    "category_id": 46,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000498295.jpg"
+  },
+  {
+    "image_id": 84712,
+    "ref_id": 42623,
+    "query": "girl in the white shirt",
+    "target_box": [
+      43.15,
+      145.26,
+      368.17999999999995,
+      579.5999999999999
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000084712.jpg"
+  },
+  {
+    "image_id": 354791,
+    "ref_id": 19507,
+    "query": "the bottom head",
+    "target_box": [
+      360.65,
+      290.11,
+      481.71999999999997,
+      427.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000354791.jpg"
+  },
+  {
+    "image_id": 530750,
+    "ref_id": 4474,
+    "query": "woman on left",
+    "target_box": [
+      145.13,
+      106.72,
+      309.83,
+      480.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000530750.jpg"
+  },
+  {
+    "image_id": 259443,
+    "ref_id": 27982,
+    "query": "right guy",
+    "target_box": [
+      209.06,
+      19.1,
+      418.92,
+      355.70000000000005
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000259443.jpg"
+  },
+  {
+    "image_id": 296614,
+    "ref_id": 24900,
+    "query": "batter",
+    "target_box": [
+      71.8,
+      8.05,
+      371.03000000000003,
+      427.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000296614.jpg"
+  },
+  {
+    "image_id": 53672,
+    "ref_id": 45374,
+    "query": "red player on left",
+    "target_box": [
+      11.54,
+      107.23,
+      156.76,
+      325.54
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000053672.jpg"
+  },
+  {
+    "image_id": 544831,
+    "ref_id": 3281,
+    "query": "book on left",
+    "target_box": [
+      33.86,
+      25.12,
+      182.93,
+      218.43
+    ],
+    "category_id": 84,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000544831.jpg"
+  },
+  {
+    "image_id": 80634,
+    "ref_id": 42957,
+    "query": "left portion of pizza",
+    "target_box": [
+      147.1,
+      58.23,
+      328.48,
+      326.55
+    ],
+    "category_id": 59,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000080634.jpg"
+  },
+  {
+    "image_id": 335697,
+    "ref_id": 21173,
+    "query": "elephant back left",
+    "target_box": [
+      0.18,
+      1.2,
+      272.38,
+      256.33
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000335697.jpg"
+  },
+  {
+    "image_id": 181054,
+    "ref_id": 34594,
+    "query": "dude in white",
+    "target_box": [
+      0.86,
+      15.84,
+      296.96000000000004,
+      420.67999999999995
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000181054.jpg"
+  },
+  {
+    "image_id": 318333,
+    "ref_id": 22911,
+    "query": "catcher in gray",
+    "target_box": [
+      512.4,
+      141.05,
+      614.11,
+      362.71000000000004
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000318333.jpg"
+  },
+  {
+    "image_id": 47774,
+    "ref_id": 45878,
+    "query": "plants at top left corner",
+    "target_box": [
+      0.0,
+      0.0,
+      199.63,
+      135.63
+    ],
+    "category_id": 64,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000047774.jpg"
+  },
+  {
+    "image_id": 214563,
+    "ref_id": 31792,
+    "query": "laptop on left",
+    "target_box": [
+      1.08,
+      66.88,
+      238.38000000000002,
+      325.75
+    ],
+    "category_id": 73,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000214563.jpg"
+  },
+  {
+    "image_id": 381961,
+    "ref_id": 17371,
+    "query": "baby elephant on right",
+    "target_box": [
+      289.62,
+      69.94,
+      449.56,
+      317.06
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000381961.jpg"
+  },
+  {
+    "image_id": 340345,
+    "ref_id": 20703,
+    "query": "right giraffe",
+    "target_box": [
+      379.73,
+      117.77,
+      572.07,
+      329.1
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000340345.jpg"
+  },
+  {
+    "image_id": 129722,
+    "ref_id": 38788,
+    "query": "guy in red",
+    "target_box": [
+      166.59,
+      73.34,
+      392.53,
+      419.91999999999996
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000129722.jpg"
+  },
+  {
+    "image_id": 252567,
+    "ref_id": 28556,
+    "query": "catcher",
+    "target_box": [
+      37.11,
+      186.7,
+      261.63,
+      367.08
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000252567.jpg"
+  },
+  {
+    "image_id": 119974,
+    "ref_id": 39681,
+    "query": "plane on top",
+    "target_box": [
+      0.0,
+      39.64,
+      423.26,
+      231.45
+    ],
+    "category_id": 5,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000119974.jpg"
+  },
+  {
+    "image_id": 75843,
+    "ref_id": 43376,
+    "query": "couch by window",
+    "target_box": [
+      208.92,
+      178.68,
+      421.5,
+      283.14
+    ],
+    "category_id": 63,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000075843.jpg"
+  },
+  {
+    "image_id": 390963,
+    "ref_id": 16600,
+    "query": "guy right",
+    "target_box": [
+      420.67,
+      40.66,
+      640.0,
+      473.20000000000005
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000390963.jpg"
+  },
+  {
+    "image_id": 169653,
+    "ref_id": 35514,
+    "query": "umpire",
+    "target_box": [
+      276.24,
+      103.84,
+      526.55,
+      463.52
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000169653.jpg"
+  },
+  {
+    "image_id": 372588,
+    "ref_id": 18151,
+    "query": "bed farthest from the tv",
+    "target_box": [
+      1.08,
+      306.98,
+      414.34,
+      478.0
+    ],
+    "category_id": 65,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000372588.jpg"
+  },
+  {
+    "image_id": 112040,
+    "ref_id": 40309,
+    "query": "farthest left truck",
+    "target_box": [
+      3.19,
+      290.86,
+      121.13,
+      467.77
+    ],
+    "category_id": 6,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000112040.jpg"
+  },
+  {
+    "image_id": 425063,
+    "ref_id": 13648,
+    "query": "front chocolate covered donut on right",
+    "target_box": [
+      501.57,
+      222.2,
+      633.17,
+      337.62
+    ],
+    "category_id": 60,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000425063.jpg"
+  },
+  {
+    "image_id": 443084,
+    "ref_id": 12142,
+    "query": "sitting person",
+    "target_box": [
+      272.22,
+      166.75,
+      443.99,
+      343.53999999999996
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000443084.jpg"
+  },
+  {
+    "image_id": 504878,
+    "ref_id": 6710,
+    "query": "far bottomright fridge",
+    "target_box": [
+      580.43,
+      254.96,
+      640.0,
+      451.4
+    ],
+    "category_id": 82,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000504878.jpg"
+  },
+  {
+    "image_id": 16814,
+    "ref_id": 48551,
+    "query": "white umbrella",
+    "target_box": [
+      3.21,
+      188.49,
+      247.03,
+      300.78000000000003
+    ],
+    "category_id": 28,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000016814.jpg"
+  },
+  {
+    "image_id": 372112,
+    "ref_id": 18196,
+    "query": "closest giraffe",
+    "target_box": [
+      151.27,
+      123.6,
+      511.43000000000006,
+      480.0
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000372112.jpg"
+  },
+  {
+    "image_id": 556399,
+    "ref_id": 2283,
+    "query": "right top object",
+    "target_box": [
+      371.64,
+      120.91,
+      640.0,
+      238.0
+    ],
+    "category_id": 52,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000556399.jpg"
+  },
+  {
+    "image_id": 114249,
+    "ref_id": 40166,
+    "query": "25",
+    "target_box": [
+      348.27,
+      197.57,
+      483.35,
+      402.49
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000114249.jpg"
+  },
+  {
+    "image_id": 38033,
+    "ref_id": 46779,
+    "query": "the right half of the left sandwich",
+    "target_box": [
+      107.36,
+      274.02,
+      234.15,
+      428.41999999999996
+    ],
+    "category_id": 54,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000038033.jpg"
+  },
+  {
+    "image_id": 29456,
+    "ref_id": 47472,
+    "query": "rear bus next to old dude in brown",
+    "target_box": [
+      106.64,
+      96.1,
+      291.93,
+      260.56
+    ],
+    "category_id": 6,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000029456.jpg"
+  },
+  {
+    "image_id": 222086,
+    "ref_id": 31118,
+    "query": "girl with brown hair closest to camera hair in a bun",
+    "target_box": [
+      66.88,
+      169.35,
+      298.78999999999996,
+      474.61
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000222086.jpg"
+  },
+  {
+    "image_id": 52928,
+    "ref_id": 45438,
+    "query": "guy in middle cutting cake",
+    "target_box": [
+      256.27,
+      27.79,
+      412.71,
+      311.85
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000052928.jpg"
+  },
+  {
+    "image_id": 269532,
+    "ref_id": 27072,
+    "query": "front sheep",
+    "target_box": [
+      167.64,
+      290.81,
+      443.69,
+      615.89
+    ],
+    "category_id": 20,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000269532.jpg"
+  },
+  {
+    "image_id": 238007,
+    "ref_id": 29805,
+    "query": "mushrooms",
+    "target_box": [
+      1.92,
+      70.69,
+      640.0,
+      421.71
+    ],
+    "category_id": 51,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000238007.jpg"
+  },
+  {
+    "image_id": 515401,
+    "ref_id": 5817,
+    "query": "suitcase right",
+    "target_box": [
+      447.57,
+      136.76,
+      637.84,
+      474.05
+    ],
+    "category_id": 33,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000515401.jpg"
+  },
+  {
+    "image_id": 80826,
+    "ref_id": 42925,
+    "query": "blue shirt",
+    "target_box": [
+      90.2,
+      0.0,
+      303.53000000000003,
+      151.91
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000080826.jpg"
+  },
+  {
+    "image_id": 249429,
+    "ref_id": 28820,
+    "query": "lounge chair on back left side",
+    "target_box": [
+      14.46,
+      418.77,
+      213.57000000000002,
+      545.5
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000249429.jpg"
+  },
+  {
+    "image_id": 544109,
+    "ref_id": 3343,
+    "query": "woman sitting on floor with legs apart",
+    "target_box": [
+      296.5,
+      197.82,
+      545.8199999999999,
+      426.18
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000544109.jpg"
+  },
+  {
+    "image_id": 348382,
+    "ref_id": 20051,
+    "query": "right giraffe",
+    "target_box": [
+      349.09,
+      1.25,
+      602.18,
+      288.0
+    ],
+    "category_id": 25,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000348382.jpg"
+  },
+  {
+    "image_id": 28451,
+    "ref_id": 47579,
+    "query": "left lemon",
+    "target_box": [
+      165.41,
+      134.13,
+      317.28,
+      290.51
+    ],
+    "category_id": 55,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000028451.jpg"
+  },
+  {
+    "image_id": 209993,
+    "ref_id": 32154,
+    "query": "left animal",
+    "target_box": [
+      57.53,
+      85.87,
+      251.78,
+      280.96000000000004
+    ],
+    "category_id": 20,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000209993.jpg"
+  },
+  {
+    "image_id": 175162,
+    "ref_id": 35094,
+    "query": "broccoli on right side of bowl",
+    "target_box": [
+      95.36,
+      85.81,
+      533.02,
+      398.34
+    ],
+    "category_id": 56,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000175162.jpg"
+  },
+  {
+    "image_id": 558372,
+    "ref_id": 2134,
+    "query": "arm of the man with backpack",
+    "target_box": [
+      22.72,
+      1.2,
+      161.71,
+      224.82999999999998
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000558372.jpg"
+  },
+  {
+    "image_id": 387849,
+    "ref_id": 16848,
+    "query": "train",
+    "target_box": [
+      88.28,
+      124.74,
+      497.04999999999995,
+      345.44
+    ],
+    "category_id": 7,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000387849.jpg"
+  },
+  {
+    "image_id": 396536,
+    "ref_id": 16060,
+    "query": "blue truck being towed",
+    "target_box": [
+      0.96,
+      62.03,
+      217.35,
+      256.3
+    ],
+    "category_id": 8,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000396536.jpg"
+  },
+  {
+    "image_id": 86754,
+    "ref_id": 42465,
+    "query": "green shorts",
+    "target_box": [
+      290.0,
+      0.0,
+      437.56,
+      228.51
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000086754.jpg"
+  },
+  {
+    "image_id": 531752,
+    "ref_id": 4402,
+    "query": "second hotdogt from right",
+    "target_box": [
+      10.12,
+      48.45,
+      544.07,
+      393.55
+    ],
+    "category_id": 58,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000531752.jpg"
+  },
+  {
+    "image_id": 18780,
+    "ref_id": 48386,
+    "query": "first pizza",
+    "target_box": [
+      81.98,
+      219.72,
+      640.0,
+      460.25
+    ],
+    "category_id": 59,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000018780.jpg"
+  },
+  {
+    "image_id": 43998,
+    "ref_id": 46267,
+    "query": "full bike on right at front",
+    "target_box": [
+      243.16,
+      182.84,
+      521.73,
+      381.01
+    ],
+    "category_id": 4,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000043998.jpg"
+  },
+  {
+    "image_id": 325494,
+    "ref_id": 22216,
+    "query": "gray shirted man",
+    "target_box": [
+      371.3,
+      63.12,
+      489.9,
+      363.24
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000325494.jpg"
+  },
+  {
+    "image_id": 351397,
+    "ref_id": 19784,
+    "query": "white teddt far left",
+    "target_box": [
+      18.23,
+      208.22,
+      179.44,
+      319.53
+    ],
+    "category_id": 88,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000351397.jpg"
+  },
+  {
+    "image_id": 139324,
+    "ref_id": 37987,
+    "query": "left kid",
+    "target_box": [
+      55.86,
+      77.35,
+      320.15000000000003,
+      471.63
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000139324.jpg"
+  },
+  {
+    "image_id": 260129,
+    "ref_id": 27912,
+    "query": "guy looking at phone",
+    "target_box": [
+      193.3,
+      64.43,
+      343.33000000000004,
+      390.45
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000260129.jpg"
+  },
+  {
+    "image_id": 106383,
+    "ref_id": 40755,
+    "query": "bottom box right",
+    "target_box": [
+      158.54,
+      309.15,
+      527.1899999999999,
+      418.97999999999996
+    ],
+    "category_id": 78,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000106383.jpg"
+  },
+  {
+    "image_id": 68287,
+    "ref_id": 44038,
+    "query": "bottom man in blue",
+    "target_box": [
+      23.06,
+      394.95,
+      288.29,
+      640.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000068287.jpg"
+  },
+  {
+    "image_id": 111992,
+    "ref_id": 40317,
+    "query": "far left crate",
+    "target_box": [
+      0.0,
+      179.1,
+      119.79,
+      464.02
+    ],
+    "category_id": 8,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000111992.jpg"
+  },
+  {
+    "image_id": 92165,
+    "ref_id": 41976,
+    "query": "pink donut",
+    "target_box": [
+      170.43,
+      151.01,
+      529.62,
+      421.75
+    ],
+    "category_id": 60,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000092165.jpg"
+  },
+  {
+    "image_id": 67748,
+    "ref_id": 44074,
+    "query": "wood floor at the bottom of photo",
+    "target_box": [
+      179.84,
+      172.52,
+      640.0,
+      472.68000000000006
+    ],
+    "category_id": 65,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000067748.jpg"
+  },
+  {
+    "image_id": 208612,
+    "ref_id": 32283,
+    "query": "empty chair middle",
+    "target_box": [
+      0.48,
+      86.8,
+      253.82,
+      345.12
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000208612.jpg"
+  },
+  {
+    "image_id": 502504,
+    "ref_id": 6934,
+    "query": "boy in stripes apron",
+    "target_box": [
+      389.0,
+      82.0,
+      487.0,
+      341.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000502504.jpg"
+  },
+  {
+    "image_id": 508140,
+    "ref_id": 6421,
+    "query": "second car from left blue",
+    "target_box": [
+      82.14,
+      96.09,
+      349.59,
+      249.87
+    ],
+    "category_id": 3,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000508140.jpg"
+  },
+  {
+    "image_id": 237193,
+    "ref_id": 29904,
+    "query": "person far right",
+    "target_box": [
+      417.49,
+      81.55,
+      556.69,
+      214.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000237193.jpg"
+  },
+  {
+    "image_id": 323149,
+    "ref_id": 22467,
+    "query": "bike thing in front",
+    "target_box": [
+      67.48,
+      40.49,
+      563.48,
+      418.39
+    ],
+    "category_id": 2,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000323149.jpg"
+  },
+  {
+    "image_id": 244171,
+    "ref_id": 29305,
+    "query": "person right in the middle",
+    "target_box": [
+      255.22,
+      184.22,
+      334.85,
+      426.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000244171.jpg"
+  },
+  {
+    "image_id": 62348,
+    "ref_id": 44529,
+    "query": "something bottom right with a white stripe",
+    "target_box": [
+      489.14,
+      312.38,
+      640.0,
+      428.0
+    ],
+    "category_id": 62,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000062348.jpg"
+  },
+  {
+    "image_id": 126381,
+    "ref_id": 39083,
+    "query": "elephant in back",
+    "target_box": [
+      267.51,
+      261.75,
+      398.38,
+      558.02
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000126381.jpg"
+  },
+  {
+    "image_id": 314051,
+    "ref_id": 23278,
+    "query": "cow on left",
+    "target_box": [
+      80.72,
+      98.23,
+      227.08,
+      313.85
+    ],
+    "category_id": 21,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000314051.jpg"
+  },
+  {
+    "image_id": 439374,
+    "ref_id": 12430,
+    "query": "right zebra",
+    "target_box": [
+      387.29,
+      257.7,
+      547.53,
+      382.21999999999997
+    ],
+    "category_id": 24,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000439374.jpg"
+  },
+  {
+    "image_id": 484208,
+    "ref_id": 8540,
+    "query": "right sheep",
+    "target_box": [
+      184.12,
+      84.6,
+      638.28,
+      353.70000000000005
+    ],
+    "category_id": 20,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000484208.jpg"
+  },
+  {
+    "image_id": 424821,
+    "ref_id": 13677,
+    "query": "old man in crowd",
+    "target_box": [
+      0.0,
+      131.37,
+      116.33,
+      379.78
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000424821.jpg"
+  },
+  {
+    "image_id": 149566,
+    "ref_id": 37113,
+    "query": "white area behind bears head",
+    "target_box": [
+      20.75,
+      73.42,
+      429.0,
+      287.28000000000003
+    ],
+    "category_id": 67,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000149566.jpg"
+  },
+  {
+    "image_id": 288559,
+    "ref_id": 25507,
+    "query": "catcher in white",
+    "target_box": [
+      502.45,
+      192.85,
+      610.31,
+      413.97
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000288559.jpg"
+  },
+  {
+    "image_id": 430244,
+    "ref_id": 13171,
+    "query": "stripes guy",
+    "target_box": [
+      484.31,
+      79.82,
+      619.15,
+      392.63
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000430244.jpg"
+  },
+  {
+    "image_id": 314462,
+    "ref_id": 23231,
+    "query": "left girl",
+    "target_box": [
+      64.72,
+      94.92,
+      225.8,
+      591.1
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000314462.jpg"
+  },
+  {
+    "image_id": 545832,
+    "ref_id": 3199,
+    "query": "white car on the left",
+    "target_box": [
+      2.77,
+      288.99,
+      266.38,
+      479.04
+    ],
+    "category_id": 3,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000545832.jpg"
+  },
+  {
+    "image_id": 497311,
+    "ref_id": 7352,
+    "query": "far left center area",
+    "target_box": [
+      7.97,
+      65.34,
+      181.69,
+      600.84
+    ],
+    "category_id": 67,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000497311.jpg"
+  },
+  {
+    "image_id": 260932,
+    "ref_id": 27825,
+    "query": "player",
+    "target_box": [
+      450.74,
+      202.55,
+      637.98,
+      505.35
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000260932.jpg"
+  },
+  {
+    "image_id": 120155,
+    "ref_id": 39663,
+    "query": "backgroun boy wjhite shirt",
+    "target_box": [
+      0.0,
+      197.15,
+      114.4,
+      386.53
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000120155.jpg"
+  },
+  {
+    "image_id": 385505,
+    "ref_id": 17085,
+    "query": "purple hoodie",
+    "target_box": [
+      367.23,
+      32.48,
+      633.46,
+      453.20000000000005
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000385505.jpg"
+  },
+  {
+    "image_id": 52086,
+    "ref_id": 45521,
+    "query": "girl eating",
+    "target_box": [
+      174.74,
+      22.65,
+      640.0,
+      476.76
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000052086.jpg"
+  },
+  {
+    "image_id": 300624,
+    "ref_id": 24484,
+    "query": "blue shirt",
+    "target_box": [
+      300.45,
+      84.8,
+      526.73,
+      422.33
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000300624.jpg"
+  },
+  {
+    "image_id": 327970,
+    "ref_id": 21949,
+    "query": "ref",
+    "target_box": [
+      172.58,
+      79.1,
+      360.99,
+      542.1
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000327970.jpg"
+  },
+  {
+    "image_id": 331900,
+    "ref_id": 21561,
+    "query": "baby cow",
+    "target_box": [
+      185.01,
+      185.11,
+      360.77,
+      420.48
+    ],
+    "category_id": 21,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000331900.jpg"
+  },
+  {
+    "image_id": 329058,
+    "ref_id": 21846,
+    "query": "right lady",
+    "target_box": [
+      388.57,
+      32.68,
+      635.51,
+      398.55
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000329058.jpg"
+  },
+  {
+    "image_id": 494032,
+    "ref_id": 7672,
+    "query": "tennis player in front",
+    "target_box": [
+      277.64,
+      40.59,
+      618.47,
+      602.4100000000001
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000494032.jpg"
+  },
+  {
+    "image_id": 382069,
+    "ref_id": 17361,
+    "query": "weekender skateboard douce",
+    "target_box": [
+      230.11,
+      209.22,
+      359.92,
+      616.92
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000382069.jpg"
+  },
+  {
+    "image_id": 67615,
+    "ref_id": 44086,
+    "query": "hitter",
+    "target_box": [
+      262.55,
+      109.64,
+      453.93,
+      395.26
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000067615.jpg"
+  },
+  {
+    "image_id": 240331,
+    "ref_id": 29594,
+    "query": "kid",
+    "target_box": [
+      180.93,
+      84.24,
+      367.6,
+      315.90999999999997
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000240331.jpg"
+  },
+  {
+    "image_id": 437547,
+    "ref_id": 12592,
+    "query": "train on right",
+    "target_box": [
+      376.0,
+      44.75,
+      516.5,
+      190.25
+    ],
+    "category_id": 7,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000437547.jpg"
+  },
+  {
+    "image_id": 560525,
+    "ref_id": 1969,
+    "query": "open book left of man",
+    "target_box": [
+      174.74,
+      303.1,
+      477.84000000000003,
+      433.62
+    ],
+    "category_id": 84,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000560525.jpg"
+  },
+  {
+    "image_id": 131913,
+    "ref_id": 38583,
+    "query": "shirtless man",
+    "target_box": [
+      222.25,
+      261.71,
+      340.2,
+      565.3499999999999
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000131913.jpg"
+  },
+  {
+    "image_id": 17451,
+    "ref_id": 48517,
+    "query": "not closest half meter but number 32",
+    "target_box": [
+      237.74,
+      137.24,
+      341.9,
+      356.14
+    ],
+    "category_id": 14,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000017451.jpg"
+  },
+  {
+    "image_id": 192319,
+    "ref_id": 33640,
+    "query": "the person to the left of the man in white shorts",
+    "target_box": [
+      39.66,
+      0.0,
+      128.37,
+      210.79
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000192319.jpg"
+  },
+  {
+    "image_id": 409825,
+    "ref_id": 14952,
+    "query": "blond woman",
+    "target_box": [
+      54.0,
+      89.05,
+      248.4,
+      314.87
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000409825.jpg"
+  },
+  {
+    "image_id": 279762,
+    "ref_id": 26254,
+    "query": "man on bottom screen",
+    "target_box": [
+      0.9,
+      314.18,
+      353.83,
+      617.54
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000279762.jpg"
+  },
+  {
+    "image_id": 521064,
+    "ref_id": 5282,
+    "query": "banana bottom right corner",
+    "target_box": [
+      353.8,
+      286.92,
+      640.0,
+      474.61
+    ],
+    "category_id": 52,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000521064.jpg"
+  },
+  {
+    "image_id": 322517,
+    "ref_id": 22516,
+    "query": "center polka",
+    "target_box": [
+      216.0,
+      0.28,
+      364.15999999999997,
+      191.43
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000322517.jpg"
+  },
+  {
+    "image_id": 203069,
+    "ref_id": 32802,
+    "query": "pice of fruit at very front second from left",
+    "target_box": [
+      65.68,
+      299.28,
+      268.03,
+      423.22999999999996
+    ],
+    "category_id": 53,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000203069.jpg"
+  },
+  {
+    "image_id": 563679,
+    "ref_id": 1643,
+    "query": "middle",
+    "target_box": [
+      112.0,
+      97.81,
+      324.03999999999996,
+      285.22
+    ],
+    "category_id": 24,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000563679.jpg"
+  },
+  {
+    "image_id": 316238,
+    "ref_id": 23095,
+    "query": "black woman on the far right not sitting",
+    "target_box": [
+      261.47,
+      86.61,
+      478.24,
+      331.92
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000316238.jpg"
+  },
+  {
+    "image_id": 190513,
+    "ref_id": 33789,
+    "query": "bike on left",
+    "target_box": [
+      0.0,
+      0.11,
+      347.91,
+      471.86
+    ],
+    "category_id": 4,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000190513.jpg"
+  },
+  {
+    "image_id": 264502,
+    "ref_id": 27509,
+    "query": "person in hat",
+    "target_box": [
+      0.87,
+      0.31,
+      186.91,
+      461.71
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000264502.jpg"
+  },
+  {
+    "image_id": 579667,
+    "ref_id": 199,
+    "query": "under",
+    "target_box": [
+      161.2,
+      478.22,
+      423.39,
+      640.0
+    ],
+    "category_id": 17,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000579667.jpg"
+  },
+  {
+    "image_id": 295864,
+    "ref_id": 24963,
+    "query": "black laptop left",
+    "target_box": [
+      71.9,
+      81.99,
+      345.14,
+      401.69
+    ],
+    "category_id": 73,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000295864.jpg"
+  },
+  {
+    "image_id": 217959,
+    "ref_id": 31496,
+    "query": "dark cow",
+    "target_box": [
+      109.42,
+      131.1,
+      418.06,
+      346.84000000000003
+    ],
+    "category_id": 21,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000217959.jpg"
+  },
+  {
+    "image_id": 18211,
+    "ref_id": 48451,
+    "query": "soft kitty warm kitty little ball of fur in kitty bed",
+    "target_box": [
+      176.74,
+      212.22,
+      414.28,
+      320.81
+    ],
+    "category_id": 17,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000018211.jpg"
+  },
+  {
+    "image_id": 292315,
+    "ref_id": 25213,
+    "query": "right person",
+    "target_box": [
+      375.11,
+      213.86,
+      512.95,
+      398.91
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000292315.jpg"
+  },
+  {
+    "image_id": 140850,
+    "ref_id": 37830,
+    "query": "right suitcase",
+    "target_box": [
+      168.54,
+      206.74,
+      331.46,
+      452.81
+    ],
+    "category_id": 33,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000140850.jpg"
+  },
+  {
+    "image_id": 257804,
+    "ref_id": 28107,
+    "query": "face on right",
+    "target_box": [
+      283.99,
+      11.01,
+      500.0,
+      368.31
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000257804.jpg"
+  },
+  {
+    "image_id": 404828,
+    "ref_id": 15373,
+    "query": "man left side standing closest to us",
+    "target_box": [
+      123.58,
+      55.17,
+      229.5,
+      438.04
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000404828.jpg"
+  },
+  {
+    "image_id": 343201,
+    "ref_id": 20493,
+    "query": "right donut",
+    "target_box": [
+      403.72,
+      286.37,
+      629.8000000000001,
+      456.47
+    ],
+    "category_id": 60,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000343201.jpg"
+  },
+  {
+    "image_id": 314065,
+    "ref_id": 23275,
+    "query": "left guy",
+    "target_box": [
+      138.71,
+      76.62,
+      313.74,
+      502.65
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000314065.jpg"
+  },
+  {
+    "image_id": 215569,
+    "ref_id": 31702,
+    "query": "left bottom chick",
+    "target_box": [
+      41.59,
+      201.86,
+      328.61,
+      480.0
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000215569.jpg"
+  },
+  {
+    "image_id": 150704,
+    "ref_id": 37024,
+    "query": "left e",
+    "target_box": [
+      81.99,
+      255.7,
+      308.28,
+      380.88
+    ],
+    "category_id": 22,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000150704.jpg"
+  },
+  {
+    "image_id": 150197,
+    "ref_id": 37054,
+    "query": "bottom right wheel",
+    "target_box": [
+      484.08,
+      390.89,
+      640.0,
+      479.77
+    ],
+    "category_id": 2,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000150197.jpg"
+  },
+  {
+    "image_id": 25628,
+    "ref_id": 47818,
+    "query": "person left",
+    "target_box": [
+      0.0,
+      192.0,
+      197.39,
+      473.53
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000025628.jpg"
+  },
+  {
+    "image_id": 287249,
+    "ref_id": 25611,
+    "query": "second sitting person from left",
+    "target_box": [
+      67.38,
+      164.29,
+      329.13,
+      475.59000000000003
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000287249.jpg"
+  },
+  {
+    "image_id": 309519,
+    "ref_id": 23766,
+    "query": "top car",
+    "target_box": [
+      6.68,
+      0.0,
+      177.79000000000002,
+      181.97
+    ],
+    "category_id": 3,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000309519.jpg"
+  },
+  {
+    "image_id": 521366,
+    "ref_id": 5248,
+    "query": "the guy",
+    "target_box": [
+      264.63,
+      79.1,
+      429.0,
+      454.47
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000521366.jpg"
+  },
+  {
+    "image_id": 545214,
+    "ref_id": 3254,
+    "query": "arms up",
+    "target_box": [
+      176.87,
+      80.93,
+      468.68,
+      487.21
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000545214.jpg"
+  },
+  {
+    "image_id": 167169,
+    "ref_id": 35720,
+    "query": "softball pitcher",
+    "target_box": [
+      17.31,
+      7.45,
+      431.77,
+      420.95
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000167169.jpg"
+  },
+  {
+    "image_id": 573125,
+    "ref_id": 769,
+    "query": "guy white shirt with shorts and strap",
+    "target_box": [
+      216.81,
+      104.9,
+      338.7,
+      463.01
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000573125.jpg"
+  },
+  {
+    "image_id": 6747,
+    "ref_id": 49473,
+    "query": "left person",
+    "target_box": [
+      1.08,
+      220.63,
+      292.74,
+      429.41999999999996
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000006747.jpg"
+  },
+  {
+    "image_id": 344319,
+    "ref_id": 20394,
+    "query": "horse on right",
+    "target_box": [
+      463.46,
+      112.69,
+      569.63,
+      387.83
+    ],
+    "category_id": 19,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000344319.jpg"
+  },
+  {
+    "image_id": 533293,
+    "ref_id": 4250,
+    "query": "top tie",
+    "target_box": [
+      166.49,
+      0.54,
+      486.49,
+      111.89
+    ],
+    "category_id": 32,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000533293.jpg"
+  },
+  {
+    "image_id": 349212,
+    "ref_id": 19974,
+    "query": "red",
+    "target_box": [
+      272.74,
+      199.71,
+      512.76,
+      496.69000000000005
+    ],
+    "category_id": 88,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000349212.jpg"
+  },
+  {
+    "image_id": 202657,
+    "ref_id": 32846,
+    "query": "left umbrella",
+    "target_box": [
+      13.47,
+      279.84,
+      239.34,
+      507.59999999999997
+    ],
+    "category_id": 28,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000202657.jpg"
+  },
+  {
+    "image_id": 381889,
+    "ref_id": 17379,
+    "query": "black fellow",
+    "target_box": [
+      337.92,
+      175.5,
+      479.56,
+      477.3
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000381889.jpg"
+  },
+  {
+    "image_id": 253522,
+    "ref_id": 28474,
+    "query": "second person from left bottom row",
+    "target_box": [
+      170.61,
+      185.21,
+      248.16000000000003,
+      401.44
+    ],
+    "category_id": 1,
+    "image_path": "data_operational\\refcoco_unseen500\\images\\000000253522.jpg"
+  }
+]

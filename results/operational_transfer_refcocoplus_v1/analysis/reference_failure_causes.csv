@@ -1,0 +1,9 @@
+model,cause,count,share_among_failures
+groundingdino,winner_missing,5,0.00041992105484168975
+groundingdino,competitor_missing,4128,0.3466868228772991
+groundingdino,threatening_birth,874,0.07340220038632737
+groundingdino,ranking_reversal,6900,0.5794910556815319
+yoloworld,winner_missing,1721,0.08428837300421196
+yoloworld,competitor_missing,12110,0.5931041238123225
+yoloworld,threatening_birth,677,0.033157018317171126
+yoloworld,ranking_reversal,5910,0.28945048486629443
