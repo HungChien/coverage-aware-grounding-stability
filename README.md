@@ -351,6 +351,41 @@ risk decomposes as
 The resulting shares describe where instability is observed under the
 registered probe distribution. They are descriptive, not causal claims.
 
+### Qualitative failure examples
+
+The following panels are reconstructed directly from saved benchmark traces.
+Each row compares the clean tracked candidates on the left with the candidates
+exposed after one registered perturbation on the right. The four rows show
+`winner_missing`, `competitor_missing`, `threatening_birth`, and
+`ranking_reversal`. Prefixes `C` and `P` identify clean and perturbed ranks;
+they are not semantic class labels.
+
+#### RefCOCO+ transfer
+
+**GroundingDINO**
+
+![GroundingDINO qualitative failure examples on RefCOCO+](results/operational_transfer_refcocoplus_v1/analysis/failure_examples/groundingdino_failure_examples.png)
+
+**YOLO-World**
+
+![YOLO-World qualitative failure examples on RefCOCO+](results/operational_transfer_refcocoplus_v1/analysis/failure_examples/yoloworld_failure_examples.png)
+
+#### Ref-L4 supplementary transfer
+
+**GroundingDINO**
+
+![GroundingDINO qualitative failure examples on Ref-L4](results/operational_transfer_refl4_v1/analysis/failure_examples/groundingdino_failure_examples.png)
+
+**YOLO-World**
+
+![YOLO-World qualitative failure examples on Ref-L4](results/operational_transfer_refl4_v1/analysis/failure_examples/yoloworld_failure_examples.png)
+
+These images make the benchmark's distinction visible: a ranking reversal
+changes the order of still-observable candidates, while a coverage failure
+changes which candidates remain observable. They are explanatory examples;
+all reported estimates use the complete frozen manifests rather than selected
+images.
+
 ## Frozen Large-Scale Experiment
 
 | Component | Frozen setting |
