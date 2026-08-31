@@ -11,7 +11,7 @@ from scipy.stats import spearmanr
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MODELS = ("groundingdino", "yoloworld")
+DEFAULT_MODELS = ("groundingdino", "yoloworld")
 
 
 def load_reference_rows(result_root: Path, model: str) -> pd.DataFrame:
@@ -123,12 +123,12 @@ def finite_probe_by_scope(frame: pd.DataFrame, scope: str) -> list[dict]:
 
 
 def family_profile_transfer(
-    source_root: Path, target_root: Path
+    source_root: Path, target_root: Path, models: list[str]
 ) -> pd.DataFrame:
     source = pd.read_csv(source_root / "analysis" / "reference_family_risk.csv")
     target = pd.read_csv(target_root / "analysis" / "reference_family_risk.csv")
     rows = []
-    for model in MODELS:
+    for model in models:
         left = source.loc[source["model"] == model, ["family", "risk_share"]]
         right = target.loc[target["model"] == model, ["family", "risk_share"]]
         joined = left.merge(right, on="family", suffixes=("_source", "_target"))
@@ -192,6 +192,7 @@ def main() -> None:
     )
     parser.add_argument("--bootstrap-repetitions", type=int, default=2000)
     parser.add_argument("--seed", type=int, default=20260826)
+    parser.add_argument("--models", nargs="+", default=list(DEFAULT_MODELS))
     args = parser.parse_args()
 
     output = args.target_root / "analysis" / "transfer"
@@ -200,7 +201,7 @@ def main() -> None:
     summary_rows = []
     finite_rows = []
     delta_rows = []
-    for model in MODELS:
+    for model in args.models:
         source = load_reference_rows(args.source_root, model)
         target = attach_split(
             load_reference_rows(args.target_root, model), args.target_manifest
@@ -261,7 +262,7 @@ def main() -> None:
     summary = pd.DataFrame(summary_rows)
     deltas = pd.DataFrame(delta_rows)
     finite = pd.DataFrame(finite_rows)
-    families = family_profile_transfer(args.source_root, args.target_root)
+    families = family_profile_transfer(args.source_root, args.target_root, args.models)
     summary.to_csv(output / "transfer_estimands.csv", index=False)
     deltas.to_csv(output / "dataset_shift_bootstrap.csv", index=False)
     finite.to_csv(output / "transfer_finite_probe_metrics.csv", index=False)
@@ -286,7 +287,7 @@ def main() -> None:
         "target_manifest": str(args.target_manifest),
         "bootstrap_repetitions": args.bootstrap_repetitions,
         "seed": args.seed,
-        "models": list(MODELS),
+        "models": args.models,
         "target_split_counts": {"testA": 500, "testB": 500},
     }
     (output / "transfer_audit.json").write_text(

@@ -82,5 +82,47 @@
         "seed": 1504676976
       }
     }
+  },
+  "owlv2": {
+    "winner_missing": {
+      "image_id": 8630,
+      "ref_id": 435099,
+      "query": "man on skis",
+      "probe": {
+        "family": "blur",
+        "severity": 1.6057716434096616,
+        "seed": 863232417
+      }
+    },
+    "competitor_missing": {
+      "image_id": 605,
+      "ref_id": 670466,
+      "query": "happy face cup",
+      "probe": {
+        "family": "blur",
+        "severity": 0.8086538490392001,
+        "seed": 31188130
+      }
+    },
+    "threatening_birth": {
+      "image_id": 839,
+      "ref_id": 482127,
+      "query": "white uniform",
+      "probe": {
+        "family": "gaussian_noise",
+        "severity": 0.027568538610169693,
+        "seed": 1878493789
+      }
+    },
+    "ranking_reversal": {
+      "image_id": 839,
+      "ref_id": 482127,
+      "query": "white uniform",
+      "probe": {
+        "family": "brightness",
+        "severity": 0.8844512742787223,
+        "seed": 1786915276
+      }
+    }
   }
 }

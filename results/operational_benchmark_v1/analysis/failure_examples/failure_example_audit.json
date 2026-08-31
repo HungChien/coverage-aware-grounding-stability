@@ -1,0 +1,128 @@
+{
+  "groundingdino": {
+    "winner_missing": {
+      "image_id": 191068,
+      "ref_id": 33728,
+      "query": "candles bottom",
+      "probe": {
+        "family": "gaussian_noise",
+        "severity": 0.0395113866392391,
+        "seed": 44235227
+      }
+    },
+    "competitor_missing": {
+      "image_id": 1298,
+      "ref_id": 49892,
+      "query": "fatty in center frame",
+      "probe": {
+        "family": "resolution",
+        "severity": 0.883166781592373,
+        "seed": 1031738662
+      }
+    },
+    "threatening_birth": {
+      "image_id": 1298,
+      "ref_id": 49892,
+      "query": "fatty in center frame",
+      "probe": {
+        "family": "gaussian_noise",
+        "severity": 0.03217729206532332,
+        "seed": 1465893412
+      }
+    },
+    "ranking_reversal": {
+      "image_id": 1298,
+      "ref_id": 49892,
+      "query": "fatty in center frame",
+      "probe": {
+        "family": "gaussian_noise",
+        "severity": 0.020403365409527426,
+        "seed": 1912244725
+      }
+    }
+  },
+  "yoloworld": {
+    "winner_missing": {
+      "image_id": 1958,
+      "ref_id": 49846,
+      "query": "chair in blue bottom right corner",
+      "probe": {
+        "family": "gaussian_noise",
+        "severity": 0.03383093453465881,
+        "seed": 826817512
+      }
+    },
+    "competitor_missing": {
+      "image_id": 1958,
+      "ref_id": 49846,
+      "query": "chair in blue bottom right corner",
+      "probe": {
+        "family": "jpeg",
+        "severity": 56.3437475120013,
+        "seed": 1350358258
+      }
+    },
+    "threatening_birth": {
+      "image_id": 13318,
+      "ref_id": 48934,
+      "query": "lady left brown purse",
+      "probe": {
+        "family": "jpeg",
+        "severity": 43.24706903011342,
+        "seed": 1833512862
+      }
+    },
+    "ranking_reversal": {
+      "image_id": 2823,
+      "ref_id": 49786,
+      "query": "red bike on the far left",
+      "probe": {
+        "family": "resolution",
+        "severity": 0.9192958846307131,
+        "seed": 1125491034
+      }
+    }
+  },
+  "owlv2": {
+    "winner_missing": {
+      "image_id": 35045,
+      "ref_id": 47025,
+      "query": "paper bottom right",
+      "probe": {
+        "family": "brightness",
+        "severity": 1.260245289140601,
+        "seed": 1979012187
+      }
+    },
+    "competitor_missing": {
+      "image_id": 1298,
+      "ref_id": 49892,
+      "query": "fatty in center frame",
+      "probe": {
+        "family": "resolution",
+        "severity": 0.883166781592373,
+        "seed": 1031738662
+      }
+    },
+    "threatening_birth": {
+      "image_id": 1298,
+      "ref_id": 49892,
+      "query": "fatty in center frame",
+      "probe": {
+        "family": "gaussian_noise",
+        "severity": 0.03677619899436485,
+        "seed": 368739116
+      }
+    },
+    "ranking_reversal": {
+      "image_id": 1298,
+      "ref_id": 49892,
+      "query": "fatty in center frame",
+      "probe": {
+        "family": "gaussian_noise",
+        "severity": 0.020403365409527426,
+        "seed": 1912244725
+      }
+    }
+  }
+}

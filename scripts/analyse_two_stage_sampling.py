@@ -616,8 +616,8 @@ def render_report(
         "4. The intraclass correlation, design effect, and effective sample size quantify how much "
         "information is lost by repeated probing of the same pair.",
         "5. Estimated variance components support explicit sample-size and cost-optimal budget decisions.",
-        "6. The same theory and frozen analysis apply to both grounding architectures because the "
-        "observable operational event is architecture agnostic.",
+        "6. The same theory and frozen analysis apply to all three tested model families because "
+        "the observable event does not compare raw confidence scales.",
         "",
         "## Interpretation boundaries",
         "",

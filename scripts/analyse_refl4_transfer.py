@@ -11,7 +11,7 @@ from scipy.stats import spearmanr
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MODELS = ("groundingdino", "yoloworld")
+DEFAULT_MODELS = ("groundingdino", "yoloworld")
 
 
 def load_reference_rows(result_root: Path, model: str) -> pd.DataFrame:
@@ -134,12 +134,15 @@ def finite_probe_rows(frame: pd.DataFrame, model: str, scope: str) -> list[dict]
 
 
 def family_transfer(
-    baseline_name: str, baseline_root: Path, target_root: Path
+    baseline_name: str,
+    baseline_root: Path,
+    target_root: Path,
+    models: list[str],
 ) -> list[dict]:
     source = pd.read_csv(baseline_root / "analysis" / "reference_family_risk.csv")
     target = pd.read_csv(target_root / "analysis" / "reference_family_risk.csv")
     rows = []
-    for model in MODELS:
+    for model in models:
         left = source.loc[source["model"] == model, ["family", "risk_share"]]
         right = target.loc[target["model"] == model, ["family", "risk_share"]]
         joined = left.merge(right, on="family", suffixes=("_source", "_target"))
@@ -209,6 +212,7 @@ def main() -> None:
     )
     parser.add_argument("--bootstrap-repetitions", type=int, default=2000)
     parser.add_argument("--seed", type=int, default=20260827)
+    parser.add_argument("--models", nargs="+", default=list(DEFAULT_MODELS))
     args = parser.parse_args()
 
     output = args.target_root / "analysis" / "transfer"
@@ -220,7 +224,7 @@ def main() -> None:
     delta_rows: list[dict] = []
     stratum_rows: list[dict] = []
 
-    for model in MODELS:
+    for model in args.models:
         refcoco = load_reference_rows(args.refcoco_root, model)
         refcocoplus = load_reference_rows(args.refcocoplus_root, model)
         target = attach_manifest(load_reference_rows(args.target_root, model), fields)
@@ -298,8 +302,10 @@ def main() -> None:
     finite = pd.DataFrame(finite_rows)
     strata = pd.DataFrame(stratum_rows)
     families = pd.DataFrame(
-        family_transfer("RefCOCO", args.refcoco_root, args.target_root)
-        + family_transfer("RefCOCO+", args.refcocoplus_root, args.target_root)
+        family_transfer("RefCOCO", args.refcoco_root, args.target_root, args.models)
+        + family_transfer(
+            "RefCOCO+", args.refcocoplus_root, args.target_root, args.models
+        )
     )
     estimands.to_csv(output / "transfer_estimands.csv", index=False)
     deltas.to_csv(output / "dataset_shift_bootstrap.csv", index=False)
@@ -328,7 +334,7 @@ def main() -> None:
         "target_manifest": str(args.target_manifest),
         "bootstrap_repetitions": args.bootstrap_repetitions,
         "seed": args.seed,
-        "models": list(MODELS),
+        "models": args.models,
         "target_source_counts": {"coco": 600, "objects365": 400},
     }
     (output / "transfer_audit.json").write_text(

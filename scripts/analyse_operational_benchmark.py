@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import gzip
+import itertools
 import json
 import math
 import sys
@@ -21,6 +22,7 @@ sys.path.insert(0, str(ROOT))
 MODEL_LABELS = {
     "groundingdino": "GroundingDINO",
     "yoloworld": "YOLO-World",
+    "owlv2": "OWLv2",
 }
 CAUSE_ORDER = [
     "winner_missing",
@@ -513,7 +515,9 @@ def hierarchical_bootstrap(
     }
     rng = np.random.default_rng(seed)
     result: dict[tuple[str, int, str], list[float]] = defaultdict(list)
-    paired_differences: dict[tuple[int, str], list[float]] = defaultdict(list)
+    paired_differences: dict[
+        tuple[int, str], list[tuple[str, str, float]]
+    ] = defaultdict(list)
     n = len(common_keys)
 
     for _ in range(repetitions):
@@ -538,14 +542,17 @@ def hierarchical_bootstrap(
                 reference_means[model] = ref_value
                 result[(model, budget, "diagnostic_mean")].append(diag_value)
                 result[(model, budget, "reference_mean")].append(ref_value)
-            if len(models) == 2:
-                left, right = models
+            for left, right in itertools.combinations(models, 2):
                 paired_differences[(budget, "diagnostic_difference")].append(
-                    diagnostic_means_by_budget[budget][left]
-                    - diagnostic_means_by_budget[budget][right]
+                    (
+                        left,
+                        right,
+                        diagnostic_means_by_budget[budget][left]
+                        - diagnostic_means_by_budget[budget][right],
+                    )
                 )
                 paired_differences[(budget, "reference_difference")].append(
-                    reference_means[left] - reference_means[right]
+                    (left, right, reference_means[left] - reference_means[right])
                 )
 
     rows = []
@@ -565,20 +572,23 @@ def hierarchical_bootstrap(
             }
         )
     for (budget, statistic), values in paired_differences.items():
-        array = np.asarray(values)
-        rows.append(
-            {
-                "comparison": "paired_cross_model",
-                "model_or_pair": f"{models[0]}-{models[1]}",
-                "diagnostic_budget": budget,
-                "statistic": statistic,
-                "estimate": float(array.mean()),
-                "lower_95": float(np.quantile(array, 0.025)),
-                "upper_95": float(np.quantile(array, 0.975)),
-                "bootstrap_repetitions": repetitions,
-                "sample_count": n,
-            }
-        )
+        for left, right in itertools.combinations(models, 2):
+            array = np.asarray(
+                [value for a, b, value in values if a == left and b == right]
+            )
+            rows.append(
+                {
+                    "comparison": "paired_cross_model",
+                    "model_or_pair": f"{left}-{right}",
+                    "diagnostic_budget": budget,
+                    "statistic": statistic,
+                    "estimate": float(array.mean()),
+                    "lower_95": float(np.quantile(array, 0.025)),
+                    "upper_95": float(np.quantile(array, 0.975)),
+                    "bootstrap_repetitions": repetitions,
+                    "sample_count": n,
+                }
+            )
     return pd.DataFrame(rows).sort_values(
         ["comparison", "model_or_pair", "diagnostic_budget", "statistic"]
     )
@@ -595,7 +605,11 @@ def save_figures(
     output: Path,
 ) -> None:
     plt.style.use("seaborn-v0_8-whitegrid")
-    colors = {"groundingdino": "#3B82F6", "yoloworld": "#F97316"}
+    colors = {
+        "groundingdino": "#3B82F6",
+        "yoloworld": "#F97316",
+        "owlv2": "#10B981",
+    }
 
     fig, axes = plt.subplots(1, 2, figsize=(11, 4.2))
     for model, subset in budget.groupby("model"):

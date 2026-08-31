@@ -7,22 +7,26 @@
   ],
   "models": [
     "groundingdino",
+    "owlv2",
     "yoloworld"
   ],
   "resampling_repetitions": 1000,
   "component_bootstrap_repetitions": 2000,
   "seed": 20260828,
-  "validation_scenario_count": 196,
-  "median_absolute_relative_variance_error": 0.03007103772125776,
-  "mean_absolute_relative_variance_error": 0.036033698619693744,
-  "maximum_absolute_empirical_bias": 0.003427000000000069,
+  "validation_scenario_count": 294,
+  "median_absolute_relative_variance_error": 0.030902712538436267,
+  "mean_absolute_relative_variance_error": 0.03779166226513796,
+  "maximum_absolute_empirical_bias": 0.0036157499999999176,
   "minimum_between_component_raw": 0.03447103417103812,
   "input_sha256": {
     "results\\operational_benchmark_v1\\groundingdino\\sample_traces.jsonl.gz": "811285518834b8b0b00fe53bf0fe9686932c91c700d4704a06e3cfd4de068df3",
+    "results\\operational_benchmark_v1\\owlv2\\sample_traces.jsonl.gz": "0c608dcfddb8e715458fd63d69214d341c69e1877ec50296e5e191c80cfa2f09",
     "results\\operational_benchmark_v1\\yoloworld\\sample_traces.jsonl.gz": "adb185950fa59fae364e89578c5abd19558ec62b204269880b248ca231aa7b35",
     "results\\operational_transfer_refcocoplus_v1\\groundingdino\\sample_traces.jsonl.gz": "c3d6925d98527b317976e7cb17343fe4f9b4ef5d8272de421c9db55c99c2bb91",
+    "results\\operational_transfer_refcocoplus_v1\\owlv2\\sample_traces.jsonl.gz": "815242577050c054849e7a9197ec12067306351019623c7425ad1c2773ca5d9d",
     "results\\operational_transfer_refcocoplus_v1\\yoloworld\\sample_traces.jsonl.gz": "bd07ee31e8c00fafe2ccdbf6f12adf47c1d24c80598496826a019d004545bc5c",
     "results\\operational_transfer_refl4_v1\\groundingdino\\sample_traces.jsonl.gz": "8dc892c016514b6865011d15662df57410b364ac0e0cd61003c3e815538a1ca3",
+    "results\\operational_transfer_refl4_v1\\owlv2\\sample_traces.jsonl.gz": "ca3eb7e4ed7a8d427eb96567181b2b948df8626d7d3702428f4740eb71299333",
     "results\\operational_transfer_refl4_v1\\yoloworld\\sample_traces.jsonl.gz": "20b11627ccfd8773594de99ca592f20ad82983c003d4707e8a9f4694dc48dd52"
   },
   "outputs": [

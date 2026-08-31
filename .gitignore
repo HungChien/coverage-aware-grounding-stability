@@ -55,6 +55,12 @@ tmp/
 .codex_tmp/
 results/refl4_preflight_pytest/
 
+# Locally rendered human-audit cards and QA previews
+audit/probe_semantic_validity/reviewer_package/cards/
+audit/probe_semantic_validity/researcher_only/*_preview.png
+audit/probe_semantic_validity/researcher_only/*.inspect.ndjson
+audit/probe_semantic_validity/researcher_only/*_inspect.ndjson
+
 # Failed, smoke, and dry-run experiment directories
 results/operational_benchmark_dryrun/
 results/operational_transfer_refcocoplus_dryrun/

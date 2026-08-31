@@ -47,7 +47,23 @@
       },
       "maximum_risk_decomposition_residual": 1.1102230246251565e-16,
       "duplicate_trace_records_from_resume": 0
+    },
+    "owlv2": {
+      "samples": 500,
+      "eligible_samples": 488,
+      "clean_eligibility": 0.976,
+      "diagnostic_probes": 19520,
+      "reference_probes": 39040,
+      "failure_counts_including_diagnostic_and_reference": {
+        "stable": 44350,
+        "ranking_reversal": 7442,
+        "competitor_missing": 4918,
+        "threatening_birth": 1686,
+        "winner_missing": 164
+      },
+      "maximum_risk_decomposition_residual": 1.249000902703301e-16,
+      "duplicate_trace_records_from_resume": 0
     }
   },
-  "both_models_eligible_shared_probe_pairs": 364
+  "all_models_eligible_shared_probe_samples": 362
 }

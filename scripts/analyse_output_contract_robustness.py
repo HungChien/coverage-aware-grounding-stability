@@ -6,6 +6,7 @@ import hashlib
 import json
 import sys
 from collections import defaultdict
+from itertools import combinations
 from pathlib import Path
 
 import matplotlib.pyplot as plt
@@ -34,7 +35,12 @@ DATASETS = {
     "RefCOCO+": ROOT / "results" / "operational_transfer_refcocoplus_v1",
     "Ref-L4": ROOT / "results" / "operational_transfer_refl4_v1",
 }
-MODELS = ("groundingdino", "yoloworld")
+MODEL_LABELS = {
+    "groundingdino": "GroundingDINO",
+    "owlv2": "OWLv2",
+    "yoloworld": "YOLO-World",
+}
+MODELS = tuple(MODEL_LABELS)
 
 
 def sha256(path: Path) -> str:
@@ -393,12 +399,12 @@ def write_report(
         "",
         "## Model-ranking robustness",
         "",
-        "| Dataset | Minimum same-contract gap | 95% paired-bootstrap interval | Invariant | Strong envelope separation |",
-        "|---|---:|---:|:---:|:---:|",
+        "| Dataset | Comparison | Minimum same-contract gap | 95% paired-bootstrap interval | Invariant | Strong envelope separation |",
+        "|---|---|---:|---:|:---:|:---:|",
     ]
     for row in ranking.to_dict(orient="records"):
         lines.append(
-            f"| {row['dataset']} | {row['minimum_same_contract_gap']:.4f} | "
+            f"| {row['dataset']} | {row['comparison']} | {row['minimum_same_contract_gap']:.4f} | "
             f"[{row['bootstrap_lower_95']:.4f}, {row['bootstrap_upper_95']:.4f}] | "
             f"{'yes' if row['same_contract_ranking_invariant'] else 'no'} | "
             f"{'yes' if row['strong_interval_separation'] else 'no'} |"
@@ -407,9 +413,10 @@ def write_report(
         [
             "",
             (
-                "A positive minimum gap proves that GroundingDINO ranks above "
-                "YOLO-World at every registered identical contract. The paired "
-                "bootstrap recomputes the worst setting in every repetition."
+                "A positive minimum gap means that the first model ranks above "
+                "the second at every registered identical contract. Each paired "
+                "bootstrap repetition resamples image-query units and recomputes "
+                "the worst setting."
             ),
             "",
             "## Absolute-value sensitivity envelopes",
@@ -420,7 +427,7 @@ def write_report(
     )
     for row in envelope.to_dict(orient="records"):
         lines.append(
-            f"| {row['dataset']} | {row['model']} | {row['default']:.4f} | "
+            f"| {row['dataset']} | {MODEL_LABELS.get(row['model'], row['model'])} | {row['default']:.4f} | "
             f"{row['minimum']:.4f} | {row['maximum']:.4f} | {row['width']:.4f} | "
             f"{row['maximum_absolute_departure']:.4f} |"
         )
@@ -437,7 +444,7 @@ def write_report(
     )
     for row in one_factor.to_dict(orient="records"):
         lines.append(
-            f"| {row['dataset']} | {row['model']} | {row['parameter']} | "
+            f"| {row['dataset']} | {MODEL_LABELS.get(row['model'], row['model'])} | {row['parameter']} | "
             f"{row['tested_values']} | {row['range_width']:.4f} |"
         )
     lines.extend(
@@ -451,7 +458,7 @@ def write_report(
     )
     for row in saturation.to_dict(orient="records"):
         lines.append(
-            f"| {row['dataset']} | {row['model']} | {row['raw_clean_cap20_fraction']:.3f} | "
+            f"| {row['dataset']} | {MODEL_LABELS.get(row['model'], row['model'])} | {row['raw_clean_cap20_fraction']:.3f} | "
             f"{row['post_dedup_probe_cap20_fraction']:.3f} | "
             f"{row['median_post_dedup_probe_candidate_count']:.1f} |"
         )
@@ -478,7 +485,7 @@ def write_report(
     )
     for row in duplicate.to_dict(orient="records"):
         lines.append(
-            f"| {row['dataset']} | {row['model']} | "
+            f"| {row['dataset']} | {MODEL_LABELS.get(row['model'], row['model'])} | "
             f"{row['duplicate_iou_threshold']:.2f} | {row['clean_eligibility']:.4f} | "
             f"{row['mean_retained_clean_candidates']:.3f} |"
         )
@@ -602,36 +609,40 @@ def main() -> None:
                 one_factor_rows(subset, preregistration, dataset, model)
             )
 
-        keys_a = sample_keys[(dataset, MODELS[0])]
-        keys_b = sample_keys[(dataset, MODELS[1])]
-        if keys_a != keys_b:
-            raise ValueError(f"paired sample keys differ for {dataset}")
-        ranking = finite_grid_ranking(
-            model_means["groundingdino"], model_means["yoloworld"]
-        )
-        bootstrap = paired_bootstrap_minimum_gap(
-            sample_matrices[(dataset, "groundingdino")],
-            sample_matrices[(dataset, "yoloworld")],
-            repetitions=repetitions,
-            seed=seed,
-        )
-        bootstrap_payload[dataset] = bootstrap
-        ranking_rows.append(
-            {
-                "dataset": dataset,
-                **ranking,
-                "worst_setting_id": settings[
-                    int(ranking["worst_setting_index"])
-                ].setting_id,
-                "bootstrap_repetitions": repetitions,
-                "bootstrap_lower_95": float(np.quantile(bootstrap, 0.025)),
-                "bootstrap_median": float(np.median(bootstrap)),
-                "bootstrap_upper_95": float(np.quantile(bootstrap, 0.975)),
-                "bootstrap_probability_minimum_gap_positive": float(
-                    np.mean(bootstrap > 0.0)
-                ),
-            }
-        )
+        reference_keys = sample_keys[(dataset, MODELS[0])]
+        for model in MODELS[1:]:
+            if reference_keys != sample_keys[(dataset, model)]:
+                raise ValueError(f"paired sample keys differ for {dataset}/{model}")
+
+        for pair_index, (model_a, model_b) in enumerate(combinations(MODELS, 2)):
+            pair_ranking = finite_grid_ranking(model_means[model_a], model_means[model_b])
+            bootstrap = paired_bootstrap_minimum_gap(
+                sample_matrices[(dataset, model_a)],
+                sample_matrices[(dataset, model_b)],
+                repetitions=repetitions,
+                seed=seed + pair_index * 1009,
+            )
+            comparison = f"{MODEL_LABELS[model_a]} - {MODEL_LABELS[model_b]}"
+            bootstrap_payload[(dataset, model_a, model_b)] = bootstrap
+            ranking_rows.append(
+                {
+                    "dataset": dataset,
+                    "model_a": model_a,
+                    "model_b": model_b,
+                    "comparison": comparison,
+                    **pair_ranking,
+                    "worst_setting_id": settings[
+                        int(pair_ranking["worst_setting_index"])
+                    ].setting_id,
+                    "bootstrap_repetitions": repetitions,
+                    "bootstrap_lower_95": float(np.quantile(bootstrap, 0.025)),
+                    "bootstrap_median": float(np.median(bootstrap)),
+                    "bootstrap_upper_95": float(np.quantile(bootstrap, 0.975)),
+                    "bootstrap_probability_minimum_gap_positive": float(
+                        np.mean(bootstrap > 0.0)
+                    ),
+                }
+            )
 
     envelope = pd.DataFrame(envelope_rows)
     envelope.to_csv(args.output / "absolute_sensitivity_envelopes.csv", index=False)
@@ -647,17 +658,17 @@ def main() -> None:
         prefix = dataset.lower().replace("+", "plus").replace("-", "") + "_" + model
         npz_payload[prefix + "_values"] = matrix
         npz_payload[prefix + "_sample_keys"] = np.asarray(sample_keys[(dataset, model)])
-    for dataset, values in bootstrap_payload.items():
+    for (dataset, model_a, model_b), values in bootstrap_payload.items():
         prefix = dataset.lower().replace("+", "plus").replace("-", "")
-        npz_payload[prefix + "_bootstrap_minimum_gaps"] = values
+        npz_payload[f"{prefix}_{model_a}_{model_b}_bootstrap_minimum_gaps"] = values
     np.savez_compressed(args.output / "sample_contract_values.npz", **npz_payload)
 
     fig, ax = plt.subplots(figsize=(9.5, 5.0))
     positions = np.arange(len(DATASETS))
-    width = 0.34
+    width = 0.22
     for model_index, model in enumerate(MODELS):
         subset = envelope[envelope["model"] == model].set_index("dataset").loc[list(DATASETS)]
-        offset = (model_index - 0.5) * width
+        offset = (model_index - (len(MODELS) - 1) / 2.0) * width
         centers = subset["default"].to_numpy(dtype=float)
         lower = centers - subset["minimum"].to_numpy(dtype=float)
         upper = subset["maximum"].to_numpy(dtype=float) - centers
@@ -667,7 +678,7 @@ def main() -> None:
             yerr=np.vstack([lower, upper]),
             fmt="o",
             capsize=5,
-            label=model,
+            label=MODEL_LABELS[model],
         )
     ax.set_xticks(positions, list(DATASETS))
     ax.set_ylabel("Full-manifest operational stability")
@@ -679,16 +690,20 @@ def main() -> None:
     fig.savefig(args.output / "contract_envelopes.png", dpi=220)
     plt.close(fig)
 
-    fig, ax = plt.subplots(figsize=(8.2, 4.6))
+    fig, ax = plt.subplots(figsize=(11.5, 5.0))
     x = np.arange(len(ranking))
     point = ranking["minimum_same_contract_gap"].to_numpy(dtype=float)
     lower = point - ranking["bootstrap_lower_95"].to_numpy(dtype=float)
     upper = ranking["bootstrap_upper_95"].to_numpy(dtype=float) - point
     ax.errorbar(x, point, yerr=np.vstack([lower, upper]), fmt="o", capsize=6)
     ax.axhline(0.0, color="black", linewidth=1)
-    ax.set_xticks(x, ranking["dataset"])
-    ax.set_ylabel("Worst GroundingDINO - YOLO-World gap")
-    ax.set_title("Finite-grid ranking invariance with paired sampling uncertainty")
+    ranking_labels = [
+        f"{row.dataset}\n{row.comparison}"
+        for row in ranking.itertuples(index=False)
+    ]
+    ax.set_xticks(x, ranking_labels, rotation=20, ha="right")
+    ax.set_ylabel("Worst same-contract pairwise gap")
+    ax.set_title("Finite-grid model ordering with paired sampling uncertainty")
     ax.grid(axis="y", alpha=0.25)
     fig.tight_layout()
     fig.savefig(args.output / "worst_contract_model_gap.png", dpi=220)

@@ -23,10 +23,16 @@ def main() -> None:
         type=Path,
         default=ROOT / "results" / "operational_benchmark_v1",
     )
+    parser.add_argument(
+        "--config",
+        type=Path,
+        default=ROOT / "config" / "operational_benchmark_v1.json",
+    )
     args = parser.parse_args()
+    config = json.loads(args.config.read_text(encoding="utf-8"))
 
     rows = []
-    for model in ("groundingdino", "yoloworld"):
+    for model in config["models"]:
         progress_path = args.result_root / model / "progress.json"
         metadata_path = args.result_root / model / "run_metadata.json"
         if not progress_path.exists():

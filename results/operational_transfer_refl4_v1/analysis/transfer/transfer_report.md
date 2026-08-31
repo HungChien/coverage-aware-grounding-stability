@@ -16,6 +16,11 @@ All candidate, probe, estimator, and analysis definitions were registered before
 | yoloworld | target_refl4_pooled | 1000 | 781 | 0.7810 | 0.5363 | 0.6867 | 0.7786 | 0.8820 | 0.1953 | 0.5137 | 0.5594 |
 | yoloworld | target_refl4_coco | 600 | 473 | 0.7883 | 0.5288 | 0.6708 | 0.7693 | 0.8719 | 0.2011 | 0.4995 | 0.5574 |
 | yoloworld | target_refl4_objects365 | 400 | 308 | 0.7700 | 0.5476 | 0.7112 | 0.7928 | 0.8971 | 0.1859 | 0.5116 | 0.5842 |
+| owlv2 | source_refcoco | 500 | 488 | 0.9760 | 0.7395 | 0.7577 | 0.8834 | 0.8576 | 0.1000 | 0.7176 | 0.7621 |
+| owlv2 | source_refcocoplus | 1000 | 968 | 0.9680 | 0.7332 | 0.7574 | 0.8701 | 0.8705 | 0.1131 | 0.7167 | 0.7497 |
+| owlv2 | target_refl4_pooled | 1000 | 998 | 0.9980 | 0.7677 | 0.7692 | 0.8935 | 0.8609 | 0.0917 | 0.7526 | 0.7824 |
+| owlv2 | target_refl4_coco | 600 | 600 | 1.0000 | 0.7817 | 0.7817 | 0.9110 | 0.8581 | 0.0764 | 0.7622 | 0.8005 |
+| owlv2 | target_refl4_objects365 | 400 | 398 | 0.9950 | 0.7466 | 0.7503 | 0.8670 | 0.8654 | 0.1151 | 0.7211 | 0.7703 |
 
 ## Dataset-shift bootstrap
 
@@ -25,6 +30,8 @@ All candidate, probe, estimator, and analysis definitions were registered before
 | groundingdino | Ref-L4 minus RefCOCO+ | 0.0192 | 0.0021 | 0.0352 |
 | yoloworld | Ref-L4 minus RefCOCO | 0.0246 | -0.0153 | 0.0641 |
 | yoloworld | Ref-L4 minus RefCOCO+ | 0.0346 | 0.0042 | 0.0668 |
+| owlv2 | Ref-L4 minus RefCOCO | 0.0282 | 0.0023 | 0.0572 |
+| owlv2 | Ref-L4 minus RefCOCO+ | 0.0345 | 0.0116 | 0.0570 |
 
 ## Finite-probe transfer
 
@@ -54,6 +61,18 @@ All candidate, probe, estimator, and analysis definitions were registered before
 | yoloworld | objects365 | 10 | 400 | 308 | -0.0081 | 0.0710 | 0.9363 |
 | yoloworld | objects365 | 20 | 400 | 308 | -0.0018 | 0.0511 | 0.9649 |
 | yoloworld | objects365 | 40 | 400 | 308 | -0.0011 | 0.0369 | 0.9772 |
+| owlv2 | pooled | 5 | 1000 | 998 | -0.0007 | 0.0951 | 0.8391 |
+| owlv2 | pooled | 10 | 1000 | 998 | 0.0017 | 0.0684 | 0.9019 |
+| owlv2 | pooled | 20 | 1000 | 998 | 0.0021 | 0.0515 | 0.9373 |
+| owlv2 | pooled | 40 | 1000 | 998 | 0.0005 | 0.0399 | 0.9610 |
+| owlv2 | coco | 5 | 600 | 600 | 0.0043 | 0.0893 | 0.8341 |
+| owlv2 | coco | 10 | 600 | 600 | 0.0059 | 0.0648 | 0.8959 |
+| owlv2 | coco | 20 | 600 | 600 | 0.0047 | 0.0508 | 0.9324 |
+| owlv2 | coco | 40 | 600 | 600 | 0.0020 | 0.0398 | 0.9575 |
+| owlv2 | objects365 | 5 | 400 | 398 | -0.0081 | 0.1037 | 0.8398 |
+| owlv2 | objects365 | 10 | 400 | 398 | -0.0046 | 0.0740 | 0.9051 |
+| owlv2 | objects365 | 20 | 400 | 398 | -0.0018 | 0.0525 | 0.9406 |
+| owlv2 | objects365 | 40 | 400 | 398 | -0.0018 | 0.0401 | 0.9623 |
 
 ## Registered Ref-L4 strata
 
@@ -75,6 +94,14 @@ All candidate, probe, estimator, and analysis definitions were registered before
 | yoloworld | target_scale_stratum | large_gt96 | 894 | 702 | 0.7852 | 0.5385 | 0.6858 | 0.7781 | 0.8814 | 0.1956 |
 | yoloworld | target_scale_stratum | medium_32_96 | 105 | 78 | 0.7429 | 0.5133 | 0.6910 | 0.7803 | 0.8856 | 0.1946 |
 | yoloworld | target_scale_stratum | small_lt32 | 1 | 1 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 1.0000 | 0.0000 |
+| owlv2 | source_split | coco | 600 | 600 | 1.0000 | 0.7817 | 0.7817 | 0.9110 | 0.8581 | 0.0764 |
+| owlv2 | source_split | objects365 | 400 | 398 | 0.9950 | 0.7466 | 0.7503 | 0.8670 | 0.8654 | 0.1151 |
+| owlv2 | query_length_stratum | long_ge30 | 218 | 218 | 1.0000 | 0.7729 | 0.7729 | 0.8869 | 0.8714 | 0.0985 |
+| owlv2 | query_length_stratum | medium_19_29 | 504 | 502 | 0.9960 | 0.7687 | 0.7717 | 0.9019 | 0.8557 | 0.0839 |
+| owlv2 | query_length_stratum | short_le18 | 278 | 278 | 1.0000 | 0.7618 | 0.7618 | 0.8833 | 0.8625 | 0.1006 |
+| owlv2 | target_scale_stratum | large_gt96 | 894 | 893 | 0.9989 | 0.7730 | 0.7739 | 0.8987 | 0.8611 | 0.0872 |
+| owlv2 | target_scale_stratum | medium_32_96 | 105 | 104 | 0.9905 | 0.7220 | 0.7290 | 0.8490 | 0.8586 | 0.1296 |
+| owlv2 | target_scale_stratum | small_lt32 | 1 | 1 | 1.0000 | 0.7750 | 0.7750 | 0.8125 | 0.9538 | 0.1788 |
 
 ## Perturbation-family profile transfer
 
@@ -82,8 +109,10 @@ All candidate, probe, estimator, and analysis definitions were registered before
 | --- | --- | --- | --- | --- | --- |
 | RefCOCO | groundingdino | 5 | 0.6000 | 0.9207 | 0.0637 |
 | RefCOCO | yoloworld | 5 | 1.0000 | 0.9958 | 0.0154 |
+| RefCOCO | owlv2 | 5 | 0.9000 | 0.9977 | 0.0119 |
 | RefCOCO+ | groundingdino | 5 | 1.0000 | 0.9925 | 0.0228 |
 | RefCOCO+ | yoloworld | 5 | 1.0000 | 0.9979 | 0.0132 |
+| RefCOCO+ | owlv2 | 5 | 1.0000 | 0.9990 | 0.0090 |
 
 ## Interpretation boundary
 

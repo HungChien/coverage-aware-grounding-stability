@@ -2,98 +2,103 @@
   "artifacts": [
     {
       "path": "aggregate_optimism.csv",
-      "size_bytes": 2090,
-      "sha256": "5d6ef06bfa2f25e7cb7cc6c6379e21b59a356448f580702649df4c16fa4b0e4a"
+      "size_bytes": 2988,
+      "sha256": "5c5fc9d1883a404322dc427c4a009f0d1130f17414f75f0c374998854c769b6f"
     },
     {
       "path": "aggregate_optimism_bootstrap.csv",
-      "size_bytes": 5662,
-      "sha256": "bf18c7aaf9942ed6291f4597941826d62a33b95466bc281aa0622a9ecf965c54"
+      "size_bytes": 8479,
+      "sha256": "0c3d90975b63118f5335100a042ae50076bfcfb97bb3e9cf4f70dc638aa35743"
     },
     {
       "path": "budget_optimism.csv",
-      "size_bytes": 7011,
-      "sha256": "b41d8f37847eee2f26c4a66fc3cb5a87dfc3f4fcee652a4f200f275567127bf7"
+      "size_bytes": 10551,
+      "sha256": "661402478bc44828dd83b3cabe6bdfc25de5fde10b6313da0adb0f80ffd7c3fc"
     },
     {
       "path": "complete_case_optimism_report.md",
-      "size_bytes": 16734,
-      "sha256": "8d7075818b8fb1df561a73a2ad61a5029aa524f0908db23faaeb40794dda312c"
+      "size_bytes": 21683,
+      "sha256": "97822560a5d2e85474a97733d1add93333f635f6fb557855d7d056cfbec45ace"
     },
     {
       "path": "complete_case_vs_operational.png",
-      "size_bytes": 93005,
-      "sha256": "7970f40ca4a0c93a91a8a0501f74dade9867597dfd07f6cf1027dbeb083a6e54"
+      "size_bytes": 95460,
+      "sha256": "72b58253d9a472028251faabd5bb7e83b32f5ab28ff32709c0265a194b087d83"
+    },
+    {
+      "path": "complete_case_waterfall.png",
+      "size_bytes": 237287,
+      "sha256": "3292d0ae2132e033ce9c5dd0a4e5781bb0425581c44c50800a6ac16644a1f6b8"
     },
     {
       "path": "contract_optimism_sensitivity.png",
-      "size_bytes": 76427,
-      "sha256": "458480e0345048f2dc23dca5f3582ea4c2ed554c6cd67671670d8c2086beedda"
+      "size_bytes": 80999,
+      "sha256": "e06b999f02c41e2a1aa90880eabf1119bbfaaeef1296f5a0aa5b837c97a17ec0"
     },
     {
       "path": "contract_sensitivity_optimism.csv",
-      "size_bytes": 23381,
-      "sha256": "20e24c7359fe650798663291fb1840d4c76252fee0009a6343b48ce9a0fd6b27"
+      "size_bytes": 34975,
+      "sha256": "89cfe3b9c58ce0a7442c739d9e3120a1291e8951fd1708c97fd17ee5657dc4da"
     },
     {
       "path": "contract_sensitivity_summary.csv",
-      "size_bytes": 940,
-      "sha256": "844d2d80d4b2297cb2fe402d91225ae2636b0045f08602ed91d4a52b5d501833"
+      "size_bytes": 1311,
+      "sha256": "b85c2146ebb30d911eaf91522acd7d2272557d92910159e7d16609fda316bf6c"
     },
     {
       "path": "correctness_strata_optimism.csv",
-      "size_bytes": 3811,
-      "sha256": "04bf12ad871271f018479217761139099a2c34541048d94a3fcad4c9271451ca"
+      "size_bytes": 5542,
+      "sha256": "87ed3f79843e0fec2c2ac73358d50f91387dbf0611a92f1b214c2bb08d1032da"
     },
     {
       "path": "family_optimism.csv",
-      "size_bytes": 5824,
-      "sha256": "7cccc8445914b8d9eb5bca2334321234ef15c9867e62c52d3905617c3ff9c535"
+      "size_bytes": 8722,
+      "sha256": "e41417fc0c740ae22a0e089fb2906f53af8dd26a466174d7837d6a35621f1032"
     },
     {
       "path": "family_optimism_heatmap.png",
-      "size_bytes": 182903,
-      "sha256": "36d368c68961f33c3f7c969152c2d9b723f932b4278e65bfd3208383d86b0dcb"
+      "size_bytes": 229172,
+      "sha256": "03e6bea57434dc5f5092d4a0a7c774bfef49a83d055d2dae434abbd58cfdc730"
     },
     {
       "path": "optimism_bootstrap_intervals.png",
-      "size_bytes": 70232,
-      "sha256": "ad823836b59a1cbf85de69b16691353631f126338f05ce6d3315caec88b34d30"
+      "size_bytes": 75153,
+      "sha256": "c284deaddd9411aed657ccd5a447f71694aea681981e266e09473f2bf90fa728"
     },
     {
       "path": "optimism_by_probe_budget.png",
-      "size_bytes": 160411,
-      "sha256": "efb3334b605b534b93ba146f30439ffbf8a3ab8ddfe253320589db4f4ddba6f0"
+      "size_bytes": 191303,
+      "sha256": "0e64d5eec556418715f41c1dbe82fd83628e3c7a207aa7580e182c8ff80caf97"
     },
     {
       "path": "optimism_decomposition.png",
-      "size_bytes": 100445,
-      "sha256": "56ed884ea1ef921a86c616a710b01fbadb81a0f06e3d1743c26ccdb28434618c"
+      "size_bytes": 102875,
+      "sha256": "d5b2a98c091bbb9b914d02f6a44f233c3f3d145fc718fbc9d37abaf08a3dd654"
     },
     {
       "path": "predictive_calibration.csv",
-      "size_bytes": 59685,
-      "sha256": "8bcd812c6d649155b63d8b786dbd14510af2674ac8a5b24f1c5cb606c33b404d"
+      "size_bytes": 89454,
+      "sha256": "aded059e6ac2a83bf10377f76658a033568f1d140c8aa9c1a5d6f3db48761176"
     },
     {
       "path": "predictive_comparison.csv",
-      "size_bytes": 14155,
-      "sha256": "b6e4d565b1303a22fc2af63864c3948e00120ed01af494bbcfbf165eee948429"
+      "size_bytes": 21018,
+      "sha256": "fe682eba36ac175d31c2f68e018e0adde6b27441581f8ffc69deefead82a3f60"
     },
     {
       "path": "predictive_comparison_bootstrap.csv",
-      "size_bytes": 12473,
-      "sha256": "a19b5aa10c05c6e545e89937dfc9fa7d6a3dc4bdd1477e7f7115bdf01e02123b"
+      "size_bytes": 18363,
+      "sha256": "7a07ab8fa4c57ac7c1bc2297b543704569dca07460a6783ccf7b31e1a9da6cfa"
     },
     {
       "path": "predictive_mae_comparison.png",
-      "size_bytes": 97192,
-      "sha256": "ac4eef1c2b3b6710d76c18a18af93f47315b3cd393bbb48e3493bf092d6bbdcf"
+      "size_bytes": 99652,
+      "sha256": "b5b6bb5c2252d1a1be90f306b6abf11d197a2cc065d8c86135ec4bb8654ae1b9"
     },
     {
       "path": "refl4_registered_strata_optimism.csv",
-      "size_bytes": 3579,
-      "sha256": "85422140f95932f51e54c5e68b9500ae7bc8e850ebeec8636c324e986417a5c7"
+      "size_bytes": 5303,
+      "sha256": "29932c7a7b58a577b48387f3ff08467128e11bc5496606ca6cf01019f03a5fd6"
     }
   ]
 }

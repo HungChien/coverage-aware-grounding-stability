@@ -1,10 +1,11 @@
 {
   "models": [
     "groundingdino",
+    "owlv2",
     "yoloworld"
   ],
   "settings_per_model": 27,
-  "total_rows": 54,
+  "total_rows": 81,
   "primary_setting": {
     "tracked_candidate_count": 5,
     "exposed_candidate_count": 20,

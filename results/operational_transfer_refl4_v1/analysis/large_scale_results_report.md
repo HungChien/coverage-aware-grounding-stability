@@ -13,6 +13,7 @@ The exact decomposition checked in every eligible sample is:
 | model | sample_count | eligible_count | clean_eligibility | diagnostic_full_manifest_mean | reference_full_manifest_mean | mae_all | spearman_all | mean_diagnostic_cp_width |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | GroundingDINO | 1000 | 1000 | 1.0000 | 0.8699 | 0.8703 | 0.0256 | 0.9549 | 0.1723 |
+| OWLv2 | 1000 | 998 | 0.9980 | 0.7682 | 0.7677 | 0.0399 | 0.9612 | 0.2137 |
 | YOLO-World | 1000 | 781 | 0.7810 | 0.5386 | 0.5363 | 0.0319 | 0.9882 | 0.2428 |
 
 ## Association quality
@@ -21,6 +22,7 @@ The exact decomposition checked in every eligible sample is:
 | --- | --- | --- | --- |
 | GroundingDINO | 0.9776 | 0.9703 | 14.6205 |
 | YOLO-World | 0.7786 | 0.9475 | 8.9866 |
+| OWLv2 | 0.8935 | 0.9149 | 16.0131 |
 
 ## Why coverage-aware stability is not direct persistence
 
@@ -28,6 +30,7 @@ The exact decomposition checked in every eligible sample is:
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | GroundingDINO | 1000 | 80000 | 0.9776 | 0.8902 | 0.8703 | 0.0199 | 0.0199 | 0.0000 | 0.1297 | 0.0224 | 0.1073 | 0.0000 |
 | YOLO-World | 781 | 62480 | 0.7786 | 0.8820 | 0.6867 | 0.1953 | 0.1953 | 0.0000 | 0.3133 | 0.2214 | 0.0919 | 0.0000 |
+| OWLv2 | 998 | 79840 | 0.8935 | 0.8609 | 0.7692 | 0.0917 | 0.0917 | 0.0000 | 0.2308 | 0.1065 | 0.1242 | 0.0000 |
 
 The conditional-minus-operational column is the instability hidden by conditioning on successful candidate association. Its equality to conditional ranking multiplied by one minus coverage is checked numerically.
 
@@ -45,6 +48,11 @@ The conditional-minus-operational column is the instability hidden by conditioni
 | YOLO-World | gaussian_noise | 12496 | 0.7714 | 0.1459 |
 | YOLO-World | resolution | 12496 | 0.5813 | 0.2673 |
 | YOLO-World | jpeg | 12496 | 0.6852 | 0.2010 |
+| OWLv2 | blur | 15968 | 0.6450 | 0.3076 |
+| OWLv2 | brightness | 15968 | 0.8872 | 0.0977 |
+| OWLv2 | gaussian_noise | 15968 | 0.7982 | 0.1749 |
+| OWLv2 | resolution | 15968 | 0.7344 | 0.2302 |
+| OWLv2 | jpeg | 15968 | 0.7812 | 0.1896 |
 
 ## Diagnostic-to-reference family profile reproducibility
 
@@ -60,6 +68,11 @@ The conditional-minus-operational column is the instability hidden by conditioni
 | YOLO-World | gaussian_noise | 0.7726 | 0.1466 | 0.7714 | 0.1459 | 0.0011 | 0.0007 |
 | YOLO-World | resolution | 0.5930 | 0.2623 | 0.5813 | 0.2673 | 0.0117 | 0.0050 |
 | YOLO-World | blur | 0.4910 | 0.3280 | 0.4894 | 0.3259 | 0.0016 | 0.0021 |
+| OWLv2 | brightness | 0.8884 | 0.0969 | 0.8872 | 0.0977 | 0.0012 | 0.0008 |
+| OWLv2 | jpeg | 0.7848 | 0.1869 | 0.7812 | 0.1896 | 0.0036 | 0.0027 |
+| OWLv2 | gaussian_noise | 0.7950 | 0.1781 | 0.7982 | 0.1749 | 0.0033 | 0.0032 |
+| OWLv2 | resolution | 0.7358 | 0.2294 | 0.7344 | 0.2302 | 0.0014 | 0.0008 |
+| OWLv2 | blur | 0.6445 | 0.3087 | 0.6450 | 0.3076 | 0.0005 | 0.0011 |
 
 ## Primary failure causes
 
@@ -73,12 +86,17 @@ The conditional-minus-operational column is the instability hidden by conditioni
 | YOLO-World | competitor_missing | 11558 | 0.5905 |
 | YOLO-World | threatening_birth | 1152 | 0.0589 |
 | YOLO-World | ranking_reversal | 5740 | 0.2932 |
+| OWLv2 | winner_missing | 142 | 0.0077 |
+| OWLv2 | competitor_missing | 4358 | 0.2365 |
+| OWLv2 | threatening_birth | 4006 | 0.2174 |
+| OWLv2 | ranking_reversal | 9919 | 0.5383 |
 
 ## Stability is not correctness
 
 | model | clean_wrong_samples | mean_reference_stability_when_clean_wrong |
 | --- | --- | --- |
 | GroundingDINO | 613 | 0.8449 |
+| OWLv2 | 611 | 0.7390 |
 | YOLO-World | 644 | 0.5067 |
 
 This contextual check prevents a category error: a stable output may still be semantically wrong. Correctness is reported only as an external descriptor.
@@ -91,6 +109,10 @@ This contextual check prevents a category error: a stable output may still be se
 | GroundingDINO | 10 | 0.0329 | 0.1297 | 11 |
 | GroundingDINO | 20 | 0.0284 | 0.1297 | 19 |
 | GroundingDINO | 40 | 0.0252 | 0.1297 | 35 |
+| OWLv2 | 5 | 0.0926 | 0.2323 | 6 |
+| OWLv2 | 10 | 0.0794 | 0.2323 | 11 |
+| OWLv2 | 20 | 0.0733 | 0.2323 | 21 |
+| OWLv2 | 40 | 0.0687 | 0.2323 | 40 |
 | YOLO-World | 5 | 0.1958 | 0.4637 | 6 |
 | YOLO-World | 10 | 0.1866 | 0.4637 | 11 |
 | YOLO-World | 20 | 0.1806 | 0.4637 | 20 |
@@ -102,10 +124,16 @@ Ties are retained as groups, so a discrete small-budget estimator cannot obtain 
 
 | comparison | model_or_pair | diagnostic_budget | statistic | estimate | lower_95 | upper_95 | bootstrap_repetitions | sample_count |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| paired_cross_model | groundingdino-owlv2 | 40 | diagnostic_difference | 0.1016 | 0.0814 | 0.1214 | 2000 | 1000 |
+| paired_cross_model | groundingdino-owlv2 | 40 | reference_difference | 0.1024 | 0.0827 | 0.1215 | 2000 | 1000 |
 | paired_cross_model | groundingdino-yoloworld | 40 | diagnostic_difference | 0.3314 | 0.3070 | 0.3576 | 2000 | 1000 |
 | paired_cross_model | groundingdino-yoloworld | 40 | reference_difference | 0.3340 | 0.3098 | 0.3607 | 2000 | 1000 |
+| paired_cross_model | owlv2-yoloworld | 40 | diagnostic_difference | 0.2298 | 0.2037 | 0.2579 | 2000 | 1000 |
+| paired_cross_model | owlv2-yoloworld | 40 | reference_difference | 0.2317 | 0.2056 | 0.2598 | 2000 | 1000 |
 | single_model | groundingdino | 40 | diagnostic_mean | 0.8698 | 0.8573 | 0.8816 | 2000 | 1000 |
 | single_model | groundingdino | 40 | reference_mean | 0.8702 | 0.8581 | 0.8817 | 2000 | 1000 |
+| single_model | owlv2 | 40 | diagnostic_mean | 0.7683 | 0.7523 | 0.7837 | 2000 | 1000 |
+| single_model | owlv2 | 40 | reference_mean | 0.7679 | 0.7524 | 0.7832 | 2000 | 1000 |
 | single_model | yoloworld | 40 | diagnostic_mean | 0.5385 | 0.5145 | 0.5607 | 2000 | 1000 |
 | single_model | yoloworld | 40 | reference_mean | 0.5362 | 0.5128 | 0.5584 | 2000 | 1000 |
 

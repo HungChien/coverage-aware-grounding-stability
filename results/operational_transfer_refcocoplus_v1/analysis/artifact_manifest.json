@@ -1,11 +1,11 @@
 {
-  "benchmark": "coverage_aware_candidate_order_stability_refcocoplus_transfer_v1",
-  "file_count": 49,
+  "benchmark": "coverage_aware_candidate_order_stability_refcocoplus_owlv2_control_v1",
+  "file_count": 53,
   "files": [
     {
-      "path": "config\\operational_transfer_refcocoplus_v1.json",
-      "bytes": 1559,
-      "sha256": "2b8bf242655e26afbeabd01068f23098619bc8135c10e3b2faf54c5f0f145546"
+      "path": "config\\operational_transfer_refcocoplus_owlv2_control_v1.json",
+      "bytes": 1804,
+      "sha256": "3aa2fa9953b841fa06ed7d7a3e0b78a227e246f9c7aff071c72971c201dccbc8"
     },
     {
       "path": "config/random_probe_distribution.json",
@@ -29,13 +29,13 @@
     },
     {
       "path": "scripts/run_operational_benchmark.py",
-      "bytes": 16588,
-      "sha256": "9c1fde89b3e64834d63176df204bce0527d1178406e8d6a464f415db2b07abe9"
+      "bytes": 18670,
+      "sha256": "646ec0fc1502bc948bc4baf4bde78d45ae9b85024eddb9e46f8be9d9579a8d21"
     },
     {
       "path": "scripts/analyse_operational_benchmark.py",
-      "bytes": 40271,
-      "sha256": "7bb4d575e0739d679d737b1f25bbb7566ec20453dffeb8146c7e6acf9a23ab79"
+      "bytes": 40711,
+      "sha256": "65792a3feec5630fd8e6852f16ea76383b29973f82260d51bce2ea66e0d9ef0b"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\groundingdino\\run_metadata.json",
@@ -68,49 +68,69 @@
       "sha256": "bd07ee31e8c00fafe2ccdbf6f12adf47c1d24c80598496826a019d004545bc5c"
     },
     {
+      "path": "results\\operational_transfer_refcocoplus_v1\\owlv2\\run_metadata.json",
+      "bytes": 2995,
+      "sha256": "2032e4b06ce09714446e1326a3b9ddad14749d393dd51a68d0fb23843e13b216"
+    },
+    {
+      "path": "results\\operational_transfer_refcocoplus_v1\\owlv2\\sample_budget_summary.csv",
+      "bytes": 1431625,
+      "sha256": "c2618f31ecfef7dc07194157e188c29993597a6d901f12cef592a7fdf9c9ee70"
+    },
+    {
+      "path": "results\\operational_transfer_refcocoplus_v1\\owlv2\\sample_traces.jsonl.gz",
+      "bytes": 102564453,
+      "sha256": "815242577050c054849e7a9197ec12067306351019623c7425ad1c2773ca5d9d"
+    },
+    {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\analysis_audit.json",
-      "bytes": 411,
-      "sha256": "14dd31452cef2f8bb16cbb4935b4bcc76b42288f9720e4c03fa0c535dff3e414"
+      "bytes": 446,
+      "sha256": "790294534dec73927f736ace818fe8a14df046d87a2e22db54c4cec36d9527d1"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\association_quality.csv",
-      "bytes": 196,
-      "sha256": "4a8e2231275fc3e1d7f2e7beeabc58feab2367f25ccc47698bb2d7645572653a"
+      "bytes": 260,
+      "sha256": "0ca298bb30744eb2fd336961998b5460cd3de89c619cf01ff1fbb22531ec5f98"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\contract_sensitivity\\contract_sensitivity.csv",
-      "bytes": 8134,
-      "sha256": "a14db70b07ba6158976e26fea9be55692fe9193e793fd3a4a7316443524f2e29"
+      "bytes": 12186,
+      "sha256": "498a27a259fc34976d6b2cf31994621a5699db324e265c971358ee99bb1d01ce"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\contract_sensitivity\\match_threshold_sensitivity.png",
-      "bytes": 78892,
-      "sha256": "9a05fea8c04fc20b3fa9a0f29e816ce83bc9564f36b179c1e5240819695f2e24"
+      "bytes": 84573,
+      "sha256": "ba7476cd1f7faeba198ae87e2ac75a2b5d2379031516505fbb5f31fddb2642da"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\contract_sensitivity\\sensitivity_audit.json",
-      "bytes": 608,
-      "sha256": "4acac6b4a323fd7c2318c4502d6edfe75c3888f5b14650ba0e592936a1879cb0"
+      "bytes": 622,
+      "sha256": "340cb73549d3a14470519f2bb0fc578773b9fb72abc8cf074a83ebe1a4dda1fc"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\coverage_ranking_operational.png",
-      "bytes": 64042,
-      "sha256": "78aa07a7669b60204ce783d5ddb5c127c43b82a994f1dc766cde9dd137bc53b0"
+      "bytes": 66134,
+      "sha256": "552912aaea5aa1b36d8b2a9cb185eee818eb46d316e72e796aefdcaeff1f2a49"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\diagnostic_family_risk.csv",
-      "bytes": 1109,
-      "sha256": "53791332008226ac94d401a53d8f40444d1c70e0a3573b5aab0d48bd62f00161"
+      "bytes": 1596,
+      "sha256": "b2d7ed1632775067cb7ff9fe5e5440a4b2b6a5fb95a7f7af5ed56010c704110d"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\failure_examples\\failure_example_audit.json",
-      "bytes": 2064,
-      "sha256": "a56fbb3f2cbbab8c164640e35eb7c8649d33fc4ab20a2ef56f713132e2cb7643"
+      "bytes": 3059,
+      "sha256": "3e2cfecae12a9606ed022126359356f5ee221d5ee0e89212e04b8f85521c4907"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\failure_examples\\groundingdino_failure_examples.png",
       "bytes": 1335827,
       "sha256": "90d07193ab96c63437f4adeeb81548e293eac63a4311218826363c3f238777f2"
+    },
+    {
+      "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\failure_examples\\owlv2_failure_examples.png",
+      "bytes": 2522069,
+      "sha256": "9ef12975ab182501475991f03078fa00be9d1aa9dea8bef6d2be238fe62ae51e"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\failure_examples\\yoloworld_failure_examples.png",
@@ -119,133 +139,133 @@
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\family_profile_budget_summary.csv",
-      "bytes": 550,
-      "sha256": "7849d4875d23440045793fc43379b3fd2fae220145d00ed049d348dc0701b949"
+      "bytes": 757,
+      "sha256": "2f9e98b25ed3f7d66a9f27e75d632fb19fc70260e0f295be004a7324c171a075"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\family_profile_by_budget.csv",
-      "bytes": 5752,
-      "sha256": "ddccab8506d925f9a6f79574f866c7e3f61f9a388eaabbd37da9cf1f5751c92c"
+      "bytes": 8586,
+      "sha256": "8c2166a2ef030c17927835b623d468701c6597f42f444325f776debcbc541f30"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\family_profile_by_budget.png",
-      "bytes": 154043,
-      "sha256": "e72c8b41bd2cae4bad44af655312d3597a0a5d15d27e033b96cd52fde11760a6"
+      "bytes": 180418,
+      "sha256": "34a71b3c4084790015df389207cf082976636c366f064a31950e58d7a755bcf9"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\family_profile_comparison.csv",
-      "bytes": 1495,
-      "sha256": "3780d465efa53dd77de16852e26d55878cf8b0a90b22c7f416578ad426a10817"
+      "bytes": 2163,
+      "sha256": "e5dcd6a40d2bf032e9d26aa95d7e02739bf365b40f7af9750c9595af765f96ad"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\family_risk_profile_transfer.png",
-      "bytes": 115934,
-      "sha256": "8adcdecae8b05e10ada682bd227ebde74336ace8f0eb65c173890e33eb3c013c"
+      "bytes": 131052,
+      "sha256": "810d8522f00c43986f0d7c89925c0283dd69fc10a400b8f2e490a23bc4da5bf4"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\finite_probe_budget_metrics.csv",
-      "bytes": 2027,
-      "sha256": "b2752f6ec481098815657b7ae8fe0e0bb5d9aa1bcee4cec307918d5bcde297bf"
+      "bytes": 2970,
+      "sha256": "cae7ddcdb65e940ef7d8b79a82d38815bb15469dde174c7f2c0d226308f06a04"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\finite_probe_estimation.png",
-      "bytes": 163069,
-      "sha256": "d3046f5b14b647a09d57cf0db12f195b57062b9a8baf567589aea90055772bcc"
+      "bytes": 198319,
+      "sha256": "d82dfa7c6bcb51e4f53f9a1c5bf313f547cc8d7a722abb9ee5969d1b8db68417"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\hierarchical_bootstrap.csv",
-      "bytes": 2726,
-      "sha256": "43ab3731705c8a93568b7dca5b95f59f3bff35ec963df9f9d2a610ea3c86df5f"
+      "bytes": 5354,
+      "sha256": "0990cfba792158e0a33be456729af1ed86d7df871a65b3b6e631ffe00e4f0216"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\large_scale_results_report.md",
-      "bytes": 7151,
-      "sha256": "67f10dd3a0e2b564aeb66e2fe7e52211ae973f4e022953d7ead376cc2c8d3527"
+      "bytes": 9004,
+      "sha256": "39bf92e103ca1ab48f2aed8b82021cf7b6f9fb6fa660c398b1666e505de1e0ca"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\reference_aggregate_estimands.csv",
-      "bytes": 676,
-      "sha256": "3d55d1595e6153360753fca5fd199f41acd6342634413121956084cf0b6c1d4a"
+      "bytes": 892,
+      "sha256": "0c72558d0e445fed6043c38659cf544c3350f94aea9bbdf3533ba2b57881b38d"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\reference_failure_causes.csv",
-      "bytes": 479,
-      "sha256": "2b7de222788a8509eb05b2905cc25cfc1a162af77b541205cb081c2365ec9d0c"
+      "bytes": 673,
+      "sha256": "c2deee17fa0692a63ac7911f925543ace9cf0f613f4276fafdf2bf71510905c6"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\reference_failure_causes.png",
-      "bytes": 93381,
-      "sha256": "9f955303be58674c629099018873e77b15786c02750c40636de00f81a5919a2b"
+      "bytes": 96180,
+      "sha256": "10702e6e756829ff135102e8f27fce1ba047ce6cc2b0ef801f0db5b436686be5"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\reference_family_risk.csv",
-      "bytes": 1126,
-      "sha256": "80e4a247dac200121d294e217c187e4aee99b714caa90a1b1e4e1b6bdc0f5a42"
+      "bytes": 1646,
+      "sha256": "a9d00d9642bba603ca063d702c760275ea3b03acd08991a0c3467559db6ae8cd"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\reference_family_risk_share.png",
-      "bytes": 82726,
-      "sha256": "24d188af6c60370564bc4a900d00330e5d25b8a0b83e420dbb23712ce8ef8319"
+      "bytes": 85605,
+      "sha256": "1e722e6f89c8b2cfb788801332dea4a10ce778d6ab90964482933f4d2f421e96"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\reference_ranking_culprits.csv",
-      "bytes": 347,
-      "sha256": "35f4c0349902ebc44c712061aeae5c9467948136915a4ecaf3903d216aeaa9f3"
+      "bytes": 480,
+      "sha256": "46a1db262ef78d001b2f3135de2c0581d8012f148121353377e01fdfc3ebc6ce"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\selective_risk_curves.csv",
-      "bytes": 7552,
-      "sha256": "8eea3331d922d7684ec62dbeaed45de4a73ec63cfb8801b78fd67299051ce6a4"
+      "bytes": 11026,
+      "sha256": "eae03dbcaef5650088a9f6212787818c772fee79051b9e72901aeacf4f3cfb20"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\selective_risk_curves.png",
-      "bytes": 114446,
-      "sha256": "fb9fb513f5f9d87d4b7d2217114f418cc85ff4510a905de639fbca8be271daf5"
+      "bytes": 120826,
+      "sha256": "2951aae60b407466a5e19d628d92ff8e946c9dd61276457329110196d4978dfc"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\selective_risk_summary.csv",
-      "bytes": 558,
-      "sha256": "99e60005881a2f2692d07131a96ebc71d15b517cd40ae37aca56fc3872a5fec3"
+      "bytes": 728,
+      "sha256": "0adea69e0dc1faebe33a5b82af301668f66fc71360b9636d500b808685590dc8"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\transfer\\analysis_amendment.md",
-      "bytes": 966,
-      "sha256": "a57cf15d1ca566c32ece3af1b3f26b59104c3dc7a5342cf35d072c6b2dec9eee"
+      "bytes": 965,
+      "sha256": "da8b7b7afb29d444634f1426da68735986dfe3453ec3c64cdf80ca8bd4addd71"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\transfer\\dataset_shift_bootstrap.csv",
-      "bytes": 256,
-      "sha256": "c484f0a9a9a1f3478e7e893e58dc7c9d614dd4b3587a7dbddac647b431c0a21f"
+      "bytes": 348,
+      "sha256": "cc171ac744b3f15ee495e5f181f62dec29d7cf0a8ac96a44e4d7de7a0fab370f"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\transfer\\family_profile_transfer.csv",
-      "bytes": 220,
-      "sha256": "1f4ad4a00efc9f06a3ae24470f3e9decc94030eecd523425d8075d989c869347"
+      "bytes": 286,
+      "sha256": "c5d55a8865d2da9873087bcad4d5e07550cf53cbcef5ead20dca3ce96189ff36"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\transfer\\transfer_audit.json",
-      "bytes": 482,
-      "sha256": "69afa0683bd7618b14f8aa3dec02cdd702de918d78da45b1c531558516104bc9"
+      "bytes": 585,
+      "sha256": "317b59f509254911464083efb1179d032d8335983e069b257536bf8141ecda67"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\transfer\\transfer_estimands.csv",
-      "bytes": 1475,
-      "sha256": "f0fc57257b51afcd842ecd57ede63e8a302354c4ff88656a49504be6affec0e1"
+      "bytes": 2121,
+      "sha256": "c528cc7b50264adf113398dd75d923d1555a6d267ee3177dbbe4fd861e9e5952"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\transfer\\transfer_finite_probe_metrics.csv",
-      "bytes": 2161,
-      "sha256": "9a328523a8c4ae201aca8930cb1e5737311f259afcf50d617d65f56cee8086e3"
+      "bytes": 3185,
+      "sha256": "aba60e02993c6f82e15afcd061b75a1b57ed391e258b3e0093082fbab105f5c0"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\transfer\\transfer_report.md",
-      "bytes": 4150,
-      "sha256": "6b69bc74b03b813e63abeba3093ec84ddd3378aafc9461d204a5665613b30d4f"
+      "bytes": 5502,
+      "sha256": "07bbd82ca4adc29422efe21bc710face0b83ef764e960b46c6ce82f28161d166"
     },
     {
       "path": "results\\operational_transfer_refcocoplus_v1\\analysis\\validation_audit.json",
-      "bytes": 1414,
-      "sha256": "97971444de28d74a3566e4bffbdee2e5c83cdcd51093dec6a975768139d2c764"
+      "bytes": 1956,
+      "sha256": "ffa0d0e08eed04d6549d383e3af18fa8b37e2251cf182ea312a2829ad0cdcf90"
     }
   ],
   "environment": {

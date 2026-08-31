@@ -1,0 +1,28 @@
+{
+  "analysis_name": "upstream_inference_threshold_sensitivity_v1",
+  "protocol_version": "1.0.0",
+  "status": "retrospective_exact_replay_from_frozen_candidate_traces",
+  "source_candidate_threshold": 0.03,
+  "threshold_grid": [0.03, 0.05, 0.10, 0.15, 0.20, 0.25, 0.35],
+  "models": ["groundingdino", "yoloworld"],
+  "datasets": {
+    "RefCOCO": "results/operational_benchmark_v1",
+    "RefCOCO+": "results/operational_transfer_refcocoplus_v1",
+    "Ref-L4": "results/operational_transfer_refl4_v1"
+  },
+  "probe_split": "reference",
+  "expected_samples": {
+    "RefCOCO": 500,
+    "RefCOCO+": 1000,
+    "Ref-L4": 1000
+  },
+  "bootstrap_repetitions": 2000,
+  "bootstrap_seed": 20260829,
+  "interpretation": {
+    "groundingdino_box_threshold": "minimum phrase-conditioned box score retained by post-processing",
+    "groundingdino_text_threshold": "token-to-label extraction threshold; fixed at 0.03 and not used by the geometric association or order event",
+    "yoloworld_box_threshold": "minimum confidence retained by Ultralytics prediction post-processing",
+    "cross_model_warning": "equal numerical thresholds are not equal calibrated operating points across architectures"
+  },
+  "replay_validity": "Exact for thresholds at or above 0.03 under the frozen top-20 exposed-candidate contract. Lower thresholds require new inference."
+}

@@ -32,6 +32,7 @@ DATASET_LABELS = {
 }
 MODEL_LABELS = {
     "groundingdino": "GroundingDINO",
+    "owlv2": "OWLv2",
     "yoloworld": "YOLO-World",
 }
 MODELS = tuple(MODEL_LABELS)
@@ -718,7 +719,72 @@ def save_figures(
     plt.savefig(output / "optimism_decomposition.png", dpi=240, bbox_inches="tight")
     plt.close()
 
-    fig, axes = plt.subplots(1, 2, figsize=(12, 4.8), sharex=True)
+    # Publication-facing replacement for the two separate complete-case and
+    # stacked-decomposition charts.  RefCOCO is used as the representative
+    # panel because it contains the two gap values highlighted in the main
+    # text; the complete three-dataset table remains the quantitative record.
+    representative = (
+        aggregate[aggregate["dataset"] == "refcoco"]
+        .set_index("model")
+        .loc[list(MODELS)]
+        .reset_index()
+    )
+    fig, axes = plt.subplots(1, len(MODELS), figsize=(13.8, 5.1), sharey=True)
+    if len(MODELS) == 1:
+        axes = [axes]
+    stage_labels = ["Complete\ncase", "Coverage\nloss", "Eligibility\nloss", "Full\nmanifest"]
+    for axis, row in zip(axes, representative.itertuples(index=False)):
+        start = float(row.complete_case_persistence)
+        coverage_loss = float(row.coverage_optimism)
+        eligibility_loss = float(row.eligibility_optimism)
+        after_coverage = start - coverage_loss
+        final = float(row.full_manifest_operational_stability)
+        axis.bar(0, start, color="#7C3AED", width=0.68)
+        axis.bar(1, -coverage_loss, bottom=start, color="#F59E0B", width=0.68)
+        axis.bar(2, -eligibility_loss, bottom=after_coverage, color="#EF4444", width=0.68)
+        axis.bar(3, final, color="#2563EB", width=0.68)
+        axis.plot([0.34, 0.66], [start, start], color="#6B7280", linewidth=1)
+        axis.plot([1.34, 1.66], [after_coverage, after_coverage], color="#6B7280", linewidth=1)
+        axis.plot([2.34, 2.66], [final, final], color="#6B7280", linewidth=1)
+        axis.text(0, start + 0.025, f"{start:.4f}", ha="center", va="bottom", fontsize=10, weight="bold")
+        axis.text(1, start - coverage_loss / 2, f"-{coverage_loss:.4f}", ha="center", va="center", fontsize=9)
+        axis.text(2, after_coverage - eligibility_loss / 2, f"-{eligibility_loss:.4f}", ha="center", va="center", fontsize=9)
+        axis.text(3, final + 0.025, f"{final:.4f}", ha="center", va="bottom", fontsize=10, weight="bold")
+        axis.annotate(
+            f"gap = {float(row.total_optimism):.4f}",
+            xy=(3, final), xytext=(1.5, 0.12),
+            arrowprops={"arrowstyle": "->", "color": "#374151", "lw": 1.0},
+            ha="center", va="center", fontsize=10, color="#111827",
+        )
+        axis.set_title(MODEL_LABELS[row.model], fontsize=12, weight="bold")
+        axis.set_xticks(range(4), stage_labels, fontsize=9)
+        axis.set_ylim(0.0, 1.03)
+        axis.grid(axis="y", alpha=0.22)
+        axis.grid(axis="x", visible=False)
+    axes[0].set_ylabel("Estimated stability", fontsize=11)
+    handles = [
+        plt.Rectangle((0, 0), 1, 1, color="#7C3AED"),
+        plt.Rectangle((0, 0), 1, 1, color="#F59E0B"),
+        plt.Rectangle((0, 0), 1, 1, color="#EF4444"),
+        plt.Rectangle((0, 0), 1, 1, color="#2563EB"),
+    ]
+    fig.legend(
+        handles,
+        ["Complete case", "Coverage loss", "Eligibility loss", "Full manifest"],
+        loc="upper center", bbox_to_anchor=(0.5, 0.925), ncol=4,
+        frameon=False, fontsize=10,
+    )
+    fig.suptitle(
+        "Where complete-case optimism comes from on RefCOCO",
+        fontsize=14, weight="bold", y=0.985,
+    )
+    fig.tight_layout(rect=(0, 0, 1, 0.84))
+    fig.savefig(output / "complete_case_waterfall.png", dpi=320, bbox_inches="tight")
+    plt.close(fig)
+
+    fig, axes = plt.subplots(1, len(MODELS), figsize=(5.2 * len(MODELS), 4.8), sharex=True)
+    if len(MODELS) == 1:
+        axes = [axes]
     for axis, model in zip(axes, MODELS):
         for dataset, subset in budget[budget["model"] == model].groupby("dataset"):
             subset = subset.sort_values("probe_budget")
@@ -895,7 +961,7 @@ def render_report(
         "non-negligible. It is small-to-moderate for GroundingDINO and large for "
         "YOLO-World because the latter loses candidate eligibility and coverage much more often.",
         "",
-        f"The analysis uses every completed trace from both architectures: "
+        f"The analysis uses every completed trace from all three tested models: "
         f"{unique_image_query_pairs:,} unique image-query pairs, "
         f"{total_model_sample_records:,} model-sample records, and "
         f"{total_reference_probe_trials:,} eligible reference-probe outcomes, together "

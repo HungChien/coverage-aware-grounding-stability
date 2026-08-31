@@ -187,18 +187,26 @@ def main() -> None:
             "duplicate_trace_records_from_resume": duplicate_trace_count,
         }
 
-    shared_probe_pairs = 0
-    left_model, right_model = list(config["models"])
+    shared_probe_samples = 0
+    models = list(config["models"])
+    reference_model = models[0]
     for key in expected_keys:
-        left = traces_by_model[left_model][key]
-        right = traces_by_model[right_model][key]
-        if not left["clean_eligible"] or not right["clean_eligible"]:
+        records = [traces_by_model[model][key] for model in models]
+        if not all(record["clean_eligible"] for record in records):
             continue
-        left_specs = [probe["spec"] for probe in left["probes"]]
-        right_specs = [probe["spec"] for probe in right["probes"]]
-        if left_specs != right_specs:
-            raise AssertionError(f"shared probe registry mismatch at {key}")
-        shared_probe_pairs += 1
+        reference_specs = [
+            probe["spec"] for probe in traces_by_model[reference_model][key]["probes"]
+        ]
+        for model in models[1:]:
+            compared_specs = [
+                probe["spec"] for probe in traces_by_model[model][key]["probes"]
+            ]
+            if reference_specs != compared_specs:
+                raise AssertionError(
+                    f"shared probe registry mismatch at {key}: "
+                    f"{reference_model} versus {model}"
+                )
+        shared_probe_samples += 1
 
     result = {
         "status": "passed",
@@ -207,8 +215,10 @@ def main() -> None:
         "budgets": budgets,
         "probe_families": families,
         "models": audits,
-        "both_models_eligible_shared_probe_pairs": shared_probe_pairs,
+        "all_models_eligible_shared_probe_samples": shared_probe_samples,
     }
+    if len(models) == 2:
+        result["both_models_eligible_shared_probe_pairs"] = shared_probe_samples
     output = args.result_root / "analysis"
     output.mkdir(parents=True, exist_ok=True)
     (output / "validation_audit.json").write_text(

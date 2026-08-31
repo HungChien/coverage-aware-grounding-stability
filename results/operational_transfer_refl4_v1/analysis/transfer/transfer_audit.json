@@ -1,14 +1,15 @@
 {
   "status": "complete",
-  "refcoco_root": "F:\\PGT_Paper\\gms_reliability\\results\\operational_benchmark_v1",
-  "refcocoplus_root": "F:\\PGT_Paper\\gms_reliability\\results\\operational_transfer_refcocoplus_v1",
-  "target_root": "results\\operational_transfer_refl4_v1",
-  "target_manifest": "F:\\PGT_Paper\\gms_reliability\\data_operational\\refl4_transfer1000\\manifest.json",
+  "refcoco_root": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\results\\operational_benchmark_v1",
+  "refcocoplus_root": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\results\\operational_transfer_refcocoplus_v1",
+  "target_root": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\results\\operational_transfer_refl4_v1",
+  "target_manifest": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\data_operational\\refl4_transfer1000\\manifest.json",
   "bootstrap_repetitions": 2000,
   "seed": 20260827,
   "models": [
     "groundingdino",
-    "yoloworld"
+    "yoloworld",
+    "owlv2"
   ],
   "target_source_counts": {
     "coco": 600,

@@ -2,53 +2,53 @@
   "artifacts": [
     {
       "path": "balanced_split_half_raw.csv",
-      "size_bytes": 4061083,
-      "sha256": "81ebd234159312e4b0ab891406d7391153ba41255daaf289d8d8c9d8e63d15c5"
+      "size_bytes": 6066352,
+      "sha256": "c4facd2dd5f1151dce82f01c7b6d3869657a381fa95ade5e1f3c6d13e3b78225"
     },
     {
       "path": "balanced_split_half_summary.csv",
-      "size_bytes": 7472,
-      "sha256": "20fdb1f9218862ce0c1bfbb61685ec1bc911eb75eddd2736d7c9208e1e2185cf"
+      "size_bytes": 10980,
+      "sha256": "f6cc6822191f576898ef1f18497668ff27ceccede57312d1a7dbec930f9675c9"
     },
     {
       "path": "diagnostic40_vs_reference80.csv",
-      "size_bytes": 2697,
-      "sha256": "cca826c78c44461bde7a8732d0e9bb65bc552f0f9ecdd78d1fa2e348754ed206"
+      "size_bytes": 3935,
+      "sha256": "8c5298de0015886bee3d6c01a084cd3db2606e7d820c2b1d6ce0c5eacdbf5abd"
     },
     {
       "path": "model_level_adequacy.csv",
-      "size_bytes": 1804,
-      "sha256": "ddd96d94d4da3ce14984ec730cd87691ef83777ea2ff522fbbd6944f9951c8c6"
+      "size_bytes": 2458,
+      "sha256": "f3f7ae51c09dbaf99bf5907988f82e6de191460351b6eefe4316a4a1eee721ac"
     },
     {
       "path": "model_level_adequacy.png",
-      "size_bytes": 86324,
-      "sha256": "b02fd801e20d2a9e03acd3fc421b3601832352de6c9491722f2ff2fb8d1ee79b"
+      "size_bytes": 89765,
+      "sha256": "26975fd8d097f2513b420dc327ae02c37d490cdbd9d7b1cfa28f19a81d1fac01"
     },
     {
       "path": "reference_80_adequacy_report.md",
-      "size_bytes": 6599,
-      "sha256": "06d6f11c2ab28fed47cc2fc9457f53ba5598c9bc8f65db59f3fffe16293a7e75"
+      "size_bytes": 8240,
+      "sha256": "2d072201cb4492ee7afdea84186b5e8b13684d37c58c55da34d97fcd4922ef12"
     },
     {
       "path": "reference_80_vs_variance_floor.png",
-      "size_bytes": 60714,
-      "sha256": "71c37b1120f54e495dc2a497593d438f39d72d056491798644910b68ba89bd01"
+      "size_bytes": 62484,
+      "sha256": "558f0ef5d315337fca06b573a52c742b23500efa2dbe9262eb4fa57bb66d374e"
     },
     {
       "path": "sample_interval_summary.csv",
-      "size_bytes": 1106,
-      "sha256": "61dee9accfcf0fe09629eb78d05010b008d8a45a4333d55ca2d96794bdb34aea"
+      "size_bytes": 1573,
+      "sha256": "9d2634137e5ada9223387e636f2725663dd07ca8b4da7bbb1880dd597fc56e80"
     },
     {
       "path": "sample_level_interval_widths.png",
-      "size_bytes": 66367,
-      "sha256": "a0526295c4eafd93d6da9378e56b8f61b3d514fbf1746125ec2e50e1a0a1d939"
+      "size_bytes": 69683,
+      "sha256": "62d2f8b46ead52ff29849dc22157451e04a0771c6d52efd5dc4823bdd62ab685"
     },
     {
       "path": "sample_reference_precision.csv",
-      "size_bytes": 496436,
-      "sha256": "67e76b59721d3874196d33784fc69f5dc9242396dfc02fd1a77ed2b56cb76723"
+      "size_bytes": 746074,
+      "sha256": "b750dc88cb13207bf66081cd25a00c4c8aac2ce4e0c0d13c9539a06495cc5796"
     }
   ]
 }

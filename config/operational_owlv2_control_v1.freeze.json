@@ -1,0 +1,94 @@
+{
+  "freeze_name": "operational_owlv2_control_v1",
+  "created_utc": "2026-08-30T20:03:21.258768+00:00",
+  "status": "frozen_with_runtime_compatibility_amendment",
+  "purpose": "Add OWLv2 as a third-model control without changing registered benchmark parameters.",
+  "runtime_compatibility_amendments": [
+    {
+      "date": "2026-08-31",
+      "trigger": "The pinned checkpoint rejected referring expressions longer than its text-position limit.",
+      "change": "Read text_config.max_position_embeddings from the checkpoint and enable deterministic tokenizer truncation at that native limit.",
+      "scientific_parameters_changed": false,
+      "resume_compatibility": "Previously completed expressions were within the native limit and retain identical encoding."
+    },
+    {
+      "date": "2026-08-31",
+      "trigger": "Windows PowerShell did not convert a non-zero native Python exit code into a terminating error.",
+      "change": "Check LASTEXITCODE after every pipeline stage and stop before downstream validation or analysis on failure.",
+      "scientific_parameters_changed": false
+    }
+  ],
+  "owlv2": {
+    "repository": "google/owlv2-base-patch16-ensemble",
+    "revision": "cfd3195ba4ea9592eec887ded089f4c08eff231d"
+  },
+  "identity_audit": [
+    {
+      "control": "config\\operational_benchmark_owlv2_control_v1.json",
+      "source": "config\\operational_benchmark_v1.json",
+      "registered_fields_equal": true,
+      "added_model": "owlv2",
+      "owlv2_repository": "google/owlv2-base-patch16-ensemble",
+      "owlv2_revision": "cfd3195ba4ea9592eec887ded089f4c08eff231d",
+      "owlv2_batch_size": 4
+    },
+    {
+      "control": "config\\operational_transfer_refcocoplus_owlv2_control_v1.json",
+      "source": "config\\operational_transfer_refcocoplus_v1.json",
+      "registered_fields_equal": true,
+      "added_model": "owlv2",
+      "owlv2_repository": "google/owlv2-base-patch16-ensemble",
+      "owlv2_revision": "cfd3195ba4ea9592eec887ded089f4c08eff231d",
+      "owlv2_batch_size": 4
+    },
+    {
+      "control": "config\\operational_transfer_refl4_owlv2_control_v1.json",
+      "source": "config\\operational_transfer_refl4_v1.json",
+      "registered_fields_equal": true,
+      "added_model": "owlv2",
+      "owlv2_repository": "google/owlv2-base-patch16-ensemble",
+      "owlv2_revision": "cfd3195ba4ea9592eec887ded089f4c08eff231d",
+      "owlv2_batch_size": 4
+    }
+  ],
+  "permitted_differences": [
+    "benchmark_name and protocol_version identify the derived control",
+    "models adds OWLv2 while retaining both source checkpoints",
+    "model_revisions pins the OWLv2 commit",
+    "owlv2_batch_size=4 is execution-only",
+    "source_config records provenance"
+  ],
+  "prohibited_differences": [
+    "manifest or sample order",
+    "probe registry, count, severity, seed, or sharing",
+    "candidate count, duplicate suppression, or association threshold",
+    "inference threshold or estimator definition",
+    "diagnostic budget, reference budget, or bootstrap repetitions"
+  ],
+  "sha256": {
+    "config/operational_benchmark_v1.json": "8fe204133c684ab3b748bd475afcc8e338e1e3e4f1f61c8c900fb18c38f3756f",
+    "config/operational_transfer_refcocoplus_v1.json": "2b8bf242655e26afbeabd01068f23098619bc8135c10e3b2faf54c5f0f145546",
+    "config/operational_transfer_refl4_v1.json": "20b0324f6a6816e0533aa9e042d3b375e4ed6ef58be3ff041e94f5c1a291e270",
+    "config/operational_benchmark_owlv2_control_v1.json": "d03c5ee19b9048b4174834e7cd6ebd9184c1a52e67ae494c2a73da88d668d378",
+    "config/operational_transfer_refcocoplus_owlv2_control_v1.json": "3aa2fa9953b841fa06ed7d7a3e0b78a227e246f9c7aff071c72971c201dccbc8",
+    "config/operational_transfer_refl4_owlv2_control_v1.json": "dcfb6eea2872c2b2f65d5d9267df89a5523e67970627182ab2af386a22719f8a",
+    "config/random_probe_distribution.json": "5ccc97f36bd35591a5b353631884248a1856641407b530b1dfe96087f23cb5b6",
+    "data_operational/refcoco_unseen500/manifest.json": "8c1902fbbf607a4a057c9b39b012604ab053ff3b1713f509c7495668e073fcc7",
+    "data_operational/refcocoplus_transfer1000/manifest.json": "3fcbb37ac5c07412c4e8d539d378bd29fdb18587bed75aca1025464c45deaecf",
+    "data_operational/refl4_transfer1000/manifest.json": "9b5725df9ddb0fab66a88739b79b6b9dc9b8c5312bacaf3dc3cbf1815b911c3c",
+    "docs/methodology/owlv2_control_preregistration.md": "96942ea4f79166b4cf584f155c72f173d2993e3dd528521f42056bb6cf6875dd",
+    "src/adapters.py": "30dd3b82df253aa8c760a05f9d838c9eb8008bdad1bc4ba09d81cbbfd46605fa",
+    "src/owlv2_control.py": "f3fa11e5740aea7f454cc2ce4fa0f560090a3083ae9f9980b1b313f14467bc5d",
+    "src/operational_stability.py": "9ed61cd7a42ab4ec820d469fbcccdcee6cbc76fb390579914113c15e2f848e88",
+    "src/random_probes.py": "ae86414a18a278865d56f36290d417e1a2e32dcb18ccbd299aecbeed97acdeb4",
+    "src/reliability.py": "c84bff8c17cef4097425d6b5414c71c0513a0b54162c9ab57d3c9f76e3deb763",
+    "scripts/run_operational_benchmark.py": "646ec0fc1502bc948bc4baf4bde78d45ae9b85024eddb9e46f8be9d9579a8d21",
+    "scripts/validate_operational_artifacts.py": "01700facc88c78b3c36a00259a6c34b531be9656770fa5093ad94729aab36284",
+    "scripts/analyse_operational_benchmark.py": "65792a3feec5630fd8e6852f16ea76383b29973f82260d51bce2ea66e0d9ef0b",
+    "scripts/analyse_contract_sensitivity.py": "378d59a7d9b6d49c4d8312fcef2f5b35acae8f38a7aaecd4d02355233640c58c",
+    "scripts/analyse_operational_transfer.py": "aa4b047176df9571702d4a528b96c6919760a4bdec2532700e4f91d32fd88eca",
+    "scripts/analyse_refl4_transfer.py": "a1c9c78d8706b162a776e79afe1d3548bbd314bf075e7db4a316befb74998766",
+    "tests/test_owlv2_adapter.py": "8a40002dc0f6686d29df04e1835060ab5d8995a0af589f4e5204a08c2f731536",
+    "tests/test_owlv2_control_configs.py": "07a5f5cef1ebb49d6acccec2fe55d1a4cf7b09dbfa753afa3a17decb0b805897"
+  }
+}

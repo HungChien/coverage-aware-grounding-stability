@@ -7,3 +7,7 @@ yoloworld,winner_missing,1124,0.057423112291815674
 yoloworld,competitor_missing,11558,0.5904771635843465
 yoloworld,threatening_birth,1152,0.058853581281291506
 yoloworld,ranking_reversal,5740,0.29324614284254624
+owlv2,winner_missing,142,0.0077069199457259156
+owlv2,competitor_missing,4358,0.23652645861601085
+owlv2,threatening_birth,4006,0.21742198100407056
+owlv2,ranking_reversal,9919,0.5383446404341927

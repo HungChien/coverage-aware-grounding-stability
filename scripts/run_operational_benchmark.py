@@ -23,7 +23,7 @@ sys.path.insert(0, str(ROOT))
 os.environ.setdefault("HF_HUB_OFFLINE", "1")
 os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
 
-from src.adapters import GroundingDINOAdapter, YOLOWorldAdapter
+from src.adapters import GroundingDINOAdapter, OWLv2Adapter, YOLOWorldAdapter
 from src.operational_stability import (
     OutputContract,
     evaluate_probe_outcome,
@@ -53,14 +53,44 @@ def git_commit() -> str:
         return "unavailable"
 
 
+def resolved_inference_thresholds(model: str, config: dict) -> dict[str, float]:
+    """Resolve architecture-specific inference thresholds.
+
+    Version-1 configurations used a shared ``box_threshold`` field.  The
+    fallback is retained so the frozen runs remain exactly reproducible, while
+    new configurations can state model-specific thresholds explicitly under
+    ``inference_thresholds``.
+    """
+
+    per_model = config.get("inference_thresholds", {}).get(model, {})
+    box_threshold = float(
+        per_model.get("box_threshold", config.get("box_threshold", 0.05))
+    )
+    resolved = {"box_threshold": box_threshold}
+    if model == "groundingdino":
+        resolved["text_threshold"] = float(
+            per_model.get("text_threshold", config.get("text_threshold", 0.05))
+        )
+    return resolved
+
+
 def make_adapter(model: str, config: dict):
     model_name = config["models"][model]
+    thresholds = resolved_inference_thresholds(model, config)
     if model == "groundingdino":
         return GroundingDINOAdapter(
             model_name,
-            box_threshold=float(config["box_threshold"]),
-            text_threshold=float(config["text_threshold"]),
+            box_threshold=thresholds["box_threshold"],
+            text_threshold=thresholds["text_threshold"],
         )
+    if model == "owlv2":
+        return OWLv2Adapter(
+            model_name,
+            box_threshold=thresholds["box_threshold"],
+            revision=config.get("model_revisions", {}).get(model),
+        )
+    if model != "yoloworld":
+        raise ValueError(f"unsupported grounding model: {model}")
     local_candidates = [
         ROOT / model_name,
         ROOT.parent / "week2_minimal_experiment" / model_name,
@@ -68,7 +98,7 @@ def make_adapter(model: str, config: dict):
     local_model = next((path for path in local_candidates if path.exists()), None)
     return YOLOWorldAdapter(
         str(local_model or model_name),
-        box_threshold=float(config["box_threshold"]),
+        box_threshold=thresholds["box_threshold"],
     )
 
 
@@ -187,7 +217,11 @@ def main() -> None:
         type=Path,
         default=ROOT / "config" / "operational_benchmark_v1.json",
     )
-    parser.add_argument("--model", choices=["groundingdino", "yoloworld"], required=True)
+    parser.add_argument(
+        "--model",
+        choices=["groundingdino", "yoloworld", "owlv2"],
+        required=True,
+    )
     parser.add_argument("--start", type=int, default=0)
     parser.add_argument("--stop", type=int)
     parser.add_argument("--limit", type=int)
@@ -256,6 +290,9 @@ def main() -> None:
     metadata = {
         **config,
         "model": args.model,
+        "resolved_inference_thresholds": resolved_inference_thresholds(
+            args.model, config
+        ),
         "config_path": str(args.config),
         "config_sha256": file_sha256(args.config),
         "manifest_path": str(manifest_path),

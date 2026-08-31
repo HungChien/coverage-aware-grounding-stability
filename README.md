@@ -32,7 +32,7 @@ python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
 ```
 
-Install the optional inference stack only on machines that will run the two
+Install the optional inference stack only on machines that will run the
 grounding models:
 
 ```bash
@@ -213,6 +213,52 @@ conditional on the exposed candidate set. This permits GroundingDINO and
 YOLO-World to share the same estimand without claiming that their numerical
 confidence scales are calibrated to each other.
 
+Both model adapters used an explicitly supplied candidate-discovery threshold
+of 0.03; YOLO-World did not use the Ultralytics default. For GroundingDINO,
+`box_threshold=0.03` controlled candidate retention and
+`text_threshold=0.03` controlled phrase-token extraction. Phrase labels do not
+enter candidate association or ordering. The permissive threshold exposes a
+rich candidate universe for stability analysis and is not presented as a
+recommended deployment confidence setting.
+
+### Preregistered OWLv2 control extension
+
+OWLv2 Base Patch16 Ensemble is available as a third-model control. This is a
+derived frozen extension, not a replacement for the completed two-model run.
+The checkpoint is pinned to Hugging Face revision
+`cfd3195ba4ea9592eec887ded089f4c08eff231d`. The three derived configurations
+inherit every registered manifest, seed, probe, diagnostic budget, output
+contract, inference threshold, estimand, and bootstrap setting from their
+source configurations. Only the model entry, pinned revision, and
+execution-only batch size are added.
+
+The equal `box_threshold=0.03` is the registered matched operating point; it
+does not imply cross-model score calibration. The exact identity constraints
+and interpretation boundary are recorded in
+[`docs/methodology/owlv2_control_preregistration.md`](docs/methodology/owlv2_control_preregistration.md).
+
+## Upstream Inference-Threshold Sensitivity
+
+The full traces were replayed at candidate thresholds 0.03, 0.05, 0.10, 0.15,
+0.20, 0.25, and 0.35. The analysis includes 500 RefCOCO pairs, 1,000 RefCOCO+
+pairs, both architectures, and all 80 reference probes for eligible pairs.
+Every threshold is applied before fresh duplicate suppression, eligibility,
+association, coverage, and strict-order evaluation.
+
+The main model ordering is preserved at every common threshold from 0.03
+through 0.25 on both primary datasets. At 0.35, the gap remains positive on
+RefCOCO but reverses on RefCOCO+. The result therefore supports finite-range
+robustness rather than a threshold-free architecture claim. Equal raw
+thresholds are sensitivity points, not calibrated operating points across the
+two score systems.
+
+![Clean eligibility across candidate thresholds](results/inference_threshold_sensitivity_v1/threshold_eligibility.png)
+
+![Operational stability across candidate thresholds](results/inference_threshold_sensitivity_v1/threshold_operational_stability.png)
+
+The complete replay table, audit metadata, and interpretation are in
+[`results/inference_threshold_sensitivity_v1/threshold_sensitivity_report.md`](results/inference_threshold_sensitivity_v1/threshold_sensitivity_report.md).
+
 ## Output-Contract Robustness
 
 An output contract defines the measurement operation, so absolute stability
@@ -360,11 +406,29 @@ exposed after one registered perturbation on the right. The four rows show
 `ranking_reversal`. Prefixes `C` and `P` identify clean and perturbed ranks;
 they are not semantic class labels.
 
+#### RefCOCO main benchmark
+
+**GroundingDINO**
+
+![GroundingDINO qualitative failure examples on RefCOCO](results/operational_benchmark_v1/analysis/failure_examples/groundingdino_failure_examples.png)
+
+**OWLv2**
+
+![OWLv2 qualitative failure examples on RefCOCO](results/operational_benchmark_v1/analysis/failure_examples/owlv2_failure_examples.png)
+
+**YOLO-World**
+
+![YOLO-World qualitative failure examples on RefCOCO](results/operational_benchmark_v1/analysis/failure_examples/yoloworld_failure_examples.png)
+
 #### RefCOCO+ transfer
 
 **GroundingDINO**
 
 ![GroundingDINO qualitative failure examples on RefCOCO+](results/operational_transfer_refcocoplus_v1/analysis/failure_examples/groundingdino_failure_examples.png)
+
+**OWLv2**
+
+![OWLv2 qualitative failure examples on RefCOCO+](results/operational_transfer_refcocoplus_v1/analysis/failure_examples/owlv2_failure_examples.png)
 
 **YOLO-World**
 
@@ -375,6 +439,10 @@ they are not semantic class labels.
 **GroundingDINO**
 
 ![GroundingDINO qualitative failure examples on Ref-L4](results/operational_transfer_refl4_v1/analysis/failure_examples/groundingdino_failure_examples.png)
+
+**OWLv2**
+
+![OWLv2 qualitative failure examples on Ref-L4](results/operational_transfer_refl4_v1/analysis/failure_examples/owlv2_failure_examples.png)
 
 **YOLO-World**
 
@@ -390,9 +458,9 @@ images.
 
 | Component | Frozen setting |
 |---|---|
-| Dataset | 500 unique RefCOCO image-query pairs |
+| Datasets | 500 RefCOCO, 1,000 RefCOCO+, and 1,000 Ref-L4 image-query pairs |
 | Development-set overlap | Zero images |
-| Models | GroundingDINO Tiny; YOLO-World v2 Small |
+| Models | GroundingDINO Tiny; OWLv2 Base; YOLO-World v2 Small |
 | Probe families | Blur, brightness, JPEG, resolution, Gaussian noise |
 | Diagnostic probes | 40 per eligible model-sample pair |
 | Independent reference probes | 80 per eligible model-sample pair |
@@ -405,7 +473,7 @@ The main hypotheses are:
 
 - finite-budget estimates approach the independent reference as budget grows;
 - coverage-aware stability differs measurably from conditional persistence;
-- the output contract transfers unchanged across both model architectures;
+- the same output contract can be applied unchanged to all three tested models;
 - failure and perturbation-family profiles identify model-specific instability;
 - all figures can be reproduced from complete saved traces.
 
@@ -431,6 +499,21 @@ Run all tests, both model benchmarks, and the final analysis sequentially:
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\run_frozen_operational_pipeline.ps1
 ```
+
+For the preregistered OWLv2 extension, cache the pinned checkpoint, freeze the
+code/configuration hashes before inference, and then run the resume-safe
+three-dataset pipeline:
+
+```powershell
+python scripts\cache_owlv2_checkpoint.py
+python scripts\freeze_owlv2_control.py
+python scripts\freeze_owlv2_control.py --verify
+powershell -ExecutionPolicy Bypass -File scripts\run_owlv2_control_pipeline.ps1
+```
+
+The OWLv2 pipeline writes only the new `owlv2/` result directories and then
+rebuilds joint three-model analyses; it does not rerun or overwrite the saved
+GroundingDINO and YOLO-World inference traces.
 
 Check progress without modifying the experiment:
 

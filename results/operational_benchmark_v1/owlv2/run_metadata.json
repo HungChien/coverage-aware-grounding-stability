@@ -1,0 +1,80 @@
+{
+  "benchmark_name": "coverage_aware_candidate_order_stability_owlv2_control_v1",
+  "protocol_version": "1.0.0-control.1",
+  "source_config": "config/operational_benchmark_v1.json",
+  "manifest": "data_operational/refcoco_unseen500/manifest.json",
+  "sample_count": 500,
+  "models": {
+    "groundingdino": "IDEA-Research/grounding-dino-tiny",
+    "yoloworld": "yolov8s-worldv2.pt",
+    "owlv2": "google/owlv2-base-patch16-ensemble"
+  },
+  "model_revisions": {
+    "owlv2": "cfd3195ba4ea9592eec887ded089f4c08eff231d"
+  },
+  "box_threshold": 0.03,
+  "text_threshold": 0.03,
+  "correct_iou_threshold": 0.5,
+  "output_contract": {
+    "tracked_candidate_count": 5,
+    "exposed_candidate_count": 20,
+    "duplicate_iou_threshold": 0.7,
+    "match_iou_threshold": 0.15,
+    "birth_duplicate_iou_threshold": 0.7
+  },
+  "diagnostic_probes_per_family": 8,
+  "reference_probes_per_family": 16,
+  "reported_diagnostic_budgets": [
+    5,
+    10,
+    20,
+    40
+  ],
+  "confidence": 0.95,
+  "base_seed": 20260825,
+  "groundingdino_batch_size": 8,
+  "yoloworld_batch_size": 16,
+  "owlv2_batch_size": 4,
+  "checkpoint_every_sample": true,
+  "shared_probes_across_models": true,
+  "primary_estimand": "operational_stability",
+  "secondary_estimands": [
+    "clean_candidate_eligibility",
+    "candidate_coverage",
+    "conditional_ranking_stability"
+  ],
+  "primary_validation": "finite_diagnostic_probe_estimate_vs_independent_reference_operational_stability",
+  "required_diagnostics": [
+    "coverage_vs_ranking_risk",
+    "perturbation_family_risk_share",
+    "primary_failure_type",
+    "culprit_competitor"
+  ],
+  "bootstrap_repetitions": 2000,
+  "model": "owlv2",
+  "resolved_inference_thresholds": {
+    "box_threshold": 0.03
+  },
+  "config_path": "config\\operational_benchmark_owlv2_control_v1.json",
+  "config_sha256": "d03c5ee19b9048b4174834e7cd6ebd9184c1a52e67ae494c2a73da88d668d378",
+  "manifest_path": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\data_operational\\refcoco_unseen500\\manifest.json",
+  "manifest_sha256": "8c1902fbbf607a4a057c9b39b012604ab053ff3b1713f509c7495668e073fcc7",
+  "selected_range": [
+    0,
+    500
+  ],
+  "selected_count": 500,
+  "diagnostic_probe_count": 40,
+  "reference_probe_count": 80,
+  "raw_candidate_pool_size": 20,
+  "trace_candidate_schema": {
+    "raw_clean_candidates": "pre-contract candidate pool",
+    "probes.raw_candidates": "pre-contract perturbed candidate pool",
+    "probes.candidates": "post-contract perturbed candidates"
+  },
+  "git_commit": "bef1df44d521984c11f28c2109194d499719ebf6",
+  "started_unix": 1788141131.970305,
+  "finished_unix": 1788144907.801621,
+  "elapsed_seconds": 3775.8313159942627,
+  "completed_samples": 500
+}

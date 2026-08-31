@@ -6,6 +6,7 @@ import pandas as pd
 from scripts.run_operational_benchmark import (
     completed_samples,
     load_rows,
+    resolved_inference_thresholds,
     traced_samples,
 )
 
@@ -35,4 +36,12 @@ def test_resume_requires_complete_summary_and_trace(tmp_path):
     assert len(resumed_rows) == 4
     assert {(int(row["image_id"]), int(row["ref_id"])) for row in resumed_rows} == {
         (1, 10)
+    }
+
+
+def test_owlv2_inherits_the_registered_shared_box_threshold():
+    config = {"box_threshold": 0.03, "text_threshold": 0.03}
+
+    assert resolved_inference_thresholds("owlv2", config) == {
+        "box_threshold": 0.03
     }

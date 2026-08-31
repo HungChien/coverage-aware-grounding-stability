@@ -1,7 +1,10 @@
 dataset,model,sample_count,raw_clean_cap20_fraction,reference_probe_count,post_dedup_probe_cap20_fraction,median_post_dedup_probe_candidate_count,raw_perturbed_field_fraction
 RefCOCO,groundingdino,500,0.744,39920,0.009443887775551102,13.0,0.0
+RefCOCO,owlv2,500,0.584,39040,0.0970030737704918,16.0,1.0
 RefCOCO,yoloworld,500,0.02,29120,0.02239010989010989,3.0,0.0
 RefCOCO+,groundingdino,1000,0.862,80000,0.011,13.0,0.0
+RefCOCO+,owlv2,1000,0.565,77440,0.10560433884297521,16.0,1.0
 RefCOCO+,yoloworld,1000,0.049,60560,0.05049537648612946,3.0,0.0
 Ref-L4,groundingdino,1000,0.994,80000,0.0242625,15.0,0.0
+Ref-L4,owlv2,1000,0.841,79840,0.09865981963927856,17.0,1.0
 Ref-L4,yoloworld,1000,0.165,62480,0.19092509603072982,6.0,0.0

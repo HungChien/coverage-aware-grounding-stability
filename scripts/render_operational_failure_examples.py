@@ -4,6 +4,7 @@ import argparse
 import gzip
 import json
 import sys
+import textwrap
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -22,6 +23,25 @@ CAUSES = [
     "ranking_reversal",
 ]
 COLORS = ["#EF4444", "#2563EB", "#10B981", "#F59E0B", "#8B5CF6"]
+CAUSE_LABELS = {
+    "winner_missing": "Winner loss",
+    "competitor_missing": "Competitor loss",
+    "threatening_birth": "Candidate birth",
+    "ranking_reversal": "Rank reversal",
+}
+
+
+def load_font(size: int, *, bold: bool = False) -> ImageFont.ImageFont:
+    names = ["arialbd.ttf", "calibrib.ttf", "segoeuib.ttf"] if bold else [
+        "arial.ttf",
+        "calibri.ttf",
+        "segoeui.ttf",
+    ]
+    for name in names:
+        path = Path("C:/Windows/Fonts") / name
+        if path.exists():
+            return ImageFont.truetype(str(path), size=size)
+    return ImageFont.load_default()
 
 
 def load_trace(path: Path) -> dict[tuple[int, int], dict]:
@@ -36,15 +56,33 @@ def load_trace(path: Path) -> dict[tuple[int, int], dict]:
 def draw_candidates(image: Image.Image, candidates: list[dict], prefix: str) -> Image.Image:
     image = image.copy().convert("RGB")
     draw = ImageDraw.Draw(image)
-    font = ImageFont.load_default()
-    width = max(2, round(min(image.size) / 220))
+    font = load_font(max(17, round(min(image.size) / 28)), bold=True)
+    width = max(3, round(min(image.size) / 145))
     for index, candidate in enumerate(candidates[:5]):
         color = COLORS[index % len(COLORS)]
         box = tuple(float(value) for value in candidate["box"])
         draw.rectangle(box, outline=color, width=width)
-        label = f"{prefix}{index + 1}: {candidate['score']:.3f}"
-        anchor = (max(0, box[0]), max(0, box[1] - 14))
-        draw.text(anchor, label, fill=color, font=font, stroke_width=1, stroke_fill="white")
+        label = f"{prefix}{index + 1}  {candidate['score']:.3f}"
+        text_box = draw.textbbox((0, 0), label, font=font, stroke_width=1)
+        label_height = text_box[3] - text_box[1]
+        label_width = text_box[2] - text_box[0]
+        anchor_x = max(3, min(float(box[0]), image.width - label_width - 9))
+        anchor_y = max(3, float(box[1]) - label_height - 11)
+        draw.rounded_rectangle(
+            (anchor_x - 4, anchor_y - 3, anchor_x + label_width + 5, anchor_y + label_height + 5),
+            radius=4,
+            fill="white",
+            outline=color,
+            width=2,
+        )
+        draw.text(
+            (anchor_x, anchor_y),
+            label,
+            fill=color,
+            font=font,
+            stroke_width=1,
+            stroke_fill="white",
+        )
     return image
 
 
@@ -89,7 +127,7 @@ def main() -> None:
     output.mkdir(parents=True, exist_ok=True)
 
     audit = {}
-    for model in ("groundingdino", "yoloworld"):
+    for model in config["models"]:
         records = load_trace(args.result_root / model / "sample_traces.jsonl.gz")
         selected: dict[str, tuple[dict, dict]] = {}
         for key in sorted(records):
@@ -105,20 +143,33 @@ def main() -> None:
             if len(selected) == len(CAUSES):
                 break
 
-        panel_width, panel_height = 500, 370
-        header_height = 60
+        panel_width, panel_height = 780, 540
+        header_height = 150
         canvas = Image.new(
             "RGB",
             (panel_width * 2, (panel_height + header_height) * len(CAUSES)),
             "white",
         )
         draw = ImageDraw.Draw(canvas)
-        font = ImageFont.load_default()
+        title_font = load_font(30, bold=True)
+        meta_font = load_font(24)
+        column_font = load_font(24, bold=True)
         audit[model] = {}
         for row, cause in enumerate(CAUSES):
             top = row * (panel_height + header_height)
+            draw.rectangle(
+                (0, top, canvas.width - 1, top + header_height - 1),
+                fill="#F3F4F6",
+                outline="#D1D5DB",
+                width=2,
+            )
             if cause not in selected:
-                draw.text((12, top + 20), f"{cause}: no observed example", fill="black", font=font)
+                draw.text(
+                    (24, top + 48),
+                    f"{CAUSE_LABELS[cause]}: no observed example",
+                    fill="black",
+                    font=title_font,
+                )
                 audit[model][cause] = None
                 continue
             record, probe = selected[cause]
@@ -140,17 +191,33 @@ def main() -> None:
             perturbed_panel = fit_panel(perturbed_view, (panel_width, panel_height))
             canvas.paste(clean_panel, (0, top + header_height))
             canvas.paste(perturbed_panel, (panel_width, top + header_height))
-            title = (
-                f"{cause} | query: {record['query']} | "
-                f"{spec.family}={spec.severity:.3f}"
+            query_lines = textwrap.wrap(str(record["query"]), width=62) or [""]
+            query_text = "\n".join(query_lines[:2])
+            draw.text((24, top + 14), CAUSE_LABELS[cause], fill="#111827", font=title_font)
+            draw.multiline_text(
+                (370, top + 18),
+                f'Query: “{query_text}”',
+                fill="#111827",
+                font=meta_font,
+                spacing=5,
             )
-            draw.text((12, top + 8), title, fill="black", font=font)
-            draw.text((12, top + 34), "Clean tracked candidates", fill="#374151", font=font)
             draw.text(
-                (panel_width + 12, top + 34),
-                "Perturbed exposed candidates",
+                (24, top + 82),
+                f"Probe: {spec.family}, severity {spec.severity:.3f}",
+                fill="#4B5563",
+                font=meta_font,
+            )
+            draw.text(
+                (24, top + 116),
+                "Clean: tracked candidates",
                 fill="#374151",
-                font=font,
+                font=column_font,
+            )
+            draw.text(
+                (panel_width + 24, top + 116),
+                "Perturbed: exposed candidates",
+                fill="#374151",
+                font=column_font,
             )
             audit[model][cause] = {
                 "image_id": key[0],
@@ -158,7 +225,11 @@ def main() -> None:
                 "query": record["query"],
                 "probe": probe["spec"],
             }
-        canvas.save(output / f"{model}_failure_examples.png")
+        canvas.save(
+            output / f"{model}_failure_examples.png",
+            dpi=(300, 300),
+            optimize=True,
+        )
 
     (output / "failure_example_audit.json").write_text(
         json.dumps(audit, indent=2), encoding="utf-8"

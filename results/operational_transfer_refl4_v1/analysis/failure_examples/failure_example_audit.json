@@ -82,5 +82,47 @@
         "seed": 587631765
       }
     }
+  },
+  "owlv2": {
+    "winner_missing": {
+      "image_id": 43543,
+      "ref_id": 40813,
+      "query": "The person clad in a grey jacket and red pants is riding a snowboard down a snowy slope.",
+      "probe": {
+        "family": "blur",
+        "severity": 1.422848966903085,
+        "seed": 1634755925
+      }
+    },
+    "competitor_missing": {
+      "image_id": 3178,
+      "ref_id": 32856,
+      "query": "A baby giraffe, identifiable by its smaller size and nursing behavior, is standing near its mother, who is situated to the right of the young giraffe.",
+      "probe": {
+        "family": "blur",
+        "severity": 2.207064947002868,
+        "seed": 859645680
+      }
+    },
+    "threatening_birth": {
+      "image_id": 1407,
+      "ref_id": 39811,
+      "query": "The man seated in a wheelchair behind the court, wearing a dark blazer and glasses, is attentively watching the tennis player serve.",
+      "probe": {
+        "family": "jpeg",
+        "severity": 80.43663909232288,
+        "seed": 336481251
+      }
+    },
+    "ranking_reversal": {
+      "image_id": 1407,
+      "ref_id": 39811,
+      "query": "The man seated in a wheelchair behind the court, wearing a dark blazer and glasses, is attentively watching the tennis player serve.",
+      "probe": {
+        "family": "blur",
+        "severity": 0.5494017543896107,
+        "seed": 575688880
+      }
+    }
   }
 }

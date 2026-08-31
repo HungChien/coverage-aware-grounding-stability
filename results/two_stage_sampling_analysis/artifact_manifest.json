@@ -2,63 +2,63 @@
   "artifacts": [
     {
       "path": "allocation_tradeoff.csv",
-      "size_bytes": 3261,
-      "sha256": "385fd8d08c5bd3558f83f32b595204f051a6624072b5bd6e72d20c8e617379af"
+      "size_bytes": 4699,
+      "sha256": "6133e9114f10307c5fbbe2f6c3ab5a70b756a18e077b044faae65ad9ee4a4545"
     },
     {
       "path": "component_bootstrap_intervals.csv",
-      "size_bytes": 3462,
-      "sha256": "e6a8a95f1f28ad17cc93e4bb04d346d2178ecf15211cf10728d33968a08305a2"
+      "size_bytes": 5060,
+      "sha256": "26689f65e06591af3ac24aa8b7b39491c9342d3205cd32228de69cabbe2a6a45"
     },
     {
       "path": "cost_optimal_probe_allocation.png",
-      "size_bytes": 148432,
-      "sha256": "95e3cf76b5e76e40313e7f355f9b80aabecb8733a684bcdaeed227666eb9064c"
+      "size_bytes": 200001,
+      "sha256": "a94850c44aac16d1583225a0e8c0c5fb3359c8e55d84116178cc41a6a7746134"
     },
     {
       "path": "effective_sample_size.png",
-      "size_bytes": 61993,
-      "sha256": "df2c62ed4bae05535435164dfa4301f041801e8dc83406bfab9efcb94cfd9c43"
+      "size_bytes": 63782,
+      "sha256": "0728c82f82de60a88e55ce2c7174cbe5d70b1aecffd7a57481c9abd94016fc17"
     },
     {
       "path": "predicted_vs_empirical_variance.png",
-      "size_bytes": 135579,
-      "sha256": "9051276130104ebe24f954116f552d06fd7afe289538fddbc39f4d3560e0969a"
+      "size_bytes": 158926,
+      "sha256": "db245658d50a30e217b6d560546f8fc0fae00c0b82e77714b5b4988462bd7d73"
     },
     {
       "path": "probe_budget_diminishing_returns.png",
-      "size_bytes": 248386,
-      "sha256": "2f2f53f4adaf2eedd6f1bc2e4702dade872afbd1f9aeb0560e02b1a0f68c948d"
+      "size_bytes": 324395,
+      "sha256": "7ac88ac1115a35cb91967ba327184d43cb9248d3fdb5a42bc73d151fb8ccb40c"
     },
     {
       "path": "sample_size_planning.csv",
-      "size_bytes": 5706,
-      "sha256": "01cab919217b9f7342ab1afc9876fb570638862d030c1c56bf6da1cba37c78e2"
+      "size_bytes": 8019,
+      "sha256": "df177d9d061174d7ce10506e419d53236eb5368d1b6e13a92d3a32306cd138eb"
     },
     {
       "path": "subsampling_variance_validation.csv",
-      "size_bytes": 37766,
-      "sha256": "5615c676c9e48e41ed9fe2d8c1117b50c3701a3d222a01588c70b4cf53d2c1d8"
+      "size_bytes": 56050,
+      "sha256": "4cc18d9120b7b264ffb83519b558587c332e9955f300a2d412890264a58c0f2b"
     },
     {
       "path": "two_stage_sampling_theory_report.md",
-      "size_bytes": 8744,
-      "sha256": "22278da113a22d21f6e3aff67182144bb8b262fe6bea04834e48889d2e3fbc9f"
+      "size_bytes": 10675,
+      "sha256": "11ff764afeef1a4d0b1f973c4841216d24145709f21ca0661f45716df751ff1f"
     },
     {
       "path": "variance_budget_table.csv",
-      "size_bytes": 8083,
-      "sha256": "0179b373ab5795c45089689bb1c2059f12feb96b1862e70748328850b913ab2c"
+      "size_bytes": 11886,
+      "sha256": "49a179b8b147a38a5606b4f4e4c781aa98b84a9485cba9219bf097e891324d0e"
     },
     {
       "path": "variance_component_decomposition.png",
-      "size_bytes": 63217,
-      "sha256": "93af54c15dff578b69b3288859c25c080268135c55c0294f11f6cb796c49c3eb"
+      "size_bytes": 65241,
+      "sha256": "010ed2d19a0e6d8675638b09f8e19fc1736522ce5affd503139357971f8ad113"
     },
     {
       "path": "variance_component_estimates.csv",
-      "size_bytes": 2277,
-      "sha256": "f89d15c8b3b45f6c50a1e8f88d4a2eac73532e0dfd0c4bd4fb3cb18672d184b3"
+      "size_bytes": 3236,
+      "sha256": "a69d423b62e790fc76451e52c485f48b8371a3b3b20da1ae5d47750425671ca3"
     }
   ]
 }

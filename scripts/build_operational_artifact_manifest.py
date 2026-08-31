@@ -47,7 +47,7 @@ def main() -> None:
         ROOT / "scripts" / "run_operational_benchmark.py",
         ROOT / "scripts" / "analyse_operational_benchmark.py",
     ]
-    for model in ("groundingdino", "yoloworld"):
+    for model in config["models"]:
         required.extend(
             [
                 args.result_root / model / "run_metadata.json",

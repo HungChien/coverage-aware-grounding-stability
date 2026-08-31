@@ -14,6 +14,10 @@ All parameters, candidate contracts, probes, and estimators are inherited withou
 | yoloworld | target_refcocoplus_pooled | 1000 | 757 | 0.7570 | 0.5018 | 0.6628 | 0.7604 | 0.8717 | 0.2088 | 0.4797 | 0.5245 |
 | yoloworld | target_refcocoplus_testA | 500 | 353 | 0.7060 | 0.4696 | 0.6652 | 0.7540 | 0.8821 | 0.2170 | 0.4384 | 0.5011 |
 | yoloworld | target_refcocoplus_testB | 500 | 404 | 0.8080 | 0.5340 | 0.6608 | 0.7660 | 0.8627 | 0.2018 | 0.5038 | 0.5640 |
+| owlv2 | source_refcoco | 500 | 488 | 0.9760 | 0.7395 | 0.7577 | 0.8834 | 0.8576 | 0.1000 | 0.7162 | 0.7621 |
+| owlv2 | target_refcocoplus_pooled | 1000 | 968 | 0.9680 | 0.7332 | 0.7574 | 0.8701 | 0.8705 | 0.1131 | 0.7162 | 0.7494 |
+| owlv2 | target_refcocoplus_testA | 500 | 488 | 0.9760 | 0.7420 | 0.7603 | 0.8485 | 0.8961 | 0.1358 | 0.7201 | 0.7642 |
+| owlv2 | target_refcocoplus_testB | 500 | 480 | 0.9600 | 0.7244 | 0.7545 | 0.8921 | 0.8458 | 0.0913 | 0.6999 | 0.7469 |
 
 ## Dataset-shift bootstrap
 
@@ -21,6 +25,7 @@ All parameters, candidate contracts, probes, and estimators are inherited withou
 | --- | --- | --- | --- | --- |
 | groundingdino | RefCOCO+ minus RefCOCO | -0.0042 | -0.0256 | 0.0165 |
 | yoloworld | RefCOCO+ minus RefCOCO | -0.0100 | -0.0518 | 0.0292 |
+| owlv2 | RefCOCO+ minus RefCOCO | -0.0063 | -0.0355 | 0.0220 |
 
 ## Finite-probe transfer
 
@@ -50,6 +55,18 @@ All parameters, candidate contracts, probes, and estimators are inherited withou
 | testB | 10 | 500 | 404 | -0.0051 | 0.0736 | 0.9317 | yoloworld |
 | testB | 20 | 500 | 404 | -0.0030 | 0.0554 | 0.9606 | yoloworld |
 | testB | 40 | 500 | 404 | -0.0001 | 0.0423 | 0.9762 | yoloworld |
+| pooled | 5 | 1000 | 968 | -0.0040 | 0.0958 | 0.8536 | owlv2 |
+| pooled | 10 | 1000 | 968 | 0.0017 | 0.0728 | 0.8968 | owlv2 |
+| pooled | 20 | 1000 | 968 | 0.0005 | 0.0520 | 0.9455 | owlv2 |
+| pooled | 40 | 1000 | 968 | 0.0015 | 0.0409 | 0.9634 | owlv2 |
+| testA | 5 | 500 | 488 | -0.0028 | 0.0959 | 0.8517 | owlv2 |
+| testA | 10 | 500 | 488 | 0.0012 | 0.0733 | 0.8982 | owlv2 |
+| testA | 20 | 500 | 488 | 0.0001 | 0.0550 | 0.9398 | owlv2 |
+| testA | 40 | 500 | 488 | 0.0032 | 0.0432 | 0.9599 | owlv2 |
+| testB | 5 | 500 | 480 | -0.0051 | 0.0957 | 0.8554 | owlv2 |
+| testB | 10 | 500 | 480 | 0.0023 | 0.0724 | 0.8947 | owlv2 |
+| testB | 20 | 500 | 480 | 0.0009 | 0.0490 | 0.9508 | owlv2 |
+| testB | 40 | 500 | 480 | -0.0002 | 0.0385 | 0.9661 | owlv2 |
 
 ## Perturbation-family profile transfer
 
@@ -57,6 +74,7 @@ All parameters, candidate contracts, probes, and estimators are inherited withou
 | --- | --- | --- | --- | --- |
 | groundingdino | 5 | 0.6000 | 0.8768 | 0.0752 |
 | yoloworld | 5 | 1.0000 | 0.9905 | 0.0228 |
+| owlv2 | 5 | 0.9000 | 0.9946 | 0.0173 |
 
 ## Interpretation boundary
 

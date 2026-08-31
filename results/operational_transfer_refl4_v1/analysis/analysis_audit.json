@@ -1,13 +1,15 @@
 {
   "models_analysed": [
     "groundingdino",
+    "owlv2",
     "yoloworld"
   ],
   "samples_per_model": {
     "groundingdino": 1000,
-    "yoloworld": 1000
+    "yoloworld": 1000,
+    "owlv2": 1000
   },
-  "summary_rows": 8000,
+  "summary_rows": 12000,
   "maximum_saved_risk_decomposition_error": 1.3877787807814454e-16,
   "maximum_pooled_risk_identity_residual": 4.163336342344337e-17,
   "maximum_pooled_gap_identity_residual": 4.163336342344337e-17,
