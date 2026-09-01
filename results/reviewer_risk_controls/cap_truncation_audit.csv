@@ -1,0 +1,10 @@
+dataset,model,manifest_pairs,clean_cap20_fraction,clean_cap20_under5_tracked_fraction,perturbed_cap20_reference_trials,perturbed_cap20_reference_fraction,cap20_failed_reference_trials,observed_full_manifest_stability,pessimistic_max_correction,pessimistic_stability_upper_bound,cap20_failed_winner_missing,cap20_failed_competitor_missing,cap20_failed_threatening_birth,cap20_failed_ranking_reversal
+RefCOCO,groundingdino,500,0.744,0.0,377,0.009443887775551102,19,0.855375,0.000475,0.85585,0,0,1,18
+RefCOCO,owlv2,500,0.584,0.0,3787,0.0970030737704918,945,0.739475,0.023625,0.7631,16,73,243,613
+RefCOCO,yoloworld,500,0.02,0.0,652,0.02239010989010989,163,0.511775,0.004075,0.51585,3,2,51,107
+RefCOCO+,groundingdino,1000,0.862,0.0,880,0.011,105,0.8511625,0.0013125,0.8524750000000001,0,7,25,73
+RefCOCO+,owlv2,1000,0.565,0.0,8178,0.10560433884297521,2238,0.7331875,0.027975,0.7611625,54,234,552,1398
+RefCOCO+,yoloworld,1000,0.049,0.0,3058,0.05049537648612946,712,0.501775,0.0089,0.510675,12,87,193,420
+Ref-L4,groundingdino,1000,0.994,0.0,1941,0.0242625,184,0.8703125,0.0023,0.8726125,0,17,33,134
+Ref-L4,owlv2,1000,0.841,0.0,7877,0.09865981963927856,2286,0.7676875,0.028575,0.7962625,23,314,784,1165
+Ref-L4,yoloworld,1000,0.165,0.0,11929,0.19092509603072982,2356,0.536325,0.02945,0.565775,14,299,540,1503

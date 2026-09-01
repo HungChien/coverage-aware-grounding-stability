@@ -1,0 +1,23 @@
+{
+  "analysis": "cap50_targeted_confirmatory",
+  "model": "yoloworld",
+  "config": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\config\\operational_transfer_refcocoplus_owlv2_control_v1.json",
+  "source_result_root": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\results\\operational_transfer_refcocoplus_v1",
+  "source_trace": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\results\\operational_transfer_refcocoplus_v1\\yoloworld\\sample_traces.jsonl.gz",
+  "manifest": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\data_operational\\refcocoplus_transfer1000\\manifest.json",
+  "selection_rule": "saved post-contract candidate count >= 20; splits=['reference']",
+  "raw_pool_size": 50,
+  "replay_exposures": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "selected_pair_count": 64,
+  "selected_probe_count": 3058,
+  "remaining_probe_count_at_start": 3058,
+  "started_unix": 1788232656.8015234,
+  "finished_unix": 1788232709.4819753,
+  "elapsed_seconds": 52.6804518699646,
+  "completed_probe_count": 3058
+}

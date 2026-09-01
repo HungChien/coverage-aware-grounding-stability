@@ -66,6 +66,10 @@ results/operational_benchmark_dryrun/
 results/operational_transfer_refcocoplus_dryrun/
 results/operational_transfer_refcocoplus_oom_reproduction/
 results/operational_transfer_refl4_smoke/
+results/cap50_smoke/
+results/cap50_smoke_v2/
+results/cap50_confirmatory/**/cap50_traces.jsonl.gz
+results/cap50_confirmatory/**/cap50_probe_summary.csv
 
 # Superseded prototype/GMS-era experiments retained only in local history
 results/full_geometry/

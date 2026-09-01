@@ -1,0 +1,4 @@
+dataset,manifest_pairs,all_three_eligible_pairs,all_three_eligible_fraction,groundingdino_eligible_pairs,owlv2_eligible_pairs,yoloworld_eligible_pairs
+RefCOCO,500,362,0.724,499,488,364
+RefCOCO+,1000,746,0.746,1000,968,757
+Ref-L4,1000,780,0.78,1000,998,781

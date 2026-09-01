@@ -1,0 +1,23 @@
+{
+  "analysis": "cap50_targeted_confirmatory",
+  "model": "owlv2",
+  "config": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\config\\operational_transfer_refl4_owlv2_control_v1.json",
+  "source_result_root": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\results\\operational_transfer_refl4_v1",
+  "source_trace": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\results\\operational_transfer_refl4_v1\\owlv2\\sample_traces.jsonl.gz",
+  "manifest": "F:\\PGT_Paper\\coverage-aware-grounding-stability\\data_operational\\refl4_transfer1000\\manifest.json",
+  "selection_rule": "saved post-contract candidate count >= 20; splits=['reference']",
+  "raw_pool_size": 50,
+  "replay_exposures": [
+    20,
+    30,
+    40,
+    50
+  ],
+  "selected_pair_count": 415,
+  "selected_probe_count": 7877,
+  "remaining_probe_count_at_start": 7877,
+  "started_unix": 1788233299.8318949,
+  "finished_unix": 1788236557.8732872,
+  "elapsed_seconds": 3258.041392326355,
+  "completed_probe_count": 7877
+}

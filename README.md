@@ -10,15 +10,15 @@ The contribution is a reproducible, coverage-aware framework that asks:
 
 > When a grounding model is queried with an image and referring expression,
 > does its clean winner remain observable and remain ahead of its competitors
-> under a registered distribution of meaning-preserving probes?
+> under a registered synthetic distribution of meaning-preserving probes?
 
-The framework is evaluated on GroundingDINO and YOLO-World using 500 RefCOCO,
-1,000 RefCOCO+, and 1,000 Ref-L4 image-query pairs. It records complete
-candidate-level traces, finite-probe uncertainty, failure causes,
+The framework is evaluated on GroundingDINO, OWLv2, and YOLO-World using 500
+RefCOCO, 1,000 RefCOCO+, and 1,000 Ref-L4 image-query pairs. It records
+complete candidate-level traces, finite-probe uncertainty, failure causes,
 perturbation-family risk, and cross-model results.
 
 The formatted MSc dissertation is available as
-[`reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation.pdf`](reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation.pdf).
+[`reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation_Final_Revised.pdf`](reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation_Final_Revised.pdf).
 
 ## Installation
 
@@ -104,7 +104,8 @@ flowchart LR
 
 ## Mathematical Definition
 
-Let `U` be a random probe drawn from the preregistered distribution `Q`.
+Let `U` be a random probe drawn from the preregistered synthetic design
+distribution `Q`.
 Hungarian maximum-IoU matching produces a one-to-one association `pi_U` from
 clean candidates to perturbed candidates.
 
@@ -195,9 +196,14 @@ with variance
 \leq\frac{1}{4n}.
 ```
 
-Exact 95% Clopper-Pearson intervals are reported at diagnostic budgets 5, 10,
-20, and 40. An independent 80-probe estimate is used as a higher-budget finite
-reference. It is not described as an exact population probability.
+Pooled 95% Clopper-Pearson intervals are reported at diagnostic budgets 5, 10,
+20, and 40 as binomial working-model summaries. Because the probe design fixes
+the family counts, heterogeneous family success probabilities make the pooled
+count Poisson-binomial rather than binomial. Weighted Hoeffding bounds and
+Bonferroni-adjusted familywise Clopper-Pearson intervals provide conservative
+per-pair guarantees; model-level uncertainty uses the paired hierarchical
+bootstrap. An independent 80-probe estimate is a higher-budget finite
+reference, not an exact population probability.
 
 ## Cross-Architecture Comparability
 
@@ -303,10 +309,62 @@ are in
 and
 [`results/output_contract_robustness/output_contract_robustness_report.md`](results/output_contract_robustness/output_contract_robustness_report.md).
 
-The runner now supports a larger raw candidate pool and stores both pre- and
-post-contract perturbed candidates. Future confirmatory runs use a raw pool of
-50, making duplicate suppression and exposure above 20 replayable without new
-model inference.
+The clean and perturbed cap risks are different. Across all nine dataset-model
+groups, every clean cap-hit sample already supplied the five spatially distinct
+candidates required by the registered tracked set. Clean truncation therefore
+cannot alter the current `Kt=5` endpoint. For perturbed outputs, a deliberately
+pessimistic correction treats every failed cap-hit reference trial as repaired
+by a wider pool. Its largest possible stability increase is 0.02945, which does
+not change the model ordering.
+
+The targeted confirmation runner re-infers only saved reference probes whose
+post-contract pool reached 20. It requests 50 raw candidates and replays
+exposures 20, 30, 40, and 50 while keeping the stored clean tracked set fixed:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_cap50_confirmatory_pipeline.ps1
+```
+
+Probe-level results are checkpointed under `results/cap50_confirmatory/` and
+can resume without recomputing completed probes. The completed run covers all
+38,679 cap-hit reference probes. Every clean top-five prefix matches, and the
+saved/fresh exposure-20 outcome agreement is at least 99.9485% in every
+dataset-model group. Relative to fresh exposure 20 from the same inference,
+exposure 50 changes full-manifest stability by 0 to 0.001450. The largest
+change is OWLv2 on Ref-L4; YOLO-World on Ref-L4 changes by 0.001337. Model
+ordering is unchanged. Wider exposure can both repair missing associations and
+reveal threatening births, so the reported quantities are net sensitivity
+changes rather than an assumed upward correction. See
+`results/cap50_confirmatory/summary/cap50_stability_summary.csv`.
+
+## Selection, Severity, and Probe-Mixture Audits
+
+Failure composition is now reported on two comparable denominators. A
+full-manifest chart includes clean ineligibility, while a common-support chart
+uses only the 362/746/780 RefCOCO/RefCOCO+/Ref-L4 pairs eligible for all three
+models. The broad profiles persist, but they are described as output symptoms,
+not causal architecture mechanisms.
+
+![Selection-aware failure profiles](results/reviewer_risk_controls/failure_selection_audit.png)
+
+The saved severities also support five-bin dose-response curves with 2,000
+pair-clustered bootstrap resamples. Normalised severity is a within-family
+coordinate; equal values do not equate the physical strength of different
+corruptions.
+
+![RefCOCO severity-response curves](results/reviewer_risk_controls/severity_stability_refcoco.png)
+
+Finally, model gaps remain positive under every non-negative reweighting of the
+five measured families. This removes dependence on the equal 0.2 family
+weights, but not on the chosen corruption families or severity ranges.
+
+![Family-weight sensitivity](results/reviewer_risk_controls/family_weight_sensitivity.png)
+
+Rebuild all of these trace-only controls with:
+
+```powershell
+python scripts\analyse_reviewer_risk_controls.py
+```
 
 ## Model-Level Estimation from Finite Images and Probes
 
@@ -346,7 +404,7 @@ R_{\mathrm{opt}}=\sqrt{\frac{B_m c_X}{A_m c_U}}.
 
 The theory and proofs are in
 [`docs/methodology/two_stage_model_stability_theory.md`](docs/methodology/two_stage_model_stability_theory.md).
-The frozen three-dataset, two-model analysis is in
+The frozen three-dataset, three-model analysis is in
 [`results/two_stage_sampling_analysis/`](results/two_stage_sampling_analysis/).
 
 ![Exact variance validation](results/two_stage_sampling_analysis/predicted_vs_empirical_variance.png)
@@ -361,9 +419,9 @@ for no more than 5% of total model-level variance and the 95th percentile
 absolute discrepancy between family-balanced, disjoint 40/40 half-reference
 means to remain below 0.01.
 
-All six dataset-model groups satisfy both criteria. The 80-probe reference is
+All nine dataset-model groups satisfy both criteria. The 80-probe reference is
 therefore sufficiently deep for model-level comparison under the registered
-probe law. It remains a finite, noisy target at the individual-sample level and
+synthetic probe law. It remains a finite, noisy target at the individual-sample level and
 is never described as exact ground truth.
 
 ![80-probe model-level adequacy](results/reference_80_adequacy/model_level_adequacy.png)
@@ -465,7 +523,7 @@ images.
 | Diagnostic probes | 40 per eligible model-sample pair |
 | Independent reference probes | 80 per eligible model-sample pair |
 | Reported budgets | 5, 10, 20, 40 balanced probes |
-| Confidence intervals | Exact 95% Clopper-Pearson |
+| Per-pair intervals | Pooled 95% Clopper-Pearson working model; conservative familywise alternatives documented |
 | Bootstrap | 2,000 paired hierarchical repetitions |
 | Saved trace | Clean output plus every candidate association and probe outcome |
 
@@ -474,7 +532,7 @@ The main hypotheses are:
 - finite-budget estimates approach the independent reference as budget grows;
 - coverage-aware stability differs measurably from conditional persistence;
 - the same output contract can be applied unchanged to all three tested models;
-- failure and perturbation-family profiles identify model-specific instability;
+- failure and perturbation-family profiles describe model-specific output symptoms;
 - all figures can be reproduced from complete saved traces.
 
 ## Result Artifacts
@@ -534,6 +592,7 @@ Regenerate statistics and figures from completed traces:
 
 ```powershell
 python scripts\analyse_operational_benchmark.py
+python scripts\analyse_reviewer_risk_controls.py
 ```
 
 ## Quick Verification

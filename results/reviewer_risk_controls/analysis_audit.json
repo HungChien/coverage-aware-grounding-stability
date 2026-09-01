@@ -1,0 +1,67 @@
+{
+  "analysis": "reviewer_risk_controls",
+  "bootstrap_repetitions": 2000,
+  "seed": 20260901,
+  "clean_cap_hit_with_fewer_than_five_tracked_max": 0.0,
+  "maximum_pessimistic_cap_correction": 0.02945,
+  "common_eligibility_pairs": {
+    "RefCOCO": 362,
+    "RefCOCO+": 746,
+    "Ref-L4": 780
+  },
+  "all_family_mixture_rankings_invariant": true,
+  "artifacts": {
+    "cap_truncation_audit.csv": {
+      "sha256": "7033d078e73d6a81f8ebc4c64c12937093cc30fa03823e0a4860d5d82e71d17c",
+      "bytes": 1309
+    },
+    "common_eligibility_counts.csv": {
+      "sha256": "41eab1f6b6c8a55757450414057143d658fd92021d1e058ca0a98e40e0e5846f",
+      "bytes": 260
+    },
+    "common_support_failure_composition.csv": {
+      "sha256": "1f26a5e907da8c81c282f91114c3194cad86b6f652ad275b32b3e4cc2d4af29c",
+      "bytes": 3825
+    },
+    "failure_selection_audit.png": {
+      "sha256": "056b91b9b5af0999a965f5b941150008014dbf8dc95dbfba96b5d261dea2e050",
+      "bytes": 308858
+    },
+    "failure_selection_bootstrap.csv": {
+      "sha256": "8369b2f51d5290ef638716797127418801c23d92c536968e8f6d9002dc26c841",
+      "bytes": 4374
+    },
+    "family_weight_sensitivity.csv": {
+      "sha256": "2be1967bbaedd28431353e3ec54f16612b1aab8a9560aad2302331b7ea9faa45",
+      "bytes": 3979
+    },
+    "family_weight_sensitivity.png": {
+      "sha256": "a5d733886130a2f77a27e54eed3ac26ec37b8ff93c6e2b80563eda24c53a58e4",
+      "bytes": 97010
+    },
+    "full_manifest_failure_risk.csv": {
+      "sha256": "fc078bbc7dbf14483558ebd829666cd6d6cccfd340ecf45f3f1418e2e30aae38",
+      "bytes": 4921
+    },
+    "reviewer_risk_controls_report.md": {
+      "sha256": "89d8657218d4f8455999d80fb3e97c434a66fea35bebc6eb570350cb8d0869aa",
+      "bytes": 3443
+    },
+    "severity_stability.csv": {
+      "sha256": "96eb4f18aba1757c8957ba5c567ed54390d22731b294efa9af6e27b175a6494e",
+      "bytes": 23602
+    },
+    "severity_stability_refcoco.png": {
+      "sha256": "8053a08ed44cb06bb071a21eadf3eb396e6cef11453e6b89c355081ecfd7f2cd",
+      "bytes": 305333
+    },
+    "severity_stability_refcocoplus.png": {
+      "sha256": "d75f7c872e3f14c50abe9d1e58efc60ce1acdb6ec7e37b0efc9b6c83734d6d07",
+      "bytes": 313680
+    },
+    "severity_stability_refl4.png": {
+      "sha256": "8a7c2409a76fa46643f7ddaa32590d5627c0315a7cddaef599111736027a87f2",
+      "bytes": 311370
+    }
+  }
+}

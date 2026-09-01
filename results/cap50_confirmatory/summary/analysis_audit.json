@@ -1,0 +1,11 @@
+{
+  "completed_dataset_model_groups": 9,
+  "expected_dataset_model_groups": 9,
+  "all_clean_prefixes_match": true,
+  "minimum_ke20_stability_reproduction_rate": 0.9994848016486347,
+  "minimum_ke20_label_reproduction_rate": 0.9994848016486347,
+  "artifacts": {
+    "cap50_stability_summary.csv": "0cc0355aad05c4433db92279befb8ecb01040cfd13a997b19487bcd7f8afb246",
+    "cap50_failure_transitions.csv": "aa29067f8563dd6ac00a5d5643df30b5a0decb09b0fe57af8c6c9bddd63ee08a"
+  }
+}
