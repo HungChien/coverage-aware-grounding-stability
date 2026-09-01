@@ -16,10 +16,12 @@ from scipy.optimize import linear_sum_assignment
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "src"))
 
-from src.operational_stability import select_spatially_distinct
-from src.output_contract_robustness import (
+from coverage_aware_grounding_stability.operational_stability import (
+    select_spatially_distinct,
+)
+from coverage_aware_grounding_stability.output_contract_robustness import (
     ContractSetting,
     contract_envelope,
     default_setting_index,
@@ -27,7 +29,7 @@ from src.output_contract_robustness import (
     paired_bootstrap_minimum_gap,
     registered_settings,
 )
-from src.reliability import Candidate, iou_xyxy
+from coverage_aware_grounding_stability.candidates import Candidate, iou_xyxy
 
 
 DATASETS = {

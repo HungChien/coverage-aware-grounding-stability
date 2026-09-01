@@ -1,15 +1,3 @@
 numpy
-pandas
 scipy
-scikit-learn
-matplotlib
 Pillow
-pytest
-ruff
-
-# Optional model inference stack (equivalent to pip install -e ".[models]")
-torch
-torchvision
-transformers
-datasets
-ultralytics

@@ -7,15 +7,18 @@ from scripts.analyse_output_contract_robustness import (
     associate_all,
     outcome_from_assignment,
 )
-from src.operational_stability import OutputContract, evaluate_probe_outcome
-from src.output_contract_robustness import (
+from coverage_aware_grounding_stability.operational_stability import (
+    OutputContract,
+    evaluate_probe_outcome,
+)
+from coverage_aware_grounding_stability.output_contract_robustness import (
     contract_envelope,
     default_setting_index,
     finite_grid_ranking,
     paired_bootstrap_minimum_gap,
     registered_settings,
 )
-from src.reliability import Candidate
+from coverage_aware_grounding_stability.candidates import Candidate
 
 
 ROOT = Path(__file__).resolve().parents[1]

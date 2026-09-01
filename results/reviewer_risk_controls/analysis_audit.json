@@ -10,6 +10,8 @@
     "Ref-L4": 780
   },
   "all_family_mixture_rankings_invariant": true,
+  "family_risk_share_sum_max_abs_error": 2.220446049250313e-16,
+  "maximum_family_risk_interval_width": 0.058558381859586006,
   "artifacts": {
     "cap_truncation_audit.csv": {
       "sha256": "7033d078e73d6a81f8ebc4c64c12937093cc30fa03823e0a4860d5d82e71d17c",
@@ -30,6 +32,10 @@
     "failure_selection_bootstrap.csv": {
       "sha256": "8369b2f51d5290ef638716797127418801c23d92c536968e8f6d9002dc26c841",
       "bytes": 4374
+    },
+    "family_risk_bootstrap.csv": {
+      "sha256": "0d879391c8f28f059c7201a8893f749fdb17af0cca577c21f943248e8a5d6a63",
+      "bytes": 4936
     },
     "family_weight_sensitivity.csv": {
       "sha256": "2be1967bbaedd28431353e3ec54f16612b1aab8a9560aad2302331b7ea9faa45",

@@ -1,5 +1,5 @@
 param(
-    [string]$Python = "D:\Anaconda3\envs\ml-gpu\python.exe"
+    [string]$Python = "python"
 )
 
 $ErrorActionPreference = "Stop"

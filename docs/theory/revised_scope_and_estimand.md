@@ -2,7 +2,7 @@
 
 ## Research scope
 
-This dissertation studies candidate-order stability in vision-language
+This project studies candidate-order stability in vision-language
 grounding. It does not use stability as a synonym for semantic correctness.
 
 For a model (m), image (I), query (T), and a registered perturbation

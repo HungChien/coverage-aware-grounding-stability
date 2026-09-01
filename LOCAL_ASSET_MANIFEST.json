@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "purpose": "Integrity record for Git-ignored local reproduction assets",
+  "datasets": [
+    {
+      "manifest": "data_operational/refcoco_unseen500/manifest.json",
+      "manifest_sha256": "8c1902fbbf607a4a057c9b39b012604ab053ff3b1713f509c7495668e073fcc7",
+      "image_count": 500,
+      "image_bytes": 53185500,
+      "image_tree_sha256": "d663d949d243f5d6287af3655f4efa729299c61591f7465a34c6bd85e8808450"
+    },
+    {
+      "manifest": "data_operational/refcocoplus_transfer1000/manifest.json",
+      "manifest_sha256": "3fcbb37ac5c07412c4e8d539d378bd29fdb18587bed75aca1025464c45deaecf",
+      "image_count": 1000,
+      "image_bytes": 137312390,
+      "image_tree_sha256": "c9ce602bca414281513e3264cc952fc6906f9a0ccdd089527680802db53569e7"
+    },
+    {
+      "manifest": "data_operational/refl4_transfer1000/manifest.json",
+      "manifest_sha256": "9b5725df9ddb0fab66a88739b79b6b9dc9b8c5312bacaf3dc3cbf1815b911c3c",
+      "image_count": 1000,
+      "image_bytes": 393523568,
+      "image_tree_sha256": "27dae1cad98a9a8fdec7ed2f484d5a497550891ae9f2b85c48097d5e3f430b59"
+    }
+  ],
+  "traces": [
+    {
+      "path": "results/operational_benchmark_v1/groundingdino/sample_traces.jsonl.gz",
+      "bytes": 42346518,
+      "sha256": "811285518834b8b0b00fe53bf0fe9686932c91c700d4704a06e3cfd4de068df3"
+    },
+    {
+      "path": "results/operational_benchmark_v1/owlv2/sample_traces.jsonl.gz",
+      "bytes": 51975456,
+      "sha256": "0c608dcfddb8e715458fd63d69214d341c69e1877ec50296e5e191c80cfa2f09"
+    },
+    {
+      "path": "results/operational_benchmark_v1/yoloworld/sample_traces.jsonl.gz",
+      "bytes": 13664440,
+      "sha256": "adb185950fa59fae364e89578c5abd19558ec62b204269880b248ca231aa7b35"
+    },
+    {
+      "path": "results/operational_transfer_refcocoplus_v1/groundingdino/sample_traces.jsonl.gz",
+      "bytes": 87091812,
+      "sha256": "c3d6925d98527b317976e7cb17343fe4f9b4ef5d8272de421c9db55c99c2bb91"
+    },
+    {
+      "path": "results/operational_transfer_refcocoplus_v1/owlv2/sample_traces.jsonl.gz",
+      "bytes": 102564453,
+      "sha256": "815242577050c054849e7a9197ec12067306351019623c7425ad1c2773ca5d9d"
+    },
+    {
+      "path": "results/operational_transfer_refcocoplus_v1/yoloworld/sample_traces.jsonl.gz",
+      "bytes": 29741574,
+      "sha256": "bd07ee31e8c00fafe2ccdbf6f12adf47c1d24c80598496826a019d004545bc5c"
+    },
+    {
+      "path": "results/operational_transfer_refl4_v1/groundingdino/sample_traces.jsonl.gz",
+      "bytes": 97103340,
+      "sha256": "8dc892c016514b6865011d15662df57410b364ac0e0cd61003c3e815538a1ca3"
+    },
+    {
+      "path": "results/operational_transfer_refl4_v1/owlv2/sample_traces.jsonl.gz",
+      "bytes": 129741009,
+      "sha256": "ca3eb7e4ed7a8d427eb96567181b2b948df8626d7d3702428f4740eb71299333"
+    },
+    {
+      "path": "results/operational_transfer_refl4_v1/yoloworld/sample_traces.jsonl.gz",
+      "bytes": 48710235,
+      "sha256": "20b11627ccfd8773594de99ca592f20ad82983c003d4707e8a9f4694dc48dd52"
+    },
+    {
+      "path": "results/cap50_confirmatory/operational_benchmark_v1/groundingdino/cap50_traces.jsonl.gz",
+      "bytes": 2248521,
+      "sha256": "cb4ef4a916708fd1c74d1e35664e90d0c985c6e2796c85e3208eba8dd8dfa53b"
+    },
+    {
+      "path": "results/cap50_confirmatory/operational_benchmark_v1/owlv2/cap50_traces.jsonl.gz",
+      "bytes": 19651632,
+      "sha256": "3a3c0bc9513eb9df224a1997a89ef1d0a82d7c84efa3960ee1160bc30d09a22e"
+    },
+    {
+      "path": "results/cap50_confirmatory/operational_benchmark_v1/yoloworld/cap50_traces.jsonl.gz",
+      "bytes": 2778639,
+      "sha256": "a5f1b5690b6205d4636cb9a02de4049bc476cfa8e876b18415fc4e662fd47fac"
+    },
+    {
+      "path": "results/cap50_confirmatory/operational_transfer_refcocoplus_v1/groundingdino/cap50_traces.jsonl.gz",
+      "bytes": 5354810,
+      "sha256": "8790acb712c5d839dedbe6a789e5e5cc60606c7abbcbcf535b90b0e3669287c0"
+    },
+    {
+      "path": "results/cap50_confirmatory/operational_transfer_refcocoplus_v1/owlv2/cap50_traces.jsonl.gz",
+      "bytes": 42377651,
+      "sha256": "0d0ca57436e6d7ad7bebea3d70e181984279065c15afa8e51763da80dbf25c35"
+    },
+    {
+      "path": "results/cap50_confirmatory/operational_transfer_refcocoplus_v1/yoloworld/cap50_traces.jsonl.gz",
+      "bytes": 13654988,
+      "sha256": "84a4704d4c7041ada87e57af26f68943191dabbe5adc939da1ddbbe8c5c2a331"
+    },
+    {
+      "path": "results/cap50_confirmatory/operational_transfer_refl4_v1/groundingdino/cap50_traces.jsonl.gz",
+      "bytes": 12725464,
+      "sha256": "51cd32938d0eb65a4d226591dae97c7e12fd43aa7fba9b781781b793b155c8e2"
+    },
+    {
+      "path": "results/cap50_confirmatory/operational_transfer_refl4_v1/owlv2/cap50_traces.jsonl.gz",
+      "bytes": 46378749,
+      "sha256": "d1fb7891684396883d70d1d76c3a5488797345b440811c5f83d1104bb258db52"
+    },
+    {
+      "path": "results/cap50_confirmatory/operational_transfer_refl4_v1/yoloworld/cap50_traces.jsonl.gz",
+      "bytes": 60974801,
+      "sha256": "39cc227a7d3eb99063e4fbedc7b44ebc53605424088de95b6765b67d302422ff"
+    }
+  ]
+}

@@ -2,642 +2,296 @@
 
 [![tests](https://github.com/HungChien/coverage-aware-grounding-stability/actions/workflows/ci.yml/badge.svg)](https://github.com/HungChien/coverage-aware-grounding-stability/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-3776AB)
-![Research](https://img.shields.io/badge/status-research%20release-4B5563)
+![status](https://img.shields.io/badge/status-research%20release-4B5563)
 
-This repository contains an MSc dissertation benchmark for analysing the
-operational stability of candidate-producing vision-language grounding models.
-The contribution is a reproducible, coverage-aware framework that asks:
+A model-agnostic benchmark for a practical question: when an image is mildly
+corrupted, does the clean grounding winner remain observable and stay ahead of
+its competitors?
 
-> When a grounding model is queried with an image and referring expression,
-> does its clean winner remain observable and remain ahead of its competitors
-> under a registered synthetic distribution of meaning-preserving probes?
+The benchmark keeps candidate loss in the denominator. A trial fails when the
+clean output has no usable competition, a tracked candidate disappears, a new
+high-score candidate appears, or a competitor overtakes the clean winner. This
+avoids the optimism introduced by analysing only candidates that survive.
 
-The framework is evaluated on GroundingDINO, OWLv2, and YOLO-World using 500
-RefCOCO, 1,000 RefCOCO+, and 1,000 Ref-L4 image-query pairs. It records
-complete candidate-level traces, finite-probe uncertainty, failure causes,
-perturbation-family risk, and cross-model results.
+The repository contains a reusable Python API, a JSONL command-line interface,
+three reference model adapters, frozen experiment configurations, tests, and
+the analysis outputs used by the research release. The public tree is limited
+to benchmark software, protocols, manifests, and reproducibility evidence.
 
-The formatted MSc dissertation is available as
-[`reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation_Final_Revised.pdf`](reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation_Final_Revised.pdf).
-
-## Installation
-
-Create an isolated environment and install the package:
+## Install
 
 ```bash
+git clone https://github.com/HungChien/coverage-aware-grounding-stability.git
+cd coverage-aware-grounding-stability
 python -m venv .venv
-# Windows: .venv\Scripts\activate
-# Linux/macOS: source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
 ```
 
-Install the optional inference stack only on machines that will run the
-grounding models:
+Activate the environment, then install the core package:
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -e .
+```
+
+For GroundingDINO, OWLv2, and YOLO-World inference:
 
 ```bash
 python -m pip install -e ".[models]"
 ```
 
-Model checkpoints and datasets are intentionally not distributed in Git. Use
-the preparation scripts in `scripts/` and update only local paths in the JSON
-configuration files. Frozen scientific parameters must not be edited in place.
+For trace-only statistical analysis without model frameworks:
 
-## Research Scope
+```bash
+python -m pip install -e ".[analysis]"
+```
 
-The primary object is **candidate-order stability**, not semantic correctness.
+For development:
 
-| Question | Quantity | Role |
+```bash
+python -m pip install -e ".[dev]"
+python -m pytest
+```
+
+## Evaluate your own model outputs
+
+The fastest integration path does not require a model adapter. Export each
+clean/perturbed candidate pair as JSON or JSONL:
+
+```json
+{
+  "id": "sample-001",
+  "clean_candidates": [
+    {"box": [0, 0, 10, 10], "score": 0.90},
+    {"box": [20, 0, 30, 10], "score": 0.70}
+  ],
+  "perturbed_candidates": [
+    {"box": [1, 0, 11, 10], "score": 0.85},
+    {"box": [20, 1, 30, 11], "score": 0.65}
+  ]
+}
+```
+
+Run the common output contract:
+
+```bash
+cags evaluate \
+  --input examples/candidate_pairs.jsonl \
+  --output outcomes.jsonl \
+  --config config/operational_benchmark_v1.json
+```
+
+Boxes use `xyxy` image coordinates. Scores only need to preserve the model's
+native candidate order; scores are never compared across models.
+
+### Python API
+
+```python
+from coverage_aware_grounding_stability import (
+    BenchmarkEvaluator,
+    Candidate,
+    OutputContract,
+)
+
+clean = [
+    Candidate((0, 0, 10, 10), 0.90),
+    Candidate((20, 0, 30, 10), 0.70),
+]
+perturbed = [
+    Candidate((1, 0, 11, 10), 0.85),
+    Candidate((20, 1, 30, 11), 0.65),
+]
+
+evaluator = BenchmarkEvaluator(OutputContract())
+result = evaluator.evaluate(clean, perturbed)
+print(result.to_dict())
+```
+
+To run inference inside the benchmark, implement `GroundingAdapter.predict`.
+The minimal template is in
+[`examples/custom_adapter.py`](examples/custom_adapter.py). Built-in adapters
+for GroundingDINO, OWLv2, and YOLO-World are in
+[`src/coverage_aware_grounding_stability/adapters.py`](src/coverage_aware_grounding_stability/adapters.py).
+
+## What is measured
+
+The default output contract tracks five spatially distinct clean candidates
+and exposes twenty perturbed candidates. Hungarian maximum-IoU assignment
+associates candidates one-to-one.
+
+A clean/perturbed pair receives one of five observable outcomes:
+
+| Outcome | Meaning |
+|---|---|
+| `stable` | all tracked candidates remain covered and the winner stays first |
+| `winner_missing` | the clean winner cannot be associated |
+| `competitor_missing` | at least one tracked competitor cannot be associated |
+| `threatening_birth` | an unmatched, spatially novel candidate threatens the winner |
+| `ranking_reversal` | coverage holds but a competitor overtakes the winner |
+
+Clean outputs with fewer than two spatially distinct candidates are marked
+ineligible and contribute zero to full-manifest stability. If `C` denotes
+coverage and `S` strict order preservation, the per-probe endpoint is
+`Y = C × S`. The main estimate is the manifest mean of `Y`, including clean
+ineligibility.
+
+The exact rules are implemented in
+[`operational_stability.py`](src/coverage_aware_grounding_stability/operational_stability.py)
+and recorded in
+[`output_contract_preregistration_v2.freeze.json`](config/output_contract_preregistration_v2.freeze.json).
+
+## Reference experiment
+
+The frozen release evaluates three candidate-producing models:
+
+- GroundingDINO Tiny;
+- OWLv2 Base Patch16 Ensemble at pinned revision
+  `cfd3195ba4ea9592eec887ded089f4c08eff231d`;
+- YOLO-World v2 Small.
+
+Every eligible image-query pair receives 40 diagnostic probes and an
+independent 80-probe reference. The probe law balances blur, brightness, JPEG,
+resolution, and Gaussian noise. It is a controlled synthetic design
+distribution, not an estimate of any particular deployment environment.
+
+Full-manifest reference stability is:
+
+| Dataset | Pairs | GroundingDINO | OWLv2 | YOLO-World |
+|---|---:|---:|---:|---:|
+| RefCOCO | 500 | 0.8554 | 0.7395 | 0.5118 |
+| RefCOCO+ | 1,000 | 0.8512 | 0.7332 | 0.5018 |
+| Ref-L4 | 1,000 | 0.8703 | 0.7677 | 0.5363 |
+
+These values describe candidate-order stability under the frozen synthetic
+probe law and output contract. They do not measure semantic accuracy, general
+robustness, or stability under an unspecified real-world shift.
+
+## Reproduce the release
+
+### 1. Prepare data and model checkpoints
+
+Raw images, licensed annotations, model weights, Hugging Face caches, and full
+candidate traces are intentionally excluded from Git. The tracked manifests
+fix the exact image-query pairs:
+
+| Dataset | Manifest | Rows |
+|---|---|---:|
+| RefCOCO | `data_operational/refcoco_unseen500/manifest.json` | 500 |
+| RefCOCO+ | `data_operational/refcocoplus_transfer1000/manifest.json` | 1,000 |
+| Ref-L4 | `data_operational/refl4_transfer1000/manifest.json` | 1,000 |
+
+Place images at the relative paths stored in each manifest. Ref-L4 follows the
+upstream CC BY-NC 4.0 release; COCO/RefCOCO assets retain their upstream
+licences. The preparation scripts can rebuild the manifests from legally
+obtained source datasets:
+
+```bash
+python scripts/prepare_operational_manifest.py --help
+python scripts/prepare_refcocoplus_transfer_manifest.py --help
+python scripts/prepare_refl4_transfer_manifest.py --help
+```
+
+The inference adapters use local checkpoints and set the Transformers stack to
+offline mode during a run. Download the configured checkpoints before starting
+the benchmark. `scripts/cache_owlv2_checkpoint.py` verifies the pinned OWLv2
+checkpoint.
+
+### 2. Run or resume inference
+
+Each command checkpoints after every sample. Re-running with `--resume` skips
+only samples that have both a summary row and a complete trace.
+
+```bash
+python scripts/run_operational_benchmark.py \
+  --config config/operational_benchmark_owlv2_control_v1.json \
+  --model groundingdino \
+  --output-root results/operational_benchmark_v1 \
+  --resume
+```
+
+Replace the config, model, and result root using this matrix:
+
+| Dataset | Three-model config | Result root |
 |---|---|---|
-| Does the clean output expose a meaningful candidate competition? | Clean eligibility | Reported for the full manifest |
-| Can the tracked candidates still be associated after a probe? | Candidate coverage | Secondary diagnostic |
-| Does the clean winner remain first after successful association? | Conditional ranking stability | Secondary diagnostic |
-| Are both coverage and ranking preserved? | Operational stability | Primary estimand |
-| Did the clean winner match the annotation? | Ground-truth IoU | Context only, not the stability target |
+| RefCOCO | `config/operational_benchmark_owlv2_control_v1.json` | `results/operational_benchmark_v1` |
+| RefCOCO+ | `config/operational_transfer_refcocoplus_owlv2_control_v1.json` | `results/operational_transfer_refcocoplus_v1` |
+| Ref-L4 | `config/operational_transfer_refl4_owlv2_control_v1.json` | `results/operational_transfer_refl4_v1` |
 
-A prediction can be stable and wrong. The benchmark never equates stability
-with correctness.
+On Windows, the PowerShell pipelines run validation, analysis, figures, and
+artifact hashing after inference:
 
-## Common Output Contract
-
-A candidate-producing grounding model is represented as
-
-```math
-\mathcal O_m(I,T)=\{(B_i,s_i)\}_{i=1}^{K},
-\qquad s_1\geq s_2\geq\cdots\geq s_K,
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\run_owlv2_control_pipeline.ps1
 ```
 
-where `I` is an image, `T` is a referring expression, `B_i` is a candidate
-box, and `s_i` is the model-specific matching score.
+### 3. Rebuild final analyses from traces
 
-The implementation freezes two candidate counts:
-
-- `K_t = 5` spatially distinct clean candidates are tracked;
-- `K_e = 20` perturbed candidates are exposed.
-
-The wider perturbed output prevents a newly born high-score candidate from
-being silently hidden by a narrow top-five list.
-
-All five numeric parameters and all fixed decision rules are defined in the
-machine-readable preregistration
-[`config/output_contract_preregistration_v2.json`](config/output_contract_preregistration_v2.json).
-The preregistration, 108-setting analysis grid, implementation, and tests were
-hashed before the enhanced replay in
-[`config/output_contract_preregistration_v2.freeze.json`](config/output_contract_preregistration_v2.freeze.json).
-
-```mermaid
-flowchart LR
-    A[Image and referring expression] --> B[Grounding model]
-    B --> C[Clean candidate list]
-    C --> D[Select five spatially distinct candidates]
-    A --> E[Registered visual probe]
-    E --> F[Grounding model]
-    F --> G[Expose twenty perturbed candidates]
-    D --> H[One-to-one candidate association]
-    G --> H
-    H --> I{Complete coverage?}
-    I -- No --> J[Coverage failure]
-    I -- Yes --> K{Clean winner remains first?}
-    K -- No --> L[Ranking reversal]
-    K -- Yes --> M[Operationally stable]
+```bash
+python scripts/analyse_complete_case_optimism.py
+python scripts/analyse_two_stage_sampling.py
+python scripts/analyse_reference_80_adequacy.py
+python scripts/analyse_output_contract_robustness.py
+python scripts/analyse_reviewer_risk_controls.py
+python scripts/summarise_cap50_confirmatory.py
 ```
 
-## Mathematical Definition
-
-Let `U` be a random probe drawn from the preregistered synthetic design
-distribution `Q`.
-Hungarian maximum-IoU matching produces a one-to-one association `pi_U` from
-clean candidates to perturbed candidates.
-
-Coverage is one only when every tracked candidate is associated and no
-unmatched spatially novel candidate threatens the matched clean winner:
-
-```math
-C(U)\in\{0,1\}.
-```
-
-When coverage holds, the perturbed candidate-gap vector is
-
-```math
-\mathbf G(U)=
-\begin{bmatrix}
-s'_{\pi_U(1)}-s'_{\pi_U(2)}\\
-\vdots\\
-s'_{\pi_U(1)}-s'_{\pi_U(K_t)}
-\end{bmatrix}.
-```
-
-Conditional ranking stability and operational stability are
-
-```math
-S(U)=\mathbb 1\{\min_jG_j(U)>0\},
-\qquad
-Y(U)=C(U)S(U).
-```
-
-The benchmark estimates
-
-```math
-\theta_{\mathrm{cov}}=\Pr(C=1),
-\qquad
-\theta_{\mathrm{rank}}=\Pr(S=1\mid C=1),
-```
-
-and the primary estimand
-
-```math
-\theta_{\mathrm{op}}
-=\Pr(Y=1)
-=\theta_{\mathrm{cov}}\theta_{\mathrm{rank}}.
-```
-
-## Why Coverage Is Necessary
-
-The operational risk has the exact decomposition
-
-```math
-1-\theta_{\mathrm{op}}
-=(1-\theta_{\mathrm{cov}})
-+\theta_{\mathrm{cov}}(1-\theta_{\mathrm{rank}}).
-```
-
-Direct persistence computed only on successfully matched candidates can be
-optimistic. Its exact excess over operational stability is
-
-```math
-\theta_{\mathrm{rank}}-\theta_{\mathrm{op}}
-=\theta_{\mathrm{rank}}(1-\theta_{\mathrm{cov}}).
-```
-
-The difference is non-zero whenever candidate coverage is imperfect and some
-covered probes preserve the ranking. Candidate disappearance and threatening
-candidate birth are therefore part of the estimand, not preprocessing errors.
-
-## Finite-Probe Estimation
-
-For a fixed sample, registered probes produce Bernoulli outcomes
-
-```math
-Y_1,\ldots,Y_n\overset{\mathrm{iid}}{\sim}
-\mathrm{Bernoulli}(\theta_{\mathrm{op}}).
-```
-
-The sample estimator is
-
-```math
-\widehat\theta_{\mathrm{op}}=\frac{1}{n}\sum_{r=1}^{n}Y_r,
-```
-
-with variance
-
-```math
-\mathrm{Var}(\widehat\theta_{\mathrm{op}})
-=\frac{\theta_{\mathrm{op}}(1-\theta_{\mathrm{op}})}{n}
-\leq\frac{1}{4n}.
-```
-
-Pooled 95% Clopper-Pearson intervals are reported at diagnostic budgets 5, 10,
-20, and 40 as binomial working-model summaries. Because the probe design fixes
-the family counts, heterogeneous family success probabilities make the pooled
-count Poisson-binomial rather than binomial. Weighted Hoeffding bounds and
-Bonferroni-adjusted familywise Clopper-Pearson intervals provide conservative
-per-pair guarantees; model-level uncertainty uses the paired hierarchical
-bootstrap. An independent 80-probe estimate is a higher-budget finite
-reference, not an exact population probability.
-
-## Cross-Architecture Comparability
-
-The benchmark compares observable Bernoulli events rather than raw scores.
-For any strictly increasing model-specific score transformation `h_m`,
-
-```math
-s_i>s_j \Longleftrightarrow h_m(s_i)>h_m(s_j).
-```
-
-Candidate-order events are therefore invariant to monotone score rescaling,
-conditional on the exposed candidate set. This permits GroundingDINO and
-YOLO-World to share the same estimand without claiming that their numerical
-confidence scales are calibrated to each other.
-
-Both model adapters used an explicitly supplied candidate-discovery threshold
-of 0.03; YOLO-World did not use the Ultralytics default. For GroundingDINO,
-`box_threshold=0.03` controlled candidate retention and
-`text_threshold=0.03` controlled phrase-token extraction. Phrase labels do not
-enter candidate association or ordering. The permissive threshold exposes a
-rich candidate universe for stability analysis and is not presented as a
-recommended deployment confidence setting.
-
-### Preregistered OWLv2 control extension
-
-OWLv2 Base Patch16 Ensemble is available as a third-model control. This is a
-derived frozen extension, not a replacement for the completed two-model run.
-The checkpoint is pinned to Hugging Face revision
-`cfd3195ba4ea9592eec887ded089f4c08eff231d`. The three derived configurations
-inherit every registered manifest, seed, probe, diagnostic budget, output
-contract, inference threshold, estimand, and bootstrap setting from their
-source configurations. Only the model entry, pinned revision, and
-execution-only batch size are added.
-
-The equal `box_threshold=0.03` is the registered matched operating point; it
-does not imply cross-model score calibration. The exact identity constraints
-and interpretation boundary are recorded in
-[`docs/methodology/owlv2_control_preregistration.md`](docs/methodology/owlv2_control_preregistration.md).
-
-## Upstream Inference-Threshold Sensitivity
-
-The full traces were replayed at candidate thresholds 0.03, 0.05, 0.10, 0.15,
-0.20, 0.25, and 0.35. The analysis includes 500 RefCOCO pairs, 1,000 RefCOCO+
-pairs, both architectures, and all 80 reference probes for eligible pairs.
-Every threshold is applied before fresh duplicate suppression, eligibility,
-association, coverage, and strict-order evaluation.
-
-The main model ordering is preserved at every common threshold from 0.03
-through 0.25 on both primary datasets. At 0.35, the gap remains positive on
-RefCOCO but reverses on RefCOCO+. The result therefore supports finite-range
-robustness rather than a threshold-free architecture claim. Equal raw
-thresholds are sensitivity points, not calibrated operating points across the
-two score systems.
-
-![Clean eligibility across candidate thresholds](results/inference_threshold_sensitivity_v1/threshold_eligibility.png)
-
-![Operational stability across candidate thresholds](results/inference_threshold_sensitivity_v1/threshold_operational_stability.png)
-
-The complete replay table, audit metadata, and interpretation are in
-[`results/inference_threshold_sensitivity_v1/threshold_sensitivity_report.md`](results/inference_threshold_sensitivity_v1/threshold_sensitivity_report.md).
-
-## Output-Contract Robustness
-
-An output contract defines the measurement operation, so absolute stability
-must be accompanied by contract sensitivity. The registered finite grid
-contains 108 combinations of:
-
-- tracked clean candidates: 2, 3, 4, or 5;
-- exposed perturbed candidates: 10, 15, or 20;
-- association IoU: 0.10, 0.15, or 0.25;
-- birth-novelty IoU: 0.50, 0.70, or 0.85.
-
-Duplicate suppression is held at 0.70 because the v1 perturbed traces were
-already deduplicated at that threshold. Clean eligibility is audited over
-duplicate thresholds 0.50 to 0.85, but this partial analysis is not presented
-as full operational sensitivity.
-
-For models `a` and `b`, finite-grid ranking invariance is established when
-
-```math
-\min_{\lambda\in\Lambda}
-\left[\widehat\Theta_a(\lambda)-\widehat\Theta_b(\lambda)\right]>0.
-```
-
-GroundingDINO remains above YOLO-World at every registered identical setting
-on all three datasets. The minimum same-contract gaps are 0.3147 on RefCOCO,
-0.3009 on RefCOCO+, and 0.2448 on Ref-L4. Paired 2,000-repetition bootstrap
-95% lower bounds are 0.2772, 0.2738, and 0.2173, respectively. The stronger
-condition—minimum GroundingDINO stability exceeding maximum YOLO-World
-stability—also holds on every dataset.
-
-Absolute values remain contract dependent. The registered envelope widths
-range from 0.0287 to 0.1163, so the default estimate is always reported with
-its full sensitivity interval rather than as a contract-free quantity.
-
-![Output-contract envelopes](results/output_contract_robustness/contract_envelopes.png)
-
-![Worst registered model gap](results/output_contract_robustness/worst_contract_model_gap.png)
-
-The complete mathematical argument, engineering interpretation, and evidence
-are in
-[`docs/methodology/output_contract_parameter_theory.md`](docs/methodology/output_contract_parameter_theory.md)
-and
-[`results/output_contract_robustness/output_contract_robustness_report.md`](results/output_contract_robustness/output_contract_robustness_report.md).
-
-The clean and perturbed cap risks are different. Across all nine dataset-model
-groups, every clean cap-hit sample already supplied the five spatially distinct
-candidates required by the registered tracked set. Clean truncation therefore
-cannot alter the current `Kt=5` endpoint. For perturbed outputs, a deliberately
-pessimistic correction treats every failed cap-hit reference trial as repaired
-by a wider pool. Its largest possible stability increase is 0.02945, which does
-not change the model ordering.
-
-The targeted confirmation runner re-infers only saved reference probes whose
-post-contract pool reached 20. It requests 50 raw candidates and replays
-exposures 20, 30, 40, and 50 while keeping the stored clean tracked set fixed:
+The cap-50 confirmation re-infers only reference probes whose saved perturbed
+pool reached the exposure cap:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\run_cap50_confirmatory_pipeline.ps1
 ```
 
-Probe-level results are checkpointed under `results/cap50_confirmatory/` and
-can resume without recomputing completed probes. The completed run covers all
-38,679 cap-hit reference probes. Every clean top-five prefix matches, and the
-saved/fresh exposure-20 outcome agreement is at least 99.9485% in every
-dataset-model group. Relative to fresh exposure 20 from the same inference,
-exposure 50 changes full-manifest stability by 0 to 0.001450. The largest
-change is OWLv2 on Ref-L4; YOLO-World on Ref-L4 changes by 0.001337. Model
-ordering is unchanged. Wider exposure can both repair missing associations and
-reveal threatening births, so the reported quantities are net sensitivity
-changes rather than an assumed upward correction. See
-`results/cap50_confirmatory/summary/cap50_stability_summary.csv`.
+### 4. Verify artifacts
 
-## Selection, Severity, and Probe-Mixture Audits
-
-Failure composition is now reported on two comparable denominators. A
-full-manifest chart includes clean ineligibility, while a common-support chart
-uses only the 362/746/780 RefCOCO/RefCOCO+/Ref-L4 pairs eligible for all three
-models. The broad profiles persist, but they are described as output symptoms,
-not causal architecture mechanisms.
-
-![Selection-aware failure profiles](results/reviewer_risk_controls/failure_selection_audit.png)
-
-The saved severities also support five-bin dose-response curves with 2,000
-pair-clustered bootstrap resamples. Normalised severity is a within-family
-coordinate; equal values do not equate the physical strength of different
-corruptions.
-
-![RefCOCO severity-response curves](results/reviewer_risk_controls/severity_stability_refcoco.png)
-
-Finally, model gaps remain positive under every non-negative reweighting of the
-five measured families. This removes dependence on the equal 0.2 family
-weights, but not on the chosen corruption families or severity ranges.
-
-![Family-weight sensitivity](results/reviewer_risk_controls/family_weight_sensitivity.png)
-
-Rebuild all of these trace-only controls with:
-
-```powershell
-python scripts\analyse_reviewer_risk_controls.py
+```bash
+python scripts/validate_operational_artifacts.py \
+  --config config/operational_benchmark_owlv2_control_v1.json \
+  --result-root results/operational_benchmark_v1
+python -m pytest
 ```
 
-## Model-Level Estimation from Finite Images and Probes
-
-The single-sample probe mean is extended to a two-stage model-level estimator.
-Let `X ~ P` be an image-query pair, `U ~ Q` a registered probe, and `W_m(X,U)`
-the full-manifest operational success event, including clean eligibility. The
-target is
-
-```math
-\Theta_{m,P,Q}=\mathbb E_X\mathbb E_U[W_m(X,U)].
-```
-
-For `N` independently sampled pairs and `R` conditionally independent probes
-per pair,
-
-```math
-\widehat\Theta_m
-=\frac{1}{NR}\sum_{n=1}^{N}\sum_{r=1}^{R}W_{mnr}.
-```
-
-The estimator is unbiased and has the exact variance decomposition
-
-```math
-\mathrm{Var}(\widehat\Theta_m)
-=\frac{A_m}{N}+\frac{B_m}{NR},
-```
-
-where `A_m` is between-pair stability heterogeneity and `B_m` is within-pair
-probe uncertainty. This proves that increasing the number of pairs reduces
-both uncertainty sources, whereas increasing probes only reduces the second.
-It also yields a design effect, an effective independent sample size, a target
-sample-size equation, and the cost-optimal allocation
-
-```math
-R_{\mathrm{opt}}=\sqrt{\frac{B_m c_X}{A_m c_U}}.
-```
-
-The theory and proofs are in
-[`docs/methodology/two_stage_model_stability_theory.md`](docs/methodology/two_stage_model_stability_theory.md).
-The frozen three-dataset, three-model analysis is in
-[`results/two_stage_sampling_analysis/`](results/two_stage_sampling_analysis/).
-
-![Exact variance validation](results/two_stage_sampling_analysis/predicted_vs_empirical_variance.png)
-
-![Probe-budget diminishing returns](results/two_stage_sampling_analysis/probe_budget_diminishing_returns.png)
-
-## Adequacy of the 80-Probe Reference
-
-The frozen reference depth was audited separately from the small-probe
-estimators. Model-level adequacy requires the finite-probe component to account
-for no more than 5% of total model-level variance and the 95th percentile
-absolute discrepancy between family-balanced, disjoint 40/40 half-reference
-means to remain below 0.01.
-
-All nine dataset-model groups satisfy both criteria. The 80-probe reference is
-therefore sufficiently deep for model-level comparison under the registered
-synthetic probe law. It remains a finite, noisy target at the individual-sample level and
-is never described as exact ground truth.
-
-![80-probe model-level adequacy](results/reference_80_adequacy/model_level_adequacy.png)
-
-The complete protocol and results are available in
-[`docs/methodology/reference_80_adequacy_protocol.md`](docs/methodology/reference_80_adequacy_protocol.md)
-and
-[`results/reference_80_adequacy/reference_80_adequacy_report.md`](results/reference_80_adequacy/reference_80_adequacy_report.md).
-
-## Failure Localisation
-
-Every failed probe receives one primary label:
-
-1. `winner_missing` — the clean winner cannot be associated;
-2. `competitor_missing` — a tracked competitor cannot be associated;
-3. `threatening_birth` — a novel unmatched candidate threatens the winner;
-4. `ranking_reversal` — coverage holds but a competitor overtakes the winner.
-
-For a ranking reversal, the culprit competitor is the candidate with the
-smallest perturbed winner-to-competitor gap. This turns a model-level stability
-number into an auditable engineering profile.
-
-For probe families `f` with preregistered mixture weights `pi_f`, operational
-risk decomposes as
-
-```math
-1-\theta_{\mathrm{op}}
-=\sum_f\pi_f(1-\theta_f).
-```
-
-The resulting shares describe where instability is observed under the
-registered probe distribution. They are descriptive, not causal claims.
-
-### Qualitative failure examples
-
-The following panels are reconstructed directly from saved benchmark traces.
-Each row compares the clean tracked candidates on the left with the candidates
-exposed after one registered perturbation on the right. The four rows show
-`winner_missing`, `competitor_missing`, `threatening_birth`, and
-`ranking_reversal`. Prefixes `C` and `P` identify clean and perturbed ranks;
-they are not semantic class labels.
-
-#### RefCOCO main benchmark
-
-**GroundingDINO**
-
-![GroundingDINO qualitative failure examples on RefCOCO](results/operational_benchmark_v1/analysis/failure_examples/groundingdino_failure_examples.png)
-
-**OWLv2**
-
-![OWLv2 qualitative failure examples on RefCOCO](results/operational_benchmark_v1/analysis/failure_examples/owlv2_failure_examples.png)
-
-**YOLO-World**
-
-![YOLO-World qualitative failure examples on RefCOCO](results/operational_benchmark_v1/analysis/failure_examples/yoloworld_failure_examples.png)
-
-#### RefCOCO+ transfer
-
-**GroundingDINO**
-
-![GroundingDINO qualitative failure examples on RefCOCO+](results/operational_transfer_refcocoplus_v1/analysis/failure_examples/groundingdino_failure_examples.png)
-
-**OWLv2**
-
-![OWLv2 qualitative failure examples on RefCOCO+](results/operational_transfer_refcocoplus_v1/analysis/failure_examples/owlv2_failure_examples.png)
-
-**YOLO-World**
-
-![YOLO-World qualitative failure examples on RefCOCO+](results/operational_transfer_refcocoplus_v1/analysis/failure_examples/yoloworld_failure_examples.png)
-
-#### Ref-L4 supplementary transfer
-
-**GroundingDINO**
-
-![GroundingDINO qualitative failure examples on Ref-L4](results/operational_transfer_refl4_v1/analysis/failure_examples/groundingdino_failure_examples.png)
-
-**OWLv2**
-
-![OWLv2 qualitative failure examples on Ref-L4](results/operational_transfer_refl4_v1/analysis/failure_examples/owlv2_failure_examples.png)
-
-**YOLO-World**
-
-![YOLO-World qualitative failure examples on Ref-L4](results/operational_transfer_refl4_v1/analysis/failure_examples/yoloworld_failure_examples.png)
-
-These images make the benchmark's distinction visible: a ranking reversal
-changes the order of still-observable candidates, while a coverage failure
-changes which candidates remain observable. They are explanatory examples;
-all reported estimates use the complete frozen manifests rather than selected
-images.
-
-## Frozen Large-Scale Experiment
-
-| Component | Frozen setting |
-|---|---|
-| Datasets | 500 RefCOCO, 1,000 RefCOCO+, and 1,000 Ref-L4 image-query pairs |
-| Development-set overlap | Zero images |
-| Models | GroundingDINO Tiny; OWLv2 Base; YOLO-World v2 Small |
-| Probe families | Blur, brightness, JPEG, resolution, Gaussian noise |
-| Diagnostic probes | 40 per eligible model-sample pair |
-| Independent reference probes | 80 per eligible model-sample pair |
-| Reported budgets | 5, 10, 20, 40 balanced probes |
-| Per-pair intervals | Pooled 95% Clopper-Pearson working model; conservative familywise alternatives documented |
-| Bootstrap | 2,000 paired hierarchical repetitions |
-| Saved trace | Clean output plus every candidate association and probe outcome |
-
-The main hypotheses are:
-
-- finite-budget estimates approach the independent reference as budget grows;
-- coverage-aware stability differs measurably from conditional persistence;
-- the same output contract can be applied unchanged to all three tested models;
-- failure and perturbation-family profiles describe model-specific output symptoms;
-- all figures can be reproduced from complete saved traces.
-
-## Result Artifacts
-
-Formal results are written to `results/operational_benchmark_v1/`.
-
-After both model runs complete, the analysis pipeline generates:
-
-![Finite-probe estimation](results/operational_benchmark_v1/analysis/finite_probe_estimation.png)
-
-![Perturbation-family risk](results/operational_benchmark_v1/analysis/reference_family_risk_share.png)
-
-![Failure causes](results/operational_benchmark_v1/analysis/reference_failure_causes.png)
-
-The tables and English report are stored beside these figures. During a formal
-run, `progress.json` records the exact completed count and elapsed time.
-
-## Reproduction
-
-Run all tests, both model benchmarks, and the final analysis sequentially:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts\run_frozen_operational_pipeline.ps1
-```
-
-For the preregistered OWLv2 extension, cache the pinned checkpoint, freeze the
-code/configuration hashes before inference, and then run the resume-safe
-three-dataset pipeline:
-
-```powershell
-python scripts\cache_owlv2_checkpoint.py
-python scripts\freeze_owlv2_control.py
-python scripts\freeze_owlv2_control.py --verify
-powershell -ExecutionPolicy Bypass -File scripts\run_owlv2_control_pipeline.ps1
-```
-
-The OWLv2 pipeline writes only the new `owlv2/` result directories and then
-rebuilds joint three-model analyses; it does not rerun or overwrite the saved
-GroundingDINO and YOLO-World inference traces.
-
-Check progress without modifying the experiment:
-
-```powershell
-python scripts\check_operational_progress.py
-```
-
-Run one model with safe per-sample resume:
-
-```powershell
-python scripts\run_operational_benchmark.py `
-  --model groundingdino `
-  --output-root results\operational_benchmark_v1 `
-  --resume
-```
-
-Regenerate statistics and figures from completed traces:
-
-```powershell
-python scripts\analyse_operational_benchmark.py
-python scripts\analyse_reviewer_risk_controls.py
-```
-
-## Quick Verification
-
-```powershell
-python -m pytest tests -q
-```
-
-All repository tests should pass without requiring model weights or datasets.
-
-## Repository Structure
+Analysis directories contain `analysis_audit.json` and/or
+`artifact_manifest.json` files with input hashes, row counts, seeds, and
+algebraic residual checks. See [`REPRODUCIBILITY.md`](REPRODUCIBILITY.md) for
+the retained artifact map and integrity commands. Git-ignored trace and image
+assets are covered by [`LOCAL_ASSET_MANIFEST.json`](LOCAL_ASSET_MANIFEST.json).
+
+## Repository layout
 
 ```text
-coverage-aware-grounding-stability/
-  .github/          Continuous-integration workflow
-  config/           Frozen benchmark, transfer, probe, and contract configurations
-  data_operational/ Local datasets plus trackable manifests; raw assets are ignored
-  docs/             Current theory, preregistrations, execution logs, and findings
-  paper/            Literature audit, claims matrix, and mathematical source
-  reports/          Final dissertation and reproducible document source
-  results/          Compact canonical tables, figures, hashes, and English reports
-  scripts/          Data preparation, frozen inference, analysis, and validation tools
-  src/              Candidate contract, association, probes, and statistical estimators
-  tests/            Dataset-independent mathematical and implementation tests
+config/                 frozen benchmark and probe configurations
+data_operational/       tracked manifests; local images are ignored by Git
+docs/methodology/       estimands, trace schema, and preregistered protocols
+examples/               custom-adapter and JSONL integration examples
+results/                final summaries, audits, figures, and local traces
+scripts/                data, inference, validation, and analysis entry points
+src/coverage_aware_grounding_stability/
+                        installable API and built-in adapters
+tests/                  unit, identity, estimator, and public-API tests
 ```
 
-## Contribution Boundary
+Development-only dry runs, smoke tests, OOM reproductions, document renders,
+and progress presentations are not part of the public tree.
 
-The framework supports claims about stability under a specified probe
-distribution. It does not prove semantic correctness, robustness to every
-possible real-world shift, or causal responsibility of a corruption family.
-Its intended contribution is a mathematically explicit, coverage-aware,
-finite-sample and cross-architecture benchmark for candidate-order stability.
+## Result directories
 
-## Reproducibility policy
+- `operational_benchmark_v1`, `operational_transfer_refcocoplus_v1`, and
+  `operational_transfer_refl4_v1`: primary summaries and trace-derived figures;
+- `complete_case_optimism_analysis`: conditioning-gap and correctness-stratum
+  audits;
+- `two_stage_sampling_analysis`: image/probe variance decomposition;
+- `reference_80_adequacy`: reference-depth checks;
+- `output_contract_robustness`: 108-contract sensitivity grid;
+- `reviewer_risk_controls`: cap bounds, common eligibility, severity curves,
+  family-weight endpoints, and clustered intervals;
+- `cap50_confirmatory`: wider-candidate-pool confirmation.
 
-- Frozen configurations and their hashes define confirmatory runs.
-- Each transfer freeze records the exact Git commit used for inference. Later
-  registered analysis improvements remain on `main`; checkout the recorded
-  commit when a byte-for-byte replay of an earlier run is required.
-- Complete traces stay local because of size; compact summaries, figures, and
-  artifact manifests are versioned.
-- Every reported result names the dataset split, model checkpoint, output
-  contract, probe law, and analysis entry point.
-- Failed runs and prototype experiments are not part of the release surface.
+## Contributing and citation
 
-See [`MANIFEST.json`](MANIFEST.json) for the canonical release artifacts and
-[`CONTRIBUTING.md`](CONTRIBUTING.md) for extension rules.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) before adding a model, dataset, probe
+family, or output contract. Cite the software metadata in
+[`CITATION.cff`](CITATION.cff).
+
+No open-source licence file is currently included. Until the rights holder
+chooses one, repository visibility should not be interpreted as permission to
+redistribute or modify the software.

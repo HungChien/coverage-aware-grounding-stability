@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from src.owlv2_control import assert_control_identity
+from coverage_aware_grounding_stability.owlv2_control import assert_control_identity
 
 
 ROOT = Path(__file__).resolve().parents[1]

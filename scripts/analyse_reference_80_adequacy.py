@@ -14,7 +14,7 @@ from scipy.stats import beta, spearmanr
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "src"))
 
 from scripts.analyse_complete_case_optimism import (  # noqa: E402
     DATASETS,
@@ -24,7 +24,7 @@ from scripts.analyse_complete_case_optimism import (  # noqa: E402
     CompactRecord,
     load_compact_trace,
 )
-from src.two_stage_sampling import (  # noqa: E402
+from coverage_aware_grounding_stability.two_stage_sampling import (  # noqa: E402
     estimate_variance_components,
     probe_variance_share,
     probes_for_variance_share,

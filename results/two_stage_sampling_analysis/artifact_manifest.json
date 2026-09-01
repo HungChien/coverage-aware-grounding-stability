@@ -59,6 +59,11 @@
       "path": "variance_component_estimates.csv",
       "size_bytes": 3236,
       "sha256": "a69d423b62e790fc76451e52c485f48b8371a3b3b20da1ae5d47750425671ca3"
+    },
+    {
+      "path": "variance_truncation_audit.csv",
+      "size_bytes": 709,
+      "sha256": "bf91588b27b38e77b2dadd6818420623469d6b2cecef25644339ee75e23a48fc"
     }
   ]
 }

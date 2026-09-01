@@ -1,6 +1,6 @@
 import pytest
 
-from src.operational_stability import (
+from coverage_aware_grounding_stability.operational_stability import (
     OutputContract,
     aggregate_model_operational,
     evaluate_probe_outcome,
@@ -8,7 +8,7 @@ from src.operational_stability import (
     family_risk_identity,
     summarize_outcomes,
 )
-from src.reliability import Candidate
+from coverage_aware_grounding_stability.candidates import Candidate
 
 
 def candidate(box, score):

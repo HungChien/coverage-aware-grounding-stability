@@ -18,6 +18,8 @@
   "mean_absolute_relative_variance_error": 0.03779166226513796,
   "maximum_absolute_empirical_bias": 0.0036157499999999176,
   "minimum_between_component_raw": 0.03447103417103812,
+  "between_component_truncation_count": 0,
+  "maximum_between_component_truncation_adjustment": 0.0,
   "input_sha256": {
     "results\\operational_benchmark_v1\\groundingdino\\sample_traces.jsonl.gz": "811285518834b8b0b00fe53bf0fe9686932c91c700d4704a06e3cfd4de068df3",
     "results\\operational_benchmark_v1\\owlv2\\sample_traces.jsonl.gz": "0c608dcfddb8e715458fd63d69214d341c69e1877ec50296e5e191c80cfa2f09",
@@ -43,6 +45,7 @@
     "two_stage_sampling_theory_report.md",
     "variance_budget_table.csv",
     "variance_component_decomposition.png",
-    "variance_component_estimates.csv"
+    "variance_component_estimates.csv",
+    "variance_truncation_audit.csv"
   ]
 }

@@ -11,9 +11,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "src"))
 
-from src.random_probes import RandomProbe, apply_random_probe
+from coverage_aware_grounding_stability.random_probes import RandomProbe, apply_random_probe
 
 
 CAUSES = [

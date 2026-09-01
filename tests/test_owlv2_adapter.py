@@ -2,7 +2,10 @@ import pytest
 
 torch = pytest.importorskip("torch")
 
-from src.adapters import owlv2_result_to_candidates, owlv2_text_context_length
+from coverage_aware_grounding_stability.adapters import (
+    owlv2_result_to_candidates,
+    owlv2_text_context_length,
+)
 
 
 class Stub:

@@ -16,15 +16,19 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "src"))
 
 # Benchmark inference uses frozen local checkpoints.  Prevent transient network
 # availability from changing whether an otherwise reproducible run can start.
 os.environ.setdefault("HF_HUB_OFFLINE", "1")
 os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
 
-from src.adapters import GroundingDINOAdapter, OWLv2Adapter, YOLOWorldAdapter
-from src.operational_stability import (
+from coverage_aware_grounding_stability.adapters import (
+    GroundingDINOAdapter,
+    OWLv2Adapter,
+    YOLOWorldAdapter,
+)
+from coverage_aware_grounding_stability.operational_stability import (
     OutputContract,
     evaluate_probe_outcome,
     flatten_profile,
@@ -32,8 +36,11 @@ from src.operational_stability import (
     select_spatially_distinct,
     summarize_outcomes,
 )
-from src.random_probes import apply_random_probe, sample_stratified_probes
-from src.reliability import Candidate, top1_correct
+from coverage_aware_grounding_stability.random_probes import (
+    apply_random_probe,
+    sample_stratified_probes,
+)
+from coverage_aware_grounding_stability.candidates import Candidate, top1_correct
 
 
 def file_sha256(path: Path) -> str:

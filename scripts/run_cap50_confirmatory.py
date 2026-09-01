@@ -15,19 +15,19 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "src"))
 os.environ.setdefault("HF_HUB_OFFLINE", "1")
 os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
 
 from scripts.run_operational_benchmark import batched_probe_inference, make_adapter
-from src.operational_stability import (
+from coverage_aware_grounding_stability.operational_stability import (
     OutputContract,
     evaluate_probe_outcome,
     raw_candidate_payload,
     select_spatially_distinct,
 )
-from src.random_probes import RandomProbe
-from src.reliability import Candidate, iou_xyxy
+from coverage_aware_grounding_stability.random_probes import RandomProbe
+from coverage_aware_grounding_stability.candidates import Candidate, iou_xyxy
 
 
 def payload_to_candidates(payload: list[dict]) -> list[Candidate]:

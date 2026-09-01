@@ -13,7 +13,7 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "src"))
 
 from scripts.analyse_complete_case_optimism import (  # noqa: E402
     DATASETS,
@@ -23,7 +23,7 @@ from scripts.analyse_complete_case_optimism import (  # noqa: E402
     CompactRecord,
     load_compact_trace,
 )
-from src.two_stage_sampling import (  # noqa: E402
+from coverage_aware_grounding_stability.two_stage_sampling import (  # noqa: E402
     crossover_probe_count,
     design_effect,
     effective_independent_trials,
@@ -658,6 +658,13 @@ def main() -> None:
 
     print("Estimating two-stage variance components", flush=True)
     components = component_table(all_matrices)
+    truncation_audit = components[
+        ["dataset", "model", "between_A_raw", "between_A"]
+    ].copy()
+    truncation_audit["truncation_applied"] = truncation_audit["between_A_raw"] < 0
+    truncation_audit["truncation_adjustment"] = (
+        truncation_audit["between_A"] - truncation_audit["between_A_raw"]
+    )
     budgets = budget_table(components)
     sample_sizes, allocation = planning_tables(components)
     print("Running nested image/probe resampling validation", flush=True)
@@ -673,6 +680,7 @@ def main() -> None:
     )
 
     components.to_csv(args.output / "variance_component_estimates.csv", index=False)
+    truncation_audit.to_csv(args.output / "variance_truncation_audit.csv", index=False)
     budgets.to_csv(args.output / "variance_budget_table.csv", index=False)
     sample_sizes.to_csv(args.output / "sample_size_planning.csv", index=False)
     allocation.to_csv(args.output / "allocation_tradeoff.csv", index=False)
@@ -719,6 +727,12 @@ def main() -> None:
         ),
         "maximum_absolute_empirical_bias": float(validation["empirical_bias"].abs().max()),
         "minimum_between_component_raw": float(components["between_A_raw"].min()),
+        "between_component_truncation_count": int(
+            truncation_audit["truncation_applied"].sum()
+        ),
+        "maximum_between_component_truncation_adjustment": float(
+            truncation_audit["truncation_adjustment"].max()
+        ),
         "input_sha256": {
             str(path.relative_to(ROOT)): file_sha256(path) for path in input_files
         },

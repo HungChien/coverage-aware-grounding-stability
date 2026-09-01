@@ -1,34 +1,40 @@
 {
   "repository": "coverage-aware-grounding-stability",
-  "version": "1.0.0",
-  "primary_entrypoint": "scripts/run_frozen_operational_pipeline.ps1",
-  "analysis_entrypoint": "scripts/analyse_operational_benchmark.py",
-  "test_command": "python -m pytest tests -q",
+  "release": "1.1.0",
+  "public_package": "coverage_aware_grounding_stability",
+  "cli": "cags",
+  "primary_runner": "scripts/run_operational_benchmark.py",
+  "release_verifier": "scripts/verify_release.py",
+  "local_asset_integrity": "LOCAL_ASSET_MANIFEST.json",
+  "test_command": "python -m pytest",
   "canonical_configs": [
-    "config/operational_benchmark_v1.json",
+    "config/operational_benchmark_owlv2_control_v1.json",
+    "config/operational_transfer_refcocoplus_owlv2_control_v1.json",
+    "config/operational_transfer_refl4_owlv2_control_v1.json",
     "config/output_contract_preregistration_v2.freeze.json",
-    "config/operational_transfer_refcocoplus_v1.freeze.json",
-    "config/operational_transfer_refl4_v1.freeze.json"
+    "config/random_probe_distribution.json"
+  ],
+  "canonical_manifests": [
+    "data_operational/refcoco_unseen500/manifest.json",
+    "data_operational/refcocoplus_transfer1000/manifest.json",
+    "data_operational/refl4_transfer1000/manifest.json"
   ],
   "canonical_results": [
     "results/operational_benchmark_v1/analysis",
     "results/operational_transfer_refcocoplus_v1/analysis",
     "results/operational_transfer_refl4_v1/analysis",
     "results/complete_case_optimism_analysis",
-    "results/output_contract_robustness",
+    "results/two_stage_sampling_analysis",
     "results/reference_80_adequacy",
-    "results/stratified_two_stage_analysis",
-    "results/two_stage_sampling_analysis"
+    "results/output_contract_robustness",
+    "results/reviewer_risk_controls",
+    "results/cap50_confirmatory/summary"
   ],
-  "submission_artifacts": [
-    "reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation.pdf",
-    "reports/dissertation/submission/Yukun_Shi_3150784S_MSc_Dissertation.docx"
+  "local_reproduction_assets_excluded_from_git": [
+    "licensed dataset images and source annotations",
+    "model checkpoints and model caches",
+    "compressed candidate traces",
+    "resume state and runtime logs"
   ],
-  "excluded_local_assets": [
-    "raw images and annotations",
-    "model weights",
-    "complete candidate traces",
-    "runtime logs and caches",
-    "failed, smoke, and superseded prototype runs"
-  ]
+  "private_material": "not part of this repository"
 }

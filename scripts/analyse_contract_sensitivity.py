@@ -13,14 +13,14 @@ import pandas as pd
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+sys.path.insert(0, str(ROOT / "src"))
 
-from src.operational_stability import (
+from coverage_aware_grounding_stability.operational_stability import (
     OutputContract,
     evaluate_probe_outcome,
     select_spatially_distinct,
 )
-from src.reliability import Candidate
+from coverage_aware_grounding_stability.candidates import Candidate
 
 
 def candidates(payload: list[dict]) -> list[Candidate]:

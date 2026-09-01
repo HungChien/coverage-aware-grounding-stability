@@ -1,5 +1,5 @@
 param(
-    [string]$Python = "D:\Anaconda3\envs\ml-gpu\python.exe"
+    [string]$Python = "python"
 )
 
 $ErrorActionPreference = "Stop"
@@ -36,9 +36,6 @@ if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 & $Python scripts\cache_owlv2_checkpoint.py --local-only
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-& $Python scripts\freeze_owlv2_control.py --verify
-if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-
 Write-Host "[2/7] Running OWLv2 on all registered manifests (resume-safe)"
 foreach ($Run in $Runs) {
     & $Python scripts\run_operational_benchmark.py `

@@ -5,7 +5,7 @@ import math
 import numpy as np
 import pytest
 
-from src.two_stage_sampling import (
+from coverage_aware_grounding_stability.two_stage_sampling import (
     crossover_probe_count,
     design_effect,
     effective_independent_trials,

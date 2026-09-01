@@ -1,0 +1,1 @@
+{"id":"stable-demo","clean_candidates":[{"box":[0,0,10,10],"score":0.9},{"box":[20,0,30,10],"score":0.7}],"perturbed_candidates":[{"box":[1,0,11,10],"score":0.85},{"box":[20,1,30,11],"score":0.65}]}

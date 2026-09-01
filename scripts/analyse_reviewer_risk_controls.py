@@ -176,6 +176,7 @@ def analyse(
     common_rows: list[dict] = []
     common_count_rows: list[dict] = []
     selection_ci_rows: list[dict] = []
+    family_risk_ci_rows: list[dict] = []
     severity_rows: list[dict] = []
     family_rows: list[dict] = []
 
@@ -213,6 +214,7 @@ def analyse(
             common_keys = sorted(common)
             severity_success = np.zeros((n, len(FAMILIES), 5), dtype=float)
             severity_trials = np.zeros((n, len(FAMILIES), 5), dtype=float)
+            family_failure_matrix = np.zeros((n, len(FAMILIES)), dtype=float)
             family_success = Counter()
             family_trials = Counter()
             cap_hit_trials = 0
@@ -244,13 +246,14 @@ def analyse(
                 for probe in probes:
                     family = str(probe["spec"]["family"])
                     outcome = int(probe["outcome"]["operational_stable"])
+                    family_index = FAMILIES.index(family)
                     family_success[family] += outcome
                     family_trials[family] += 1
+                    family_failure_matrix[row_index, family_index] += 1 - outcome
                     strength = normalised_strength(family, float(probe["spec"]["severity"]))
                     bin_index = min(4, int(math.floor(strength * 5.0)))
-                    fi = FAMILIES.index(family)
-                    severity_success[row_index, fi, bin_index] += outcome
-                    severity_trials[row_index, fi, bin_index] += 1
+                    severity_success[row_index, family_index, bin_index] += outcome
+                    severity_trials[row_index, family_index, bin_index] += 1
                     if len(probe.get("candidates", [])) >= 20:
                         cap_hit_trials += 1
                         if not outcome:
@@ -269,6 +272,37 @@ def analyse(
                         "lower": lower[index],
                         "upper": upper[index],
                         "denominator_pair_probe_slots": n * reference_count,
+                    }
+                )
+
+            family_failure_denominator = family_failure_matrix.sum(axis=1)
+            # Keep this added analysis on its own deterministic random stream so
+            # rerunning it cannot perturb the previously frozen bootstrap draws.
+            dataset_index = [name for name, _, _ in DATASETS].index(dataset)
+            family_rng = np.random.default_rng(
+                seed + 70001 + dataset_index * 1009 + MODELS.index(model) * 101
+            )
+            f_lower, f_upper = bootstrap_ratio_rows(
+                family_failure_matrix,
+                family_failure_denominator,
+                repetitions,
+                family_rng,
+            )
+            family_failure_total = float(family_failure_denominator.sum())
+            family_point = family_failure_matrix.sum(axis=0) / family_failure_total
+            for family_index, family in enumerate(FAMILIES):
+                family_risk_ci_rows.append(
+                    {
+                        "dataset": dataset,
+                        "model": model,
+                        "family": family,
+                        "risk_share": family_point[family_index],
+                        "lower": f_lower[family_index],
+                        "upper": f_upper[family_index],
+                        "manifest_pairs": n,
+                        "eligible_pairs": len(eligible_sets[model]),
+                        "failed_reference_probes": int(family_failure_total),
+                        "bootstrap_repetitions": repetitions,
                     }
                 )
 
@@ -403,6 +437,7 @@ def analyse(
         "full_manifest_failure_risk.csv": full_rows,
         "common_support_failure_composition.csv": common_rows,
         "failure_selection_bootstrap.csv": selection_ci_rows,
+        "family_risk_bootstrap.csv": family_risk_ci_rows,
         "severity_stability.csv": severity_rows,
         "family_weight_sensitivity.csv": family_rows,
     }
@@ -551,6 +586,7 @@ def write_audit(output: Path, repetitions: int, seed: int) -> None:
     cap = pd.read_csv(output / "cap_truncation_audit.csv")
     common = pd.read_csv(output / "common_eligibility_counts.csv")
     family = pd.read_csv(output / "family_weight_sensitivity.csv")
+    family_risk = pd.read_csv(output / "family_risk_bootstrap.csv")
     summaries = family[family["family"] == "mixture_gap_summary"]
     audit = {
         "analysis": "reviewer_risk_controls",
@@ -567,6 +603,12 @@ def write_audit(output: Path, repetitions: int, seed: int) -> None:
         ].to_dict(),
         "all_family_mixture_rankings_invariant": bool(
             summaries["ranking_invariant_for_all_nonnegative_family_weights"].all()
+        ),
+        "family_risk_share_sum_max_abs_error": float(
+            family_risk.groupby(["dataset", "model"])["risk_share"].sum().sub(1.0).abs().max()
+        ),
+        "maximum_family_risk_interval_width": float(
+            (family_risk["upper"] - family_risk["lower"]).max()
         ),
         "artifacts": artifacts,
     }

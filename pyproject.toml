@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "coverage-aware-grounding-stability"
-version = "1.0.0"
+version = "1.1.0"
 description = "A finite-probe, coverage-aware benchmark for candidate-order stability in vision-language grounding."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -17,30 +17,33 @@ classifiers = [
 ]
 dependencies = [
   "numpy",
-  "pandas",
   "scipy",
-  "scikit-learn",
-  "matplotlib",
   "Pillow"
 ]
 
+[project.scripts]
+cags = "coverage_aware_grounding_stability.cli:main"
+
 [project.optional-dependencies]
 models = [
+  "pandas",
+  "matplotlib",
   "torch",
   "torchvision",
   "transformers",
   "datasets",
   "ultralytics"
 ]
-dev = ["pytest>=8", "ruff>=0.6"]
-docs = ["python-docx", "reportlab"]
+analysis = ["pandas", "matplotlib"]
+dev = ["pandas", "matplotlib", "pytest>=8", "ruff>=0.6"]
 
-[tool.setuptools]
-packages = ["src"]
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "-q"
+addopts = "-q -p no:cacheprovider"
+pythonpath = ["src"]
 
 [tool.ruff]
 line-length = 100
