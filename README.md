@@ -292,6 +292,8 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md) before adding a model, dataset, probe
 family, or output contract. Cite the software metadata in
 [`CITATION.cff`](CITATION.cff).
 
-No open-source licence file is currently included. Until the rights holder
-chooses one, repository visibility should not be interpreted as permission to
-redistribute or modify the software.
+## License
+
+The software in this repository is released under the MIT License. See
+[`LICENSE`](LICENSE). Dataset annotations, source images, model weights, and
+third-party checkpoints remain under their own upstream licences.
