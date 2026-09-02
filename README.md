@@ -78,6 +78,11 @@ pair-clustered 95% bootstrap intervals are:
 | RefCOCO+ | 1,000 | 0.8512 [0.8389, 0.8632] | 0.7332 [0.7154, 0.7493] | 0.5018 [0.4798, 0.5245] |
 | Ref-L4 | 1,000 | 0.8703 [0.8588, 0.8819] | 0.7677 [0.7523, 0.7830] | 0.5363 [0.5135, 0.5583] |
 
+Point estimates are deterministic. Bootstrap confidence intervals are
+resampled independently on each analysis run, so their boundaries may vary by
+roughly `0.001` to `0.002` from the dissertation tables while leaving the
+model ordering and conclusions unchanged.
+
 Three patterns are consistent across the datasets:
 
 1. GroundingDINO has the highest controlled stability, OWLv2 is second, and

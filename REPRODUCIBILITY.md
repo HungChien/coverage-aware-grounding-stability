@@ -63,6 +63,11 @@ This split supports two levels of reproduction:
 - a prepared machine with the licensed datasets and local traces can rerun
   inference and every analysis exactly.
 
+Point estimates in the analysis tables are deterministic. Bootstrap confidence
+intervals are resampled independently on each analysis run, so CI boundaries
+can differ from the dissertation tables by about `0.001` to `0.002` without
+indicating a result mismatch.
+
 If traces are distributed separately, preserve their paths under `results/`
 and verify them before analysis. Do not commit them directly to ordinary Git.
 
