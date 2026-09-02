@@ -18,6 +18,95 @@ three reference model adapters, frozen experiment configurations, tests, and
 the analysis outputs used by the research release. The public tree is limited
 to benchmark software, protocols, manifests, and reproducibility evidence.
 
+## Why coverage awareness matters
+
+A survival-only score silently removes difficult trials. Suppose a clean image
+has two candidates and both remain observable in 60 of 100 perturbations. If
+the original winner stays first in 54 of those 60 trials, complete-case
+persistence is `54 / 60 = 0.90`. The deployable event, however, succeeds in
+only `54 / 100 = 0.54` trials. The other 40 trials are not missing statistical
+data: candidate loss is itself an observed model failure.
+
+The benchmark separates this difference into three quantities. For image-query
+pair `i` and probe `j`, let:
+
+- `G_i = 1` when the clean output is eligible for an order test;
+- `C_ij = 1` when all tracked clean candidates remain covered;
+- `S_ij = 1` when the clean winner remains first, conditional on coverage.
+
+The corresponding population rates are
+
+$$
+\Gamma=\Pr(G=1),\qquad
+\theta_{\mathrm{cov}}=\Pr(C=1\mid G=1),\qquad
+\theta_{\mathrm{cc}}=\Pr(S=1\mid G=1,C=1).
+$$
+
+The full-manifest endpoint factors as
+
+$$
+\Theta=\Pr(GCS=1)
+=\Gamma\,\theta_{\mathrm{cov}}\,\theta_{\mathrm{cc}}.
+$$
+
+`Theta` is full-manifest stability: every registered pair-probe slot remains
+in the denominator, and an ineligible clean output or uncovered candidate
+contributes zero. The exact optimism of reporting only surviving trials is
+
+$$
+\theta_{\mathrm{cc}}-\Theta
+=\underbrace{\theta_{\mathrm{cc}}(1-\theta_{\mathrm{cov}})}_
+{\text{coverage loss}}
++\underbrace{\theta_{\mathrm{cov}}\theta_{\mathrm{cc}}(1-\Gamma)}_
+{\text{eligibility loss}}.
+$$
+
+This is an accounting identity, not a claim that the three mechanisms are
+independent. Its practical value is diagnostic: it shows whether an apparently
+high persistence score comes from stable ordering or from excluding outputs
+for which ordering could not be checked.
+
+## Main empirical findings
+
+The reference study contains 2,500 image-query pairs, three models, and 80
+independent reference probes per eligible pair. Full-manifest estimates and
+pair-clustered 95% bootstrap intervals are:
+
+| Dataset | Pairs | GroundingDINO | OWLv2 | YOLO-World |
+|---|---:|---:|---:|---:|
+| RefCOCO | 500 | 0.8554 [0.8383, 0.8723] | 0.7395 [0.7160, 0.7611] | 0.5118 [0.4790, 0.5438] |
+| RefCOCO+ | 1,000 | 0.8512 [0.8389, 0.8632] | 0.7332 [0.7154, 0.7493] | 0.5018 [0.4798, 0.5245] |
+| Ref-L4 | 1,000 | 0.8703 [0.8588, 0.8819] | 0.7677 [0.7523, 0.7830] | 0.5363 [0.5135, 0.5583] |
+
+Three patterns are consistent across the datasets:
+
+1. GroundingDINO has the highest controlled stability, OWLv2 is second, and
+   YOLO-World is third. These are benchmark comparisons under the frozen
+   synthetic probe law, not universal architecture rankings.
+2. Complete-case persistence materially overstates the full-manifest result.
+   On RefCOCO, YOLO-World moves from 0.8710 on surviving trials to 0.5118 on
+   the full manifest, an optimism gap of 0.3592. GroundingDINO's corresponding
+   gap is 0.0517. Eligibility loss and coverage loss explain the difference.
+3. Failures are not limited to rank reversals. Clean ineligibility, winner or
+   competitor loss, and threatening candidate births are distinct observable
+   outcomes. Their shares remain model-dependent on a common-eligibility
+   subset, although these output symptoms do not identify internal neural
+   mechanisms.
+
+![Complete-case to full-manifest decomposition](results/complete_case_optimism_analysis/complete_case_waterfall.png)
+
+The exposure-cap audit also reran 38,679 selected cap-hit probes with a raw
+candidate pool of 50. The full-manifest change was between 0 and 0.00145 in
+all nine dataset-model groups, and the model ordering did not change. Severity
+curves show a strong decline under blur, whereas brightness is flatter and
+JPEG/noise responses vary more by model.
+
+![Severity-stability response on RefCOCO](results/reviewer_risk_controls/severity_stability_refcoco.png)
+
+These findings concern candidate-order stability under the fixed synthetic
+distribution `Q`. They do not establish semantic correctness or predict an
+unspecified deployment distribution.
+
 ## Install
 
 ```bash
@@ -139,7 +228,7 @@ The exact rules are implemented in
 and recorded in
 [`output_contract_preregistration_v2.freeze.json`](config/output_contract_preregistration_v2.freeze.json).
 
-## Reference experiment
+## Reference experiment protocol
 
 The frozen release evaluates three candidate-producing models:
 
@@ -151,19 +240,35 @@ The frozen release evaluates three candidate-producing models:
 Every eligible image-query pair receives 40 diagnostic probes and an
 independent 80-probe reference. The probe law balances blur, brightness, JPEG,
 resolution, and Gaussian noise. It is a controlled synthetic design
-distribution, not an estimate of any particular deployment environment.
+distribution, not an estimate of any particular deployment environment. The
+resulting estimates and intervals are reported in
+[Main empirical findings](#main-empirical-findings).
 
-Full-manifest reference stability is:
+## What evidence is retained
 
-| Dataset | Pairs | GroundingDINO | OWLv2 | YOLO-World |
-|---|---:|---:|---:|---:|
-| RefCOCO | 500 | 0.8554 | 0.7395 | 0.5118 |
-| RefCOCO+ | 1,000 | 0.8512 | 0.7332 | 0.5018 |
-| Ref-L4 | 1,000 | 0.8703 | 0.7677 | 0.5363 |
+A normal GitHub clone contains the compact evidence needed to inspect every
+reported result: per-sample summaries, aggregate CSV tables, 2,000-resample
+bootstrap outputs, figures, run metadata, validation audits, and artifact
+hashes. The following map links the main claims to both their evidence and the
+script that regenerates it from traces:
 
-These values describe candidate-order stability under the frozen synthetic
-probe law and output contract. They do not measure semantic accuracy, general
-robustness, or stability under an unspecified real-world shift.
+| Claim or check | Tracked evidence | Rebuild script |
+|---|---|---|
+| full-manifest estimates and failure modes | [RefCOCO](results/operational_benchmark_v1/analysis/reference_aggregate_estimands.csv), [RefCOCO+](results/operational_transfer_refcocoplus_v1/analysis/reference_aggregate_estimands.csv), [Ref-L4](results/operational_transfer_refl4_v1/analysis/reference_aggregate_estimands.csv) | [analyse_operational_benchmark.py](scripts/analyse_operational_benchmark.py) |
+| complete-case optimism and decomposition | [aggregate_optimism_bootstrap.csv](results/complete_case_optimism_analysis/aggregate_optimism_bootstrap.csv) | [analyse_complete_case_optimism.py](scripts/analyse_complete_case_optimism.py) |
+| finite-probe variance and allocation | [variance_component_estimates.csv](results/two_stage_sampling_analysis/variance_component_estimates.csv) | [analyse_two_stage_sampling.py](scripts/analyse_two_stage_sampling.py) |
+| common eligibility, cap bounds, severity and family weights | [reviewer-risk report](results/reviewer_risk_controls/reviewer_risk_controls_report.md) | [analyse_reviewer_risk_controls.py](scripts/analyse_reviewer_risk_controls.py) |
+| raw-pool-50 cap confirmation | [cap50_stability_summary.csv](results/cap50_confirmatory/summary/cap50_stability_summary.csv) | [summarise_cap50_confirmatory.py](scripts/summarise_cap50_confirmatory.py) |
+| output-contract sensitivity | [output-contract report](results/output_contract_robustness/output_contract_robustness_report.md) | [analyse_output_contract_robustness.py](scripts/analyse_output_contract_robustness.py) |
+
+The full per-probe `sample_traces.jsonl.gz` files, source images, and model
+weights are present on the prepared local machine but are deliberately not
+committed: the traces are large, while datasets and checkpoints retain their
+upstream licences. `LOCAL_ASSET_MANIFEST.json` records their expected paths,
+byte sizes, and SHA-256 hashes. Consequently, a clone is sufficient to audit
+the reported tables and provenance; exact trace-level regeneration additionally
+requires the separately retained traces, or a fresh inference run from the
+frozen manifests and configurations.
 
 ## Reproduce the release
 
